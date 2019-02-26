@@ -4,36 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a9a3cc14471f428891df10e0f781780d" Name="Diagram1" ZoomLevel="83">
-        <EntityTypeShape EntityType="SmartPhoneShopModel.Customer" Width="1.5" PointX="3.75" PointY="18.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.Footer" Width="1.5" PointX="5.75" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.GoodsReceipt" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.Menu" Width="1.5" PointX="10" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.MenuGroup" Width="1.5" PointX="7.75" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.OrderDetail" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.Order" Width="1.5" PointX="6" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.Page" Width="1.5" PointX="7.75" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.Post" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.PostCategory" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.PriceHistory" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.Product" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.ProductCategory" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.Shipment" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.Slide" Width="1.5" PointX="9.75" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.sysdiagram" Width="1.5" PointX="10.75" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhoneShopModel.Tag" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
-        <AssociationConnector Association="SmartPhoneShopModel.FK__Orders__Customer__440B1D61" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhoneShopModel.FK__GoodsRece__Produ__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhoneShopModel.FK__GoodsRece__Shipm__2F10007B" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhoneShopModel.FK__Menu__MenuGroupI__145C0A3F" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhoneShopModel.FK_OrderDetail_Orders" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhoneShopModel.FK_OrderDetail_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhoneShopModel.FK__Post__PostCatego__1FCDBCEB" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhoneShopModel.FK__PriceHist__Produ__412EB0B6" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhoneShopModel.FK__Product__Product__25869641" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhoneShopModel.PostTag" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhoneShopModel.ProductTag" ManuallyRouted="false" />
-      </Diagram>
+      <Diagram DiagramId="50e27279442f4d4fbfcc0170c95f22c7" Name="Diagram1" />
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
