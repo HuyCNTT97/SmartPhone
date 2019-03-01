@@ -53,18 +53,35 @@
   <ItemGroup>
     <Compile Include="Abstract\ASameProductCategoryAndPostCategory.cs" />
     <Compile Include="Abstract\Auditable.cs" />
+    <Compile Include="Abstract\AUser.cs" />
     <Compile Include="Abstract\IAuditable.cs" />
     <Compile Include="Abstract\ISeoable.cs" />
     <Compile Include="Abstract\ISwitchable.cs" />
     <Compile Include="Abstract\ASamePostAndProduct.cs" />
     <Compile Include="Abstract\ASeoable.cs" />
+    <Compile Include="Abstract\IUser.cs" />
+    <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Footer.cs" />
+    <Compile Include="Model\GoodsReceipt.cs" />
     <Compile Include="Model\Menu.cs" />
     <Compile Include="Model\MenuGroups.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderDetail.cs" />
+    <Compile Include="Model\Page.cs" />
     <Compile Include="Model\Post.cs" />
     <Compile Include="Model\PostCategory.cs" />
+    <Compile Include="Model\PostTag.cs" />
+    <Compile Include="Model\PriceHistory.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ProductCategory.cs" />
+    <Compile Include="Model\ProductTag.cs" />
+    <Compile Include="Model\Shipment.cs" />
+    <Compile Include="Model\Slide.cs" />
+    <Compile Include="Model\SuppostOnline.cs" />
+    <Compile Include="Model\SystemConfigs.cs" />
+    <Compile Include="Model\Tag.cs" />
+    <Compile Include="Model\VisitorStatistics.cs" />
+    <Compile Include="Model\Warranty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
