@@ -8,7 +8,7 @@ namespace SmartPhoneShop.Model.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string ID { set; get; }
+        public int ID { set; get; }
 
         [Required]
         public string Content { get; set; }

@@ -11,12 +11,15 @@ namespace SmartPhoneShop.Model.Model
     [Table("GoodReceipts")]
     public class GoodsReceipt
     {
+        [Column(Order = 1)]
         [Key]
         public int ProductID { set; get; }
 
+        [Column(Order = 2)]
         [Key]
         public int ShipmentID { set; get; }
 
+        [Column(Order = 3)]
         [Key]
         public DateTime DateReceipt { set; get; }
 

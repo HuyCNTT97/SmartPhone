@@ -11,12 +11,15 @@ namespace SmartPhoneShop.Model.Model
     [Table("PriceHistories")]
     public class PriceHistory
     {
+        [Column(Order = 1)]
         [Key]
         public int ProductID { set; get; }
 
+        [Column(Order = 2)]
         [Key, MaxLength(100), Required]
         public string UpdateBy { set; get; }
 
+        [Column(Order = 3)]
         [Key]
         public DateTime UpdateDate { set; get; }
 
