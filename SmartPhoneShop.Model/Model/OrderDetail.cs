@@ -12,9 +12,11 @@ namespace SmartPhoneShop.Model.Model
     public class OrderDetail
     {
         [Key]
+        [Column(Order = 1)]
         public int ProductID { set; get; }
 
         [Key]
+        [Column(Order = 2)]
         public int OrderID { set; get; }
 
         public decimal Price { set; get; }

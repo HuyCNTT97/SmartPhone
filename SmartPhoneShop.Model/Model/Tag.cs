@@ -12,9 +12,8 @@ namespace SmartPhoneShop.Model.Model
     public class Tag
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [MaxLength(50)]
-        public int ID { set; get; }
+        public string ID { set; get; }
 
         [MaxLength(100), Required]
         public string Name { set; get; }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace SmartPhoneShop.Model.Model
+
 {
     [Table("Products")]
     public class Product : Abstract.ASamePostAndProduct
@@ -17,7 +18,10 @@ namespace SmartPhoneShop.Model.Model
         public int ID { set; get; }
 
         public int ProductCategoryID { set; get; }
-        public XElement MoreImages { set; get; }
+
+        [Column(TypeName = "xml")]
+        public string MoreImages { set; get; }
+
         public bool HotFlag { set; get; }
 
         [MaxLength(250)]

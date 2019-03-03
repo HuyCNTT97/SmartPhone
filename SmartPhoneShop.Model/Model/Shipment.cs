@@ -21,10 +21,8 @@ namespace SmartPhoneShop.Model.Model
         [MaxLength(250), Required]
         public string ProviderAddress { set; get; }
 
-        [MaxLength(250), Required]
         public int ProviderPhone { set; get; }
 
-        [MaxLength(250), Required]
         public int Barcode { set; get; }
     }
 }
