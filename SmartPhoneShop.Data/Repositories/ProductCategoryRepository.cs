@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace SmartPhoneShop.Data.Repositories
 {
-    public interface IProductCategoryRepository { }
+    public interface IProductCategoryRepository : IRepository<ProductCategory>
+    { }
 
     public class ProductCategoryRepository : RepositoryBase<ProductCategory>, IProductCategoryRepository
     {

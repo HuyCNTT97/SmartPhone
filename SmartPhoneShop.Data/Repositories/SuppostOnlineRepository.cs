@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SmartPhoneShop.Data.Repositories
 {
-    public interface ISuppostOnlineRepository
+    public interface ISuppostOnlineRepository : IRepository<SuppostOnline>
     {
     }
 

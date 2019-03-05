@@ -22,5 +22,6 @@ namespace SmartPhoneShop.Model.Abstract
         public string Password { get; set; }
 
         public int Phone { get; set; }
+        public bool Status { get; set; }
     }
 }

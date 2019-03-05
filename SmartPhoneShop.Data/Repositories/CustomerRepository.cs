@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SmartPhoneShop.Data.Repositories
 {
-    public interface ICustomerRepository
+    public interface ICustomerRepository : IRepository<Customer>
     {
     }
 
@@ -16,11 +16,6 @@ namespace SmartPhoneShop.Data.Repositories
     {
         public CustomerRepository(IDbFactory dbFactory) : base(dbFactory)
         {
-        }
-
-        public IEnumerable<Customer> GetByAlias(string alias)
-        {
-            throw new NotImplementedException();
         }
     }
 }

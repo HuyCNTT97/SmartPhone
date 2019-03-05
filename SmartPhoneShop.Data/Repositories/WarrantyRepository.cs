@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace SmartPhoneShop.Data.Repositories
 {
-    public interface IWarrantyRepository { }
+    public interface IWarrantyRepository : IRepository<Warranty>
+    { }
 
     public class WarrantyRepository : RepositoryBase<Warranty>, IWarrantyRepository
     {
