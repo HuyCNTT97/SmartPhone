@@ -51,7 +51,7 @@ namespace SmartPhoneShop.Service
 
         public IEnumerable<Page> GetAll()
         {
-            return _pageRepository.GetAll(new string[] { });
+            return _pageRepository.GetAll();
         }
 
         public IEnumerable<Page> GetAllPaging(int page, int pageSize, out int totalRow)

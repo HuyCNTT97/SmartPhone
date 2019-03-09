@@ -21,6 +21,8 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
 
+        IEnumerable<Post> GetAllCategory(int CategoryID, int page, int pageSize, out int totalRow);
+
         Post GetByID(int id);
 
         IEnumerable<Post> GetAllTagPaging(int page, int pageSize, out int totalRow);
@@ -54,6 +56,12 @@ namespace SmartPhoneShop.Service
             return _postRepository.GetAll(new string[] { "PostCategory" });
         }
 
+        public IEnumerable<Post> GetAllCategory(int CategoryID, int page, int pageSize, out int totalRow)
+        {
+            return _postRepository.GetMultiPaging(x => x.Status && x.PostCategoryID == CategoryID, out totalRow, page, pageSize
+                , new string[] { "PostCategory" });
+        }
+
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)
         {
             return _postRepository.GetMultiPaging(x => x.Status, out totalRow, page, pageSize);
@@ -62,6 +70,11 @@ namespace SmartPhoneShop.Service
         public IEnumerable<Post> GetAllTagPaging(int page, int pageSize, out int totalRow)
         {
             return _postRepository.GetMultiPaging(x => x.Status, out totalRow, page, pageSize);
+        }
+
+        public IEnumerable<Post> GetAllTagPaging(string tag, int pageIndex, int pageSize, out int totalRow)
+        {
+            return _postRepository.GetAllTag(tag, pageIndex, pageSize, out totalRow);
         }
 
         public Post GetByID(int id)

@@ -17,7 +17,7 @@ namespace SmartPhoneShop.Service
 
         void Delete(int id);
 
-        IEnumerable<PostCategory> GetAll();
+        IEnumerable<PostCategory> GetAllByParentID(int parentID);
 
         IEnumerable<PostCategory> GetAllPaging(int postCategory, int postCategorySize, out int totalRow);
 
@@ -51,17 +51,22 @@ namespace SmartPhoneShop.Service
 
         public IEnumerable<PostCategory> GetAll()
         {
-            return _postCategoryRepository.GetAll(new string[] { });
+            return _postCategoryRepository.GetAll();
         }
 
-        public IEnumerable<PostCategory> GetAllPaging(int postCategory, int postCategorySize, out int totalRow)
+        public IEnumerable<PostCategory> GetAllByParentID(int parentID)
         {
-            return _postCategoryRepository.GetMultiPaging(x => x.Status, out totalRow, postCategory, postCategorySize);
+            return _postCategoryRepository.GetMulti(x => x.Status && x.ParentID == parentID);
         }
 
-        public IEnumerable<PostCategory> GetAllTagPaging(int postCategory, int postCategorySize, out int totalRow)
+        public IEnumerable<PostCategory> GetAllPaging(int page, int pageSize, out int totalRow)
         {
-            return _postCategoryRepository.GetMultiPaging(x => x.Status, out totalRow, postCategory, postCategorySize);
+            return _postCategoryRepository.GetMultiPaging(x => x.Status, out totalRow, page, pageSize);
+        }
+
+        public IEnumerable<PostCategory> GetAllTagPaging(int page, int pageSize, out int totalRow)
+        {
+            return _postCategoryRepository.GetMultiPaging(x => x.Status, out totalRow, page, pageSize);
         }
 
         public PostCategory GetByID(int id)

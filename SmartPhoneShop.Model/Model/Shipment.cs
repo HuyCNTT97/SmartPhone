@@ -24,5 +24,6 @@ namespace SmartPhoneShop.Model.Model
         public int ProviderPhone { set; get; }
 
         public int Barcode { set; get; }
+        public virtual IEnumerable<GoodsReceipt> GoodsReceipts { set; get; }
     }
 }

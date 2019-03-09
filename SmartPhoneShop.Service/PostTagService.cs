@@ -54,14 +54,14 @@ namespace SmartPhoneShop.Service
             return _postTagRepository.GetAll(new string[] { "Tags", "Posts" });
         }
 
-        public IEnumerable<PostTag> GetAllPaging(int postTag, int postTagSize, out int totalRow)
+        public IEnumerable<PostTag> GetAllPaging(int page, int pageSize, out int totalRow)
         {
-            return _postTagRepository.GetMultiPaging(null, out totalRow, postTag, postTagSize);
+            return _postTagRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
-        public IEnumerable<PostTag> GetAllTagPaging(int postTag, int postTagSize, out int totalRow)
+        public IEnumerable<PostTag> GetAllTagPaging(int page, int pageSize, out int totalRow)
         {
-            return _postTagRepository.GetMultiPaging(null, out totalRow, postTag, postTagSize);
+            return _postTagRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
         public PostTag GetByID(int id)
