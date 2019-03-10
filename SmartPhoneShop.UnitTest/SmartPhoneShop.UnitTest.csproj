@@ -96,10 +96,6 @@
       <Project>{53b55abe-5752-4319-909b-4839541aff5b}</Project>
       <Name>SmartPhoneShop.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartPhoneShop\SmartPhoneShop.Commom.csproj">
-      <Project>{d81d91db-c922-4f56-9555-cd474dbde0fd}</Project>
-      <Name>SmartPhoneShop.Commom</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
