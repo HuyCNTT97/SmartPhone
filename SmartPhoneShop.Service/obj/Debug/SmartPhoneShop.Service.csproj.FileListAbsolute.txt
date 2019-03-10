@@ -12,11 +12,9 @@ D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.pd
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Service.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Service.pdb
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Data.dll
-D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Model.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Data.pdb
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Model.pdb
-D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.pdb
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.csprojResolveAssemblyReference.cache
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.pdb

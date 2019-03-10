@@ -15,6 +15,5 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\EntityFramework.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\EntityFramework.SqlServer.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\EntityFramework.xml
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\EntityFramework.SqlServer.xml
-D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csprojResolveAssemblyReference.cache
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.pdb

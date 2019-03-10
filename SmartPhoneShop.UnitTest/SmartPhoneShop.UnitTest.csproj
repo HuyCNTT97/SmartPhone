@@ -80,10 +80,6 @@
     <Compile Include="RepositoryTest\PostCategoryRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartPhone.UnitTest\SmartPhoneShop.Web.csproj">
-      <Project>{309cfd0a-37e1-4842-b3d3-421f7219e231}</Project>
-      <Name>SmartPhoneShop.Web</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SmartPhoneShop.Data\SmartPhoneShop.Data.csproj">
       <Project>{7bf3fa7d-87d7-42be-ac4f-a270ce548b9d}</Project>
       <Name>SmartPhoneShop.Data</Name>
