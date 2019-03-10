@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{53B55ABE-5752-4319-909B-4839541AFF5B}</ProjectGuid>
+    <ProjectGuid>{7A32DD20-6046-4360-947C-DD967183E5F3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartPhoneShop.Service</RootNamespace>
-    <AssemblyName>SmartPhoneShop.Service</AssemblyName>
+    <RootNamespace>SmartPhoneShop.Common</RootNamespace>
+    <AssemblyName>SmartPhoneShop.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,39 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerService.cs" />
-    <Compile Include="FooterService.cs" />
-    <Compile Include="GoodsReceiptService.cs" />
-    <Compile Include="MenuGroupsService.cs" />
-    <Compile Include="MenuService.cs" />
-    <Compile Include="OrderDetailService.cs" />
-    <Compile Include="OrdersService.cs" />
-    <Compile Include="PagesService.cs" />
-    <Compile Include="PostCategoryService.cs" />
-    <Compile Include="PostService.cs" />
-    <Compile Include="PostTagService.cs" />
-    <Compile Include="PriceHistoryService.cs" />
-    <Compile Include="ProductCategoryService.cs" />
-    <Compile Include="ProductService.cs" />
-    <Compile Include="ProductTagService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShipmentService.cs" />
-    <Compile Include="SlideService.cs" />
-    <Compile Include="SuppostOnlineService.cs" />
-    <Compile Include="SystemConfigService.cs" />
-    <Compile Include="TagService.cs" />
-    <Compile Include="VisitorStatisticService.cs" />
-    <Compile Include="WarrantyService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SmartPhoneShop.Data\SmartPhoneShop.Data.csproj">
-      <Project>{7bf3fa7d-87d7-42be-ac4f-a270ce548b9d}</Project>
-      <Name>SmartPhoneShop.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SmartPhoneShop.Model\SmartPhoneShop.Model.csproj">
-      <Project>{7d7b3d9c-24be-4bb2-aad2-7bc30f449de8}</Project>
-      <Name>SmartPhoneShop.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
