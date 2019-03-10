@@ -15,10 +15,10 @@ namespace SmartPhoneShop.Model.Abstract
         [MaxLength(int.MaxValue)]
         public string Content { get; set; }
 
-        [MaxLength(250)]
+        [MaxLength(250), Required]
         public string CreateBy { get; set; }
 
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         [MaxLength(150)]
         public string Description { get; set; }

@@ -12,10 +12,10 @@ namespace SmartPhoneShop.Model.Abstract
         [MaxLength(250), Required]
         public string Alias { get; set; }
 
-        [MaxLength(250)]
+        [MaxLength(250), Required]
         public string CreateBy { get; set; }
 
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
         public int? DisplayOrder { get; set; }
         public bool HomeFlag { get; set; }
 

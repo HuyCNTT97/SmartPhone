@@ -62,6 +62,7 @@
     <Compile Include="SystemConfigService.cs" />
     <Compile Include="TagService.cs" />
     <Compile Include="VisitorStatisticService.cs" />
+    <Compile Include="WarrantyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmartPhoneShop.Data\SmartPhoneShop.Data.csproj">

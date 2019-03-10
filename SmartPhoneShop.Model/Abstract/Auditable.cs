@@ -5,9 +5,9 @@ namespace SmartPhoneShop.Model.Abstract
 {
     public abstract class Auditable : IAuditable
     {
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
-        [MaxLength(250)]
+        [MaxLength(250), Required]
         public string CreateBy { get; set; }
 
         public DateTime? UpdatedDate { set; get; }

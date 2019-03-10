@@ -1,0 +1,10 @@
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop\bin\Debug\SmartPhoneShop.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop\bin\Debug\SmartPhoneShop.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop\obj\Debug\SmartPhoneShop.Commom.csprojResolveAssemblyReference.cache
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop\obj\Debug\SmartPhoneShop.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop\obj\Debug\SmartPhoneShop.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop\bin\Debug\SmartPhoneShop.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop\bin\Debug\SmartPhoneShop.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop\obj\Debug\SmartPhoneShop.Commom.csprojResolveAssemblyReference.cache
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop\obj\Debug\SmartPhoneShop.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop\obj\Debug\SmartPhoneShop.pdb

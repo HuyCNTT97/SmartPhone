@@ -21,9 +21,11 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<Product> GetAllPaging(int page, int pageSize, out int totalRow);
 
+        IEnumerable<Product> GetAllByCategory(int CategoryID, int page, int pageSize, out int totalRow);
+
         Product GetByID(int id);
 
-        IEnumerable<Product> GetAllTagPaging(int page, int pageSize, out int totalRow);
+        IEnumerable<Product> GetAllTagPaging(string tag, int page, int pageSize, out int totalRow);
 
         void SaveChanges();
     }
@@ -48,14 +50,20 @@ namespace SmartPhoneShop.Service
             return _productRepository.GetAll(new string[] { "ProductCategory" });
         }
 
+        public IEnumerable<Product> GetAllByCategory(int CategoryID, int page, int pageSize, out int totalRow)
+        {
+            return _productRepository.GetMultiPaging(x => x.ProductCategoryID == CategoryID
+            , out totalRow, page, pageSize, new string[] { "ProductCategory" });
+        }
+
         public IEnumerable<Product> GetAllPaging(int page, int pageSize, out int totalRow)
         {
             return _productRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
-        public IEnumerable<Product> GetAllTagPaging(int page, int pageSize, out int totalRow)
+        public IEnumerable<Product> GetAllTagPaging(string tag, int page, int pageSize, out int totalRow)
         {
-            return _productRepository.GetMultiPaging(null, out totalRow, page, pageSize);
+            return _productRepository.GetAllByTagPaging(tag, pageSize, pageSize, out totalRow);
         }
 
         public Product GetByID(int id)

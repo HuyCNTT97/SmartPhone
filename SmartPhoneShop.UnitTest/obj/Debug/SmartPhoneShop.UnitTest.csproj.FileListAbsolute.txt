@@ -1,0 +1,112 @@
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.UnitTest.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.UnitTest.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\obj\Debug\SmartPhoneShop.UnitTest.csprojResolveAssemblyReference.cache
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\obj\Debug\SmartPhoneShop.UnitTest.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\obj\Debug\SmartPhoneShop.UnitTest.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\csc.exe
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\System.Collections.Immutable.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\System.Reflection.Metadata.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\vbc.exe
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\VBCSCompiler.exe
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\roslyn\VBCSCompiler.exe.config
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhone.UnitTest.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Data.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Model.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Service.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Optimization.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Mvc.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Http.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Http.WebHost.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Razor.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.Razor.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Net.Http.Formatting.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\Newtonsoft.Json.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhone.UnitTest.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Data.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Model.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Service.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Optimization.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Mvc.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Http.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Http.WebHost.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Razor.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.Razor.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Net.Http.Formatting.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\Newtonsoft.Json.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\csc.exe
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\System.Collections.Immutable.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\System.Reflection.Metadata.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\vbc.exe
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\VBCSCompiler.exe
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\roslyn\VBCSCompiler.exe.config
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.UnitTest.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.UnitTest.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhone.UnitTest.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Data.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Model.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Service.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Optimization.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Mvc.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Http.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Http.WebHost.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Razor.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Net.Http.Formatting.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Newtonsoft.Json.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhone.UnitTest.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Data.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Model.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Service.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Optimization.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Mvc.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Http.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Http.WebHost.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.Razor.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Net.Http.Formatting.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Newtonsoft.Json.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\obj\Debug\SmartPhoneShop.UnitTest.csprojResolveAssemblyReference.cache
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\obj\Debug\SmartPhoneShop.UnitTest.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\obj\Debug\SmartPhoneShop.UnitTest.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\EntityFramework.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\EntityFramework.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.UnitTest.dll.config
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Castle.Core.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\EntityFramework.SqlServer.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Moq.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Castle.Core.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\EntityFramework.SqlServer.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Moq.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Moq.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Threading.Tasks.Extensions.xml

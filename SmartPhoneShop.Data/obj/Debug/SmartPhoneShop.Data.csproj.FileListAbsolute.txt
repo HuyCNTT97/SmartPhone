@@ -1,0 +1,30 @@
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Data.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Data.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.csprojResolveAssemblyReference.cache
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Data.dll.config
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\bin\Debug\EntityFramework.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\bin\Debug\EntityFramework.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Data.dll.config
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Data.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Data.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\EntityFramework.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\EntityFramework.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.csprojResolveAssemblyReference.cache
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Model.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Model.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.InitialDB.resources
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.csproj.GenerateResource.Cache
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.InitialDB1.resources
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.InitialDB2.resources
