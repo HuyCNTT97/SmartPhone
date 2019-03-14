@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IShipmentService
     {
-        void Add(Shipment shipment);
+        Shipment Add(Shipment shipment);
 
         void Update(Shipment shipment);
 
@@ -33,9 +33,9 @@ namespace SmartPhoneShop.Service
         private IShipmentRepository _shipmentRepository;
         private IUnitOfWork _unitOfWork;
 
-        public void Add(Shipment shipment)
+        public Shipment Add(Shipment shipment)
         {
-            _shipmentRepository.Add(shipment);
+            return _shipmentRepository.Add(shipment);
         }
 
         public void Delete(int id)

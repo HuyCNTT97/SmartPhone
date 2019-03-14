@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IPostService
     {
-        void Add(Post post);
+        Post Add(Post post);
 
         void Update(Post post);
 
@@ -41,9 +41,9 @@ namespace SmartPhoneShop.Service
             this._unitofwork = unitOfWork;
         }
 
-        public void Add(Post post)
+        public Post Add(Post post)
         {
-            _postRepository.Add(post);
+            return _postRepository.Add(post);
         }
 
         public void Delete(int id)

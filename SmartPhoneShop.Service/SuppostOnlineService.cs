@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface ISuppostOnlineService
     {
-        void Add(SuppostOnline suppostOnline);
+        SuppostOnline Add(SuppostOnline suppostOnline);
 
         void Update(SuppostOnline suppostOnline);
 
@@ -33,9 +33,9 @@ namespace SmartPhoneShop.Service
         private ISuppostOnlineRepository _suppostOnlineRepository;
         private IUnitOfWork _unitOfWork;
 
-        public void Add(SuppostOnline suppostOnline)
+        public SuppostOnline Add(SuppostOnline suppostOnline)
         {
-            _suppostOnlineRepository.Add(suppostOnline);
+            return _suppostOnlineRepository.Add(suppostOnline);
         }
 
         public void Delete(int id)

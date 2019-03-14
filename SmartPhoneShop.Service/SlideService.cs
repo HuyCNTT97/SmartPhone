@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface ISlideService
     {
-        void Add(Slide slide);
+        Slide Add(Slide slide);
 
         void Update(Slide slide);
 
@@ -33,9 +33,9 @@ namespace SmartPhoneShop.Service
         private ISlideRepository _slideRepository;
         private IUnitOfWork _unitOfWork;
 
-        public void Add(Slide slide)
+        public Slide Add(Slide slide)
         {
-            _slideRepository.Add(slide);
+            return _slideRepository.Add(slide);
         }
 
         public void Delete(int id)

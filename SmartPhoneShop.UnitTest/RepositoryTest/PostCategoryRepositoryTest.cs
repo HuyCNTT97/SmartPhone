@@ -36,7 +36,24 @@ namespace SmartPhoneShop.UnitTest.RepositoryTest
             category.Status = true;
             var result = _postCategoryRepository.Add(category);
             _unitOfWork.Commit();
-            Assert.AreEqual(1, result.ID);
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void PostCategory_Repository_GetAll()
+        {
+            var list = _postCategoryRepository.GetAll();
+            Assert.IsNotNull(list);
+        }
+
+        [TestMethod]
+        public void PostCategory_Repository_Update()
+        {
+            var postCategory = _postCategoryRepository.GetSingleById(1);
+            postCategory.Name = "huy";
+            _postCategoryRepository.Update(postCategory);
+            _unitOfWork.Commit();
+            Assert.AreNotSame("lan", postCategory.Name);
         }
     }
 }

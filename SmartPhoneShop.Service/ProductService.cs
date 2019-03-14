@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IProductService
     {
-        void Add(Product product);
+        Product Add(Product product);
 
         void Update(Product product);
 
@@ -35,9 +35,9 @@ namespace SmartPhoneShop.Service
         private IProductRepository _productRepository;
         private IUnitOfWork _unitOfWork;
 
-        public void Add(Product product)
+        public Product Add(Product product)
         {
-            _productRepository.Add(product);
+            return _productRepository.Add(product);
         }
 
         public void Delete(int id)

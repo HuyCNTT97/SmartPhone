@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IGoodsReceiptService
     {
-        void Add(GoodsReceipt goodsReceipt);
+        GoodsReceipt Add(GoodsReceipt goodsReceipt);
 
         void Update(GoodsReceipt goodsReceipt);
 
@@ -39,9 +39,9 @@ namespace SmartPhoneShop.Service
             this._unitOfWork = unitOfWork;
         }
 
-        public void Add(GoodsReceipt goodsReceipt)
+        public GoodsReceipt Add(GoodsReceipt goodsReceipt)
         {
-            _goodsReceiptRepository.Add(goodsReceipt);
+            return _goodsReceiptRepository.Add(goodsReceipt);
         }
 
         public void Delete(int id)

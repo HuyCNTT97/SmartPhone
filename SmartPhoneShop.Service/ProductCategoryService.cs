@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IProductCategoryService
     {
-        void Add(ProductCategory productCategory);
+        ProductCategory Add(ProductCategory productCategory);
 
         void Update(ProductCategory productCategory);
 
@@ -33,9 +33,9 @@ namespace SmartPhoneShop.Service
         private IProductCategoryRepository _productCategoryRepository;
         private IUnitOfWork _unitOfWork;
 
-        public void Add(ProductCategory productCategory)
+        public ProductCategory Add(ProductCategory productCategory)
         {
-            _productCategoryRepository.Add(productCategory);
+            return _productCategoryRepository.Add(productCategory);
         }
 
         public void Delete(int id)

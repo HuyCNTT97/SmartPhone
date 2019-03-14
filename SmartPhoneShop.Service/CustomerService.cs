@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface ICustomerService
     {
-        void Add(Customer customer);
+        Customer Add(Customer customer);
 
         void Update(Customer customer);
 
@@ -39,9 +39,9 @@ namespace SmartPhoneShop.Service
             _unitOfWork = unitOfWork;
         }
 
-        public void Add(Customer customer)
+        public Customer Add(Customer customer)
         {
-            _customerRepository.Add(customer);
+            return _customerRepository.Add(customer);
         }
 
         public void Delete(int id)

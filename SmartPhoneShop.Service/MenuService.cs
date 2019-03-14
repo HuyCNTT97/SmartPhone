@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IMenuService
     {
-        void Add(Menu menu);
+        Menu Add(Menu menu);
 
         void Update(Menu menu);
 
@@ -39,9 +39,9 @@ namespace SmartPhoneShop.Service
             this._unitofwork = unitOfWork;
         }
 
-        public void Add(Menu menu)
+        public Menu Add(Menu menu)
         {
-            _menuRepository.Add(menu);
+            return _menuRepository.Add(menu);
         }
 
         public void Delete(int id)

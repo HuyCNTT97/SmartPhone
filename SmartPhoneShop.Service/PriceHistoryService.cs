@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IPriceHistoryService
     {
-        void Add(PriceHistory priceHistory);
+        PriceHistory Add(PriceHistory priceHistory);
 
         void Update(PriceHistory priceHistory);
 
@@ -39,9 +39,9 @@ namespace SmartPhoneShop.Service
             this._unitofwork = unitOfWork;
         }
 
-        public void Add(PriceHistory priceHistory)
+        public PriceHistory Add(PriceHistory priceHistory)
         {
-            _priceHistoryRepository.Add(priceHistory);
+            return _priceHistoryRepository.Add(priceHistory);
         }
 
         public void Delete(int id)

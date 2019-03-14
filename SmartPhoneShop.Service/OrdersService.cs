@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IOrderService
     {
-        void Add(Order orders);
+        Order Add(Order orders);
 
         void Update(Order orders);
 
@@ -39,9 +39,9 @@ namespace SmartPhoneShop.Service
             this._unitofwork = unitOfWork;
         }
 
-        public void Add(Order orders)
+        public Order Add(Order orders)
         {
-            _ordersRepository.Add(orders);
+            return _ordersRepository.Add(orders);
         }
 
         public void Delete(int id)

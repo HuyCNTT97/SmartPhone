@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IMenuGroupsService
     {
-        void Add(MenuGroups menuGroup);
+        MenuGroups Add(MenuGroups menuGroup);
 
         void Update(MenuGroups menuGroup);
 
@@ -39,9 +39,9 @@ namespace SmartPhoneShop.Service
             this._unitofwork = unitOfWork;
         }
 
-        public void Add(MenuGroups menuGroup)
+        public MenuGroups Add(MenuGroups menuGroup)
         {
-            _menuGroupRepository.Add(menuGroup);
+            return _menuGroupRepository.Add(menuGroup);
         }
 
         public void Delete(int id)

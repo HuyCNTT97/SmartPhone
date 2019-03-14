@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IProductTagService
     {
-        void Add(ProductTag productTag);
+        ProductTag Add(ProductTag productTag);
 
         void Update(ProductTag productTag);
 
@@ -33,9 +33,9 @@ namespace SmartPhoneShop.Service
         private IProductTagRepository _productTagRepository;
         private IUnitOfWork _unitOfWork;
 
-        public void Add(ProductTag productTag)
+        public ProductTag Add(ProductTag productTag)
         {
-            _productTagRepository.Add(productTag);
+            return _productTagRepository.Add(productTag);
         }
 
         public void Delete(int id)

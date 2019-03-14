@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IFooterService
     {
-        void Add(Footer footer);
+        Footer Add(Footer footer);
 
         void Update(Footer footer);
 
@@ -33,9 +33,9 @@ namespace SmartPhoneShop.Service
         private IFooterRepository _footerRepository;
         private IUnitOfWork _unitOfWork;
 
-        public void Add(Footer footer)
+        public Footer Add(Footer footer)
         {
-            _footerRepository.Add(footer);
+            return _footerRepository.Add(footer);
         }
 
         public void Delete(int id)

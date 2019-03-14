@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IPageService
     {
-        void Add(Page page);
+        Page Add(Page page);
 
         void Update(Page page);
 
@@ -39,9 +39,9 @@ namespace SmartPhoneShop.Service
             this._unitofwork = unitOfWork;
         }
 
-        public void Add(Page page)
+        public Page Add(Page page)
         {
-            _pageRepository.Add(page);
+            return _pageRepository.Add(page);
         }
 
         public void Delete(int id)

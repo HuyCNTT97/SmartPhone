@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface ISystemConfigsService
     {
-        void Add(SystemConfigs systemConfig);
+        SystemConfigs Add(SystemConfigs systemConfig);
 
         void Update(SystemConfigs systemConfig);
 
@@ -33,9 +33,9 @@ namespace SmartPhoneShop.Service
         private ISystemConfigRepository _systemConfigRepository;
         private IUnitOfWork _unitOfWork;
 
-        public void Add(SystemConfigs systemConfig)
+        public SystemConfigs Add(SystemConfigs systemConfig)
         {
-            _systemConfigRepository.Add(systemConfig);
+            return _systemConfigRepository.Add(systemConfig);
         }
 
         public void Delete(int id)

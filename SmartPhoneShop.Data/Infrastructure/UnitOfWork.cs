@@ -20,7 +20,7 @@ namespace SmartPhoneShop.Data.Infrastructure
         {
             get
             {
-                return DbContent ?? (dbContext = dbFactory.Init());
+                return dbContext ?? (dbContext = dbFactory.Init());
             }
         }
 

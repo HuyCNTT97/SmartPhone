@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IPostTagService
     {
-        void Add(PostTag postTag);
+        PostTag Add(PostTag postTag);
 
         void Update(PostTag postTag);
 
@@ -39,9 +39,9 @@ namespace SmartPhoneShop.Service
             this._unitofwork = unitOfWork;
         }
 
-        public void Add(PostTag postTag)
+        public PostTag Add(PostTag postTag)
         {
-            _postTagRepository.Add(postTag);
+            return _postTagRepository.Add(postTag);
         }
 
         public void Delete(int id)
