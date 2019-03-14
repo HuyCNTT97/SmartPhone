@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SmartPhoneShop.Model.Model;
+using TeduShop.Model.Models;
 
 namespace SmartPhoneShop.Data
 {
@@ -37,6 +38,7 @@ namespace SmartPhoneShop.Data
         public DbSet<Tag> Tag { set; get; }
         public DbSet<VisitorStatistics> VisitorStatistics { set; get; }
         public DbSet<Warranty> Warranty { set; get; }
+        public DbSet<Error> Errors { set; get; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -17,6 +17,8 @@ namespace SmartPhoneShop.Service
 
         void Delete(int id);
 
+        IEnumerable<PostCategory> GetAll();
+
         IEnumerable<PostCategory> GetAllByParentID(int parentID);
 
         IEnumerable<PostCategory> GetAllPaging(int postCategory, int postCategorySize, out int totalRow);
