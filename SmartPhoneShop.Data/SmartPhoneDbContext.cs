@@ -18,7 +18,7 @@ namespace SmartPhoneShop.Data
 
         public DbSet<Footer> Footers { set; get; }
         public DbSet<Customer> Customer { set; get; }
-        public DbSet<GoodsReceipt> GoodsReceipt { set; get; }
+
         public DbSet<Menu> Menu { set; get; }
         public DbSet<MenuGroups> MenuGroups { set; get; }
         public DbSet<Order> Order { set; get; }
@@ -31,7 +31,6 @@ namespace SmartPhoneShop.Data
         public DbSet<Product> Product { set; get; }
         public DbSet<ProductCategory> ProductCategory { set; get; }
         public DbSet<ProductTag> ProductTag { set; get; }
-        public DbSet<Shipment> Shipment { set; get; }
         public DbSet<Slide> Slide { set; get; }
         public DbSet<SuppostOnline> SuppostOnline { set; get; }
         public DbSet<SystemConfigs> SystemConfigs { set; get; }

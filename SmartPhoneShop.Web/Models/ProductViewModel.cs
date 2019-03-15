@@ -17,6 +17,7 @@ namespace SmartPhoneShop.Web.Models
         public bool HotFlag { set; get; }
 
         public string Specifications { set; get; }
+        public int Quantity { set; get; }
 
         public virtual ProductCategoryViewModel ProductCategory { set; get; }
     }

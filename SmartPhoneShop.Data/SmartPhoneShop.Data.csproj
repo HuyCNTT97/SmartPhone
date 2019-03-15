@@ -56,28 +56,15 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201903021800119_InitialDB.cs" />
-    <Compile Include="Migrations\201903021800119_InitialDB.Designer.cs">
-      <DependentUpon>201903021800119_InitialDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903091056200_InitialDB1.cs" />
-    <Compile Include="Migrations\201903091056200_InitialDB1.Designer.cs">
-      <DependentUpon>201903091056200_InitialDB1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903101244130_InitialDB2.cs" />
-    <Compile Include="Migrations\201903101244130_InitialDB2.Designer.cs">
-      <DependentUpon>201903101244130_InitialDB2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903141735286_InitialDB3.cs" />
-    <Compile Include="Migrations\201903141735286_InitialDB3.Designer.cs">
-      <DependentUpon>201903141735286_InitialDB3.cs</DependentUpon>
+    <Compile Include="Migrations\201903150851558_InitialDB.cs" />
+    <Compile Include="Migrations\201903150851558_InitialDB.Designer.cs">
+      <DependentUpon>201903150851558_InitialDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Repositories\FooterRepository.cs" />
-    <Compile Include="Repositories\GoodsReceiptRepository.cs" />
     <Compile Include="Repositories\MenuGroupRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
     <Compile Include="Repositories\OrderDetailRepository.cs" />
@@ -90,7 +77,6 @@
     <Compile Include="Repositories\ProductCategoryRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\ProductTagRepository.cs" />
-    <Compile Include="Repositories\ShipmentRepository.cs" />
     <Compile Include="Repositories\SlideRepository.cs" />
     <Compile Include="Repositories\SuppostOnlineRepository.cs" />
     <Compile Include="Repositories\SystemConfigRepository.cs" />
@@ -104,24 +90,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903021800119_InitialDB.resx">
-      <DependentUpon>201903021800119_InitialDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903091056200_InitialDB1.resx">
-      <DependentUpon>201903091056200_InitialDB1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903101244130_InitialDB2.resx">
-      <DependentUpon>201903101244130_InitialDB2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903141735286_InitialDB3.resx">
-      <DependentUpon>201903141735286_InitialDB3.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SmartPhoneShop.Model\SmartPhoneShop.Model.csproj">
       <Project>{7d7b3d9c-24be-4bb2-aad2-7bc30f449de8}</Project>
       <Name>SmartPhoneShop.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903150851558_InitialDB.resx">
+      <DependentUpon>201903150851558_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -27,6 +27,8 @@ namespace SmartPhoneShop.Model.Model
         [MaxLength(250)]
         public string Specifications { set; get; }
 
+        public int Quantity { set; get; }
+
         [ForeignKey("ProductCategoryID")]
         public virtual ProductCategory ProductCategory { set; get; }
     }

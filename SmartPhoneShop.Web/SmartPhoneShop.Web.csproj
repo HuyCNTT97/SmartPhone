@@ -179,7 +179,6 @@
     <Compile Include="Models\Abstract\ASeoable.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\FooterViewModel.cs" />
-    <Compile Include="Models\GoodsReceiptViewModel.cs" />
     <Compile Include="Models\MenuGroupViewModel.cs" />
     <Compile Include="Models\MenuViewModel.cs" />
     <Compile Include="Models\OrderDetailViewModel.cs" />
@@ -192,7 +191,6 @@
     <Compile Include="Models\ProductCategoryViewModel.cs" />
     <Compile Include="Models\ProductTagViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
-    <Compile Include="Models\ShipmentViewModel.cs" />
     <Compile Include="Models\SlideViewModel.cs" />
     <Compile Include="Models\SuppostOnlineViewModel.cs" />
     <Compile Include="Models\SystemConfigViewModel.cs" />
