@@ -56,6 +56,10 @@
       <HintPath>..\packages\Autofac.WebApi2.4.2.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -169,6 +173,32 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrasture\Core\ApiControllerBase.cs" />
+    <Compile Include="Mappings\AutoMapperConfiguration.cs" />
+    <Compile Include="Models\Abstract\AsameProductAndPost.cs" />
+    <Compile Include="Models\Abstract\ASameProductCategoryAndPostCategory.cs" />
+    <Compile Include="Models\Abstract\ASeoable.cs" />
+    <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\FooterViewModel.cs" />
+    <Compile Include="Models\GoodsReceiptViewModel.cs" />
+    <Compile Include="Models\MenuGroupViewModel.cs" />
+    <Compile Include="Models\MenuViewModel.cs" />
+    <Compile Include="Models\OrderDetailViewModel.cs" />
+    <Compile Include="Models\OrderViewModel.cs" />
+    <Compile Include="Models\PageViewModel.cs" />
+    <Compile Include="Models\PostCategoryViewModel.cs" />
+    <Compile Include="Models\PostTagViewModel.cs" />
+    <Compile Include="Models\PostViewModel.cs" />
+    <Compile Include="Models\PriceHistoryViewModel.cs" />
+    <Compile Include="Models\ProductCategoryViewModel.cs" />
+    <Compile Include="Models\ProductTagViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\ShipmentViewModel.cs" />
+    <Compile Include="Models\SlideViewModel.cs" />
+    <Compile Include="Models\SuppostOnlineViewModel.cs" />
+    <Compile Include="Models\SystemConfigViewModel.cs" />
+    <Compile Include="Models\TagViewModel.cs" />
+    <Compile Include="Models\VisitorStatisticsViewModel.cs" />
+    <Compile Include="Models\WarrantyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,7 +219,6 @@
     <Folder Include="Assets\admin\" />
     <Folder Include="Assets\client\" />
     <Folder Include="Infrasture\Extension\" />
-    <Folder Include="Models\" />
     <Folder Include="Scripts\Plugins\" />
     <Folder Include="Scripts\SPA\" />
   </ItemGroup>
