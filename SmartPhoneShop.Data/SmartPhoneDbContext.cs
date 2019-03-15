@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SmartPhoneShop.Model.Model;
-using TeduShop.Model.Models;
+using SmartPhoneShop.Model.Models;
 
 namespace SmartPhoneShop.Data
 {

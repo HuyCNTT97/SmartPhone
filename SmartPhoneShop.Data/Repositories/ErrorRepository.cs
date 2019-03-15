@@ -1,10 +1,10 @@
 ﻿using SmartPhoneShop.Data.Infrastructure;
+using SmartPhoneShop.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TeduShop.Model.Models;
 
 namespace SmartPhoneShop.Data.Repositories
 {

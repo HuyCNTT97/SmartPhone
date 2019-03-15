@@ -10,13 +10,13 @@ using System.Web.Http;
 
 namespace SmartPhoneShop.Web.API
 {
-    [RoutePrefix("api/postcatogory")]
+    [RoutePrefix("api/postcategory")]
     public class PostCategoryController : ApiControllerBase
     {
         private IPostCategoryService _postCategoryService;
 
-        public PostCategoryController(IErrorService iErorrService, IPostCategoryService postCategoryService)
-            : base(iErorrService)
+        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) :
+            base(errorService)
         {
             this._postCategoryService = postCategoryService;
         }
@@ -26,21 +26,16 @@ namespace SmartPhoneShop.Web.API
         {
             return CreateHttpResponse(request, () =>
             {
-                HttpResponseMessage response = null;
-                if (ModelState.IsValid)
-                {
-                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                }
-                else
-                {
-                    var listPostCategory = _postCategoryService.GetAll();
-                    response = request.CreateResponse(HttpStatusCode.OK, listPostCategory);
-                }
+                var listCategory = _postCategoryService.GetAll();
+
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listCategory);
+
                 return response;
             });
         }
 
-        public HttpResponseMessage Post(HttpRequestMessage request, PostCategory postCategory)
+        [Route("add")]
+        public HttpResponseMessage Post(HttpRequestMessage request, PostCategory postCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -51,15 +46,19 @@ namespace SmartPhoneShop.Web.API
                 }
                 else
                 {
-                    var category = _postCategoryService.Add(postCategory);
+                    PostCategory newPostCategory = new PostCategory();
+
+                    var category = _postCategoryService.Add(newPostCategory);
                     _postCategoryService.SaveChanges();
+
                     response = request.CreateResponse(HttpStatusCode.Created, category);
                 }
                 return response;
             });
         }
 
-        public HttpResponseMessage Put(HttpRequestMessage request, PostCategory postCategory)
+        [Route("update")]
+        public HttpResponseMessage Put(HttpRequestMessage request, PostCategory postCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -70,8 +69,11 @@ namespace SmartPhoneShop.Web.API
                 }
                 else
                 {
-                    _postCategoryService.Update(postCategory);
+                    var postCategoryDb = _postCategoryService.GetByID(postCategoryVm.ID);
+
+                    _postCategoryService.Update(postCategoryDb);
                     _postCategoryService.SaveChanges();
+
                     response = request.CreateResponse(HttpStatusCode.OK);
                 }
                 return response;
@@ -91,6 +93,7 @@ namespace SmartPhoneShop.Web.API
                 {
                     _postCategoryService.Delete(id);
                     _postCategoryService.SaveChanges();
+
                     response = request.CreateResponse(HttpStatusCode.OK);
                 }
                 return response;

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using TeduShop.Model.Models;
+using SmartPhoneShop.Model.Models;
 
 namespace SmartPhoneShop.Web.Infrasture.Core
 {
@@ -62,8 +62,8 @@ namespace SmartPhoneShop.Web.Infrasture.Core
                 error.CreatedDate = DateTime.Now;
                 error.Message = ex.Message;
                 error.StackTrace = ex.StackTrace;
-                _errorService.Add(error);
-                _errorService.SaveChanges();
+                _errorService.Create(error);
+                _errorService.Save();
             }
             catch
             {
