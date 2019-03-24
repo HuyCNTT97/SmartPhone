@@ -18,3 +18,7 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\EntityFramework.SqlS
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.pdb
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csprojResolveAssemblyReference.cache
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml

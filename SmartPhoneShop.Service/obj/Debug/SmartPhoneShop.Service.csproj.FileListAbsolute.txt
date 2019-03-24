@@ -20,3 +20,7 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Ser
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.pdb
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\EntityFramework.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\EntityFramework.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml

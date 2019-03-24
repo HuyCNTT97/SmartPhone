@@ -73,3 +73,7 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Moq.pdb
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Moq.xml
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\Microsoft.AspNet.Identity.Core.xml

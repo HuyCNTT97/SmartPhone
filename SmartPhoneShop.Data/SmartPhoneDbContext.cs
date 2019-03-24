@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Model.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SmartPhoneShop.Data
 {
-    public class SmartPhoneDbContext : DbContext
+    public class SmartPhoneDbContext : IdentityDbContext<ApplicationUser>
     {
         public SmartPhoneDbContext() : base("SmartPhoneShopConnection")
         {
@@ -38,6 +39,11 @@ namespace SmartPhoneShop.Data
         public DbSet<VisitorStatistics> VisitorStatistics { set; get; }
         public DbSet<Warranty> Warranty { set; get; }
         public DbSet<Error> Errors { set; get; }
+
+        public static SmartPhoneDbContext Create()
+        {
+            return new SmartPhoneDbContext();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

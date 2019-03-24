@@ -29,10 +29,10 @@ namespace SmartPhoneShop.UnitTest.RepositoryTest
         public void PostCategory_Repository_Create()
         {
             PostCategory category = new PostCategory();
-            category.Name = "Test Post Category";
-            category.Alias = "Test-Post-Category";
+            category.Name = "Tin Mới Nhất";
+            category.Alias = "tin-moi-nhat";
             category.CreatedDate = DateTime.Now;
-            category.CreateBy = "Huy";
+            category.CreateBy = "HuyManager";
             category.Status = true;
             var result = _postCategoryRepository.Add(category);
             _unitOfWork.Commit();
