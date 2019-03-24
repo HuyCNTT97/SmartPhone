@@ -28,3 +28,5 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\Microsoft.AspNet.Iden
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.IntergrateAspnetIdentity.resources
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.ChangeKeyPrimaryOfUserRoleTable.resources

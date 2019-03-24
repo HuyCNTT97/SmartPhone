@@ -47,6 +47,8 @@ namespace SmartPhoneShop.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<IdentityUserRole>().HasKey(x => new { x.UserId, x.RoleId });
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(x => x.UserId);
         }
     }
 }
