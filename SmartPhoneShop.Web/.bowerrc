@@ -1,3 +1,5 @@
 {
-  "directory": "Scripts/Plugins"
+  "registry": "https://registry.bower.io",
+
+  "directory": "Assets/admin/libs"
 }
