@@ -31,7 +31,14 @@ namespace SmartPhoneShop.Service
     public class ProductCategoryService : IProductCategoryService
     {
         private IProductCategoryRepository _productCategoryRepository;
+
         private IUnitOfWork _unitOfWork;
+
+        public ProductCategoryService(IProductCategoryRepository productCategoryRepository, IUnitOfWork unitOfWork)
+        {
+            this._productCategoryRepository = productCategoryRepository;
+            this._unitOfWork = unitOfWork;
+        }
 
         public ProductCategory Add(ProductCategory productCategory)
         {

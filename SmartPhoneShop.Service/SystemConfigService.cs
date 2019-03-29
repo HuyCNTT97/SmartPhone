@@ -31,7 +31,14 @@ namespace SmartPhoneShop.Service
     public class SystemConfigsService : ISystemConfigsService
     {
         private ISystemConfigRepository _systemConfigRepository;
+
         private IUnitOfWork _unitOfWork;
+
+        public SystemConfigsService(ISystemConfigRepository systemConfigRepository, IUnitOfWork unitOfWork)
+        {
+            this._systemConfigRepository = systemConfigRepository;
+            this._unitOfWork = unitOfWork;
+        }
 
         public SystemConfigs Add(SystemConfigs systemConfig)
         {

@@ -31,7 +31,14 @@ namespace SmartPhoneShop.Service
     public class SuppostOnlineService : ISuppostOnlineService
     {
         private ISuppostOnlineRepository _suppostOnlineRepository;
+
         private IUnitOfWork _unitOfWork;
+
+        public SuppostOnlineService(ISuppostOnlineRepository suppostOnlineRepository, IUnitOfWork unitOfWork)
+        {
+            this._suppostOnlineRepository = suppostOnlineRepository;
+            this._unitOfWork = unitOfWork;
+        }
 
         public SuppostOnline Add(SuppostOnline suppostOnline)
         {

@@ -15,9 +15,9 @@ namespace SmartPhoneShop.Model.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
 
-        public int ParentID { set; get; }
+        public int? ParentID { set; get; }
 
-        [MaxLength(int.MaxValue), Required]
+        [MaxLength(int.MaxValue)]
         public string Image { set; get; }
 
         public virtual IEnumerable<Product> Products { set; get; }

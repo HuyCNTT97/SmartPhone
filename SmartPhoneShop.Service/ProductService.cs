@@ -33,7 +33,14 @@ namespace SmartPhoneShop.Service
     public class ProductService : IProductService
     {
         private IProductRepository _productRepository;
+
         private IUnitOfWork _unitOfWork;
+
+        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork)
+        {
+            this._productRepository = productRepository;
+            this._unitOfWork = unitOfWork;
+        }
 
         public Product Add(Product product)
         {
@@ -47,13 +54,13 @@ namespace SmartPhoneShop.Service
 
         public IEnumerable<Product> GetAll()
         {
-            return _productRepository.GetAll(new string[] { "ProductCategory" });
+            return _productRepository.GetAll(new string[] { "Product" });
         }
 
         public IEnumerable<Product> GetAllByCategory(int CategoryID, int page, int pageSize, out int totalRow)
         {
             return _productRepository.GetMultiPaging(x => x.ProductCategoryID == CategoryID
-            , out totalRow, page, pageSize, new string[] { "ProductCategory" });
+            , out totalRow, page, pageSize, new string[] { "Product" });
         }
 
         public IEnumerable<Product> GetAllPaging(int page, int pageSize, out int totalRow)

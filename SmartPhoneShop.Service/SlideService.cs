@@ -31,7 +31,14 @@ namespace SmartPhoneShop.Service
     public class SlideService : ISlideService
     {
         private ISlideRepository _slideRepository;
+
         private IUnitOfWork _unitOfWork;
+
+        public SlideService(ISlideRepository slideRepository, IUnitOfWork unitOfWork)
+        {
+            this._slideRepository = slideRepository;
+            this._unitOfWork = unitOfWork;
+        }
 
         public Slide Add(Slide slide)
         {

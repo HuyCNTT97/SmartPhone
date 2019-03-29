@@ -31,7 +31,14 @@ namespace SmartPhoneShop.Service
     public class FooterService : IFooterService
     {
         private IFooterRepository _footerRepository;
+
         private IUnitOfWork _unitOfWork;
+
+        public FooterService(IFooterRepository footerRepository, IUnitOfWork unitOfWork)
+        {
+            this._footerRepository = footerRepository;
+            this._unitOfWork = unitOfWork;
+        }
 
         public Footer Add(Footer footer)
         {

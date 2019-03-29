@@ -31,7 +31,14 @@ namespace SmartPhoneShop.Service
     public class TagService : ITagService
     {
         private ITagRepository _tagRepository;
+
         private IUnitOfWork _unitOfWork;
+
+        public TagService(ITagRepository tagRepository, IUnitOfWork unitOfWork)
+        {
+            this._tagRepository = tagRepository;
+            this._unitOfWork = unitOfWork;
+        }
 
         public void Add(Tag tag)
         {

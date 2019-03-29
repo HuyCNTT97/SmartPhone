@@ -31,7 +31,14 @@ namespace SmartPhoneShop.Service
     public class ProductTagService : IProductTagService
     {
         private IProductTagRepository _productTagRepository;
+
         private IUnitOfWork _unitOfWork;
+
+        public ProductTagService(IProductTagRepository productTagRepository, IUnitOfWork unitOfWork)
+        {
+            this._productTagRepository = productTagRepository;
+            this._unitOfWork = unitOfWork;
+        }
 
         public ProductTag Add(ProductTag productTag)
         {

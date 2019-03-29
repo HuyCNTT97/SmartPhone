@@ -31,7 +31,14 @@ namespace SmartPhoneShop.Service
     public class VisitorStatisticsService : IVisitorStatisticsService
     {
         private IVisitorStatisticsRepository _visitorStatisticRepository;
+
         private IUnitOfWork _unitOfWork;
+
+        public VisitorStatisticsService(IVisitorStatisticsRepository visitorStatisticRepository, IUnitOfWork unitOfWork)
+        {
+            this._visitorStatisticRepository = visitorStatisticRepository;
+            this._unitOfWork = unitOfWork;
+        }
 
         public void Add(VisitorStatistics visitorStatistic)
         {

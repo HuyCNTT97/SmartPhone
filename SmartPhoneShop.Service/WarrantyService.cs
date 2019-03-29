@@ -31,7 +31,14 @@ namespace SmartPhoneShop.Service
     public class WarrantyService : IWarrantyService
     {
         private IWarrantyRepository _warrantyRepository;
+
         private IUnitOfWork _unitOfWork;
+
+        public WarrantyService(IWarrantyRepository warrantyRepository, IUnitOfWork unitOfWork)
+        {
+            this._warrantyRepository = warrantyRepository;
+            this._unitOfWork = unitOfWork;
+        }
 
         public void Add(Warranty warranty)
         {
