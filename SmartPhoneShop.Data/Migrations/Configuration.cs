@@ -83,6 +83,15 @@
 
             #endregion Order
 
+            #region Tag
+
+            if (context.Tag.Count() == 0)
+            {
+                CreateTag(context);
+            }
+
+            #endregion Tag
+
             #region Warranty
 
             if (context.Warranty.Count() == 0)
@@ -91,12 +100,6 @@
             }
 
             #endregion Warranty
-
-            #region OrderDetail
-
-            CreateOrderDetail(context);
-
-            #endregion OrderDetail
 
             #region PostCategory
 
@@ -133,6 +136,77 @@
             }
 
             #endregion Product
+
+            #region ProductTag
+
+            if (context.ProductTag.Count() == 0)
+            {
+                CreateProductTag(context);
+            }
+
+            #endregion ProductTag
+
+            #region Slide
+
+            if (context.Slide.Count() == 0)
+            {
+                CreateSlide(context);
+            }
+
+            #endregion Slide
+
+            #region SuppostOnline
+
+            if (context.SuppostOnline.Count() == 0)
+            {
+                CreateSuppostOnline(context);
+            }
+
+            #endregion SuppostOnline
+
+            #region OrderDetail
+
+            CreateOrderDetail(context);
+
+            #endregion OrderDetail
+        }
+
+        private void CreateTag(SmartPhoneDbContext dbContext)
+        {
+            var listTag = new List<Tag>()
+           {
+               new Tag()
+               {
+                 ID="samsung",
+                 Name="samsung",
+                 Type="chưa thêm"
+               },
+                new Tag()
+               {
+                 ID="iphone",
+                 Name="iphone",
+                 Type="chưa thêm"
+               }
+           };
+            dbContext.Tag.AddRange(listTag);
+            dbContext.SaveChanges();
+        }
+
+        private void CreateSuppostOnline(SmartPhoneDbContext dbContext)
+        {
+            var listSuppostOnline = new List<SuppostOnline>()
+           {
+               new SuppostOnline()
+               {
+                  Department="Hỗ trợ khách hàng",
+                  Email="hoanghuy97cntt@gmail.com",
+                  Name="Hoàng Huy",
+                  Skype="0978962224",
+                  Status=true
+               }
+           };
+            dbContext.SuppostOnline.AddRange(listSuppostOnline);
+            dbContext.SaveChanges();
         }
 
         public static string convertToUnSign3(string s)
@@ -142,19 +216,53 @@
             return regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
         }
 
+        private void CreateSlide(SmartPhoneDbContext dbContext)
+        {
+            var listSlide = new List<Slide>()
+           {
+               new Slide()
+               {
+                 Image="",
+                 Description="giảm giá",
+                 Name="giảm giá tháng 4",
+                 Status=true,
+                 URL=""
+               }
+           };
+            dbContext.Slide.AddRange(listSlide);
+            dbContext.SaveChanges();
+        }
+
+        private void CreateProductTag(SmartPhoneDbContext dbContext)
+        {
+            var listProductTag = new List<ProductTag>()
+           {
+               new ProductTag()
+               {
+               ProductID=2,
+               TagID="iphone"
+               }
+           };
+            dbContext.ProductTag.AddRange(listProductTag);
+            dbContext.SaveChanges();
+        }
+
         private void CreateProduct(SmartPhoneDbContext dbContext)
         {
             var listProduct = new List<Product>()
            {
                new Product()
                {
-                  Content="",
+                  Content="chưa",
                   CreateBy="Huy",
                   CreatedDate=DateTime.Now,
                   Name="Iphone 6s Plus Mới",Alias=convertToUnSign3("Iphone 6s Plus Mới")
                   .Replace(" ","-").ToLower(),
-                  Description="",
-                  Image="",
+                  Description="Đẹp như mới, kèm sạc, cable chính hãng",
+                  Image="chưa",MetaDescription=convertToUnSign3("Đẹp như mới, kèm sạc, cable chính hãng")
+                  .Replace(" ","-").ToLower(),MetaKeyword="iphone-6s-plus",ProductCategoryID=1,
+                  Status=true,
+                  Specifications="chưa",
                   Quantity=20
                }
            };
@@ -204,15 +312,15 @@
                    Name="Tư vấn: Chọn mua Samsung A30 hay Samsung A50 ?",
                    Alias=convertToUnSign3("Tư vấn: Chọn mua Samsung A30 hay Samsung A50 ?")
                    .Replace(" ","-").ToLower(),
-                   Content="",
+                   Content="chưa",
                    CreateBy="Huy",
                    CreatedDate=DateTime.Now,
                    Description="Samsung vừa mang về thị trường Việt Nam 2 sản phẩm tầm trung rất “hot”: Galaxy A30 và Galaxy A50. Vậy Galaxy A30 dành cho những ai, và Galaxy A50 sẽ là sự lựa chọn lý tưởng cho những đối tượng người dùng nào?",
-                   Image="",
+                   Image="chưa",
                    MetaDescription=convertToUnSign3("Samsung vừa mang về thị trường Việt Nam 2 sản phẩm tầm trung rất “hot”: Galaxy A30 và Galaxy A50. Vậy Galaxy A30 dành cho những ai, và Galaxy A50 sẽ là sự lựa chọn lý tưởng cho những đối tượng người dùng nào?")
                    .Replace(" ","-").ToLower(),
                    MetaKeyword="mua Samsung A30 hay Samsung A50",
-                   Status=true
+                   Status=true,PostCategoryID=1,
                }
            };
             dbContext.Post.AddRange(listPost);
@@ -263,7 +371,7 @@
                {
                OrderID=1,
                Price=10000000,
-               ProductID=1,
+               ProductID=2,
                Promotion=0,
                Quantity=2,
                Shipping=false,
@@ -315,7 +423,7 @@
                  Name="Điện Thoại",
                  Target="_self",
                  Status=true,
-                 URL=""
+                 URL="chưa nhập",GroupID=1
                }
            };
             dbContext.Menu.AddRange(listMenu);
@@ -345,7 +453,7 @@
            {
                new Footer()
                {
-                  Content="Abc"
+                  Content="Abc",
                }
            };
             dbContext.Footers.AddRange(listFooter);
@@ -409,7 +517,7 @@
             {
                 manager.Create(user1, "hoanghuy123");
                 manager.Create(user2, "thinh123");
-                manager.Create(user2, "teo123");
+                manager.Create(user3, "teo123");
             }
             if (!roleManager.Roles.Any())
             {

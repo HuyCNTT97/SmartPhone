@@ -32,3 +32,9 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.M
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.ChangeKeyPrimaryOfUserRoleTable.resources
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.changeDBTable.resources
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.ChangeOrderDetailTable.resources
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.UpdateDataInDatabase.resources
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.UpdateDataInDatabase1.resources
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.RestoreDatabase.resources
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabaseTable.resources
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabaseTable1.resources
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabaseTable2.resources
