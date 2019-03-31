@@ -9,26 +9,26 @@ using System.Threading.Tasks;
 
 namespace SmartPhoneShop.Service
 {
-    public interface IVisitorStatisticsService
+    public interface IVisitorStatisticService
     {
-        void Add(VisitorStatistics visitorStatistic);
+        VisitorStatistic Add(VisitorStatistic visitorStatistic);
 
-        void Update(VisitorStatistics visitorStatistic);
+        void Update(VisitorStatistic visitorStatistic);
 
         void Delete(int id);
 
-        IEnumerable<VisitorStatistics> GetAll();
+        IEnumerable<VisitorStatistic> GetAll();
 
-        IEnumerable<VisitorStatistics> GetAllPaging(int page, int pageSize, out int totalRow);
+        IEnumerable<VisitorStatistic> GetAllPaging(int page, int pageSize, out int totalRow);
 
-        VisitorStatistics GetByID(int id);
+        VisitorStatistic GetByID(Guid id);
 
-        IEnumerable<VisitorStatistics> GetAllTagPaging(int page, int pageSize, out int totalRow);
+        IEnumerable<VisitorStatistic> GetAllTagPaging(int page, int pageSize, out int totalRow);
 
         void SaveChanges();
     }
 
-    public class VisitorStatisticsService : IVisitorStatisticsService
+    public class VisitorStatisticsService : IVisitorStatisticService
     {
         private IVisitorStatisticsRepository _visitorStatisticRepository;
 
@@ -40,9 +40,9 @@ namespace SmartPhoneShop.Service
             this._unitOfWork = unitOfWork;
         }
 
-        public void Add(VisitorStatistics visitorStatistic)
+        public VisitorStatistic Add(VisitorStatistic visitorStatistic)
         {
-            _visitorStatisticRepository.Add(visitorStatistic);
+            return _visitorStatisticRepository.Add(visitorStatistic);
         }
 
         public void Delete(int id)
@@ -50,24 +50,24 @@ namespace SmartPhoneShop.Service
             _visitorStatisticRepository.Delete(id);
         }
 
-        public IEnumerable<VisitorStatistics> GetAll()
+        public IEnumerable<VisitorStatistic> GetAll()
         {
             return _visitorStatisticRepository.GetAll();
         }
 
-        public IEnumerable<VisitorStatistics> GetAllPaging(int page, int pageSize, out int totalRow)
+        public IEnumerable<VisitorStatistic> GetAllPaging(int page, int pageSize, out int totalRow)
         {
             return _visitorStatisticRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
-        public IEnumerable<VisitorStatistics> GetAllTagPaging(int page, int pageSize, out int totalRow)
+        public IEnumerable<VisitorStatistic> GetAllTagPaging(int page, int pageSize, out int totalRow)
         {
             return _visitorStatisticRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
-        public VisitorStatistics GetByID(int id)
+        public VisitorStatistic GetByID(Guid id)
         {
-            return _visitorStatisticRepository.GetSingleById(id);
+            return _visitorStatisticRepository.GetSingleByCondition(x => x.ID == id);
         }
 
         public void SaveChanges()
@@ -75,7 +75,7 @@ namespace SmartPhoneShop.Service
             _unitOfWork.Commit();
         }
 
-        public void Update(VisitorStatistics visitorStatistic)
+        public void Update(VisitorStatistic visitorStatistic)
         {
             _visitorStatisticRepository.Update(visitorStatistic);
         }

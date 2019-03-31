@@ -43,7 +43,7 @@
     <Compile Include="CustomerService.cs" />
     <Compile Include="ErrorService.cs" />
     <Compile Include="FooterService.cs" />
-    <Compile Include="MenuGroupsService.cs" />
+    <Compile Include="MenuGroupService.cs" />
     <Compile Include="MenuService.cs" />
     <Compile Include="OrderDetailService.cs" />
     <Compile Include="OrdersService.cs" />

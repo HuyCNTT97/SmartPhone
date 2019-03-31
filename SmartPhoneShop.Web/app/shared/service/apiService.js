@@ -8,10 +8,10 @@
         }
         function get(url, params, successed, failure) {
             $http.get(url, params).then(function (result) {
-                success(result);
+                successed(result);
             }, function (error) {
                 failure(error);
             })
         }
     }
-})('SmartPhoneShop.Common');
+})(angular.module('smartphone.common'));

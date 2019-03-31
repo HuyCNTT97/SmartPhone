@@ -43,13 +43,13 @@ namespace SmartPhoneShop.Web.Infrasture.Extension
             footer.Content = footerVM.Content;
         }
 
-        public static void UpdateMenuGroup(this MenuGroups menuGroup, MenuGroupViewModel menuGroupVM)
+        public static void UpdateMenuGroup(this MenuGroup menuGroup, MenuGroupViewModel menuGroupVM)
         {
             menuGroup.ID = menuGroupVM.ID;
             menuGroup.Name = menuGroupVM.Name;
         }
 
-        public static void UpdateMenu(this Menu menu, Menu menuVM)
+        public static void UpdateMenu(this Menu menu, MenuViewModel menuVM)
         {
             menu.ID = menuVM.ID;
             menu.Name = menuVM.Name;
@@ -59,7 +59,7 @@ namespace SmartPhoneShop.Web.Infrasture.Extension
             menu.Target = menuVM.Target;
         }
 
-        public static void UpdateOrderDetail(this OrderDetail orderDetail, OrderDetail orderDetailVM)
+        public static void UpdateOrderDetail(this OrderDetail orderDetail, OrderDetailViewModel orderDetailVM)
         {
             orderDetail.OrderID = orderDetailVM.OrderID;
             orderDetail.ProductID = orderDetailVM.ProductID;
@@ -79,6 +79,7 @@ namespace SmartPhoneShop.Web.Infrasture.Extension
             order.AddressShip = orderVM.AddressShip;
             order.PhoneShip = orderVM.PhoneShip;
             order.OrderDate = orderVM.OrderDate;
+            order.GiaoDuHang = orderVM.GiaoDuHang;
         }
 
         public static void UpdatePage(this Page page, PageViewModel pageVM)
@@ -147,7 +148,7 @@ namespace SmartPhoneShop.Web.Infrasture.Extension
             suppostOnline.DisplayOrder = suppostOnlineVM.DisplayOrder;
         }
 
-        public static void UpdateSystemConfig(this SystemConfigs systemConfig, SystemConfigViewModel systemConfigVM)
+        public static void UpdateSystemConfig(this SystemConfig systemConfig, SystemConfigViewModel systemConfigVM)
         {
             systemConfig.ID = systemConfigVM.ID;
             systemConfig.Code = systemConfigVM.Code;
@@ -162,7 +163,7 @@ namespace SmartPhoneShop.Web.Infrasture.Extension
             tag.Type = tagVM.Type;
         }
 
-        public static void UpdateVisitorStatistic(this VisitorStatistics visitorStatistic, VisitorStatisticsViewModel visitorStatisticVM)
+        public static void UpdateVisitorStatistic(this VisitorStatistic visitorStatistic, VisitorStatisticViewModel visitorStatisticVM)
         {
             visitorStatistic.ID = visitorStatisticVM.ID;
             visitorStatistic.VisitedDate = visitorStatisticVM.VisitedDate;

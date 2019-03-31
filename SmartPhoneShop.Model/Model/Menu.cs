@@ -22,7 +22,7 @@ namespace SmartPhoneShop.Model.Model
         public int GroupID { set; get; }
 
         [ForeignKey("GroupID")]
-        public virtual MenuGroups MenuGroups { set; get; }
+        public virtual MenuGroup MenuGroups { set; get; }
 
         public string Target { set; get; }
 

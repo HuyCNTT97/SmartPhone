@@ -31,3 +31,4 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\bin\Debug\Microsoft.AspNet.Iden
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.IntergrateAspnetIdentity.resources
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.ChangeKeyPrimaryOfUserRoleTable.resources
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.changeDBTable.resources
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.ChangeOrderDetailTable.resources

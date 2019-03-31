@@ -73,7 +73,7 @@
     <Compile Include="Model\Error.cs" />
     <Compile Include="Model\Footer.cs" />
     <Compile Include="Model\Menu.cs" />
-    <Compile Include="Model\MenuGroups.cs" />
+    <Compile Include="Model\MenuGroup.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderDetail.cs" />
     <Compile Include="Model\Page.cs" />
@@ -86,9 +86,9 @@
     <Compile Include="Model\ProductTag.cs" />
     <Compile Include="Model\Slide.cs" />
     <Compile Include="Model\SuppostOnline.cs" />
-    <Compile Include="Model\SystemConfigs.cs" />
+    <Compile Include="Model\SystemConfig.cs" />
     <Compile Include="Model\Tag.cs" />
-    <Compile Include="Model\VisitorStatistics.cs" />
+    <Compile Include="Model\VisitorStatistic.cs" />
     <Compile Include="Model\Warranty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

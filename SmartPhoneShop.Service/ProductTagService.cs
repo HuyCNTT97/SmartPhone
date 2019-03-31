@@ -21,7 +21,7 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<ProductTag> GetAllPaging(int page, int pageSize, out int totalRow);
 
-        ProductTag GetByID(int id);
+        ProductTag GetByID(int productID, string TagID);
 
         IEnumerable<ProductTag> GetAllTagPaging(int page, int pageSize, out int totalRow);
 
@@ -65,9 +65,9 @@ namespace SmartPhoneShop.Service
             return _productTagRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
-        public ProductTag GetByID(int id)
+        public ProductTag GetByID(int productID, string tagID)
         {
-            return _productTagRepository.GetSingleById(id);
+            return _productTagRepository.GetSingleByCondition(x => x.ProductID == productID && x.TagID == tagID);
         }
 
         public void SaveChanges()

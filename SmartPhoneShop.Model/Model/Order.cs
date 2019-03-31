@@ -24,7 +24,10 @@ namespace SmartPhoneShop.Model.Model
         public string AddressShip { set; get; }
 
         public int PhoneShip { set; get; }
+
         public DateTime OrderDate { set; get; }
+
+        public bool GiaoDuHang { get; set; }
 
         [ForeignKey("CustomerID")]
         public virtual Customer Customers { set; get; }

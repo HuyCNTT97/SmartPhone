@@ -16,7 +16,10 @@ namespace SmartPhoneShop.Web.Models
         public string AddressShip { set; get; }
 
         public int PhoneShip { set; get; }
+
         public DateTime OrderDate { set; get; }
+
+        public bool GiaoDuHang { get; set; }
 
         public virtual CustomerViewModel Customers { set; get; }
     }

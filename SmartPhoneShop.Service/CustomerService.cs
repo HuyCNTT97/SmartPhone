@@ -31,6 +31,7 @@ namespace SmartPhoneShop.Service
     public class CustomerService : ICustomerService
     {
         private ICustomerRepository _customerRepository;
+
         private IUnitOfWork _unitOfWork;
 
         public CustomerService(ICustomerRepository customerRepository, IUnitOfWork unitOfWork)
@@ -51,7 +52,7 @@ namespace SmartPhoneShop.Service
 
         public IEnumerable<Customer> GetAll()
         {
-            return _customerRepository.GetAll(new string[] { "Orders" });
+            return _customerRepository.GetAll();
         }
 
         public IEnumerable<Customer> GetAllPaging(int page, int pageSize, out int totalRow)

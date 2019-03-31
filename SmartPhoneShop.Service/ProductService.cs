@@ -54,7 +54,7 @@ namespace SmartPhoneShop.Service
 
         public IEnumerable<Product> GetAll()
         {
-            return _productRepository.GetAll(new string[] { "Product" });
+            return _productRepository.GetAll(new string[] { "ProductCategory" });
         }
 
         public IEnumerable<Product> GetAllByCategory(int CategoryID, int page, int pageSize, out int totalRow)

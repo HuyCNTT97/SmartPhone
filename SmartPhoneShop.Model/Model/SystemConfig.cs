@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace SmartPhoneShop.Model.Model
 {
     [Table("SystemConfigs")]
-    public class SystemConfigs
+    public class SystemConfig
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface ITagService
     {
-        void Add(Tag tag);
+        Tag Add(Tag tag);
 
         void Update(Tag tag);
 
@@ -21,7 +21,7 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<Tag> GetAllPaging(int page, int pageSize, out int totalRow);
 
-        Tag GetByID(int id);
+        Tag GetByID(string id);
 
         IEnumerable<Tag> GetAllTagPaging(int page, int pageSize, out int totalRow);
 
@@ -40,9 +40,9 @@ namespace SmartPhoneShop.Service
             this._unitOfWork = unitOfWork;
         }
 
-        public void Add(Tag tag)
+        public Tag Add(Tag tag)
         {
-            _tagRepository.Add(tag);
+            return _tagRepository.Add(tag);
         }
 
         public void Delete(int id)
@@ -65,9 +65,9 @@ namespace SmartPhoneShop.Service
             return _tagRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
-        public Tag GetByID(int id)
+        public Tag GetByID(string id)
         {
-            return _tagRepository.GetSingleById(id);
+            return _tagRepository.GetSingleByCondition(x => x.ID == id);
         }
 
         public void SaveChanges()

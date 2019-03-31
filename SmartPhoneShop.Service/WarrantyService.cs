@@ -11,7 +11,7 @@ namespace SmartPhoneShop.Service
 {
     public interface IWarrantyService
     {
-        void Add(Warranty warranty);
+        Warranty Add(Warranty warranty);
 
         void Update(Warranty warranty);
 
@@ -40,9 +40,9 @@ namespace SmartPhoneShop.Service
             this._unitOfWork = unitOfWork;
         }
 
-        public void Add(Warranty warranty)
+        public Warranty Add(Warranty warranty)
         {
-            _warrantyRepository.Add(warranty);
+            return _warrantyRepository.Add(warranty);
         }
 
         public void Delete(int id)

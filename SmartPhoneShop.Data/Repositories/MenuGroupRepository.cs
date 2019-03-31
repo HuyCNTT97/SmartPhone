@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace SmartPhoneShop.Data.Repositories
 {
-    public interface IMenuGroupRepository : IRepository<MenuGroups>
+    public interface IMenuGroupRepository : IRepository<MenuGroup>
     {
     }
 
-    public class MenuGroupRepository : RepositoryBase<MenuGroups>, IMenuGroupRepository
+    public class MenuGroupRepository : RepositoryBase<MenuGroup>, IMenuGroupRepository
     {
         public MenuGroupRepository(IDbFactory dbContext) : base(dbContext)
         {

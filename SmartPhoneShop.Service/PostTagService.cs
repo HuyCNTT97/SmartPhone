@@ -21,7 +21,7 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<PostTag> GetAllPaging(int postTag, int postTagSize, out int totalRow);
 
-        PostTag GetByID(int id);
+        PostTag GetByID(int PostID, string TagID);
 
         IEnumerable<PostTag> GetAllTagPaging(int postTag, int postTagSize, out int totalRow);
 
@@ -31,6 +31,7 @@ namespace SmartPhoneShop.Service
     public class PostTagService : IPostTagService
     {
         private IPostTagRepository _postTagRepository;
+
         private IUnitOfWork _unitofwork;
 
         public PostTagService(IPostTagRepository postTagRepository, IUnitOfWork unitOfWork)
@@ -64,9 +65,9 @@ namespace SmartPhoneShop.Service
             return _postTagRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
-        public PostTag GetByID(int id)
+        public PostTag GetByID(int PostID, string TagID)
         {
-            return _postTagRepository.GetSingleById(id);
+            return _postTagRepository.GetSingleByCondition(x => x.PostID == PostID && x.TagID == TagID);
         }
 
         public void SaveChanges()

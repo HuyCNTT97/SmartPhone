@@ -19,6 +19,8 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<OrderDetail> GetAll();
 
+        OrderDetail GetByOrderDetailID(int OrderID, int ProductID);
+
         IEnumerable<OrderDetail> GetAllPaging(int page, int pageSize, out int totalRow);
 
         OrderDetail GetByID(int id);
@@ -31,6 +33,7 @@ namespace SmartPhoneShop.Service
     public class OrderDetailService : IOrderDetailService
     {
         private IOrderDetailRepository _orderDetailRepository;
+
         private IUnitOfWork _unitofwork;
 
         public OrderDetailService(IOrderDetailRepository orderDetailRepository, IUnitOfWork unitOfWork)
@@ -67,6 +70,11 @@ namespace SmartPhoneShop.Service
         public OrderDetail GetByID(int id)
         {
             return _orderDetailRepository.GetSingleById(id);
+        }
+
+        public OrderDetail GetByOrderDetailID(int OrderID, int ProductID)
+        {
+            return _orderDetailRepository.GetSingleByCondition(x => x.OrderID == OrderID && x.ProductID == ProductID, null);
         }
 
         public void SaveChanges()

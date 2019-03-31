@@ -20,7 +20,7 @@ namespace SmartPhoneShop.Web.Mappings
 
                 cfg.CreateMap<Footer, FooterViewModel>();
                 cfg.CreateMap<Menu, MenuViewModel>();
-                cfg.CreateMap<MenuGroups, MenuGroupViewModel>();
+                cfg.CreateMap<MenuGroup, MenuGroupViewModel>();
                 cfg.CreateMap<Order, OrderViewModel>();
                 cfg.CreateMap<OrderDetail, OrderDetailViewModel>();
                 cfg.CreateMap<Page, PageViewModel>();
@@ -32,9 +32,9 @@ namespace SmartPhoneShop.Web.Mappings
                 cfg.CreateMap<ProductTag, ProductTagViewModel>();
                 cfg.CreateMap<Slide, SlideViewModel>();
                 cfg.CreateMap<SuppostOnline, SuppostOnlineViewModel>();
-                cfg.CreateMap<SystemConfigs, SystemConfigViewModel>();
+                cfg.CreateMap<SystemConfig, SystemConfigViewModel>();
                 cfg.CreateMap<Tag, TagViewModel>();
-                cfg.CreateMap<VisitorStatistics, VisitorStatisticsViewModel>();
+                cfg.CreateMap<VisitorStatistic, VisitorStatisticViewModel>();
                 cfg.CreateMap<Warranty, WarrantyViewModel>();
             });
         }

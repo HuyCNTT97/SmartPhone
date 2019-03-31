@@ -10,9 +10,5 @@ namespace SmartPhoneShop.Web.Models
         public int ProductID { set; get; }
 
         public string TagID { set; get; }
-
-        public virtual ProductViewModel Products { set; get; }
-
-        public virtual TagViewModel Tags { set; get; }
     }
 }

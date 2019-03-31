@@ -9,37 +9,38 @@ using System.Threading.Tasks;
 
 namespace SmartPhoneShop.Service
 {
-    public interface IMenuGroupsService
+    public interface IMenuGroupService
     {
-        MenuGroups Add(MenuGroups menuGroup);
+        MenuGroup Add(MenuGroup menuGroup);
 
-        void Update(MenuGroups menuGroup);
+        void Update(MenuGroup menuGroup);
 
         void Delete(int id);
 
-        IEnumerable<MenuGroups> GetAll();
+        IEnumerable<MenuGroup> GetAll();
 
-        IEnumerable<MenuGroups> GetAllPaging(int page, int pageSize, out int totalRow);
+        IEnumerable<MenuGroup> GetAllPaging(int page, int pageSize, out int totalRow);
 
-        MenuGroups GetByID(int id);
+        MenuGroup GetByID(int id);
 
-        IEnumerable<MenuGroups> GetAllTagPaging(int page, int pageSize, out int totalRow);
+        IEnumerable<MenuGroup> GetAllTagPaging(int page, int pageSize, out int totalRow);
 
         void SaveChanges();
     }
 
-    public class MenuGroupsService : IMenuGroupsService
+    public class MenuGroupService : IMenuGroupService
     {
         private IMenuGroupRepository _menuGroupRepository;
+
         private IUnitOfWork _unitofwork;
 
-        public MenuGroupsService(IMenuGroupRepository menuGroupRepository, IUnitOfWork unitOfWork)
+        public MenuGroupService(IMenuGroupRepository menuGroupRepository, IUnitOfWork unitOfWork)
         {
             this._menuGroupRepository = menuGroupRepository;
             this._unitofwork = unitOfWork;
         }
 
-        public MenuGroups Add(MenuGroups menuGroup)
+        public MenuGroup Add(MenuGroup menuGroup)
         {
             return _menuGroupRepository.Add(menuGroup);
         }
@@ -49,22 +50,22 @@ namespace SmartPhoneShop.Service
             _menuGroupRepository.Delete(id);
         }
 
-        public IEnumerable<MenuGroups> GetAll()
+        public IEnumerable<MenuGroup> GetAll()
         {
             return _menuGroupRepository.GetAll();
         }
 
-        public IEnumerable<MenuGroups> GetAllPaging(int page, int pageSize, out int totalRow)
+        public IEnumerable<MenuGroup> GetAllPaging(int page, int pageSize, out int totalRow)
         {
             return _menuGroupRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
-        public IEnumerable<MenuGroups> GetAllTagPaging(int page, int pageSize, out int totalRow)
+        public IEnumerable<MenuGroup> GetAllTagPaging(int page, int pageSize, out int totalRow)
         {
             return _menuGroupRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
-        public MenuGroups GetByID(int id)
+        public MenuGroup GetByID(int id)
         {
             return _menuGroupRepository.GetSingleById(id);
         }
@@ -74,7 +75,7 @@ namespace SmartPhoneShop.Service
             _unitofwork.Commit();
         }
 
-        public void Update(MenuGroups menuGroup)
+        public void Update(MenuGroup menuGroup)
         {
             _menuGroupRepository.Update(menuGroup);
         }

@@ -187,8 +187,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\AccountController.cs" />
+    <Compile Include="API\CustomerController.cs" />
+    <Compile Include="API\FooterController.cs" />
+    <Compile Include="API\MenuController.cs" />
+    <Compile Include="API\MenuGroupController.cs" />
+    <Compile Include="API\OrderController.cs" />
+    <Compile Include="API\OrderDetailController.cs" />
+    <Compile Include="API\PageController.cs" />
     <Compile Include="API\PostCategoryController.cs" />
+    <Compile Include="API\PostController.cs" />
+    <Compile Include="API\PostTagController.cs" />
+    <Compile Include="API\PriceHistoryController.cs" />
     <Compile Include="API\ProductCategoryController.cs" />
+    <Compile Include="API\ProductController.cs" />
+    <Compile Include="API\ProductTagController.cs" />
+    <Compile Include="API\SlideController.cs" />
+    <Compile Include="API\SuppostOnlineController.cs" />
+    <Compile Include="API\SystemConfigController.cs" />
+    <Compile Include="API\TagController.cs" />
+    <Compile Include="API\VisitorStatisticController.cs" />
+    <Compile Include="API\WarrantyController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -225,7 +243,7 @@
     <Compile Include="Models\SuppostOnlineViewModel.cs" />
     <Compile Include="Models\SystemConfigViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
-    <Compile Include="Models\VisitorStatisticsViewModel.cs" />
+    <Compile Include="Models\VisitorStatisticViewModel.cs" />
     <Compile Include="Models\WarrantyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -242,6 +260,11 @@
     <Content Include="app\components\product\productEditView.html" />
     <Content Include="app\components\product\productListController.js" />
     <Content Include="app\components\product\productListView.html" />
+    <Content Include="app\components\product_category\productCategory.module.js" />
+    <Content Include="app\components\product_category\product_categoryAddController.js" />
+    <Content Include="app\components\product_category\product_categoryAddView.html" />
+    <Content Include="app\components\product_category\product_categoryListController.js" />
+    <Content Include="app\components\product_category\product_categoryListView.html" />
     <Content Include="app\shared\modules\smartphone.common.js" />
     <Content Include="app\shared\service\apiService.js" />
     <Content Include="Assets\admin\bower_components\adminlte.js" />
@@ -455,7 +478,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\components\order\" />
-    <Folder Include="app\components\product_category\" />
     <Folder Include="app\components\user\" />
     <Folder Include="app\shared\footer\" />
     <Folder Include="app\shared\navigation\" />
@@ -479,7 +501,6 @@
     <Content Include="Assets\admin\css\adminlte.min.css.map" />
     <Content Include="Assets\admin\bower_components\bootstrap.css.map" />
     <Content Include="Assets\admin\bower_components\bootstrap.min.css.map" />
-    <Content Include="Assets\admin\bower_components\font-awesome.css.map" />
     <Content Include="Assets\admin\libs\angular-ui-router\.bower.json" />
     <Content Include="Assets\admin\libs\angular-ui-router\bower.json" />
     <Content Include="Assets\admin\libs\angular-ui-router\CHANGELOG.md" />
@@ -493,6 +514,7 @@
     <Content Include="Assets\admin\libs\jquery\README.md" />
     <Content Include="Assets\admin\libs\jquery\src\.jshintrc" />
     <Content Include="app\components\jquery.min.map" />
+    <Content Include="Assets\admin\bower_components\font-awesome.css.map" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />

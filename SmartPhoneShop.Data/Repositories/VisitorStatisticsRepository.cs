@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace SmartPhoneShop.Data.Repositories
 {
-    public interface IVisitorStatisticsRepository : IRepository<VisitorStatistics>
+    public interface IVisitorStatisticsRepository : IRepository<VisitorStatistic>
     {
     }
 
-    public class VisitorStatisticsRepository : RepositoryBase<VisitorStatistics>, IVisitorStatisticsRepository
+    public class VisitorStatisticsRepository : RepositoryBase<VisitorStatistic>, IVisitorStatisticsRepository
     {
         public VisitorStatisticsRepository(IDbFactory dbFactory) : base(dbFactory)
         {

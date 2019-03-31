@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SmartPhoneShop.Web.Models
 {
-    public class VisitorStatisticsViewModel
+    public class VisitorStatisticViewModel
     {
         public Guid ID { set; get; }
 
