@@ -25,12 +25,15 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage Get(HttpRequestMessage request, int page, int pageSize)
         {
             return CreateHttpResponse(request, () =>
             {
+                int totalRow = 0;
                 var listCustomer = _customerService.GetAll();
+                totalRow = listCustomer.Count();
                 var listCustomerVM = Mapper.Map<List<CustomerViewModel>>(listCustomer);
+
                 HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listCustomerVM);
 
                 return response;

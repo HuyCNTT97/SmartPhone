@@ -108,6 +108,10 @@
     <Compile Include="Migrations\201903311750074_FixDatabaseTable2.Designer.cs">
       <DependentUpon>201903311750074_FixDatabaseTable2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904020313564_FixDatabase.cs" />
+    <Compile Include="Migrations\201904020313564_FixDatabase.Designer.cs">
+      <DependentUpon>201904020313564_FixDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
@@ -176,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903311750074_FixDatabaseTable2.resx">
       <DependentUpon>201903311750074_FixDatabaseTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904020313564_FixDatabase.resx">
+      <DependentUpon>201904020313564_FixDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

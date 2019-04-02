@@ -7,10 +7,10 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
     function config($stateProvider, $urlRouterProvider) {
         $stateProvider.state('home', {
-            url: "/home",
+            url: '/home',
             templateUrl: "/app/components/home/HomeView.html",
             controller: "homeController"
         })
-        $urlRouterProvider.otherwise("/home")
+        $urlRouterProvider.otherwise('/home')
     }
 })();

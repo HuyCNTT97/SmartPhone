@@ -137,38 +137,38 @@
 
             #endregion Product
 
-            #region ProductTag
+            //#region ProductTag
 
-            if (context.ProductTag.Count() == 0)
-            {
-                CreateProductTag(context);
-            }
+            //if (context.ProductTag.Count() == 0)
+            //{
+            //    CreateProductTag(context);
+            //}
 
-            #endregion ProductTag
+            //#endregion ProductTag
 
-            #region Slide
+            //#region Slide
 
-            if (context.Slide.Count() == 0)
-            {
-                CreateSlide(context);
-            }
+            //if (context.Slide.Count() == 0)
+            //{
+            //    CreateSlide(context);
+            //}
 
-            #endregion Slide
+            //#endregion Slide
 
-            #region SuppostOnline
+            //#region SuppostOnline
 
-            if (context.SuppostOnline.Count() == 0)
-            {
-                CreateSuppostOnline(context);
-            }
+            //if (context.SuppostOnline.Count() == 0)
+            //{
+            //    CreateSuppostOnline(context);
+            //}
 
-            #endregion SuppostOnline
+            //#endregion SuppostOnline
 
-            #region OrderDetail
+            //#region OrderDetail
 
-            CreateOrderDetail(context);
+            //CreateOrderDetail(context);
 
-            #endregion OrderDetail
+            //#endregion OrderDetail
         }
 
         private void CreateTag(SmartPhoneDbContext dbContext)

@@ -19,6 +19,8 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<ProductCategory> GetAll();
 
+        IEnumerable<ProductCategory> GetAll(string keyword);
+
         IEnumerable<ProductCategory> GetAllPaging(int page, int pageSize, out int totalRow);
 
         ProductCategory GetByID(int id);
@@ -53,6 +55,18 @@ namespace SmartPhoneShop.Service
         public IEnumerable<ProductCategory> GetAll()
         {
             return _productCategoryRepository.GetAll();
+        }
+
+        public IEnumerable<ProductCategory> GetAll(string keyword)
+        {
+            if (!string.IsNullOrEmpty(keyword))
+                return _productCategoryRepository.GetMulti(x => x.Name.Contains(keyword)
+                || x.MetaDescription.Contains(keyword)
+                || x.ID.ToString().Contains(keyword));
+            else
+            {
+                return _productCategoryRepository.GetAll();
+            }
         }
 
         public IEnumerable<ProductCategory> GetAllPaging(int page, int pageSize, out int totalRow)

@@ -33,6 +33,7 @@ namespace SmartPhoneShop.Service
     public class PostCategoryService : IPostCategoryService
     {
         private IPostCategoryRepository _postCategoryRepository;
+
         private IUnitOfWork _unitofwork;
 
         public PostCategoryService(IPostCategoryRepository postCategoryRepository, IUnitOfWork unitOfWork)

@@ -38,3 +38,4 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.M
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabaseTable.resources
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabaseTable1.resources
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabaseTable2.resources
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabase.resources

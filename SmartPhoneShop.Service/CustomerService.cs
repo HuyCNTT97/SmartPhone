@@ -19,6 +19,8 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<Customer> GetAll();
 
+        IEnumerable<Customer> GetAll(string keyword);
+
         IEnumerable<Customer> GetAllPaging(int page, int pageSize, out int totalRow);
 
         Customer GetByID(int id);
@@ -36,8 +38,8 @@ namespace SmartPhoneShop.Service
 
         public CustomerService(ICustomerRepository customerRepository, IUnitOfWork unitOfWork)
         {
-            _customerRepository = customerRepository;
-            _unitOfWork = unitOfWork;
+            this._customerRepository = customerRepository;
+            this._unitOfWork = unitOfWork;
         }
 
         public Customer Add(Customer customer)
@@ -55,14 +57,25 @@ namespace SmartPhoneShop.Service
             return _customerRepository.GetAll();
         }
 
+        public IEnumerable<Customer> GetAll(string keyword)
+        {
+            if (!string.IsNullOrEmpty(keyword))
+                return _customerRepository.GetMulti(x => x.Address.Contains(keyword)
+                || x.Name.Contains(keyword) || x.Phone.ToString().Contains(keyword));
+            else
+            {
+                return _customerRepository.GetAll();
+            }
+        }
+
         public IEnumerable<Customer> GetAllPaging(int page, int pageSize, out int totalRow)
         {
-            return _customerRepository.GetMultiPaging(x => x.Status, out totalRow, page, pageSize);
+            return _customerRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
         public IEnumerable<Customer> GetAllTagPaging(int page, int pageSize, out int totalRow)
         {
-            return _customerRepository.GetMultiPaging(x => x.Status, out totalRow, page, pageSize);
+            return _customerRepository.GetMultiPaging(null, out totalRow, page, pageSize);
         }
 
         public Customer GetByID(int id)
