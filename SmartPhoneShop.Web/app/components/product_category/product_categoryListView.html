@@ -45,10 +45,10 @@
                     </div><div class="col-sm-6">
                         <div id="example1_filter" class="dataTables_filter">
                             <label>
-                                Tìm Kiếm:<input type="search" placeholder="Nhập Mã Hoặc Tên" ng-change="search()"
-                                                ng-model="keyword"
-                                                class="form-control input-sm" placeholder=""
-                                                aria-controls="example1">
+                                <span class="text-bold">Tìm Kiếm: </span><input type="search" placeholder="Nhập Mã Hoặc Tên" ng-change="search()"
+                                                                                ng-model="keyword"
+                                                                                class="form-control input-sm" placeholder=""
+                                                                                aria-controls="example1">
                             </label>
                         </div>
                     </div>
@@ -59,6 +59,7 @@
                                 <tr role="row" class="bg-black">
                                     <th>Mã Loại Sản Phẩm</th>
                                     <th>Tên Loại Sản Phẩm</th>
+                                    <th>Tạo Bởi</th>
                                     <th>Ngày tạo</th>
                                     <th>Trạng Thái</th>
                                     <th>Các Chức Năng</th>
@@ -68,6 +69,7 @@
                                 <tr ng-repeat="item in productCategory">
                                     <td>{{item.ID}}</td>
                                     <td>{{item.Name}}</td>
+                                    <td>{{item.CreateBy}}</td>
                                     <td>{{item.CreatedDate|date:'dd/MM/yyyy hh:mm:ss'}}</td>
 
                                     <td ng-class="{'badge bg-red':item.Status==false,
@@ -75,17 +77,12 @@
                                         {{item.Status|statusFilter}}
                                     </td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-primary" title="Chỉnh Sửa"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-sm btn-danger" title="Xóa"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-5">
-                        <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
                     </div>
                 </div>
             </div>

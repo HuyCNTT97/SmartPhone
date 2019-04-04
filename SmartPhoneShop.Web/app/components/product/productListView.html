@@ -6,7 +6,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
-        <li><a href="#">Danh Mục Sản Phẩm</a></li>
+        <li>Danh Mục Sản Phẩm</li>
         <li class="active">Xem Sản Phẩm</li>
     </ol>
 </section>
@@ -31,13 +31,34 @@
         </div>
         <div class="box-body ">
             <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-                <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="example1_length"><label>Hiển Thị <select name="example1_length" aria-controls="example1" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> dòng</label></div></div><div class="col-sm-6"><div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div></div></div><div class="row">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="dataTables_length" id="example1_length">
+                            <label>
+                                Hiển Thị <select name="mySelect" aria-controls="example1" class="form-control input-sm"
+                                                 ng-options="item.name for item in option.options
+                                                  track by item.value"
+                                                 ng-model="option.model"
+                                                 ng-change="change()"></select>
+                            </label>
+                        </div>
+                    </div><div class="col-sm-6">
+                        <div id="example1_filter" class="dataTables_filter">
+                            <label>
+                                <span class="text-bold">Tìm Kiếm: </span><input type="search" placeholder="Nhập Mã Hoặc Tên" ng-change="search()"
+                                                                                ng-model="keyword"
+                                                                                class="form-control input-sm"
+                                                                                aria-controls="example1">
+                            </label>
+                        </div>
+                    </div>
+                </div><div class="row">
                     <div class="col-sm-12">
                         <table id="example1" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="example1_info">
                             <thead>
                                 <tr role="row" class="bg-black">
-                                    <th>Mã Loại Tin Tức</th>
-                                    <th>Tên Loại Tin Tức</th>
+                                    <th>Mã Sản Phẩm</th>
+                                    <th>Tên Sản Phẩm</th>
                                     <th>Ngày tạo</th>
                                     <th>Trạng Thái</th>
                                     <th>Các Chức Năng</th>
@@ -54,24 +75,22 @@
                                         {{item.Status|statusFilter}}
                                     </td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-primary" title="Chỉnh Sửa"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-sm btn-danger" title="Xóa"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-5">
-                        <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-            <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getProduct(page)"></pager-directive>
+            <pager-directive page="{{page}}" custom-path="{{customPath}}"
+                             pages-count="{{pagesCount}}"
+                             total-count="{{totalCount}}"
+                             search-func="getProduct(page)"></pager-directive>
         </div>
         <!-- /.box-footer-->
     </div>

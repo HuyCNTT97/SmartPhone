@@ -19,6 +19,8 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<Tag> GetAll();
 
+        IEnumerable<Tag> GetAll(string keyword);
+
         IEnumerable<Tag> GetAllPaging(int page, int pageSize, out int totalRow);
 
         Tag GetByID(string id);
@@ -53,6 +55,13 @@ namespace SmartPhoneShop.Service
         public IEnumerable<Tag> GetAll()
         {
             return _tagRepository.GetAll();
+        }
+
+        public IEnumerable<Tag> GetAll(string keyword)
+        {
+            if (string.IsNullOrEmpty(keyword)) return _tagRepository.GetAll();
+            else return _tagRepository.GetMulti(x => x.Name.Contains(keyword)
+            || x.ID.ToString().Contains(keyword));
         }
 
         public IEnumerable<Tag> GetAllPaging(int page, int pageSize, out int totalRow)

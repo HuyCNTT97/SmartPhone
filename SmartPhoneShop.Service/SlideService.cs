@@ -19,6 +19,8 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<Slide> GetAll();
 
+        IEnumerable<Slide> GetAll(string keyword);
+
         IEnumerable<Slide> GetAllPaging(int page, int pageSize, out int totalRow);
 
         Slide GetByID(int id);
@@ -53,6 +55,13 @@ namespace SmartPhoneShop.Service
         public IEnumerable<Slide> GetAll()
         {
             return _slideRepository.GetAll();
+        }
+
+        public IEnumerable<Slide> GetAll(string keyword)
+        {
+            if (string.IsNullOrEmpty(keyword)) return _slideRepository.GetAll();
+            else return _slideRepository.GetMulti(x => x.Name.Contains(keyword)
+            || x.ID.ToString().Contains(keyword));
         }
 
         public IEnumerable<Slide> GetAllPaging(int page, int pageSize, out int totalRow)

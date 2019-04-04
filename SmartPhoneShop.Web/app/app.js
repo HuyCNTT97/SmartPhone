@@ -2,7 +2,10 @@
 (function () {
     angular.module('smartphone', ['smartphone.product',
         'smartphone.common',
-        'smartphone.product_category']
+        'smartphone.product_category',
+    'smartphone.post_category', 'smartphone.post'
+    , 'smartphone.slide', 'smartphone.tag',
+    'smartphone.post_tag', 'smartphone.product_tag']
         ).config(config);
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
     function config($stateProvider, $urlRouterProvider) {

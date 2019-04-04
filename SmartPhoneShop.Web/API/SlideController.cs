@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Web.Infrasture.Extension;
 using SmartPhoneShop.Web.Models;
@@ -25,14 +26,26 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listSlide = _slideService.GetAll();
-                var listSlideVM = Mapper.Map<List<SlideViewModel>>(listSlide);
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listSlideVM);
+                int totalRow = 0;
+                var model = _slideService.GetAll(keyword);
 
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.Name).Skip(page * pageSize).Take(pageSize);
+
+                var responseData = Mapper.Map<IEnumerable<Slide>, IEnumerable<SlideViewModel>>(query);
+
+                var paginationSet = new PaginationSet<SlideViewModel>()
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }

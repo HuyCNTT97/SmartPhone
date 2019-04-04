@@ -19,6 +19,8 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<PostCategory> GetAll();
 
+        IEnumerable<PostCategory> GetAll(string keyword);
+
         IEnumerable<PostCategory> GetAllByParentID(int parentID);
 
         IEnumerable<PostCategory> GetAllPaging(int postCategory, int postCategorySize, out int totalRow);
@@ -55,6 +57,17 @@ namespace SmartPhoneShop.Service
         public IEnumerable<PostCategory> GetAll()
         {
             return _postCategoryRepository.GetAll();
+        }
+
+        public IEnumerable<PostCategory> GetAll(string keyword)
+        {
+            if (string.IsNullOrEmpty(keyword))
+                return _postCategoryRepository.GetAll();
+            else
+                return _postCategoryRepository.GetMulti(x =>
+                x.Name.ToLower().Contains(keyword)
+                || x.MetaDescription.ToLower().Contains(keyword)
+                || x.ID.ToString().Contains(keyword));
         }
 
         public IEnumerable<PostCategory> GetAllByParentID(int parentID)

@@ -258,6 +258,19 @@
                             <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Sản Phẩm</a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Sản Phẩm</a></li>
                         </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i><span>Danh Mục Bảo Hành</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Khách Hàng</a></li>
+                            <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
+                        </ul>
+                    </li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-edit"></i></i> <span>Danh Mục Loại Tin Tức</span>
@@ -266,7 +279,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Loại Tin Tức</a></li>
+                            <li><a ui-sref="post_category"><i class="fa fa-circle-o"></i> Xem Loại Tin Tức</a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Loại Tin Tức</a></li>
                         </ul>
                     </li>
@@ -278,7 +291,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Tin Tức</a></li>
+                            <li><a ui-sref="post"><i class="fa fa-circle-o"></i> Xem Tin Tức</a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Tin Tức</a></li>
                         </ul>
                     </li>
@@ -350,7 +363,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Khách Hàng</a></li>
+                            <li><a ui-sref="slide"><i class="fa fa-circle-o"></i> Xem Danh Sách Slide</a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
                         </ul>
                     </li>
@@ -374,20 +387,31 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Khách Hàng</a></li>
+                            <li><a ui-sref="tag"><i class="fa fa-circle-o"></i> Xem Danh Sách Tag</a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
                         </ul>
                     </li>
-
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-edit"></i><span>Danh Mục Bảo Hành</span>
+                            <i class="fa fa-edit"></i><span>Danh Mục Tag Tin Tức</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Khách Hàng</a></li>
+                            <li><a ui-sref="post_tag"><i class="fa fa-circle-o"></i> Xem Danh Sách Tag Tin Tức</a></li>
+                            <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i><span>Danh Mục Tag Sản Phẩm</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="product_tag"><i class="fa fa-circle-o"></i> Xem Danh Sách Sản Phẩm</a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
                         </ul>
                     </li>
@@ -635,14 +659,26 @@
     <!--module-->
     <script src="~/app/components/product/product.module.js"></script>
     <script src="~/app/components/product_category/productCategory.module.js"></script>
+    <script src="~/app/components/post/post.module.js"></script>
+    <script src="~/app/components/post_category/postCategory.module.js"></script>
+    <script src="~/app/components/slide/slide.module.js"></script>
+    <script src="~/app/components/tag/tag.mudule.js"></script>
+    <script src="~/app/components/post_tag/post_tag.module.js"></script>
+    <script src="~/app/components/product_tag/product_tag.module.js"></script>
     <!--app-->
     <script src="~/app/app.js"></script>
 
     <!--controller-->
+    <script src="~/app/components/product_tag/product_tagListController.js"></script>
     <script src="~/app/components/product/productAddController.js"></script>
     <script src="~/app/components/product/productListController.js"></script>
     <script src="~/app/components/home/HomeController.js"></script>
     <script src="~/app/components/product_category/product_categoryListController.js"></script>
     <script src="~/app/components/product_category/product_categoryAddController.js"></script>
+    <script src="~/app/components/post_category/post_categoryListController.js"></script>
+    <script src="~/app/components/post/postListController.js"></script>
+    <script src="~/app/components/slide/slideListController.js"></script>
+    <script src="~/app/components/tag/tagListController.js"></script>
+    <script src="~/app/components/post_tag/post_tagListController.js"></script>
 </body>
 </html>

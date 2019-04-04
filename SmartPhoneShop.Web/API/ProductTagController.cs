@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Web.Infrasture.Extension;
 using SmartPhoneShop.Web.Models;
@@ -13,7 +14,7 @@ using System.Web.Http;
 
 namespace SmartPhoneShop.Web.API
 {
-    [RoutePrefix("api/producttag")]
+    [RoutePrefix("api/product_tag")]
     public class ProductTagController : ApiControllerBase
     {
         private IProductTagService _productTagService;
@@ -25,14 +26,26 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listProductTag = _productTagService.GetAll();
-                var listProductTagVM = Mapper.Map<List<ProductTagViewModel>>(listProductTag);
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listProductTagVM);
+                int totalRow = 0;
+                var model = _productTagService.GetAll(keyword);
 
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.ProductID).Skip(page * pageSize).Take(pageSize);
+
+                var responseData = Mapper.Map<IEnumerable<ProductTag>, IEnumerable<ProductTagViewModel>>(query);
+
+                var paginationSet = new PaginationSet<ProductTagViewModel>()
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }

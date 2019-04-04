@@ -10,6 +10,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using SmartPhoneShop.Web.Infrasture.Extension;
+using SmartPhoneShop.Web.Infrastructure.Core;
 
 namespace SmartPhoneShop.Web.API
 {
@@ -25,14 +26,26 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listCategory = _postCategoryService.GetAll();
-                var listPostCategoryVM = Mapper.Map<List<PostCategoryViewModel>>(listCategory);
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listPostCategoryVM);
+                int totalRow = 0;
+                var model = _postCategoryService.GetAll(keyword);
 
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
+
+                var responseData = Mapper.Map<IEnumerable<PostCategory>, IEnumerable<PostCategoryViewModel>>(query);
+
+                var paginationSet = new PaginationSet<PostCategoryViewModel>()
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }
