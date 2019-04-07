@@ -57,8 +57,16 @@ namespace SmartPhoneShop.Service
         }
 
         public IEnumerable<MenuGroup> GetAll(string keyword)
-        {
-            if (string.IsNullOrEmpty(keyword)) return _menuGroupRepository.GetAll();
+        { 
+            if (string.IsNullOrEmpty(keyword))
+            {
+                var list = _menuGroupRepository.GetAll();
+                foreach (var item in list.ToList())
+                {
+                    item.Name.ToString();
+                }
+                return list;
+            }
             else return _menuGroupRepository.GetMulti(x => x.ID.ToString().Contains(keyword)
             || x.Name.Contains(keyword));
         }

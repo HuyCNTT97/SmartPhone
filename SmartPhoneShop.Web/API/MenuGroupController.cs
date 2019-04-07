@@ -24,7 +24,6 @@ namespace SmartPhoneShop.Web.API
         {
             this._menuGroupService = menuGroupService;
         }
-
         [Route("getall")]
         public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
@@ -32,9 +31,8 @@ namespace SmartPhoneShop.Web.API
             {
                 int totalRow = 0;
                 var model = _menuGroupService.GetAll(keyword);
-
                 totalRow = model.Count();
-                var query = model.OrderByDescending(x => x.ID).Skip(page * pageSize).Take(pageSize);
+                var query = model.OrderByDescending(x => x.Name).Skip(page * pageSize).Take(pageSize);
 
                 var responseData = Mapper.Map<IEnumerable<MenuGroup>, IEnumerable<MenuGroupViewModel>>(query);
 
