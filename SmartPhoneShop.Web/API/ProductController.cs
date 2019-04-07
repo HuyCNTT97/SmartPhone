@@ -32,7 +32,10 @@ namespace SmartPhoneShop.Web.API
             {
                 int totalRow = 0;
                 var model = _productService.GetAll(keyword);
-
+                foreach (var item in model)
+                {
+                    item.ProductCategory = _productService.GetProductCategory(item.ProductCategoryID);
+                }
                 totalRow = model.Count();
                 var query = model.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
 
@@ -56,7 +59,7 @@ namespace SmartPhoneShop.Web.API
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
@@ -78,7 +81,7 @@ namespace SmartPhoneShop.Web.API
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
@@ -100,7 +103,7 @@ namespace SmartPhoneShop.Web.API
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }

@@ -1,8 +1,8 @@
 ﻿  <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Loại Sản Phẩm
-        <small>danh sách các loại sản phẩm hiện có</small>
+        Sản Phẩm
+        <small>danh sách các sản phẩm hiện có</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
@@ -53,12 +53,17 @@
                         </div>
                     </div>
                 </div><div class="row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-success" ui-sref="product_add">Thêm mới</button>
+                    </div>
                     <div class="col-sm-12">
                         <table id="example1" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="example1_info">
                             <thead>
                                 <tr role="row" class="bg-black">
                                     <th>Mã Sản Phẩm</th>
                                     <th>Tên Sản Phẩm</th>
+                                    <th>Hình Ảnh</th>
+                                    <th>Thuộc Loại Sản Phẩm</th>
                                     <th>Ngày tạo</th>
                                     <th>Trạng Thái</th>
                                     <th>Các Chức Năng</th>
@@ -68,6 +73,12 @@
                                 <tr ng-repeat="item in product">
                                     <td>{{item.ID}}</td>
                                     <td>{{item.Name}}</td>
+                                    <td>
+                                        {{item.Image}}
+                                    </td>
+                                    <td>
+                                        {{item.ProductCategory.Name}}
+                                    </td>
                                     <td>{{item.CreatedDate|date:'dd/MM/yyyy hh:mm:ss'}}</td>
 
                                     <td ng-class="{'badge bg-red':item.Status==false,

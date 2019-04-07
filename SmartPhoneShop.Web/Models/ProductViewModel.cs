@@ -1,6 +1,8 @@
-﻿using SmartPhoneShop.Web.Models.Abstract;
+﻿using SmartPhoneShop.Model.Model;
+using SmartPhoneShop.Web.Models.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -17,8 +19,16 @@ namespace SmartPhoneShop.Web.Models
         public bool HotFlag { set; get; }
 
         public string Specifications { set; get; }
+
+        [Required]
+        public decimal Promotion { set; get; }
+
+        [Required]
+        public decimal Price { set; get; }
+
+        [Required]
         public int Quantity { set; get; }
 
-        public virtual ProductCategoryViewModel ProductCategory { set; get; }
+        public virtual ProductCategory ProductCategory { set; get; }
     }
 }

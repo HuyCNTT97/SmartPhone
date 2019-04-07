@@ -217,6 +217,8 @@ namespace SmartPhoneShop.Web.Infrasture.Extension
             product.DisplayOrder = productVM.DisplayOrder;
             product.HomeFlag = productVM.HomeFlag;
             product.Image = productVM.Image;
+            product.Price = productVM.Price;
+            product.Promotion = productVM.Promotion;
             product.MetaDescription = productVM.MetaDescription;
             product.MetaKeyword = productVM.MetaKeyword;
             product.Name = productVM.Name;

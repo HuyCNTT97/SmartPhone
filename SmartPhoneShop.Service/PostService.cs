@@ -27,6 +27,8 @@ namespace SmartPhoneShop.Service
 
         Post GetByID(int id);
 
+        string GetNamePostCategory(int PostCategoryID);
+
         IEnumerable<Post> GetAllTagPaging(string tag, int page, int pageSize, out int totalRow);
 
         void SaveChanges();
@@ -36,10 +38,14 @@ namespace SmartPhoneShop.Service
     {
         private IPostRepository _postRepository;
 
+        private IPostCategoryRepository _postCategoryRepository;
+
         private IUnitOfWork _unitofwork;
 
-        public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork)
+        public PostService(IPostRepository postRepository,
+            IPostCategoryRepository postCategoryRepository, IUnitOfWork unitOfWork)
         {
+            this._postCategoryRepository = postCategoryRepository;
             this._postRepository = postRepository;
             this._unitofwork = unitOfWork;
         }
@@ -88,6 +94,11 @@ namespace SmartPhoneShop.Service
         public Post GetByID(int id)
         {
             return _postRepository.GetSingleById(id);
+        }
+
+        public string GetNamePostCategory(int PostCategoryID)
+        {
+            return _postCategoryRepository.GetSingleById(PostCategoryID).Name;
         }
 
         public void SaveChanges()

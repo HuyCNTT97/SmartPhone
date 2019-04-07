@@ -1,11 +1,12 @@
 ﻿(function (app) {
     app.controller('product_categoryListController', product_categoryListController)
-    product_categoryListController.$inject = ['$scope', 'apiService']
-    function product_categoryListController($scope, apiService) {
+    product_categoryListController.$inject = ['$scope', 'apiService', 'notificationService']
+    function product_categoryListController($scope, apiService, notificationService) {
         $scope.productCategory = []
         $scope.page = 0
         $scope.pagesCount = 0
         $scope.keyword = ""
+
         $scope.option = {
             options: [{ value: 1, name: "1 dòng" },
             { value: 5, name: "5 dòng" },
@@ -33,7 +34,10 @@
                     pageSize: $scope.option.model.value,
                 }
             }
-            apiService.get('/api/productcategory/getall', config, function (result) {
+            apiService.get('/api/product_category/getall', config, function (result) {
+                if (result.data.TotalCount == 0) {
+                    notificationService.displayWarning('Không có bản ghi nào được tìm thấy')
+                }
                 console.log(result.data)
                 console.log("pageSize:" + $scope.option.model.value)
                 $scope.page = result.data.Page;

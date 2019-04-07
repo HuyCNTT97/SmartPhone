@@ -32,3 +32,4 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.Razor.xml
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.xml
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csprojResolveAssemblyReference.cache

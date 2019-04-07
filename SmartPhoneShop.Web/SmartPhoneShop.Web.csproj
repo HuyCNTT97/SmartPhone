@@ -255,9 +255,13 @@
     <Content Include="app\components\jquery.js" />
     <Content Include="app\components\jquery.min.js" />
     <Content Include="app\components\post\post.module.js" />
+    <Content Include="app\components\post\postAddController.js" />
+    <Content Include="app\components\post\postAddView.html" />
     <Content Include="app\components\post\postListController.js" />
     <Content Include="app\components\post\postListView.html" />
     <Content Include="app\components\post_category\postCategory.module.js" />
+    <Content Include="app\components\post_category\post_categoryAddController.js" />
+    <Content Include="app\components\post_category\post_categoryAddView.html" />
     <Content Include="app\components\post_category\post_categoryListController.js" />
     <Content Include="app\components\post_category\post_categoryListView.html" />
     <Content Include="app\components\post_tag\post_tag.module.js" />
@@ -279,6 +283,8 @@
     <Content Include="app\components\product_tag\product_tagListController.js" />
     <Content Include="app\components\product_tag\product_tagListView.html" />
     <Content Include="app\components\slide\slide.module.js" />
+    <Content Include="app\components\slide\slideAddController.js" />
+    <Content Include="app\components\slide\slideAddView.html" />
     <Content Include="app\components\slide\slideListController.js" />
     <Content Include="app\components\slide\slideListView.html" />
     <Content Include="app\components\tag\tag.mudule.js" />
@@ -289,6 +295,7 @@
     <Content Include="app\shared\filter\StatusFilter.js" />
     <Content Include="app\shared\modules\smartphone.common.js" />
     <Content Include="app\shared\service\apiService.js" />
+    <Content Include="app\shared\service\notificationService.js" />
     <Content Include="Assets\admin\bower_components\adminlte.js" />
     <Content Include="Assets\admin\bower_components\adminlte.min.js" />
     <Content Include="Assets\admin\bower_components\bootstrap.css" />
@@ -486,6 +493,10 @@
     <Content Include="Assets\admin\libs\jquery\src\var\support.js" />
     <Content Include="Assets\admin\libs\jquery\src\var\toString.js" />
     <Content Include="Assets\admin\libs\jquery\src\wrap.js" />
+    <Content Include="Assets\admin\libs\toastr\toastr.css" />
+    <Content Include="Assets\admin\libs\toastr\toastr.js" />
+    <Content Include="Assets\admin\libs\toastr\toastr.min.css" />
+    <Content Include="Assets\admin\libs\toastr\toastr.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -537,6 +548,13 @@
     <Content Include="app\components\jquery.min.map" />
     <Content Include="Assets\admin\bower_components\font-awesome.css.map" />
     <Content Include="Assets\admin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\admin\libs\toastr\.bower.json" />
+    <Content Include="Assets\admin\libs\toastr\bower.json" />
+    <Content Include="Assets\admin\libs\toastr\LICENSE" />
+    <Content Include="Assets\admin\libs\toastr\README.md" />
+    <Content Include="Assets\admin\libs\toastr\toastr.js.map" />
+    <Content Include="Assets\admin\libs\toastr\toastr.less" />
+    <Content Include="Assets\admin\libs\toastr\toastr.scss" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />

@@ -14,7 +14,7 @@ using SmartPhoneShop.Web.Infrastructure.Core;
 
 namespace SmartPhoneShop.Web.API
 {
-    [RoutePrefix("api/postcategory")]
+    [RoutePrefix("api/post_category")]
     public class PostCategoryController : ApiControllerBase
     {
         private IPostCategoryService _postCategoryService;
@@ -50,13 +50,28 @@ namespace SmartPhoneShop.Web.API
             });
         }
 
+        [Route("getallparent")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _postCategoryService.GetAll();
+
+                var responseData = Mapper.Map<IEnumerable<PostCategory>, IEnumerable<PostCategoryViewModel>>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
         [Route("add")]
         public HttpResponseMessage Post(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
@@ -78,7 +93,7 @@ namespace SmartPhoneShop.Web.API
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
@@ -100,7 +115,7 @@ namespace SmartPhoneShop.Web.API
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }

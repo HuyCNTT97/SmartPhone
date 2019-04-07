@@ -17,6 +17,7 @@ namespace SmartPhoneShop.Model.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
 
+        [ForeignKey("ProductCategory")]
         public int ProductCategoryID { set; get; }
 
         [Column(TypeName = "xml")]
@@ -27,9 +28,15 @@ namespace SmartPhoneShop.Model.Model
         [MaxLength(250)]
         public string Specifications { set; get; }
 
+        [Required]
+        public decimal Price { set; get; }
+
+        [Required]
         public int Quantity { set; get; }
 
-        [ForeignKey("ProductCategoryID")]
+        [Required]
+        public decimal Promotion { set; get; }
+
         public virtual ProductCategory ProductCategory { set; get; }
     }
 }

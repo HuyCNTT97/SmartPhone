@@ -21,6 +21,8 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<Product> GetAll(string keyword);
 
+        ProductCategory GetProductCategory(int ProductCategoryID);
+
         IEnumerable<Product> GetAllPaging(int page, int pageSize, out int totalRow);
 
         IEnumerable<Product> GetAllByCategory(int CategoryID, int page, int pageSize, out int totalRow);
@@ -36,10 +38,13 @@ namespace SmartPhoneShop.Service
     {
         private IProductRepository _productRepository;
 
+        private IProductCategoryRepository _productCategoryRepository;
+
         private IUnitOfWork _unitOfWork;
 
-        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork)
+        public ProductService(IProductRepository productRepository, IProductCategoryRepository productCategoryRepository, IUnitOfWork unitOfWork)
         {
+            this._productCategoryRepository = productCategoryRepository;
             this._productRepository = productRepository;
             this._unitOfWork = unitOfWork;
         }
@@ -101,6 +106,11 @@ namespace SmartPhoneShop.Service
         public void Update(Product product)
         {
             _productRepository.Update(product);
+        }
+
+        public ProductCategory GetProductCategory(int ProductCategoryID)
+        {
+            return _productCategoryRepository.GetSingleById(ProductCategoryID);
         }
     }
 }

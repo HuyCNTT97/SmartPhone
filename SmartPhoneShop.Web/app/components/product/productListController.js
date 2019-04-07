@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('productListController', productListController)
-    productListController.$inject = ['$scope', 'apiService']
-    function productListController($scope, apiService) {
+    productListController.$inject = ['$scope', 'apiService', 'notificationService']
+    function productListController($scope, apiService, notificationService) {
         $scope.product = []
         $scope.page = 0
         $scope.pagesCount = 0
@@ -34,6 +34,9 @@
                 }
             }
             apiService.get('/api/product/getall', config, function (result) {
+                if (result.data.TotalCount == 0) {
+                    notificationService.displayWarning('không tìm thấy bảng ghi nào');
+                }
                 console.log(result.data)
                 console.log("pageSize:" + $scope.option.model.value)
                 $scope.page = result.data.Page;

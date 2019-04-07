@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('tagListController', tagListController)
-    tagListController.$inject = ['$scope', 'apiService']
-    function tagListController($scope, apiService) {
+    tagListController.$inject = ['$scope', 'apiService', 'notificationService']
+    function tagListController($scope, apiService, notificationService) {
         $scope.tag = []
         $scope.page = 0
         $scope.pagesCount = 0
@@ -34,6 +34,9 @@
                 }
             }
             apiService.get('/api/tag/getall', config, function (result) {
+                if (result.data.TotalCount == 0) {
+                    notificationService.displayWarning('không tìm thấy bảng ghi nào');
+                }
                 console.log(result.data)
                 console.log("pageSize:" + $scope.option.model.value)
                 $scope.page = result.data.Page;

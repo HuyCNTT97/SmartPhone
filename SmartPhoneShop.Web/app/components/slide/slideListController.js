@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('slideListController', slideListController)
-    slideListController.$inject = ['$scope', 'apiService']
-    function slideListController($scope, apiService) {
+    slideListController.$inject = ['$scope', 'apiService', 'notificationService']
+    function slideListController($scope, apiService, notificationService) {
         $scope.slide = []
         $scope.page = 0
         $scope.pagesCount = 0
@@ -34,6 +34,9 @@
                 }
             }
             apiService.get('/api/slide/getall', config, function (result) {
+                if (result.data.TotalCount == 0) {
+                    notificationService.displayError('không tìm thấy bảng ghi nào');
+                }
                 console.log(result.data)
                 console.log("pageSize:" + $scope.option.model.value)
                 $scope.page = result.data.Page;

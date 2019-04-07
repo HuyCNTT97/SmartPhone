@@ -37,7 +37,10 @@ namespace SmartPhoneShop.Web.API
                 var query = model.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
 
                 var responseData = Mapper.Map<IEnumerable<Post>, IEnumerable<PostViewModel>>(query);
-
+                foreach (var item in responseData)
+                {
+                    item.PostCategoryName = _postService.GetNamePostCategory(item.PostCategoryID);
+                }
                 var paginationSet = new PaginationSet<PostViewModel>()
                 {
                     Items = responseData,
@@ -56,7 +59,7 @@ namespace SmartPhoneShop.Web.API
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
@@ -78,7 +81,7 @@ namespace SmartPhoneShop.Web.API
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
@@ -100,7 +103,7 @@ namespace SmartPhoneShop.Web.API
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
