@@ -11,6 +11,10 @@
             url: "/slide_add",
             templateUrl: "/app/components/slide/slideAddView.html",
             controller: "slideAddController"
+        }).state('slide_edit', {
+            url: "/slide_edit/:id",
+            templateUrl: "/app/components/slide/slideEditView.html",
+            controller: "slideEditController"
         })
     }
 })();

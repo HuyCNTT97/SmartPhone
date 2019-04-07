@@ -1,13 +1,13 @@
 ﻿  <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Thêm dữ liệu
-        <small>thêm mới danh mục loại tin tức</small>
+        Sửa dữ liệu
+        <small>sửa mới danh mục slide {{slide.Name}}</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Trang Chủ</a></li>
-        <li><span>Danh mục Loại Tin Tức</span></li>
-        <li class="active">Thêm Loại Tin Tức</li>
+        <li><span>Danh mục Slide</span></li>
+        <li class="active">Thêm Slide</li>
     </ol>
 </section>
 
@@ -38,85 +38,71 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form novalidate name="frmAddPostCategory" class="form-horizontal" role="form"
-                          ng-submit="AddPostCategory()">
+                    <!--public string Name { set; get; }
+
+                    public string Description { set; get; }
+
+                    public string Image { set; get; }
+
+                    public string URL { set; get; }
+
+                    public int DisplayOrder { set; get; }
+                    public bool Status { set; get; }-->
+                    <form novalidate name="frmSlideSlide" class="form-horizontal" role="form"
+                          ng-submit="UpdateSlide()">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Tên Danh Mục
+                                <label for="inputEmail3"
+                                       class="col-sm-2 control-label">
+                                    Tên Slide
                                 </label>
 
                                 <div class="col-sm-10">
-                                    <input required placeholder="Bắt buộc nhập tên"
-                                           type="text" class="form-control"
-                                           ng-model="post_category.Name" name="name">
+                                    <input placeholder="Bắt buộc nhập tên" type="text" class="form-control"
+                                           ng-model="slide.Name" name="name">
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Tiêu Đề SEO
-                                </label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" required="required" placeholder="Bắt buộc nhập" class="form-control" name="alias"
-                                           ng-model="post_category.Alias">
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">
                                     Mô Tả
                                 </label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="description"
-                                           ng-model="post_category.Description">
+                                    <input type="text" placeholder="Bắt buộc nhập mô tả" class="form-control"
+                                           ng-model="slide.Description" name="descrtiption">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Danh Mục Cha
+                                    Hình Slide
                                 </label>
 
                                 <div class="col-sm-10">
-                                    <select ng-model="post_category.ParentID"
-                                            ng-options="option.ID as option.Name for option
-                                            in listPostCategory"
-                                            class="form-control">
-                                        <option value="">Danh mục gốc</option>
-                                    </select>
+                                    <input type="text" placeholder="Bắt buộc nhập hình slide" class="form-control"
+                                           ng-model="slide.Image" name="image">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">
+                                    Url của Slide
+                                </label>
 
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control"
+                                           ng-model="slide.URL" required="required"
+                                           placeholder="bắt buộc nhập url"
+                                           name="url">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">
                                     Thứ Tự
                                 </label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="displayorder"
-                                           ng-model="post_category.DisplayOrder">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Meta Keyword
-                                </label>
-
-                                <div class="col-sm-10">
-                                    <textarea type="text" class="form-control" name="metakeyword"
-                                              ng-model="post_category.MetaKeyword"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Meta Desciption
-                                </label>
-
-                                <div class="col-sm-10">
-                                    <textarea type="text" class="form-control" name="metadescription"
-                                              ng-model="post_category.MetaDescription"></textarea>
+                                    <input type="number" class="form-control"
+                                           ng-model="slide.DisplayOrder" name="displayorder">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -126,17 +112,17 @@
 
                                 <div class="col-sm-10">
                                     <input type="checkbox" name="status"
-                                           ng-model="post_category.Status"
-                                           ng-checked="post_category.Status" />
+                                           ng-model="slide.Status"
+                                           ng-checked="slide.Status" />
                                     <label>Kích Hoạt</label>
                                 </div>
                             </div>
-                            {{post_category}}
+                            {{slide}}
                         </div>
 
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <button ui-sref="post_category" class="btn btn-danger">Quay Lại</button>
+                            <button ui-sref="slide" class="btn btn-danger">Quay Lại</button>
                             <button type="submit" class="btn btn-info pull-right">Lưu</button>
                         </div>
                         <!-- /.box-footer -->

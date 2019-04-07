@@ -75,6 +75,21 @@ namespace SmartPhoneShop.Web.API
             });
         }
 
+        [Route("getbyid/{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _postService.GetByID(id);
+
+                var responseData = Mapper.Map<Post, PostViewModel>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
         [Route("update")]
         public HttpResponseMessage Put(HttpRequestMessage request, PostViewModel postVm)
         {
@@ -91,8 +106,9 @@ namespace SmartPhoneShop.Web.API
                     postDb.UpdatePost(postVm);
                     _postService.Update(postDb);
                     _postService.SaveChanges();
+                    var responseData = Mapper.Map<Post, PostViewModel>(postDb);
 
-                    response = request.CreateResponse(HttpStatusCode.OK);
+                    response = request.CreateResponse(HttpStatusCode.OK, responseData);
                 }
                 return response;
             });

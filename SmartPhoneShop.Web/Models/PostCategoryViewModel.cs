@@ -10,7 +10,10 @@ namespace SmartPhoneShop.Web.Models
     {
         public int ID { set; get; }
 
+        public string ParentName { set; get; }
+
         public int? ParentID { set; get; }
+
         public virtual IEnumerable<PostViewModel> Posts { set; get; }
     }
 }

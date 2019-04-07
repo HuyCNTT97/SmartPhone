@@ -75,6 +75,21 @@ namespace SmartPhoneShop.Web.API
             });
         }
 
+        [Route("getbyid/{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _productService.GetByID(id);
+
+                var responseData = Mapper.Map<Product, ProductViewModel>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
         [Route("update")]
         public HttpResponseMessage Put(HttpRequestMessage request, ProductViewModel productVm)
         {
@@ -91,8 +106,8 @@ namespace SmartPhoneShop.Web.API
                     productDb.UpdateProduct(productVm);
                     _productService.Update(productDb);
                     _productService.SaveChanges();
-
-                    response = request.CreateResponse(HttpStatusCode.OK);
+                    var responseData = Mapper.Map<Product, ProductViewModel>(productDb);
+                    response = request.CreateResponse(HttpStatusCode.OK, responseData);
                 }
                 return response;
             });
