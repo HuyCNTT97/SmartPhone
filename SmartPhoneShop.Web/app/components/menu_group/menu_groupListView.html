@@ -45,50 +45,43 @@
                     </div><div class="col-sm-6">
                         <div id="example1_filter" class="dataTables_filter">
                             <label>
-                                <span class="text-bold">Tìm Kiếm: </span><input type="search" placeholder="Nhập Mã Hoặc Tên" ng-change="search()"
-                                                                                ng-model="keyword"
-                                                                                class="form-control input-sm" placeholder=""
-                                                                                aria-controls="example1">
+                                Tìm Kiếm:<input type="search" placeholder="Nhập Mã Hoặc Tên" ng-change="search()"
+                                                ng-model="keyword"
+                                                class="form-control input-sm" placeholder=""
+                                                aria-controls="example1">
                             </label>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <button class="btn btn-success" ui-sref="product_category_add">Thêm mới</button>
                     </div>
                 </div><div class="row">
                     <div class="col-sm-12">
                         <table id="example1" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="example1_info">
                             <thead>
                                 <tr role="row" class="bg-black">
-                                    <th>Mã Loại Sản Phẩm</th>
-                                    <th>Tên Loại Sản Phẩm</th>
-                                    <th>Hình Ảnh</th>
-                                    <th>Nằm Trong Loại Sản Phẩm</th>
-                                    <th>Tạo Bởi</th>
-                                    <th>Ngày tạo</th>
+                                    <th>Mã Loại menu</th>
+                                    <th>Tên </th>
+                                    <th>URL</th>
+                                    <th>GroupID</th>
+                                    <th>Target</th>
                                     <th>Trạng Thái</th>
                                     <th>Các Chức Năng</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in productCategory">
+
+                                <tr ng-repeat="item in menu_group">
                                     <td>{{item.ID}}</td>
                                     <td>{{item.Name}}</td>
-                                    <td>{{item.Image}}</td>
-                                    <td>{{item.ParentName}}</td>
-                                    <td>{{item.CreateBy}}</td>
-                                    <td>{{item.CreatedDate|date:'dd/MM/yyyy hh:mm:ss'}}</td>
+                                    <td>{{item.URL}}</td>
+                                    <td>{{item.GroupID}}</td>
+                                    <td>{{item.Target}}</td>
 
                                     <td ng-class="{'badge bg-red':item.Status==false,
                                         'badge bg-green':item.Status==true}">
                                         {{item.Status|statusFilter}}
                                     </td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary"
-                                                ui-sref="product_category_edit({id:item.ID})" title="Chỉnh Sửa">
-                                            <i class="fa fa-pencil"></i>
-                                        </button>
-                                        <button class="btn btn-sm btn-danger" title="Xóa"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -99,7 +92,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-            <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getProductCategory(page)"></pager-directive>
+            <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getMenu_group(page)"></pager-directive>
         </div>
         <!-- /.box-footer-->
     </div>

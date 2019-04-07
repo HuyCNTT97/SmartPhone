@@ -190,6 +190,7 @@ namespace SmartPhoneShop.Web.Infrasture.Extension
             productCategory.MetaDescription = productCategoryVM.MetaDescription;
             productCategory.MetaKeyword = productCategoryVM.MetaKeyword;
             productCategory.Name = productCategoryVM.Name;
+            productCategory.Image = productCategoryVM.Image;
             productCategory.Status = productCategoryVM.Status;
             productCategory.UpdateBy = productCategoryVM.UpdateBy;
             productCategory.UpdatedDate = productCategoryVM.UpdatedDate;

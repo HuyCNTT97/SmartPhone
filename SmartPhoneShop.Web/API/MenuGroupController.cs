@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Web.Infrasture.Extension;
 using SmartPhoneShop.Web.Models;
@@ -13,7 +14,7 @@ using System.Web.Http;
 
 namespace SmartPhoneShop.Web.API
 {
-    [RoutePrefix("api/menugroup")]
+    [RoutePrefix("api/menu_group")]
     public class MenuGroupController : ApiControllerBase
     {
         private IMenuGroupService _menuGroupService;
@@ -25,14 +26,25 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listMenuGroup = _menuGroupService.GetAll();
-                var listMenuGroupVM = Mapper.Map<List<MenuGroupViewModel>>(listMenuGroup);
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listMenuGroupVM);
+                int totalRow = 0;
+                var model = _menuGroupService.GetAll(keyword);
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.Name).Skip(page * pageSize).Take(pageSize);
 
+                var responseData = Mapper.Map<IEnumerable<MenuGroup>, IEnumerable<MenuGroupViewModel>>(query);
+
+                var paginationSet = new PaginationSet<MenuGroupViewModel>()
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }

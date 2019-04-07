@@ -341,7 +341,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Khách Hàng</a></li>
+                            <li><a ui-sref="menu_group"><i class="fa fa-circle-o"></i> Xem Nhóm Menu</a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
                         </ul>
                     </li>
@@ -655,8 +655,10 @@
 
     <script src="~/app/shared/filter/StatusFilter.js"></script>
     <!--Service-->
+
     <script src="~/app/shared/service/apiService.js"></script>
     <script src="~/app/shared/service/notificationService.js"></script>
+    <script src="~/app/shared/service/commonService.js"></script>
     <!--Directive-->
 
     <script src="~/app/shared/directives/pagerDirective.js"></script>
@@ -669,6 +671,7 @@
     <script src="~/app/components/tag/tag.mudule.js"></script>
     <script src="~/app/components/post_tag/post_tag.module.js"></script>
     <script src="~/app/components/product_tag/product_tag.module.js"></script>
+    <script src="~/app/components/menu_group/menu_group.module.js"></script>
     <!--app-->
     <script src="~/app/app.js"></script>
 
@@ -677,9 +680,11 @@
     <script src="~/app/components/product/productAddController.js"></script>
     <script src="~/app/components/product/productListController.js"></script>
     <script src="~/app/components/home/HomeController.js"></script>
+    <script src="~/app/components/menu_group/menu_groupListController.js"></script>
     <script src="~/app/components/product_category/product_categoryListController.js"></script>
     <script src="~/app/components/post_category/post_categoryAddController.js"></script>
     <script src="~/app/components/product_category/product_categoryAddController.js"></script>
+    <script src="~/app/components/product_category/product_categoryEditController.js"></script>
     <script src="~/app/components/post_category/post_categoryListController.js"></script>
     <script src="~/app/components/post/postListController.js"></script>
     <script src="~/app/components/post/postAddController.js"></script>

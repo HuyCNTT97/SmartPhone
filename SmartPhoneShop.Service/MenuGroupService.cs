@@ -19,6 +19,8 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<MenuGroup> GetAll();
 
+        IEnumerable<MenuGroup> GetAll(string keyword);
+
         IEnumerable<MenuGroup> GetAllPaging(int page, int pageSize, out int totalRow);
 
         MenuGroup GetByID(int id);
@@ -53,6 +55,13 @@ namespace SmartPhoneShop.Service
         public IEnumerable<MenuGroup> GetAll()
         {
             return _menuGroupRepository.GetAll();
+        }
+
+        public IEnumerable<MenuGroup> GetAll(string keyword)
+        {
+            if (string.IsNullOrEmpty(keyword)) return _menuGroupRepository.GetAll();
+            else return _menuGroupRepository.GetMulti(x => x.Name.Contains(keyword)
+            || x.ID.ToString().Contains(keyword));
         }
 
         public IEnumerable<MenuGroup> GetAllPaging(int page, int pageSize, out int totalRow)

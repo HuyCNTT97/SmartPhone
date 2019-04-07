@@ -254,6 +254,9 @@
     <Content Include="app\components\home\HomeView.html" />
     <Content Include="app\components\jquery.js" />
     <Content Include="app\components\jquery.min.js" />
+    <Content Include="app\components\menu_group\menu_group.module.js" />
+    <Content Include="app\components\menu_group\menu_groupListController.js" />
+    <Content Include="app\components\menu_group\menu_groupListView.html" />
     <Content Include="app\components\post\post.module.js" />
     <Content Include="app\components\post\postAddController.js" />
     <Content Include="app\components\post\postAddView.html" />
@@ -277,6 +280,8 @@
     <Content Include="app\components\product_category\productCategory.module.js" />
     <Content Include="app\components\product_category\product_categoryAddController.js" />
     <Content Include="app\components\product_category\product_categoryAddView.html" />
+    <Content Include="app\components\product_category\product_categoryEditController.js" />
+    <Content Include="app\components\product_category\product_categoryEditView.html" />
     <Content Include="app\components\product_category\product_categoryListController.js" />
     <Content Include="app\components\product_category\product_categoryListView.html" />
     <Content Include="app\components\product_tag\product_tag.module.js" />
@@ -295,6 +300,7 @@
     <Content Include="app\shared\filter\StatusFilter.js" />
     <Content Include="app\shared\modules\smartphone.common.js" />
     <Content Include="app\shared\service\apiService.js" />
+    <Content Include="app\shared\service\commonService.js" />
     <Content Include="app\shared\service\notificationService.js" />
     <Content Include="Assets\admin\bower_components\adminlte.js" />
     <Content Include="Assets\admin\bower_components\adminlte.min.js" />

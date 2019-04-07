@@ -72,6 +72,21 @@ namespace SmartPhoneShop.Web.API
             });
         }
 
+        [Route("getbyid/{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _productCategoryService.GetByID(id);
+
+                var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
         [Route("add")]
         public HttpResponseMessage Post(HttpRequestMessage request, ProductCategoryViewModel productCategoryVM)
         {
@@ -89,6 +104,51 @@ namespace SmartPhoneShop.Web.API
                     var category = _productCategoryService.Add(newProductCategory);
                     _productCategoryService.SaveChanges();
                     response = request.CreateResponse(HttpStatusCode.Created, category);
+                }
+                return response;
+            });
+        }
+
+        [Route("update")]
+        [HttpPut]
+        public HttpResponseMessage Put(HttpRequestMessage request, ProductCategoryViewModel productCategoryVm)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var productDb = _productCategoryService.GetByID(productCategoryVm.ID);
+                    productDb.UpdateProductCategory(productCategoryVm);
+                    _productCategoryService.Update(productDb);
+                    var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(productDb);
+                    _productCategoryService.SaveChanges();
+
+                    response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                }
+                return response;
+            });
+        }
+
+        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    _productCategoryService.Delete(id);
+                    _productCategoryService.SaveChanges();
+
+                    response = request.CreateResponse(HttpStatusCode.OK);
                 }
                 return response;
             });

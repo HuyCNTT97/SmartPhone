@@ -5,7 +5,8 @@
         'smartphone.product_category',
     'smartphone.post_category', 'smartphone.post'
     , 'smartphone.slide', 'smartphone.tag',
-    'smartphone.post_tag', 'smartphone.product_tag']
+    'smartphone.post_tag', 'smartphone.product_tag',
+    'smartphone.menu_group']
         ).config(config);
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
     function config($stateProvider, $urlRouterProvider) {
