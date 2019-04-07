@@ -11,6 +11,10 @@
             url: "/post_add",
             templateUrl: "/app/components/post/postAddView.html",
             controller: "postAddController"
+        }).state('post_edit', {
+            url: "/post_edit/:id",
+            templateUrl: "/app/components/post/postEditView.html",
+            controller: "postEditController"
         })
     }
 })();

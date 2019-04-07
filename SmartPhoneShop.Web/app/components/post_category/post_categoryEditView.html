@@ -1,13 +1,13 @@
 ﻿  <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Thêm dữ liệu
-        <small>thêm mới danh mục loại tin tức</small>
+        Sửa dữ liệu
+        <small>sửa mới danh mục loại tin tức {{post_category.Name}}</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Trang Chủ</a></li>
         <li><span>Danh mục Loại Tin Tức</span></li>
-        <li class="active">Thêm Loại Tin Tức</li>
+        <li class="active">Sửa Loại Tin Tức</li>
     </ol>
 </section>
 
@@ -34,12 +34,12 @@
                 <!-- Horizontal Form -->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Thêm mới</h3>
+                        <h3 class="box-title">Sửa mới</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form novalidate name="frmAddPostCategory" class="form-horizontal" role="form"
-                          ng-submit="AddPostCategory()">
+                    <form novalidate name="frmUpdatePostCategory" class="form-horizontal" role="form"
+                          ng-submit="UpdatePostCategory()">
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">
@@ -49,6 +49,7 @@
                                 <div class="col-sm-10">
                                     <input required placeholder="Bắt buộc nhập tên"
                                            type="text" class="form-control"
+                                           ng-change="GetSeoTitile()"
                                            ng-model="post_category.Name" name="name">
                                 </div>
                             </div>

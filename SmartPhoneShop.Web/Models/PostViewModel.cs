@@ -12,6 +12,8 @@ namespace SmartPhoneShop.Web.Models
 
         public int PostCategoryID { get; set; }
 
+        public string ParentName { set; get; }
+
         public string PostCategoryName { set; get; }
 
         public virtual PostCategoryViewModel PostCategory { set; get; }

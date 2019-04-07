@@ -11,6 +11,10 @@
             url: "/post_category_add",
             templateUrl: "/app/components/post_category/post_categoryAddView.html",
             controller: "post_categoryAddController"
+        }).state('post_category_edit', {
+            url: "/post_category_edit/:id",
+            templateUrl: "/app/components/post_category/post_categoryEditView.html",
+            controller: "post_categoryEditController"
         })
     }
 })();

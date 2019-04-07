@@ -260,11 +260,15 @@
     <Content Include="app\components\post\post.module.js" />
     <Content Include="app\components\post\postAddController.js" />
     <Content Include="app\components\post\postAddView.html" />
+    <Content Include="app\components\post\postEditController.js" />
+    <Content Include="app\components\post\postEditVIew.html" />
     <Content Include="app\components\post\postListController.js" />
     <Content Include="app\components\post\postListView.html" />
     <Content Include="app\components\post_category\postCategory.module.js" />
     <Content Include="app\components\post_category\post_categoryAddController.js" />
     <Content Include="app\components\post_category\post_categoryAddView.html" />
+    <Content Include="app\components\post_category\post_categoryEditController.js" />
+    <Content Include="app\components\post_category\post_categoryEditView.html" />
     <Content Include="app\components\post_category\post_categoryListController.js" />
     <Content Include="app\components\post_category\post_categoryListView.html" />
     <Content Include="app\components\post_tag\post_tag.module.js" />
@@ -290,6 +294,8 @@
     <Content Include="app\components\slide\slide.module.js" />
     <Content Include="app\components\slide\slideAddController.js" />
     <Content Include="app\components\slide\slideAddView.html" />
+    <Content Include="app\components\slide\SlideEditController.js" />
+    <Content Include="app\components\slide\SlideEditVIew.html" />
     <Content Include="app\components\slide\slideListController.js" />
     <Content Include="app\components\slide\slideListView.html" />
     <Content Include="app\components\tag\tag.mudule.js" />
