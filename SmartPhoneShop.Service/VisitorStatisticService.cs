@@ -18,6 +18,7 @@ namespace SmartPhoneShop.Service
         void Delete(int id);
 
         IEnumerable<VisitorStatistic> GetAll();
+        IEnumerable<VisitorStatistic> GetAll(string keyword);
 
         IEnumerable<VisitorStatistic> GetAllPaging(int page, int pageSize, out int totalRow);
 
@@ -53,6 +54,13 @@ namespace SmartPhoneShop.Service
         public IEnumerable<VisitorStatistic> GetAll()
         {
             return _visitorStatisticRepository.GetAll();
+        }
+
+        public IEnumerable<VisitorStatistic> GetAll(string keyword)
+        {
+            if (string.IsNullOrEmpty(keyword)) return _visitorStatisticRepository.GetAll();
+            else return _visitorStatisticRepository.GetMulti(x => x.ID.ToString().Contains(keyword)
+            || x.IPAddress.Contains(keyword));
         }
 
         public IEnumerable<VisitorStatistic> GetAllPaging(int page, int pageSize, out int totalRow)

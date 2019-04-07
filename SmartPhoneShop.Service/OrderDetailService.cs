@@ -18,6 +18,7 @@ namespace SmartPhoneShop.Service
         void Delete(int id);
 
         IEnumerable<OrderDetail> GetAll();
+        IEnumerable<OrderDetail> GetAll(string keyword);
 
         OrderDetail GetByOrderDetailID(int OrderID, int ProductID);
 
@@ -55,6 +56,12 @@ namespace SmartPhoneShop.Service
         public IEnumerable<OrderDetail> GetAll()
         {
             return _orderDetailRepository.GetAll(new string[] { "Warranties", "Orders", "Products" });
+        }
+
+        public IEnumerable<OrderDetail> GetAll(string keyword)
+        {
+            if (string.IsNullOrEmpty(keyword)) return _orderDetailRepository.GetAll();
+            else return _orderDetailRepository.GetMulti(x => x.OrderID.ToString().Contains(keyword));
         }
 
         public IEnumerable<OrderDetail> GetAllPaging(int page, int pageSize, out int totalRow)

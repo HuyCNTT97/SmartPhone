@@ -18,6 +18,7 @@ namespace SmartPhoneShop.Service
         void Delete(int id);
 
         IEnumerable<Warranty> GetAll();
+        IEnumerable<Warranty> GetAll(string keyword);
 
         IEnumerable<Warranty> GetAllPaging(int page, int pageSize, out int totalRow);
 
@@ -53,6 +54,13 @@ namespace SmartPhoneShop.Service
         public IEnumerable<Warranty> GetAll()
         {
             return _warrantyRepository.GetAll();
+        }
+
+        public IEnumerable<Warranty> GetAll(string keyword)
+        {
+            if (string.IsNullOrEmpty(keyword)) return _warrantyRepository.GetAll();
+            else return _warrantyRepository.GetMulti(x => x.ID.ToString().Contains(keyword)
+            || x.Name.Contains(keyword));
         }
 
         public IEnumerable<Warranty> GetAllPaging(int page, int pageSize, out int totalRow)

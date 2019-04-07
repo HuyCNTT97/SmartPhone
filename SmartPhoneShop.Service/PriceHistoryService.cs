@@ -18,6 +18,7 @@ namespace SmartPhoneShop.Service
         void Delete(int id);
 
         IEnumerable<PriceHistory> GetAll();
+        IEnumerable<PriceHistory> GetAll(string keyword);
 
         IEnumerable<PriceHistory> GetAllPaging(int priceHistory, int priceHistorySize, out int totalRow);
 
@@ -52,6 +53,13 @@ namespace SmartPhoneShop.Service
         public IEnumerable<PriceHistory> GetAll()
         {
             return _priceHistoryRepository.GetAll(new string[] { "Products" });
+        }
+
+        public IEnumerable<PriceHistory> GetAll(string keyword)
+        {
+            if (string.IsNullOrEmpty(keyword)) return _priceHistoryRepository.GetAll();
+            else return _priceHistoryRepository.GetMulti(x => x.ProductID.ToString().Contains(keyword)
+            || x.Price.ToString().Contains(keyword));
         }
 
         public IEnumerable<PriceHistory> GetAllPaging(int page, int pageSize, out int totalRow)

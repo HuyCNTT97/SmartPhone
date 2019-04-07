@@ -1,4 +1,4 @@
-﻿namespace SmartPhoneShop.Data.Migrations
+﻿ namespace SmartPhoneShop.Data.Migrations
 {
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;

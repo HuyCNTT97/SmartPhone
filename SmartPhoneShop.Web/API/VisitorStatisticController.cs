@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Web.Infrasture.Extension;
 using SmartPhoneShop.Web.Models;
@@ -13,7 +14,7 @@ using System.Web.Http;
 
 namespace SmartPhoneShop.Web.API
 {
-    [RoutePrefix("api/visitorStatistic")]
+    [RoutePrefix("api/visitor_statistic")]
     public class VisitorStatisticController : ApiControllerBase
     {
         private IVisitorStatisticService _visitorStatisticService;
@@ -25,14 +26,26 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listVisitorStatistic = _visitorStatisticService.GetAll();
-                var listVisitorStatisticVM = Mapper.Map<List<VisitorStatisticViewModel>>(listVisitorStatistic);
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listVisitorStatisticVM);
+                int totalRow = 0;
+                var model = _visitorStatisticService.GetAll(keyword);
 
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.ID).Skip(page * pageSize).Take(pageSize);
+
+                var responseData = Mapper.Map<IEnumerable<VisitorStatistic>, IEnumerable<VisitorStatisticViewModel>>(query);
+
+                var paginationSet = new PaginationSet<VisitorStatisticViewModel>()
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }

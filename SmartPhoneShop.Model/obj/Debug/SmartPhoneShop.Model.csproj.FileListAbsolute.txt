@@ -22,3 +22,19 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Ide
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csprojResolveAssemblyReference.cache
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.dll.config
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.pdb
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\bin\Debug\EntityFramework.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\bin\Debug\EntityFramework.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csprojAssemblyReference.cache
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csproj.CoreCompileInputs.cache
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csproj.CopyComplete
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.pdb

@@ -24,3 +24,22 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.I
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Service.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Service.pdb
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Data.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Model.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\EntityFramework.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Data.pdb
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Data.dll.config
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Model.pdb
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Model.dll.config
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\EntityFramework.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.csprojAssemblyReference.cache
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.csproj.CoreCompileInputs.cache
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.csproj.CopyComplete
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.pdb

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Web.Infrasture.Extension;
 using SmartPhoneShop.Web.Models;
@@ -13,7 +14,7 @@ using System.Web.Http;
 
 namespace SmartPhoneShop.Web.API
 {
-    [RoutePrefix("api/pricehistory")]
+    [RoutePrefix("api/price_history")]
     public class PriceHistoryController : ApiControllerBase
     {
         private IPriceHistoryService _priceHistoryService;
@@ -25,14 +26,26 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listPriceHistory = _priceHistoryService.GetAll();
-                var listPriceHistoryVM = Mapper.Map<List<PriceHistoryViewModel>>(listPriceHistory);
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listPriceHistoryVM);
+                int totalRow = 0;
+                var model = _priceHistoryService.GetAll(keyword);
 
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.ProductID).Skip(page * pageSize).Take(pageSize);
+
+                var responseData = Mapper.Map<IEnumerable<PriceHistory>, IEnumerable<PriceHistoryViewModel>>(query);
+
+                var paginationSet = new PaginationSet<PriceHistoryViewModel>()
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }

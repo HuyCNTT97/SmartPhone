@@ -39,3 +39,35 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.M
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabaseTable1.resources
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabaseTable2.resources
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabase.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Data.dll.config
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Data.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Data.pdb
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\EntityFramework.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Model.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Model.pdb
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\SmartPhoneShop.Model.dll.config
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\EntityFramework.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.csprojAssemblyReference.cache
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.InitialDB.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.IntergrateAspnetIdentity.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.ChangeKeyPrimaryOfUserRoleTable.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.changeDBTable.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.ChangeOrderDetailTable.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.UpdateDataInDatabase.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.UpdateDataInDatabase1.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.RestoreDatabase.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabaseTable.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabaseTable1.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabaseTable2.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.FixDatabase.resources
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.csproj.GenerateResource.cache
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.csproj.CoreCompileInputs.cache
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.csproj.CopyComplete
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.pdb

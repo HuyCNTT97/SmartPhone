@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Web.Infrasture.Extension;
 using SmartPhoneShop.Web.Models;
@@ -13,7 +14,7 @@ using System.Web.Http;
 
 namespace SmartPhoneShop.Web.API
 {
-    [RoutePrefix("api/suppostonline")]
+    [RoutePrefix("api/suppost_online")]
     public class SuppostOnlineController : ApiControllerBase
     {
         private ISuppostOnlineService _suppostOnlineService;
@@ -25,14 +26,26 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listSuppostOnline = _suppostOnlineService.GetAll();
-                var listSuppostOnlineVM = Mapper.Map<List<SuppostOnlineViewModel>>(listSuppostOnline);
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listSuppostOnlineVM);
+                int totalRow = 0;
+                var model = _suppostOnlineService.GetAll(keyword);
 
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.ID).Skip(page * pageSize).Take(pageSize);
+
+                var responseData = Mapper.Map<IEnumerable<SuppostOnline>, IEnumerable<SuppostOnlineViewModel>>(query);
+
+                var paginationSet = new PaginationSet<SuppostOnlineViewModel>()
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }

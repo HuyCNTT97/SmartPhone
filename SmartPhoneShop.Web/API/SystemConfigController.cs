@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Web.Infrasture.Extension;
 using SmartPhoneShop.Web.Models;
@@ -13,7 +14,7 @@ using System.Web.Http;
 
 namespace SmartPhoneShop.Web.API
 {
-    [RoutePrefix("api/systemconfig")]
+    [RoutePrefix("api/system_config")]
     public class SystemConfigController : ApiControllerBase
     {
         private ISystemConfigService _systemConfigService;
@@ -25,14 +26,26 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listSystemConfig = _systemConfigService.GetAll();
-                var listSystemConfigVM = Mapper.Map<List<SystemConfigViewModel>>(listSystemConfig);
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listSystemConfigVM);
+                int totalRow = 0;
+                var model = _systemConfigService.GetAll(keyword);
 
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.ID).Skip(page * pageSize).Take(pageSize);
+
+                var responseData = Mapper.Map<IEnumerable<SystemConfig>, IEnumerable<SystemConfigViewModel>>(query);
+
+                var paginationSet = new PaginationSet<SystemConfigViewModel>()
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }

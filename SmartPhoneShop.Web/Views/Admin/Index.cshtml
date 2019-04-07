@@ -224,13 +224,13 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-edit"></i> <span>Danh Mục Hóa Đơn</span>
+                            <i class="fa fa-edit"></i> <span>Danh Mục Order detail</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Hóa Đơn</a></li>
+                            <li><a ui-sref="order_detail"><i class="fa fa-circle-o"></i> Order detail</a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Hóa Đơn</a></li>
                         </ul>
                     </li>
@@ -320,13 +320,37 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
+                            <i class="fa fa-edit"></i><span>Danh Mục Order</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="order"><i class="fa fa-circle-o"></i> Xem order</a></li>
+                            <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i><span>Lịch sử giá</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="price_history"><i class="fa fa-circle-o"></i> xem lịch sử giá</a></li>
+                            <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
                             <i class="fa fa-edit"></i><span>Danh Mục MenuGroup</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Khách Hàng</a></li>
+                            <li><a ui-sref="menu_group"><i class="fa fa-circle-o"></i> Xem menu group </a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
                         </ul>
                     </li>
@@ -338,7 +362,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Khách Hàng</a></li>
+                            <li><a ui-sref="menu"><i class="fa fa-circle-o"></i> Menu </a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
                         </ul>
                     </li>
@@ -350,19 +374,19 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Khách Hàng</a></li>
+                            <li><a ui-sref="suppost_online"><i class="fa fa-circle-o"></i> Xem người hỗ trợ</a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-edit"></i><span>Danh Mục Người Hỗ Trợ</span>
+                            <i class="fa fa-edit"></i><span>Người Hỗ Trợ</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Khách Hàng</a></li>
+                            <li><a ui-sref="suppost_online"><i class="fa fa-circle-o"></i> Xem người hỗ trợ</a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
                         </ul>
                     </li>
@@ -378,6 +402,18 @@
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
                         </ul>
                     </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i><span>Cấu hình hệ thống</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="system_config"><i class="fa fa-circle-o"></i> Xem cấu hình hệ thống</a></li>
+                            <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
+                        </ul>
+                    </li>
 
                     <li class="treeview">
                         <a href="#">
@@ -387,7 +423,20 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Xem Khách Hàng</a></li>
+                            <li><a ui-sref="warranty"><i class="fa fa-circle-o"></i> Bảo hành</a></li>
+                            <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i><span>Thống kê truy cập</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="visitor_statistic"><i class="fa fa-circle-o"></i> Thống kê truy cập</a></li>
                             <li><a ui-sref="product_add"><i class="fa fa-circle-o"></i> Thêm Khách Hàng</a></li>
                         </ul>
                     </li>
@@ -633,12 +682,30 @@
 
     <script src="~/app/shared/directives/pagerDirective.js"></script>
     <!--module-->
+    <script src="~/app/components/visitor_statistic/visitor_statistic.module.js"></script>
+    <script src="~/app/components/warranty/warranty.module.js"></script>
+    <script src="~/app/components/system_config/system_config.module.js"></script>
+    <script src="~/app/components/suppost_online/suppost_online.module.js"></script>
+    <script src="~/app/components/menu_group/menu_group.module.js"></script>
+    <script src="~/app/components/order_detail/order_detail.module.js"></script>
+    <script src="~/app/components/order/order.module.js"></script>
     <script src="~/app/components/product/product.module.js"></script>
     <script src="~/app/components/product_category/productCategory.module.js"></script>
+    <script src="~/app/components/menu/menu.module.js"></script>
+    <script src="~/app/components/price_history/price_history.module.js"></script>
     <!--app-->
     <script src="~/app/app.js"></script>
 
     <!--controller-->
+    <script src="~/app/components/price_history/price_historyListController.js"></script>
+    <script src="~/app/components/visitor_statistic/visitor_statisticListController.js"></script>
+    <script src="~/app/components/warranty/warrantyListController.js"></script>
+    <script src="~/app/components/system_config/system_configListController.js"></script>
+    <script src="~/app/components/suppost_online/suppost_onlineListController.js"></script>
+    <script src="~/app/components/menu_group/menu_groupListController.js"></script>
+    <script src="~/app/components/order_detail/order_detailListController.js"></script>
+    <script src="~/app/components/order/orderListController.js"></script>
+    <script src="~/app/components/menu/menuListController.js"></script>
     <script src="~/app/components/product/productAddController.js"></script>
     <script src="~/app/components/product/productListController.js"></script>
     <script src="~/app/components/home/HomeController.js"></script>
