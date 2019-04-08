@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('post_categoryListController', post_categoryListController)
-    post_categoryListController.$inject = ['$scope', 'apiService', 'notificationService']
-    function post_categoryListController($scope, apiService, notificationService) {
+    post_categoryListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox']
+    function post_categoryListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.post_category = []
         $scope.page = 0
         $scope.pagesCount = 0
@@ -23,6 +23,23 @@
         $scope.change = change
         function change() {
             $scope.getPost_Category()
+        }
+        $scope.deletePostCategory = deletePostCategory;
+        function deletePostCategory(id) {
+            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
+                var config = {
+                    params:
+                         {
+                             id: id
+                         }
+                }
+                apiService.del('/api/post_category/delete', config, function () {
+                    notificationService.displaySuccess('Xóa thành công');
+                    search();
+                }, function () {
+                    notificationService.displayError('Xóa không thành công');
+                })
+            });
         }
         function getPost_Category(page) {
             page = page || 0

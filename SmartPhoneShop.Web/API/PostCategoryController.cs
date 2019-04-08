@@ -134,6 +134,8 @@ namespace SmartPhoneShop.Web.API
             });
         }
 
+        [Route("delete")]
+        [HttpDelete]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>

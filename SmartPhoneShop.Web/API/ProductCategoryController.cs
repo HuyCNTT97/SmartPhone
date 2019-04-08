@@ -12,6 +12,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 
 namespace SmartPhoneShop.Web.API
 {
@@ -134,6 +135,8 @@ namespace SmartPhoneShop.Web.API
             });
         }
 
+        [Route("delete")]
+        [HttpDelete]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
@@ -153,5 +156,28 @@ namespace SmartPhoneShop.Web.API
                 return response;
             });
         }
+
+        //[Route("deletemulti")]
+        //[HttpDelete]
+        //public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string listID)
+        //{
+        //    return CreateHttpResponse(request, () =>
+        //    {
+        //        HttpResponseMessage response = null;
+        //        if (!ModelState.IsValid)
+        //        {
+        //            request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+        //        }
+        //        else
+        //        {
+        //            var ids= new JavaScriptSerializer
+        //            _productCategoryService.Delete(id);
+        //            _productCategoryService.SaveChanges();
+
+        //            response = request.CreateResponse(HttpStatusCode.OK);
+        //        }
+        //        return response;
+        //    });
+        //}
     }
 }
