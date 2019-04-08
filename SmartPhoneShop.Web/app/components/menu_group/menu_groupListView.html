@@ -59,10 +59,6 @@
                                 <tr role="row" class="bg-black">
                                     <th>Mã Loại menu</th>
                                     <th>Tên </th>
-                                    <th>URL</th>
-                                    <th>GroupID</th>
-                                    <th>Target</th>
-                                    <th>Trạng Thái</th>
                                     <th>Các Chức Năng</th>
                                 </tr>
                             </thead>
@@ -71,14 +67,6 @@
                                 <tr ng-repeat="item in menu_group">
                                     <td>{{item.ID}}</td>
                                     <td>{{item.Name}}</td>
-                                    <td>{{item.URL}}</td>
-                                    <td>{{item.GroupID}}</td>
-                                    <td>{{item.Target}}</td>
-
-                                    <td ng-class="{'badge bg-red':item.Status==false,
-                                        'badge bg-green':item.Status==true}">
-                                        {{item.Status|statusFilter}}
-                                    </td>
                                     <td>
                                         <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
                                         <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
