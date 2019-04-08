@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('productListController', productListController)
-    productListController.$inject = ['$scope', 'apiService', 'notificationService']
-    function productListController($scope, apiService, notificationService) {
+    productListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox']
+    function productListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.product = []
         $scope.page = 0
         $scope.pagesCount = 0
@@ -24,6 +24,27 @@
         function change() {
             $scope.getProduct()
         }
+
+        //Delete ở đây
+        $scope.deleteProduct = deleteProduct;
+        function deleteProduct(id) {
+            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
+                var config = {
+                    params:
+                         {
+                             id: id
+                         }
+                }
+                apiService.del('/api/product/delete', config, function () {
+                    notificationService.displaySuccess('Xóa thành công');
+                    search();
+                }, function () {
+                    notificationService.displayError('Xóa không thành công');
+                })
+            });
+        }
+
+        //kết thúc delete
         function getProduct(page) {
             page = page || 0
             var config = {

@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('postListController', postListController)
-    postListController.$inject = ['$scope', 'apiService', 'notificationService']
-    function postListController($scope, apiService, notificationService) {
+    postListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox']
+    function postListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.post = []
         $scope.page = 0
         $scope.pagesCount = 0
@@ -25,6 +25,23 @@
         function change() {
             $scope.getPost()
         }
+        $scope.deletePost = deletePost;
+        function deletePost(id) {
+            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
+                var config = {
+                    params:
+                         {
+                             id: id
+                         }
+                }
+                apiService.del('/api/post/delete', config, function () {
+                    notificationService.displaySuccess('Xóa thành công');
+                    search();
+                }, function () {
+                    notificationService.displayError('Xóa không thành công');
+                })
+            });
+        }
         function getPost(page) {
             page = page || 0
             var config = {
@@ -44,7 +61,7 @@
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;
                 $scope.post = result.data.Items;
-                $scope.CategoryName = result.data.PostCategoryName
+                $scope.CategoryName = result.data.PostName
             }, function () {
                 console.log('Load post failed.');
             });

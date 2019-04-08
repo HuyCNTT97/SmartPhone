@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('slideListController', slideListController)
-    slideListController.$inject = ['$scope', 'apiService', 'notificationService']
-    function slideListController($scope, apiService, notificationService) {
+    slideListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox']
+    function slideListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.slide = []
         $scope.page = 0
         $scope.pagesCount = 0
@@ -23,6 +23,23 @@
         $scope.change = change
         function change() {
             $scope.getSlide()
+        }
+        $scope.deleteSlide = deleteSlide;
+        function deleteSlide(id) {
+            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
+                var config = {
+                    params:
+                         {
+                             id: id
+                         }
+                }
+                apiService.del('/api/slide/delete', config, function () {
+                    notificationService.displaySuccess('Xóa thành công');
+                    search();
+                }, function () {
+                    notificationService.displayError('Xóa không thành công');
+                })
+            });
         }
         function getSlide(page) {
             page = page || 0
