@@ -88,7 +88,10 @@
                                                 ui-sref="post_edit({id:item.ID})" title="Chỉnh Sửa">
                                             <i class="fa fa-pencil"></i>
                                         </button>
-                                        <button class="btn btn-sm btn-danger" title="Xóa"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-danger"
+                                                ng-click="deletePost(item.ID)" title="Xóa">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
