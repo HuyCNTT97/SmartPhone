@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('post_categoryAddController', post_categoryAddController)
-    post_categoryAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state']
-    function post_categoryAddController($scope, apiService, notificationService, $state) {
+    post_categoryAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state', 'commonService']
+    function post_categoryAddController($scope, apiService, notificationService, $state, commonService) {
         $scope.post_category = {
             CreatedDate: new Date(),
             Status: true,
@@ -13,6 +13,10 @@
                 notificationService.displayError("bạn phải nhập giá trị ô " + data);
                 return true;
             }
+        }
+        $scope.GetSeoTitile = GetSeoTitile
+        function GetSeoTitile() {
+            $scope.post_category.Alias = commonService.getSeoTitle($scope.post_category.Name);
         }
         $scope.AddPostCategory = AddPostCategory
         function AddPostCategory() {
@@ -30,7 +34,7 @@
                 $scope.listPostCategory = result.data
                 console.log(result.data)
             }, function () {
-                console.log("load product category parent fail")
+                console.log("load post_category category parent fail")
             })
         }
         loadParentCategory()

@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/suppostonline")]
+    [Authorize]
     public class SuppostOnlineController : ApiControllerBase
     {
         private ISuppostOnlineService _suppostOnlineService;

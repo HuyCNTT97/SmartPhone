@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('productListController', productListController)
-    productListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox']
-    function productListController($scope, apiService, notificationService, $ngBootbox) {
+    productListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter']
+    function productListController($scope, apiService, notificationService, $ngBootbox, $filter) {
         $scope.product = []
         $scope.page = 0
         $scope.pagesCount = 0
@@ -45,6 +45,54 @@
         }
 
         //kết thúc delete
+        //Xóa nhiều dòng
+        $scope.$watch("product", function (n, o) {
+            var checked = $filter("filter")(n, { checked: true });
+            if (checked.length) {
+                $scope.selected = checked;
+                $('#btnDelete').removeAttr('disabled');
+            } else {
+                $('#btnDelete').attr('disabled', 'disabled');
+            }
+        }, true);
+        $scope.selectAll = selectAll;
+
+        $scope.deleteMultiple = deleteMultiple;
+
+        function deleteMultiple() {
+            var listId = [];
+            $.each($scope.selected, function (i, item) {
+                listId.push(item.ID);
+            });
+            var config = {
+                params: {
+                    listID: JSON.stringify(listId)
+                }
+            }
+            apiService.del('/api/product/deletemulti', config, function (result) {
+                notificationService.displaySuccess('Xóa thành công ' + result.data + ' bản ghi.');
+                search();
+            }, function (error) {
+                notificationService.displayError('Xóa không thành công');
+            });
+        }
+
+        $scope.isAll = false;
+        function selectAll() {
+            if ($scope.isAll === false) {
+                angular.forEach($scope.product, function (item) {
+                    item.checked = true;
+                });
+                $scope.isAll = true;
+            } else {
+                angular.forEach($scope.product, function (item) {
+                    item.checked = false;
+                });
+                $scope.isAll = false;
+            }
+        }
+
+        //kết thúc Xóa
         function getProduct(page) {
             page = page || 0
             var config = {

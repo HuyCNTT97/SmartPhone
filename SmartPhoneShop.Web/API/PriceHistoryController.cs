@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/pricehistory")]
+    [Authorize]
     public class PriceHistoryController : ApiControllerBase
     {
         private IPriceHistoryService _priceHistoryService;

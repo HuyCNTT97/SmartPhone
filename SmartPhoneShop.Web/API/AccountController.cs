@@ -1,21 +1,17 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
 using SmartPhoneShop.Web.App_Start;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 
-namespace SmartPhoneShop.Web.API
+namespace SmartPhoneShop.Web.Api
 {
     [RoutePrefix("api/account")]
     public class AccountController : ApiController
     {
         private ApplicationSignInManager _signInManager;
-
         private ApplicationUserManager _userManager;
 
         public AccountController()
@@ -34,7 +30,6 @@ namespace SmartPhoneShop.Web.API
             {
                 return _signInManager ?? HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>();
             }
-
             private set
             {
                 _signInManager = value;
@@ -47,7 +42,6 @@ namespace SmartPhoneShop.Web.API
             {
                 return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
-
             private set
             {
                 _userManager = value;
@@ -63,7 +57,6 @@ namespace SmartPhoneShop.Web.API
             {
                 return request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
-
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(userName, password, rememberMe, shouldLockout: false);

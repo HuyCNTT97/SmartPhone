@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/menu")]
+    [Authorize]
     public class MenuController : ApiControllerBase
     {
         private IMenuService _menuService;

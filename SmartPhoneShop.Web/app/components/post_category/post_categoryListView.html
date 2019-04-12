@@ -58,6 +58,11 @@
                             class="btn btn-success">
                         Thêm mới
                     </button>
+                    <button ng-click="deleteMultiple()"
+                            id="btnDelete" disabled
+                            class="btn btn-warning">
+                        Xóa các dòng đã chọn
+                    </button>
                 </div>
                 <div class="col-sm-12">
                     <table id="example1" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="example1_info">
@@ -70,6 +75,13 @@
                                 <th>Ngày tạo</th>
                                 <th>Trạng Thái</th>
                                 <th>Các Chức Năng</th>
+                                <th>
+                                    <label>
+                                        <input name="all"
+                                               type="checkbox" ng-click="selectAll()" />
+                                        Chọn tất cả
+                                    </label>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,6 +106,7 @@
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </td>
+                                <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
                             </tr>
                         </tbody>
                     </table>

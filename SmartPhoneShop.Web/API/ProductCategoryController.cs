@@ -17,6 +17,7 @@ using System.Web.Script.Serialization;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/product_category")]
+    [Authorize]
     public class ProductCategoryController : ApiControllerBase
     {
         private IProductCategoryService _productCategoryService;
@@ -157,27 +158,30 @@ namespace SmartPhoneShop.Web.API
             });
         }
 
-        //[Route("deletemulti")]
-        //[HttpDelete]
-        //public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string listID)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        HttpResponseMessage response = null;
-        //        if (!ModelState.IsValid)
-        //        {
-        //            request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            var ids= new JavaScriptSerializer
-        //            _productCategoryService.Delete(id);
-        //            _productCategoryService.SaveChanges();
+        [Route("deletemulti")]
+        [HttpDelete]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string listID)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var ids = new JavaScriptSerializer().Deserialize<List<int>>(listID);
+                    foreach (var id in ids)
+                    {
+                        _productCategoryService.Delete(id);
+                    }
+                    _productCategoryService.SaveChanges();
 
-        //            response = request.CreateResponse(HttpStatusCode.OK);
-        //        }
-        //        return response;
-        //    });
-        //}
+                    response = request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                return response;
+            });
+        }
     }
 }

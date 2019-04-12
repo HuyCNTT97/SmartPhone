@@ -15,6 +15,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/post_tag")]
+    [Authorize]
     public class PostTagController : ApiControllerBase
     {
         private IPostTagService _postTagService;

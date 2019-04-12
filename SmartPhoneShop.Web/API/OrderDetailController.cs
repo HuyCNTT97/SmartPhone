@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/orderdetail")]
+    [Authorize]
     public class OrderDetailController : ApiControllerBase
     {
         private IOrderDetailService _orderDetailService;

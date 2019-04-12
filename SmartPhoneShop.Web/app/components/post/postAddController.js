@@ -1,12 +1,16 @@
 ﻿(function (app) {
     app.controller('postAddController', postAddController)
-    postAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state']
-    function postAddController($scope, apiService, notificationService, $state) {
+    postAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state', 'commonService']
+    function postAddController($scope, apiService, notificationService, $state, commonService) {
         $scope.post = {
             CreatedDate: new Date(),
             Status: true,
             CreateBy: 'Huy',
-            PostCategoryID: 1
+            PostCategoryID: 0
+        }
+        $scope.GetSeoTitile = GetSeoTitile
+        function GetSeoTitile() {
+            $scope.post.Alias = commonService.getSeoTitle($scope.post.Name);
         }
         $scope.required = required
         function required(check, data) {
@@ -33,6 +37,19 @@
             }, function () {
                 console.log("load product category parent fail")
             })
+        }
+        $scope.ckeditorOptions = {
+            language: 'vi',
+            height: '200px'
+        }
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.post.Image = fileUrl;
+                })
+            }
+            finder.popup();
         }
         loadParentCategory()
     }

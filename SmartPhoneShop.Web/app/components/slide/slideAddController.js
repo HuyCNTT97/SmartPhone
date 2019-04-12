@@ -17,5 +17,14 @@
                 notificationService.displayError('Thêm không thành công')
             })
         }
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.post.Image = fileUrl;
+                })
+            }
+            finder.popup();
+        }
     }
 })(angular.module('smartphone.slide'))

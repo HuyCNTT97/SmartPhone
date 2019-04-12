@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/customer")]
+    [Authorize]
     public class CustomerController : ApiControllerBase
     {
         private ICustomerService _customerService;

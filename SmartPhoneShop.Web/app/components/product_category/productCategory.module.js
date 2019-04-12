@@ -5,14 +5,19 @@
     function config($stateProvider, $urlRouterProvider) {
         $stateProvider.state('product_category', {
             url: "/product_category",
+            parent: 'base',
             templateUrl: "/app/components/product_category/product_categoryListView.html",
             controller: "product_categoryListController"
         }).state('product_category_add', {
             url: "/product_category_add",
+            parent: 'base',
+
             templateUrl: "/app/components/product_category/product_categoryAddView.html",
             controller: "product_categoryAddController"
         }).state('product_category_edit', {
             url: '/product_category_edit/:id',
+            parent: 'base',
+
             templateUrl: "/app/components/product_category/product_categoryEditView.html",
             controller: "product_categoryEditController"
         })

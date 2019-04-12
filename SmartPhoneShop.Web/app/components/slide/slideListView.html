@@ -57,6 +57,11 @@
                                 ui-sref="slide_add">
                             Thêm mới
                         </button>
+                        <button ng-click="deleteMultiple()"
+                                id="btnDelete" disabled
+                                class="btn btn-danger">
+                            Xóa các dòng đã chọn
+                        </button>
                     </div>
                 </div><div class="row">
                     <div class="col-sm-12">
@@ -70,6 +75,13 @@
                                     <th>Đường Dẫn</th>
                                     <th>Trạng Thái</th>
                                     <th>Các Chức Năng</th>
+                                    <th>
+                                        <label>
+                                            <input name="all"
+                                                   type="checkbox" ng-click="selectAll()" />
+                                            Chọn tất cả
+                                        </label>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -94,6 +106,7 @@
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </td>
+                                    <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
                                 </tr>
                             </tbody>
                         </table>

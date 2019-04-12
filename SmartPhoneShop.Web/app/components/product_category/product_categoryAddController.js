@@ -7,6 +7,7 @@
             Status: true,
             CreateBy: 'Huy'
         }
+
         $scope.required = required
         function required(check, data) {
             if (check == false) {
@@ -32,6 +33,15 @@
             }, function () {
                 console.log("load product category parent fail")
             })
+        }
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.product_category.Image = fileUrl;
+                })
+            }
+            finder.popup();
         }
         loadParentCategory()
     }

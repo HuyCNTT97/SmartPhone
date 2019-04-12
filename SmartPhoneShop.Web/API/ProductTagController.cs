@@ -15,6 +15,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/product_tag")]
+    [Authorize]
     public class ProductTagController : ApiControllerBase
     {
         private IProductTagService _productTagService;

@@ -11,10 +11,12 @@ using System.Net.Http;
 using System.Web.Http;
 using SmartPhoneShop.Web.Infrasture.Extension;
 using SmartPhoneShop.Web.Infrastructure.Core;
+using System.Web.Script.Serialization;
 
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/post_category")]
+    [Authorize]
     public class PostCategoryController : ApiControllerBase
     {
         private IPostCategoryService _postCategoryService;
@@ -151,6 +153,32 @@ namespace SmartPhoneShop.Web.API
                     _postCategoryService.SaveChanges();
 
                     response = request.CreateResponse(HttpStatusCode.OK);
+                }
+                return response;
+            });
+        }
+
+        [Route("deletemulti")]
+        [HttpDelete]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string listID)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var ids = new JavaScriptSerializer().Deserialize<List<int>>(listID);
+                    foreach (var id in ids)
+                    {
+                        _postCategoryService.Delete(id);
+                    }
+                    _postCategoryService.SaveChanges();
+
+                    response = request.CreateResponse(HttpStatusCode.OK, true);
                 }
                 return response;
             });

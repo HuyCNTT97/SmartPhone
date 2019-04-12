@@ -38,7 +38,19 @@
                 console.log('Cannot get list parent');
             });
         }
-
+        $scope.ckeditorOptions = {
+            language: 'vi',
+            height: '200px'
+        }
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.post.Image = fileUrl;
+                })
+            }
+            finder.popup();
+        }
         loadParentCategory();
         loadPostDetail();
     }

@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/visitorStatistic")]
+    [Authorize]
     public class VisitorStatisticController : ApiControllerBase
     {
         private IVisitorStatisticService _visitorStatisticService;

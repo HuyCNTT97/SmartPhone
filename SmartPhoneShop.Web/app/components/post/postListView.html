@@ -55,6 +55,10 @@
                 </div><div class="row">
                     <div class="col-sm-6">
                         <button class="btn btn-success" ui-sref="post_add">Thêm mới </button>
+                        <button class="btn btn-danger" ng-click="deleteMultiple()"
+                                id="btnDelete" disabled>
+                            Xóa các dòng đã chọn
+                        </button>
                     </div>
                     <div class="col-sm-12">
                         <table id="example1" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="example1_info">
@@ -68,13 +72,23 @@
                                     <th>Ngày tạo</th>
                                     <th>Trạng Thái</th>
                                     <th>Các Chức Năng</th>
+                                    <th><label><input type="checkbox" name="all" ng-click="selectAll()" />Chọn tất cả</label></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="item in post">
                                     <td>{{item.ID}}</td>
                                     <td>{{item.Name}}</td>
-                                    <td>{{item.Image}}</td>
+                                    <td ng-show="item.Image!=null">
+                                        <img src="{{item.Image}}"
+                                             height="150"
+                                             width="150" alt="không có ảnh" />
+                                    </td>
+                                    <td ng-show="item.Image==null">
+                                        <img src="/UploadedFiles/images/noimage.jpg"
+                                             height="150"
+                                             width="150" alt="không có ảnh" />
+                                    </td>
                                     <td>{{item.PostCategoryName}}</td>
                                     <td>{{item.CreateBy}}</td>
                                     <td>{{item.CreatedDate|date:'dd/MM/yyyy hh:mm:ss'}}</td>
@@ -93,6 +107,7 @@
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </td>
+                                    <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
                                 </tr>
                             </tbody>
                         </table>

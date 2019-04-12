@@ -10,12 +10,14 @@
             Promotion: 0,
             ProductCategoryID: 1
         }
+
         $scope.GetSeoTitile = GetSeoTitile
         function GetSeoTitile() {
             $scope.product.Alias = commonService.getSeoTitle($scope.product.Name);
         }
         $scope.AddProduct = AddProduct
         function AddProduct() {
+            $scope.product.MoreImages = JSON.stringify($scope.moreImages)
             apiService.post('/api/product/add', $scope.product, function (result) {
                 notificationService.displaySuccess(result.data.Name + ' Đã được thêm thành công')
                 $state.go('product')
@@ -34,5 +36,29 @@
             })
         }
         loadParentCategory()
+        $scope.ckeditorOptions = {
+            language: 'vi',
+            height: '200px'
+        }
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.product.Image = fileUrl;
+                })
+            }
+            finder.popup();
+        }
+        $scope.moreImages = [];
+
+        $scope.ChooseMoreImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.moreImages.push(fileUrl);
+                })
+            }
+            finder.popup();
+        }
     }
 })(angular.module('smartphone.product'))

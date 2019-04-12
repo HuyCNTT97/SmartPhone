@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/footer")]
+    [Authorize]
     public class FooterController : ApiControllerBase
     {
         private IFooterService _footerService;

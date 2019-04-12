@@ -6,12 +6,15 @@
         $stateProvider.state('post', {
             url: "/post",
             templateUrl: "/app/components/post/postListView.html",
-            controller: "postListController"
+            controller: "postListController",
+            parent:'base',
         }).state('post_add', {
+            parent:'base',
             url: "/post_add",
             templateUrl: "/app/components/post/postAddView.html",
             controller: "postAddController"
         }).state('post_edit', {
+            parent:'base',
             url: "/post_edit/:id",
             templateUrl: "/app/components/post/postEditView.html",
             controller: "postEditController"

@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/warranty")]
+    [Authorize]
     public class WarrantyController : ApiControllerBase
     {
         private IWarrantyService _warrantyService;

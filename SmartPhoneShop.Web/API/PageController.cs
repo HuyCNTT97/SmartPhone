@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/page")]
+    [Authorize]
     public class PageController : ApiControllerBase
     {
         private IPageService _pageService;

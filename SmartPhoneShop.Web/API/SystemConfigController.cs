@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.API
 {
     [RoutePrefix("api/systemconfig")]
+    [Authorize]
     public class SystemConfigController : ApiControllerBase
     {
         private ISystemConfigService _systemConfigService;

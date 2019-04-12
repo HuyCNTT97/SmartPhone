@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('post_categoryListController', post_categoryListController)
-    post_categoryListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox']
-    function post_categoryListController($scope, apiService, notificationService, $ngBootbox) {
+    post_categoryListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter']
+    function post_categoryListController($scope, apiService, notificationService, $ngBootbox, $filter) {
         $scope.post_category = []
         $scope.page = 0
         $scope.pagesCount = 0
@@ -13,7 +13,42 @@
             ],
             model: { value: 1, name: "1 dòng" }
         }
+        $scope.selectAll = selectAll;
 
+        $scope.deleteMultiple = deleteMultiple;
+
+        function deleteMultiple() {
+            var listId = [];
+            $.each($scope.selected, function (i, item) {
+                listId.push(item.ID);
+            });
+            var config = {
+                params: {
+                    listID: JSON.stringify(listId)
+                }
+            }
+            apiService.del('/api/post_category/deletemulti', config, function (result) {
+                notificationService.displaySuccess('Xóa thành công ' + result.data + ' bản ghi.');
+                search();
+            }, function (error) {
+                notificationService.displayError('Xóa không thành công');
+            });
+        }
+
+        $scope.isAll = false;
+        function selectAll() {
+            if ($scope.isAll === false) {
+                angular.forEach($scope.post_category, function (item) {
+                    item.checked = true;
+                });
+                $scope.isAll = true;
+            } else {
+                angular.forEach($scope.post_category, function (item) {
+                    item.checked = false;
+                });
+                $scope.isAll = false;
+            }
+        }
         $scope.getPost_Category = getPost_Category;
         $scope.keyword = ''
         $scope.search = search
@@ -25,6 +60,15 @@
             $scope.getPost_Category()
         }
         $scope.deletePostCategory = deletePostCategory;
+        $scope.$watch("post_category", function (n, o) {
+            var checked = $filter("filter")(n, { checked: true });
+            if (checked.length) {
+                $scope.selected = checked;
+                $('#btnDelete').removeAttr('disabled');
+            } else {
+                $('#btnDelete').attr('disabled', 'disabled');
+            }
+        }, true);
         function deletePostCategory(id) {
             $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
                 var config = {
