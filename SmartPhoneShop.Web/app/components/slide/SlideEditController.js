@@ -30,7 +30,7 @@
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
                 $scope.$apply(function () {
-                    $scope.post.Image = fileUrl;
+                    $scope.slide.Image = fileUrl;
                 })
             }
             finder.popup();

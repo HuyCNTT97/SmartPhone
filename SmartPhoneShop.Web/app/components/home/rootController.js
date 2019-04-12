@@ -10,6 +10,6 @@
         }
         $scope.authentication = authData.authenticationData;
         $scope.sideBar = "/app/shared/views/sideBar.html";
-        authenticationService.validateRequest();
+        //authenticationService.validateRequest();
     }
 })(angular.module('smartphone'));
