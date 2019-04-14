@@ -5,8 +5,13 @@
 
     function productEditController(apiService, $scope, notificationService, $state, $stateParams, commonService) {
         $scope.product = {
-            CreatedDate: new Date(),
-            Status: true
+            UpdatedDate: new Date(),
+            Status: true,
+            UpdateBy: 'Huy',
+            Content: '',
+            Promotion: 0,
+            ProductCategoryID: 22,
+            Quantity: 20
         }
         $scope.moreImages = [];
 
@@ -36,7 +41,7 @@
                 });
         }
         function loadParentCategory() {
-            apiService.get('/api/product/getallparent', null, function (result) {
+            apiService.get('/api/product_category/getallparent', null, function (result) {
                 $scope.listProduct = result.data;
             }, function () {
                 console.log('Cannot get list parent');

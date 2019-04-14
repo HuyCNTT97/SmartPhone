@@ -7,11 +7,11 @@
         $scope.pagesCount = 0
         $scope.keyword = ""
         $scope.option = {
-            options: [{ value: 1, name: "1 dòng" },
-            { value: 5, name: "5 dòng" },
-            { value: 10, name: "10 dòng" }
+            options: [{ value: 10, name: "10 dòng" },
+            { value: 20, name: "20 dòng" },
+            { value: 30, name: "30 dòng" }
             ],
-            model: { value: 1, name: "1 dòng" }
+            model: { value: 10, name: "10 dòng" }
         }
 
         $scope.getProduct = getProduct;

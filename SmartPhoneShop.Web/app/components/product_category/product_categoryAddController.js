@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('product_categoryAddController', product_categoryAddController)
-    product_categoryAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state']
-    function product_categoryAddController($scope, apiService, notificationService, $state) {
+    product_categoryAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state','commonService']
+    function product_categoryAddController($scope, apiService, notificationService, $state, commonService) {
         $scope.product_category = {
             CreatedDate: new Date(),
             Status: true,
@@ -14,6 +14,10 @@
                 notificationService.displayError("bạn phải nhập giá trị ô " + data);
                 return true;
             }
+        }
+        $scope.GetSeoTitile = GetSeoTitile
+        function GetSeoTitile() {
+            $scope.product_category.Alias = commonService.getSeoTitle($scope.product_category.Name);
         }
         $scope.AddProductCategory = AddProductCategory
         function AddProductCategory() {

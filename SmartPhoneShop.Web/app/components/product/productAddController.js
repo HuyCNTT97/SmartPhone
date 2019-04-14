@@ -8,7 +8,8 @@
             CreateBy: 'Huy',
             Content: '',
             Promotion: 0,
-            ProductCategoryID: 1
+            ProductCategoryID: 22,
+            Quantity:20
         }
 
         $scope.GetSeoTitile = GetSeoTitile
@@ -50,7 +51,15 @@
             finder.popup();
         }
         $scope.moreImages = [];
-
+        $scope.DeleteOneImage = DeleteOneImage
+        function DeleteOneImage(image) {
+            var index = $scope.moreImages.indexOf(image);
+            $scope.moreImages.splice(index, 1);
+        }
+        $scope.DeleteMoreImage = DeleteMoreImage
+        function DeleteMoreImage() {
+            $scope.moreImages = [];
+        }
         $scope.ChooseMoreImage = function () {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
