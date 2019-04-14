@@ -27,113 +27,113 @@
 
             CreateUser(context);
 
-            #endregion User
+            //#endregion User
 
-            #region ProductCategory
+            //#region ProductCategory
 
-            if (context.ProductCategory.Count() == 0)
-            {
-                CreateProductCategory(context);
-            }
+            //if (context.ProductCategory.Count() == 0)
+            //{
+            //    CreateProductCategory(context);
+            //}
 
-            #endregion ProductCategory
+            //#endregion ProductCategory
 
-            #region Customer
+            //#region Customer
 
-            if (context.Customer.Count() == 0)
-            {
-                CreateCustomer(context);
-            }
+            //if (context.Customer.Count() == 0)
+            //{
+            //    CreateCustomer(context);
+            //}
 
-            #endregion Customer
+            //#endregion Customer
 
-            #region MenuGroup
+            //#region MenuGroup
 
-            if (context.MenuGroups.Count() == 0)
-            {
-                CreateMenuGroup(context);
-            }
+            //if (context.MenuGroups.Count() == 0)
+            //{
+            //    CreateMenuGroup(context);
+            //}
 
-            #endregion MenuGroup
+            //#endregion MenuGroup
 
-            #region Menu
+            //#region Menu
 
-            if (context.Menu.Count() == 0)
-            {
-                CreateMenu(context);
-            }
+            //if (context.Menu.Count() == 0)
+            //{
+            //    CreateMenu(context);
+            //}
 
-            #endregion Menu
+            //#endregion Menu
 
-            #region Footer
+            //#region Footer
 
-            if (context.Footers.Count() == 0)
-            {
-                CreateFooter(context);
-            }
+            //if (context.Footers.Count() == 0)
+            //{
+            //    CreateFooter(context);
+            //}
 
-            #endregion Footer
+            //#endregion Footer
 
-            #region Order
+            //#region Order
 
-            if (context.Order.Count() == 0)
-            {
-                CreateOrder(context);
-            }
+            //if (context.Order.Count() == 0)
+            //{
+            //    CreateOrder(context);
+            //}
 
-            #endregion Order
+            //#endregion Order
 
-            #region Tag
+            //#region Tag
 
-            if (context.Tag.Count() == 0)
-            {
-                CreateTag(context);
-            }
+            //if (context.Tag.Count() == 0)
+            //{
+            //    CreateTag(context);
+            //}
 
-            #endregion Tag
+            //#endregion Tag
 
-            #region Warranty
+            //#region Warranty
 
-            if (context.Warranty.Count() == 0)
-            {
-                CreateWarranty(context);
-            }
+            //if (context.Warranty.Count() == 0)
+            //{
+            //    CreateWarranty(context);
+            //}
 
-            #endregion Warranty
+            //#endregion Warranty
 
-            #region PostCategory
+            //#region PostCategory
 
-            if (context.PostCategory.Count() == 0)
-            {
-                CreatePostCategory(context);
-            }
+            //if (context.PostCategory.Count() == 0)
+            //{
+            //    CreatePostCategory(context);
+            //}
 
-            #endregion PostCategory
+            //#endregion PostCategory
 
-            #region Post
+            //#region Post
 
-            if (context.Post.Count() == 0)
-            {
-                CreatePost(context);
-            }
+            //if (context.Post.Count() == 0)
+            //{
+            //    CreatePost(context);
+            //}
 
-            #endregion Post
+            //#endregion Post
 
-            #region PostTag
+            //#region PostTag
 
-            if (context.PostTag.Count() == 0)
-            {
-                CreatePostTag(context);
-            }
+            //if (context.PostTag.Count() == 0)
+            //{
+            //    CreatePostTag(context);
+            //}
 
-            #endregion PostTag
+            //#endregion PostTag
 
-            #region Product
+            //#region Product
 
-            if (context.Product.Count() == 0)
-            {
-                CreateProduct(context);
-            }
+            //if (context.Product.Count() == 0)
+            //{
+            //    CreateProduct(context);
+            //}
 
             #endregion Product
 

@@ -88,65 +88,9 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201903150851558_InitialDB.cs" />
-    <Compile Include="Migrations\201903150851558_InitialDB.Designer.cs">
-      <DependentUpon>201903150851558_InitialDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903240534011_Intergrate-AspnetIdentity.cs" />
-    <Compile Include="Migrations\201903240534011_Intergrate-AspnetIdentity.Designer.cs">
-      <DependentUpon>201903240534011_Intergrate-AspnetIdentity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903240645484_ChangeKeyPrimaryOfUserRoleTable.cs" />
-    <Compile Include="Migrations\201903240645484_ChangeKeyPrimaryOfUserRoleTable.Designer.cs">
-      <DependentUpon>201903240645484_ChangeKeyPrimaryOfUserRoleTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903281449057_changeDBTable.cs" />
-    <Compile Include="Migrations\201903281449057_changeDBTable.Designer.cs">
-      <DependentUpon>201903281449057_changeDBTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903310452489_ChangeOrderDetailTable.cs" />
-    <Compile Include="Migrations\201903310452489_ChangeOrderDetailTable.Designer.cs">
-      <DependentUpon>201903310452489_ChangeOrderDetailTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903311613070_UpdateDataInDatabase.cs" />
-    <Compile Include="Migrations\201903311613070_UpdateDataInDatabase.Designer.cs">
-      <DependentUpon>201903311613070_UpdateDataInDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903311622251_UpdateDataInDatabase1.cs" />
-    <Compile Include="Migrations\201903311622251_UpdateDataInDatabase1.Designer.cs">
-      <DependentUpon>201903311622251_UpdateDataInDatabase1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903311629087_RestoreDatabase.cs" />
-    <Compile Include="Migrations\201903311629087_RestoreDatabase.Designer.cs">
-      <DependentUpon>201903311629087_RestoreDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903311741061_FixDatabaseTable.cs" />
-    <Compile Include="Migrations\201903311741061_FixDatabaseTable.Designer.cs">
-      <DependentUpon>201903311741061_FixDatabaseTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903311747123_FixDatabaseTable1.cs" />
-    <Compile Include="Migrations\201903311747123_FixDatabaseTable1.Designer.cs">
-      <DependentUpon>201903311747123_FixDatabaseTable1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903311750074_FixDatabaseTable2.cs" />
-    <Compile Include="Migrations\201903311750074_FixDatabaseTable2.Designer.cs">
-      <DependentUpon>201903311750074_FixDatabaseTable2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904020313564_FixDatabase.cs" />
-    <Compile Include="Migrations\201904020313564_FixDatabase.Designer.cs">
-      <DependentUpon>201904020313564_FixDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904070415386_ChangeDBProduct.cs" />
-    <Compile Include="Migrations\201904070415386_ChangeDBProduct.Designer.cs">
-      <DependentUpon>201904070415386_ChangeDBProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904070436423_ChangeDBProduct1.cs" />
-    <Compile Include="Migrations\201904070436423_ChangeDBProduct1.Designer.cs">
-      <DependentUpon>201904070436423_ChangeDBProduct1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904070643133_ChangeForeignKey.cs" />
-    <Compile Include="Migrations\201904070643133_ChangeForeignKey.Designer.cs">
-      <DependentUpon>201904070643133_ChangeForeignKey.cs</DependentUpon>
+    <Compile Include="Migrations\201904140523159_InitialDB.cs" />
+    <Compile Include="Migrations\201904140523159_InitialDB.Designer.cs">
+      <DependentUpon>201904140523159_InitialDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -184,50 +128,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903150851558_InitialDB.resx">
-      <DependentUpon>201903150851558_InitialDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903240534011_Intergrate-AspnetIdentity.resx">
-      <DependentUpon>201903240534011_Intergrate-AspnetIdentity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903240645484_ChangeKeyPrimaryOfUserRoleTable.resx">
-      <DependentUpon>201903240645484_ChangeKeyPrimaryOfUserRoleTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903281449057_changeDBTable.resx">
-      <DependentUpon>201903281449057_changeDBTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903310452489_ChangeOrderDetailTable.resx">
-      <DependentUpon>201903310452489_ChangeOrderDetailTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903311613070_UpdateDataInDatabase.resx">
-      <DependentUpon>201903311613070_UpdateDataInDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903311622251_UpdateDataInDatabase1.resx">
-      <DependentUpon>201903311622251_UpdateDataInDatabase1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903311629087_RestoreDatabase.resx">
-      <DependentUpon>201903311629087_RestoreDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903311741061_FixDatabaseTable.resx">
-      <DependentUpon>201903311741061_FixDatabaseTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903311747123_FixDatabaseTable1.resx">
-      <DependentUpon>201903311747123_FixDatabaseTable1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903311750074_FixDatabaseTable2.resx">
-      <DependentUpon>201903311750074_FixDatabaseTable2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904020313564_FixDatabase.resx">
-      <DependentUpon>201904020313564_FixDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904070415386_ChangeDBProduct.resx">
-      <DependentUpon>201904070415386_ChangeDBProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904070436423_ChangeDBProduct1.resx">
-      <DependentUpon>201904070436423_ChangeDBProduct1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904070643133_ChangeForeignKey.resx">
-      <DependentUpon>201904070643133_ChangeForeignKey.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904140523159_InitialDB.resx">
+      <DependentUpon>201904140523159_InitialDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

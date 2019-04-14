@@ -13,18 +13,13 @@ namespace SmartPhoneShop.Web.Controllers
             return View();
         }
 
-        public ActionResult About()
+       public ActionResult MenuProductCategory()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return PartialView("MenuProductCategory");
         }
-
-        public ActionResult Contact()
+        public ActionResult navigation()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return PartialView("navigation");
         }
     }
 }

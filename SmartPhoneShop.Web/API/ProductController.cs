@@ -39,7 +39,7 @@ namespace SmartPhoneShop.Web.API
                     item.ProductCategory = _productService.GetProductCategory(item.ProductCategoryID);
                 }
                 totalRow = model.Count();
-                var query = model.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
+                var query = model.OrderByDescending(x => x.ID).Skip(page * pageSize).Take(pageSize);
 
                 var responseData = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(query);
 
