@@ -39,3 +39,33 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Ser
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.csproj.CopyComplete
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.pdb
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Service.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Service.pdb
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Data.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Model.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\System.Web.Helpers.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\System.Web.Razor.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\System.Web.WebPages.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\EntityFramework.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Data.pdb
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Data.dll.config
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Model.pdb
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Model.dll.config
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\System.Web.Helpers.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\System.Web.Razor.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\System.Web.WebPages.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\EntityFramework.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.csprojAssemblyReference.cache
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.csproj.CoreCompileInputs.cache
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.csproj.CopyComplete
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.dll
+D:\Do an thuc tap tot nghiep\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.pdb
