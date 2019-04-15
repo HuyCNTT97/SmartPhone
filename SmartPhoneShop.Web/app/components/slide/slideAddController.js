@@ -3,9 +3,10 @@
     slideAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state']
     function slideAddController($scope, apiService, notificationService, $state) {
         $scope.slide = {
-            Status: true
+            Status: true,
+            URL:'#'
         }
-
+       
         $scope.AddSlide = AddSlide
         function AddSlide() {
             apiService.post('/api/slide/add', $scope.slide, function (result) {

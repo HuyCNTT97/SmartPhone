@@ -60,8 +60,8 @@ namespace SmartPhoneShop.Service
         public IEnumerable<ProductCategory> GetAll(string keyword)
         {
             if (!string.IsNullOrEmpty(keyword))
-                return _productCategoryRepository.GetMulti(x => x.Name.Contains(keyword)
-                || x.MetaDescription.Contains(keyword)
+                return _productCategoryRepository.GetMulti(x => x.Name.ToLower().Contains(keyword)
+                || x.MetaDescription.ToLower().Contains(keyword)
                 || x.ID.ToString().Contains(keyword));
             else
             {

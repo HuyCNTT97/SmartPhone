@@ -274,7 +274,7 @@ textarea.input {
   left: 0;
   bottom: -1.5px;
   height: 3px;
-  width: 60px;
+  width: 130px;
   background-color: #F8694A;
 }
 
@@ -814,11 +814,12 @@ textarea.input {
 ===========================================================*/
 
 #home .home-wrap {
-  margin-left: 270px;
+  
 }
 
 #home-slick .banner {
-  margin: 0px;
+  margin: auto;
+  
 }
 
 /*=========================================================

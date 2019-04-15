@@ -18,11 +18,13 @@ namespace SmartPhoneShop.Service
         void Delete(int id);
 
         IEnumerable<Product> GetAll();
+        IEnumerable<Product> GetProductHot();
 
         IEnumerable<Product> GetAll(string keyword);
 
         ProductCategory GetProductCategory(int ProductCategoryID);
-
+        IEnumerable<Product> GetProductWithCategory(string CategoryName);
+        IEnumerable<Product> GetProductWithCategoryHome(string CategoryName);
         IEnumerable<Product> GetAllPaging(int page, int pageSize, out int totalRow);
 
         IEnumerable<Product> GetAllByCategory(int CategoryID, int page, int pageSize, out int totalRow);
@@ -111,6 +113,43 @@ namespace SmartPhoneShop.Service
         public ProductCategory GetProductCategory(int ProductCategoryID)
         {
             return _productCategoryRepository.GetSingleById(ProductCategoryID);
+        }
+
+        public IEnumerable<Product> GetProductHot()
+        {
+           var list= _productRepository.GetMulti(x => x.DisplayOrder == 2);
+            foreach (var item in list)
+            {
+                item.ProductCategory = _productCategoryRepository.GetSingleById(item.ProductCategoryID);
+            }
+            return list;
+        }
+
+        public IEnumerable<Product> GetProductWithCategory(string CategoryName)
+        {
+            var CategoryID = _productCategoryRepository.GetSingleByCondition(x => x.Name == CategoryName).ID;
+            var listCategory = _productCategoryRepository.GetMulti(x => x.ID == CategoryID || x.ParentID == CategoryID);
+            List<Product> listProduct=new List<Product>();
+            foreach (var category in listCategory)
+            {
+                listProduct.AddRange(_productRepository.GetMulti(x => x.ProductCategoryID == category.ID).ToList());
+            }
+            return listProduct;
+        }
+        public IEnumerable<Product> GetProductWithCategoryHome(string CategoryName)
+        {
+            var CategoryID = _productCategoryRepository.GetSingleByCondition(x => x.Name == CategoryName).ID;
+            var category = _productCategoryRepository.GetMulti(x => x.ParentID == CategoryID).Take(1);
+            if (category.Count()==0)
+            {
+                category = _productCategoryRepository.GetMulti(x => x.ID == CategoryID).Take(1);
+            }
+            var listProduct =new List<Product>();
+            foreach (var item in category)
+            {
+                listProduct.AddRange(_productRepository.GetMulti(x => x.ProductCategoryID == item.ID));
+            }
+            return listProduct;
         }
     }
 }
