@@ -1,27 +1,27 @@
 ﻿(function (app) {
-    app.controller('menuEditController', menuEditController);
+    app.controller('menu_groupEditController', menu_groupEditController);
 
-    menuEditController.$inject = ['apiService', '$scope', 'notificationService', '$state', '$stateParams', 'commonService'];
+    menu_groupEditController.$inject = ['apiService', '$scope', 'notificationService', '$state', '$stateParams', 'commonService'];
 
-    function menuEditController(apiService, $scope, notificationService, $state, $stateParams, commonService) {
-        $scope.menu = {
+    function menu_groupEditController(apiService, $scope, notificationService, $state, $stateParams, commonService) {
+        $scope.menu_group = {
         }
 
-        $scope.UpdateMenu = UpdateMenu;
+        $scope.UpdateMenuGroup = UpdateMenuGroup;
 
-        function loadMenuDetail() {
-            apiService.get('/api/menu/getbyid/' + $stateParams.id, null, function (result) {
-                $scope.menu = result.data;
+        function loadMenuGroupDetail() {
+            apiService.get('/api/menu_group/getbyid/' + $stateParams.id, null, function (result) {
+                $scope.menu_group = result.data;
             }, function (error) {
                 notificationService.displayError(error.data);
             });
         }
 
-        function UpdateMenu() {
-            apiService.put('/api/menu/update', $scope.menu,
+        function UpdateMenuGroup() {
+            apiService.put('/api/menu_group/update', $scope.menu_group,
                 function (result) {
                     notificationService.displaySuccess(result.data.Name + ' đã được cập nhật.');
-                    $state.go('menu');
+                    $state.go('menu_group');
                 }, function (error) {
                     notificationService.displayError('Cập nhật không thành công.');
                 });
@@ -30,11 +30,11 @@
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
                 $scope.$apply(function () {
-                    $scope.menu.Image = fileUrl;
+                    $scope.menu_group.Image = fileUrl;
                 })
             }
             finder.popup();
         }
-        loadMenuDetail();
+        loadMenuGroupDetail();
     }
-})(angular.module('smartphone.menu'));
+})(angular.module('smartphone.menu_group'));

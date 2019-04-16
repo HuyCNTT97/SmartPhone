@@ -2,12 +2,12 @@
 <section class="content-header">
     <h1>
         Sửa dữ liệu
-        <small>sửa mới danh mục slide {{slide.Name}}</small>
+        <small>sửa mới danh mục nhóm menu {{menu_group.Name}}</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Trang Chủ</a></li>
-        <li><span>Danh mục Slide</span></li>
-        <li class="active">Thêm Slide</li>
+        <li><span>Danh mục nhóm menu</span></li>
+        <li class="active">Thêm nhóm menu</li>
     </ol>
 </section>
 
@@ -36,94 +36,27 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">Thêm mới</h3>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <!--public string Name { set; get; }
 
-                    public string Description { set; get; }
-
-                    public string Image { set; get; }
-
-                    public string URL { set; get; }
-
-                    public int DisplayOrder { set; get; }
-                    public bool Status { set; get; }-->
-                    <form novalidate name="frmSlideSlide" class="form-horizontal" role="form"
-                          ng-submit="UpdateSlide()">
+                    <form novalidate name="frmMenuGroup" class="form-horizontal" role="form"
+                          ng-submit="UpdateMenuGroup()">
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="inputEmail3"
                                        class="col-sm-2 control-label">
-                                    Tên Slide
+                                    Tên menu group
                                 </label>
 
                                 <div class="col-sm-10">
                                     <input placeholder="Bắt buộc nhập tên" type="text" class="form-control"
-                                           ng-model="slide.Name" name="name">
+                                           ng-model="menu_group.Name" name="name">
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Mô Tả
-                                </label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" placeholder="Bắt buộc nhập mô tả" class="form-control"
-                                           ng-model="slide.Description" name="descrtiption">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Hình Slide
-                                </label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" placeholder="Bắt buộc nhập hình slide" class="form-control"
-                                           ng-model="slide.Image" name="image">
-                                    <button class="btn btn-default" type="button" ng-click="ChooseImage()">Chọn ảnh</button>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Url của Slide
-                                </label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control"
-                                           ng-model="slide.URL" required="required"
-                                           placeholder="bắt buộc nhập url"
-                                           name="url">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Thứ Tự
-                                </label>
-
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control"
-                                           ng-model="slide.DisplayOrder" name="displayorder">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Trạng Thái
-                                </label>
-
-                                <div class="col-sm-10">
-                                    <input type="checkbox" name="status"
-                                           ng-model="slide.Status"
-                                           ng-checked="slide.Status" />
-                                    <label>Kích Hoạt</label>
-                                </div>
-                            </div>
                         </div>
 
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <button ui-sref="slide" class="btn btn-danger">Quay Lại</button>
+                            <button ui-sref="menu_group" class="btn btn-danger">Quay Lại</button>
                             <button type="submit" class="btn btn-info pull-right">Lưu</button>
                         </div>
                         <!-- /.box-footer -->
