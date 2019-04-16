@@ -1,13 +1,13 @@
 ﻿  <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Loại Sản Phẩm
-        <small>danh sách các loại sản phẩm hiện có</small>
+        Câu hình hệ thống
+        <small>danh sách cấu hình hệ thống hiện có</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
-        <li>Danh Mục Loại Sản Phẩm</li>
-        <li class="active">Xem Loại Sản Phẩm</li>
+        <li>Danh Mục cấu hình hệ thống</li>
+        <li class="active">Xem câu hình hệ thống</li>
     </ol>
 </section>
 
@@ -52,6 +52,17 @@
                             </label>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-success"
+                                ui-sref="system_config_add">
+                            Thêm mới
+                        </button>
+                        <button ng-click="deleteMultiple()"
+                                id="btnDelete" disabled
+                                class="btn btn-danger">
+                            Xóa các dòng đã chọn
+                        </button>
+                    </div>
                 </div><div class="row">
                     <div class="col-sm-12">
                         <table id="example1" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="example1_info">
@@ -62,6 +73,13 @@
                                     <th>Giá trị chuỗi</th>
                                     <th>Giá trị sô</th>
                                     <th>Các Chức Năng</th>
+                                    <th>
+                                        <label>
+                                            <input name="all"
+                                                   type="checkbox" ng-click="selectAll()" />
+                                            Chọn tất cả
+                                        </label>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,9 +90,13 @@
                                     <td>{{item.ValueInt}}</td>
 
                                     <td>
-                                        <button class="btn btn-sm btn-primary" title="Chỉnh Sửa"><i class="fa fa-pencil"></i></button>
-                                        <button class="btn btn-sm btn-danger" title="Xóa"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-primary"  ui-sref="slide_edit({id:item.ID})"
+                                                title="Chỉnh Sửa"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-sm btn-danger" ng-click="deleteSlide(item.ID)" 
+                                                title="Xóa"><i class="fa fa-trash"></i></button>
                                     </td>
+                                    <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
+
                                 </tr>
                             </tbody>
                         </table>

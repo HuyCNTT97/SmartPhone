@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 
 namespace SmartPhoneShop.Web.API
 {
@@ -71,7 +72,35 @@ namespace SmartPhoneShop.Web.API
                 return response;
             });
         }
+        [Route("getallparent")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _menuGroupService.GetAll();
 
+                var responseData = Mapper.Map<IEnumerable<MenuGroup>, IEnumerable<MenuGroupViewModel>>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
+        [Route("getbyid/{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _menuGroupService.GetByID(id);
+
+                var responseData = Mapper.Map<MenuGroup, MenuGroupViewModel>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
         [Route("update")]
         public HttpResponseMessage Put(HttpRequestMessage request, MenuGroupViewModel menuGroupVm)
         {
@@ -95,6 +124,8 @@ namespace SmartPhoneShop.Web.API
             });
         }
 
+        [Route("delete")]
+        [HttpDelete]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
@@ -110,6 +141,31 @@ namespace SmartPhoneShop.Web.API
                     _menuGroupService.SaveChanges();
 
                     response = request.CreateResponse(HttpStatusCode.OK);
+                }
+                return response;
+            });
+        }
+        [Route("deletemulti")]
+        [HttpDelete]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string listID)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var ids = new JavaScriptSerializer().Deserialize<List<int>>(listID);
+                    foreach (var id in ids)
+                    {
+                        _menuGroupService.Delete(id);
+                    }
+                    _menuGroupService.SaveChanges();
+
+                    response = request.CreateResponse(HttpStatusCode.OK, true);
                 }
                 return response;
             });

@@ -18,6 +18,7 @@ namespace SmartPhoneShop.Service
         void Delete(int id);
 
         IEnumerable<Menu> GetAll();
+        IEnumerable<Menu> GetAll(string keyword);
 
         IEnumerable<Menu> GetAllPaging(int page, int pageSize, out int totalRow);
 
@@ -52,6 +53,13 @@ namespace SmartPhoneShop.Service
         public IEnumerable<Menu> GetAll()
         {
             return _menuRepository.GetAll(new string[] { "MenuGroups" });
+        }
+
+        public IEnumerable<Menu> GetAll(string keyword)
+        {
+            if (string.IsNullOrEmpty(keyword)) return _menuRepository.GetAll();
+            else return _menuRepository.GetMulti(x => x.Name.Contains(keyword)
+            || x.ID.ToString().Contains(keyword));
         }
 
         public IEnumerable<Menu> GetAllPaging(int page, int pageSize, out int totalRow)

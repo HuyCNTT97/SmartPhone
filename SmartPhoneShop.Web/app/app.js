@@ -3,7 +3,16 @@
 (function () {
     angular.module('smartphone',
         ['smartphone.common',
-            'smartphone.product', 'smartphone.product_category',
+            'smartphone.product',
+            'smartphone.menu',
+            'smartphone.order',
+            'smartphone.order_detail',
+            'smartphone.customer',
+            'smartphone.warranty',
+            'smartphone.system_config',
+            'smartphone.suppost_online',
+            'smartphone.menu_group',
+            'smartphone.product_category',
             'smartphone.post', 'smartphone.post_category',
             'smartphone.slide'
         ])

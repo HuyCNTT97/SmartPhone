@@ -11,14 +11,6 @@ namespace SmartPhoneShop.Web.Models
 
         public string Name { set; get; }
 
-        public string URL { set; get; }
 
-        public int? DisplayOrder { set; get; }
-
-        public int GroupID { set; get; }
-
-        public string Target { set; get; }
-
-        public bool Status { set; get; }
     }
 }

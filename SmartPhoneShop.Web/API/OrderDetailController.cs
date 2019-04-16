@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Web.Infrasture.Extension;
 using SmartPhoneShop.Web.Models;
@@ -10,10 +11,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 
 namespace SmartPhoneShop.Web.API
 {
-    [RoutePrefix("api/orderdetail")]
+    [RoutePrefix("api/order_detail")]
     [Authorize]
     public class OrderDetailController : ApiControllerBase
     {
@@ -26,17 +28,30 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listOrderDetail = _orderDetailService.GetAll();
-                var listOrderDetailVM = Mapper.Map<List<OrderDetailViewModel>>(listOrderDetail);
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listOrderDetailVM);
+                int totalRow = 0;
+                var model = _orderDetailService.GetAll(keyword);
 
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.OrderID).Skip(page * pageSize).Take(pageSize);
+
+                var responseData = Mapper.Map<IEnumerable<OrderDetail>, IEnumerable<OrderDetailViewModel>>(query);
+
+                var paginationSet = new PaginationSet<OrderDetailViewModel>()
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }
+
 
         [Route("add")]
         public HttpResponseMessage Post(HttpRequestMessage request, OrderDetailViewModel orderDetailVm)
@@ -82,7 +97,7 @@ namespace SmartPhoneShop.Web.API
                 return response;
             });
         }
-
+        [Route("delete")]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
@@ -98,6 +113,60 @@ namespace SmartPhoneShop.Web.API
                     _orderDetailService.SaveChanges();
 
                     response = request.CreateResponse(HttpStatusCode.OK);
+                }
+                return response;
+            });
+        }
+        [Route("getallparent")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _orderDetailService.GetAll();
+
+                var responseData = Mapper.Map<IEnumerable<OrderDetail>, IEnumerable<OrderDetailViewModel>>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
+        [Route("getbyid/{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _orderDetailService.GetByID(id);
+
+                var responseData = Mapper.Map<OrderDetail, OrderDetailViewModel>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+        [Route("deletemulti")]
+        [HttpDelete]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string listID)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var ids = new JavaScriptSerializer().Deserialize<List<int>>(listID);
+                    foreach (var id in ids)
+                    {
+                        _orderDetailService.Delete(id);
+                    }
+                    _orderDetailService.SaveChanges();
+
+                    response = request.CreateResponse(HttpStatusCode.OK, true);
                 }
                 return response;
             });

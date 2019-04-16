@@ -18,6 +18,7 @@ namespace SmartPhoneShop.Service
         void Delete(int id);
 
         IEnumerable<SuppostOnline> GetAll();
+        IEnumerable<SuppostOnline> GetAll(string keyword);
 
         IEnumerable<SuppostOnline> GetAllPaging(int page, int pageSize, out int totalRow);
 
@@ -53,6 +54,13 @@ namespace SmartPhoneShop.Service
         public IEnumerable<SuppostOnline> GetAll()
         {
             return _suppostOnlineRepository.GetAll();
+        }
+
+        public IEnumerable<SuppostOnline> GetAll(string keyword)
+        {
+            if (string.IsNullOrEmpty(keyword)) return _suppostOnlineRepository.GetAll();
+            else return _suppostOnlineRepository.GetMulti(x => x.Name.Contains(keyword)
+            || x.ID.ToString().Contains(keyword));
         }
 
         public IEnumerable<SuppostOnline> GetAllPaging(int page, int pageSize, out int totalRow)

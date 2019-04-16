@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Web.Infrasture.Extension;
 using SmartPhoneShop.Web.Models;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 
 namespace SmartPhoneShop.Web.API
 {
@@ -26,14 +28,26 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listWarranty = _warrantyService.GetAll();
-                var listWarrantyVM = Mapper.Map<List<WarrantyViewModel>>(listWarranty);
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listWarrantyVM);
+                int totalRow = 0;
+                var model = _warrantyService.GetAll(keyword);
 
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.Name).Skip(page * pageSize).Take(pageSize);
+
+                var responseData = Mapper.Map<IEnumerable<Warranty>, IEnumerable<WarrantyViewModel>>(query);
+
+                var paginationSet = new PaginationSet<WarrantyViewModel>()
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }
@@ -82,7 +96,7 @@ namespace SmartPhoneShop.Web.API
                 return response;
             });
         }
-
+        [Route("delete")]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
@@ -98,6 +112,60 @@ namespace SmartPhoneShop.Web.API
                     _warrantyService.SaveChanges();
 
                     response = request.CreateResponse(HttpStatusCode.OK);
+                }
+                return response;
+            });
+        }
+        [Route("getallparent")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _warrantyService.GetAll();
+
+                var responseData = Mapper.Map<IEnumerable<Warranty>, IEnumerable<WarrantyViewModel>>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
+        [Route("getbyid/{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _warrantyService.GetByID(id);
+
+                var responseData = Mapper.Map<Warranty, WarrantyViewModel>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+        [Route("deletemulti")]
+        [HttpDelete]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string listID)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var ids = new JavaScriptSerializer().Deserialize<List<int>>(listID);
+                    foreach (var id in ids)
+                    {
+                        _warrantyService.Delete(id);
+                    }
+                    _warrantyService.SaveChanges();
+
+                    response = request.CreateResponse(HttpStatusCode.OK, true);
                 }
                 return response;
             });
