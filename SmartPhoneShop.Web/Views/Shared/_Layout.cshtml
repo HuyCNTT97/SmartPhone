@@ -43,7 +43,7 @@
     <link href="~/Assets/client/css/templateContain.css" rel="stylesheet" />
 </head>
 
-<body  >
+<body>
     <!-- HEADER -->
     <header>
         <!-- top Header -->
@@ -180,14 +180,14 @@
         <!-- container -->
     </header>
     <!-- /HEADER -->
+    @{ Html.RenderAction("navigation", "Home");}
     <!-- NAVIGATION -->
     <!-- /NAVIGATION -->
     <!-- HOME -->
     @RenderBody()
-    
-   
+
+
     <!-- jQuery Plugins -->
-    <script src="/Assets/client/js/jquery.min.js"></script>
     <script src="~/Assets/client/js/jquery.min.js"></script>
     <script src="~/Assets/client/js/bootstrap.min.js"></script>
     <script src="~/Assets/client/js/slick.min.js"></script>

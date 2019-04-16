@@ -1042,9 +1042,9 @@ textarea.input {
   font-weight: 400;
 }
 
-.product.product-widget .product-name {
-  font-size: 14px;
-}
+    .product.product-widget .product-name {
+       
+    }
 
 .product.product-widget .cancel-btn {
   position: absolute;

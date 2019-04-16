@@ -7,3 +7,10 @@
 .chuxanh{
     color:dodgerblue;
 }
+.product-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 180px;
+    font-size: 12px
+}

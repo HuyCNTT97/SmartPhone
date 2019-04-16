@@ -1,0 +1,8 @@
+﻿@model List<SmartPhoneShop.Web.Models.ProductCategoryViewModel>
+<ol class="breadcrumb">
+    @foreach (var breadcrumb in Model)
+    {
+        <li><a class="chuxanh" href="/@breadcrumb.Alias-@breadcrumb.ID">@breadcrumb.Name</a></li>
+
+    }
+</ol>

@@ -20,7 +20,7 @@ namespace SmartPhoneShop.Service
         IEnumerable<ProductCategory> GetAll();
 
         IEnumerable<ProductCategory> GetAll(string keyword);
-
+        IEnumerable<ProductCategory> CheckBreadCrumb(string keyword);
         IEnumerable<ProductCategory> GetAllPaging(int page, int pageSize, out int totalRow);
 
         ProductCategory GetByID(int id);
@@ -45,6 +45,22 @@ namespace SmartPhoneShop.Service
         public ProductCategory Add(ProductCategory productCategory)
         {
             return _productCategoryRepository.Add(productCategory);
+        }
+
+        public IEnumerable<ProductCategory> CheckBreadCrumb(string keyword)
+        {
+            List<ProductCategory> listCategory = new List<ProductCategory>();
+            var id = _productCategoryRepository.GetSingleByCondition(x => x.Name == keyword).ID;
+            if (id==1) return _productCategoryRepository.GetAll();
+            string[] text = keyword.Split(' ');
+            foreach (var item in text)
+            {
+                if(double.TryParse(item,out double a) == false)
+                {
+                    listCategory.AddRange(_productCategoryRepository.GetMulti(x => x.Name.ToLower().Contains(item.ToLower())));
+                }
+            }
+            return listCategory;
         }
 
         public void Delete(int id)

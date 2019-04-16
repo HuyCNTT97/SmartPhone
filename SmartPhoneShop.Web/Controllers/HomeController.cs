@@ -29,19 +29,6 @@ namespace SmartPhoneShop.Web.Controllers
         }
         public ActionResult Index()
         {
-            var listCategoryIphone = _productCategoryService.GetAll("IPhone");
-            ViewBag.listCategoryIphone = Mapper.Map<IEnumerable<ProductCategory>,
-                IEnumerable<ProductCategoryViewModel>>(listCategoryIphone);
-            var listCategorySamsung = _productCategoryService.GetAll("Samsung");
-            ViewBag.listCategorySamsung = Mapper.Map<IEnumerable<ProductCategory>,
-                IEnumerable<ProductCategoryViewModel>>(listCategorySamsung);
-            var listCategoryXiaomi = _productCategoryService.GetAll("Xiaomi");
-            ViewBag.listCategoryXiaomi = Mapper.Map<IEnumerable<ProductCategory>,
-                IEnumerable<ProductCategoryViewModel>>(listCategoryXiaomi);
-            var listCategoryCamera = _productCategoryService.GetAll("Camera");
-            ViewBag.listCategoryCamera = Mapper.Map<IEnumerable<ProductCategory>,
-                IEnumerable<ProductCategoryViewModel>>(listCategoryCamera);
-
             var listIphone = _productService.GetProductWithCategoryHome("IPHONE").Take(4).ToList();
             ViewBag.listIphone = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(listIphone);
             var listSamSung = _productService.GetProductWithCategoryHome("Samsung").Take(4).ToList();
@@ -51,6 +38,15 @@ namespace SmartPhoneShop.Web.Controllers
             var Camera = _productService.GetProductWithCategoryHome("Camera").Take(4).ToList();
             ViewBag.Camera = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(Camera);
             return View();
+        }
+        [ChildActionOnly]
+        public ActionResult Breadcrumb(string nameCategory)
+        {
+            var modelCategory = _productCategoryService.CheckBreadCrumb(nameCategory);
+           var listCategory=Mapper.Map<IEnumerable<ProductCategory>,
+               IEnumerable< ProductCategoryViewModel >> (modelCategory);
+
+            return PartialView(listCategory);
         }
         [ChildActionOnly]
         public ActionResult slide()

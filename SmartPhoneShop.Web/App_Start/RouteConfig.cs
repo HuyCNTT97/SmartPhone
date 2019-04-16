@@ -14,10 +14,22 @@ namespace SmartPhoneShop.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "test",
+                url: "{alias}-{id}",
+                defaults: new { controller = "Product", action = "Category", id = UrlParameter.Optional },
+                namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
+            );
+
+
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
             );
+
+           
         }
     }
 }

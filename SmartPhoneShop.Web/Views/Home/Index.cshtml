@@ -6,16 +6,9 @@
     var listSamSung = ViewBag.listSamSung as List<SmartPhoneShop.Web.Models.ProductViewModel>;
     var Xiaomi = ViewBag.Xiaomi as List<SmartPhoneShop.Web.Models.ProductViewModel>;
     var Camera = ViewBag.Camera as List<SmartPhoneShop.Web.Models.ProductViewModel>;
-    var listCategoryIphone=ViewBag.listCategoryIphone as
-        List<SmartPhoneShop.Web.Models.ProductCategoryViewModel>;
-    var listCategorySamsung = ViewBag.listCategorySamsung as
-        List<SmartPhoneShop.Web.Models.ProductCategoryViewModel>;
-    var listCategoryXiaomi = ViewBag.listCategoryXiaomi as
-        List<SmartPhoneShop.Web.Models.ProductCategoryViewModel>;
-    var listCategoryCamera = ViewBag.listCategoryCamera as
-        List<SmartPhoneShop.Web.Models.ProductCategoryViewModel>;
+
 }
-@{ Html.RenderAction("navigation", "Home");}
+
 <div class="nen">
     @{ Html.RenderAction("slide", "Home");}
     <div class="section">
@@ -29,13 +22,7 @@
                     <div class="section-title">
                         <h2 class="title">Iphone</h2>
                         <div class="pull-right">
-                            <ol class="breadcrumb">
-                                @foreach (var breadcrumb in listCategoryIphone)
-                                {
-                                    <li><a class="chuxanh" href="/@breadcrumb.Alias">@breadcrumb.Name</a></li>
-                                   
-                                }
-                            </ol>
+                            @{ Html.RenderAction("Breadcrumb", "Home", new { nameCategory = "Iphone" });}
                         </div>
                     </div>
                 </div>
@@ -53,7 +40,7 @@
                             <div class="product-body ">
                                 <h3 class="product-price">@string.Format("{0:#,0},000 VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
 
-                                <h2 class="product-name" >
+                                <h2 class="product-name" title="@item.Name">
                                     <a href="/iphone/@item.Alias">@item.Name</a>
                                 </h2>
                                 <div class="product-btns">
@@ -82,13 +69,8 @@
                     <div class="section-title">
                         <h2 class="title">SamSung</h2>
                         <div class="pull-right">
-                            <ol class="breadcrumb">
-                                @foreach (var breadcrumb in listCategorySamsung)
-                                {
-                                    <li><a class="chuxanh" href="/@breadcrumb.Alias">@breadcrumb.Name</a></li>
+                            @{ Html.RenderAction("Breadcrumb", "Home", new { nameCategory = "Samsung" });}
 
-                                }
-                            </ol>
                         </div>
                     </div>
                 </div>
@@ -106,7 +88,7 @@
                             <div class="product-body ">
                                 <h3 class="product-price">@string.Format("{0:#,0},000 VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
 
-                                <h2 class="product-name" style="white-space:initial;">
+                                <h2 class="product-name"title="@item.Name" >
                                     <a href="/iphone/@item.Alias">@item.Name</a>
                                 </h2>
                                 <div class="product-btns">
@@ -135,13 +117,8 @@
                     <div class="section-title">
                         <h2 class="title">Xiaomi</h2>
                         <div class="pull-right">
-                            <ol class="breadcrumb">
-                                @foreach (var breadcrumb in listCategoryXiaomi)
-                                {
-                                    <li><a class="chuxanh" href="/@breadcrumb.Alias">@breadcrumb.Name</a></li>
+                            @{ Html.RenderAction("Breadcrumb", "Home", new { nameCategory = "Xiaomi" });}
 
-                                }
-                            </ol>
                         </div>
                     </div>
                 </div>
@@ -159,7 +136,7 @@
                             <div class="product-body ">
                                 <h3 class="product-price">@string.Format("{0:#,0},000 VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
 
-                                <h2 class="product-name"style="white-space:initial;">
+                                <h2 class="product-name"title="@item.Name">
                                     <a href="/iphone/@item.Alias">@item.Name</a>
                                 </h2>
                                 <div class="product-btns">
@@ -188,13 +165,8 @@
                     <div class="section-title">
                         <h2 class="title">Camera</h2>
                         <div class="pull-right">
-                            <ol class="breadcrumb">
-                                @foreach (var breadcrumb in listCategoryCamera)
-                                {
-                                    <li><a class="chuxanh" href="/@breadcrumb.Alias">@breadcrumb.Name</a></li>
+                            @{ Html.RenderAction("Breadcrumb", "Home", new { nameCategory = "Camera" });}
 
-                                }
-                            </ol>
                         </div>
                     </div>
                 </div>
@@ -212,7 +184,7 @@
                             <div class="product-body ">
                                 <h3 class="product-price">@string.Format("{0:#,0},000 VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
 
-                                <h2 class="product-name" style="white-space:initial;">
+                                <h2 class="product-name" title="@item.Name">
                                     <a href="/iphone/@item.Alias">@item.Name</a>
                                 </h2>
                                 <div class="product-btns">
