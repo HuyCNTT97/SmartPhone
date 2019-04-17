@@ -225,6 +225,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5445,6 +5446,9 @@
     <Content Include="Views\Shared\navigation.cshtml" />
     <Content Include="Views\Shared\navigationnomenu.cshtml" />
     <Content Include="Views\Shared\slide.cshtml" />
+    <Content Include="Views\Product\Category.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Shared\Breadcrumb.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmartPhoneShop.Common\SmartPhoneShop.Common.csproj">

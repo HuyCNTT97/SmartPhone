@@ -28,7 +28,8 @@ namespace SmartPhoneShop.Service
         IEnumerable<Product> GetAllPaging(int page, int pageSize, out int totalRow);
 
         IEnumerable<Product> GetAllByCategory(int CategoryID, int page, int pageSize, out int totalRow);
-
+        IEnumerable<Product> GetAllByCategoryID(int CategoryID);
+        IEnumerable<Product> GetAllByCategoryIDPaging(int CategoryID, int page, int pageSize, out int totalRow);
         Product GetByID(int id);
 
         IEnumerable<Product> GetAllTagPaging(string tag, int page, int pageSize, out int totalRow);
@@ -150,6 +151,40 @@ namespace SmartPhoneShop.Service
                 listProduct.AddRange(_productRepository.GetMulti(x => x.ProductCategoryID == item.ID));
             }
             return listProduct;
+        }
+
+        public IEnumerable<Product> GetAllByCategoryID(int CategoryID)
+        {
+            var listCategory = _productCategoryRepository.GetMulti(x => x.ID == CategoryID || x.ParentID == CategoryID);
+            List<Product> listProduct = new List<Product>();
+            foreach (var category in listCategory)
+            {
+                listProduct.AddRange(_productRepository.GetMulti(x => x.ProductCategoryID == category.ID).ToList());
+            }
+            return listProduct;
+        }
+
+        public IEnumerable<Product> GetAllByCategoryIDPaging(int CategoryID, int page, int pageSize, out int totalRow)
+        {
+            List<Product> listProduct = new List<Product>();
+            if (CategoryID == 1)
+            {
+                listProduct = _productRepository.GetAll().ToList();
+                totalRow = listProduct.Count();
+                return listProduct.Skip((page - 1) * pageSize).Take(pageSize);
+            }
+            var listCategory = _productCategoryRepository.GetMulti(x => x.ID == CategoryID 
+            || x.ParentID == CategoryID).ToList();
+            
+            foreach (var category in listCategory)
+            {
+                listProduct.AddRange(_productRepository.GetMulti(x => x.ProductCategoryID == category.ID
+                &&x.Status==true
+                ).ToList());
+            }
+            totalRow = listProduct.Count();
+
+            return listProduct.Skip((page - 1) * pageSize).Take(pageSize);
         }
     }
 }
