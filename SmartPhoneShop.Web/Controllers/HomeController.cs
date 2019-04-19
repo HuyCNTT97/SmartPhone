@@ -27,6 +27,7 @@ namespace SmartPhoneShop.Web.Controllers
             _productCategoryService = productCategoryService;
 
         }
+        [OutputCache(Duration = 600,Location =System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Index()
         {
             var listIphone = _productService.GetProductWithCategoryHome("IPHONE").Take(4).ToList();
@@ -49,6 +50,8 @@ namespace SmartPhoneShop.Web.Controllers
             return PartialView(listCategory);
         }
         [ChildActionOnly]
+        [OutputCache(Duration = 3600*60)]
+
         public ActionResult slide()
         {
             var modelProductHot = _productService.GetProductHot();
@@ -57,11 +60,31 @@ namespace SmartPhoneShop.Web.Controllers
             ViewBag.listProductHot = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(modelProductHot);
             return PartialView();
         }
-       public ActionResult MenuProductCategory()
+        public JsonResult GetListProductByName(string keyword)
         {
-            return PartialView("MenuProductCategory");
+            if (string.IsNullOrEmpty(keyword)) return Json(new
+            {
+                data = ""
+            }, JsonRequestBehavior.AllowGet);
+            var modelListProduct = _productService.getListProductName(keyword).ToList();
+            return Json(new {
+                data = modelListProduct
+            },JsonRequestBehavior.AllowGet);
         }
         [ChildActionOnly]
+        [OutputCache(Duration =3600*60)]
+        public ActionResult footer()
+        {
+            return PartialView();
+        }
+        [ChildActionOnly]
+       
+        public ActionResult header()
+        {
+            return PartialView();
+        }
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600*60)]
         public ActionResult navigation()
         {
             var model = _menuService.GetAll();

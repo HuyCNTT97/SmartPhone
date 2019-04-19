@@ -21,7 +21,7 @@ namespace SmartPhoneShop.Service
         IEnumerable<Product> GetProductHot();
 
         IEnumerable<Product> GetAll(string keyword);
-
+        IEnumerable<string> getListProductName(string name);
         ProductCategory GetProductCategory(int ProductCategoryID);
         IEnumerable<Product> GetProductWithCategory(string CategoryName);
         IEnumerable<Product> GetProductWithCategoryHome(string CategoryName);
@@ -30,6 +30,7 @@ namespace SmartPhoneShop.Service
         IEnumerable<Product> GetAllByCategory(int CategoryID, int page, int pageSize, out int totalRow);
         IEnumerable<Product> GetAllByCategoryID(int CategoryID);
         IEnumerable<Product> GetAllByCategoryIDPaging(int CategoryID, int page, int pageSize, out int totalRow);
+        IEnumerable<Product> GetAllByCategoryNamePaging(string keyword, int page, int pageSize, out int totalRow);
         Product GetByID(int id);
 
         IEnumerable<Product> GetAllTagPaging(string tag, int page, int pageSize, out int totalRow);
@@ -182,6 +183,22 @@ namespace SmartPhoneShop.Service
                 &&x.Status==true
                 ).ToList());
             }
+            totalRow = listProduct.Count();
+
+            return listProduct.Skip((page - 1) * pageSize).Take(pageSize);
+        }
+
+        public IEnumerable<string> getListProductName(string name)
+        {
+          return _productRepository.GetMulti(x => x.Name.ToLower().Contains(name.ToLower()) && x.Status).Take(7).Select(x => x.Name);
+
+        }
+
+        public IEnumerable<Product> GetAllByCategoryNamePaging(string keyword, int page, int pageSize, out int totalRow)
+        {
+            List<Product> listProduct = new List<Product>();
+            listProduct = _productRepository.GetMulti(x => x.Name.ToLower()
+            .Contains(keyword.ToLower()) && x.Status).ToList();
             totalRow = listProduct.Count();
 
             return listProduct.Skip((page - 1) * pageSize).Take(pageSize);
