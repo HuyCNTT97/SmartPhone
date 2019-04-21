@@ -13,6 +13,11 @@
     {
         @Html.Raw(TempData["msgRegister"]);
     }
+    @if (TempData["msgOrder"] != null)
+    {
+        @Html.Raw(TempData["msgOrder"]);
+    }
+<script src="~/Assets/client/js/controller/Cart.js"></script>
 }
 <div class="nen">
     @{ Html.RenderAction("slide", "Home");}
@@ -43,7 +48,7 @@
                                 <img alt="" src="@item.Image" height="200">
                             </div>
                             <div class="product-body ">
-                                <h3 class="product-price">@string.Format("{0:#,0},000 VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
+                                <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
 
                                 <h2 class="product-name" title="@item.Name">
                                     <a href="/iphone/@item.Alias-@item.ID">@item.Name</a>
@@ -51,7 +56,7 @@
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                    <button data-id="@item.ID" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +96,7 @@
                                 <img alt="" src="@item.Image" height="200">
                             </div>
                             <div class="product-body ">
-                                <h3 class="product-price">@string.Format("{0:#,0},000 VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
+                                <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
 
                                 <h2 class="product-name" title="@item.Name">
                                     <a href="/samsung/@item.Alias-@item.ID">@item.Name</a>
@@ -99,7 +104,7 @@
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                    <button data-id="@item.ID" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +144,7 @@
                                 <img alt="" src="@item.Image" height="200">
                             </div>
                             <div class="product-body ">
-                                <h3 class="product-price">@string.Format("{0:#,0},000 VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
+                                <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
 
                                 <h2 class="product-name" title="@item.Name">
                                     <a href="/xiaomi/@item.Alias-@item.ID">@item.Name</a>
@@ -147,7 +152,7 @@
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                    <button data-id="@item.ID" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +174,7 @@
                 <div class="col-md-12">
                     <div class="section-title">
                         <h2 class="title">Camera</h2>
-                        <div class="pull-right">
+                        <div class="pull-right">s
                             @{ Html.RenderAction("Breadcrumb", "Home", new { nameCategory = "Camera" });}
 
                         </div>
@@ -187,7 +192,7 @@
                                 <img alt="" src="@item.Image" height="200">
                             </div>
                             <div class="product-body ">
-                                <h3 class="product-price">@string.Format("{0:#,0},000 VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
+                                <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
 
                                 <h2 class="product-name" title="@item.Name">
                                     <a href="/camera/@item.Alias-@item.ID">@item.Name</a>
@@ -195,7 +200,7 @@
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                    <button data-id="@item.ID" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
                                 </div>
                             </div>
                         </div>

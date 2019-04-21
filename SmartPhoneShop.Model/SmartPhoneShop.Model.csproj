@@ -92,7 +92,11 @@
     <Compile Include="Abstract\ASamePostAndProduct.cs" />
     <Compile Include="Abstract\ASeoable.cs" />
     <Compile Include="Abstract\IUser.cs" />
+    <Compile Include="Model\ApplicationGroup.cs" />
+    <Compile Include="Model\ApplicationRole.cs" />
+    <Compile Include="Model\ApplicationRoleGroup.cs" />
     <Compile Include="Model\ApplicationUser.cs" />
+    <Compile Include="Model\ApplicationUserGroup.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Error.cs" />
     <Compile Include="Model\Footer.cs" />

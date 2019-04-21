@@ -9,8 +9,11 @@
 @using (Html.BeginForm("Login", "Account",new { returnUrl=ViewBag.returnUrl}, FormMethod.Post))
 {
     @Html.AntiForgeryToken();
-    
-    <div class="container min-height">
+    if (TempData["msgLogin"] != null)
+    {
+        @Html.Raw(TempData["msgLogin"]);
+    }
+    <div class="container min-heightne">
         <div class="row bong">
             <h3 class="text-center uppercase">Đăng nhập</h3>
         </div>
@@ -52,7 +55,7 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" id="btnLogin" class="btn btn-info pull-right uppercase">Đăng nhập</button>
-                            <a href="/dang-ki.html"  class="btn  btn-info pull-right margin-right uppercase">Đăng kí</a>
+                            <a href="/dang-ki.html"  class="btn  btn-info pull-right margin-rightne uppercase">Đăng kí</a>
                         </div>
                         <!-- /.box-footer -->
                     </div>

@@ -1,0 +1,181 @@
+﻿@model List<SmartPhoneShop.Web.Models.ShoppingCartViewModel>
+@{
+    /**/
+
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal tong = 0;
+}
+@section footerJS{
+    <script src="~/Assets/client/js/controller/Cart.js"></script>
+}
+@{
+    <div class="container">
+        <div class="row bong">
+            <h3 class="text-center uppercase">Giỏ Hàng</h3>
+        </div>
+        <div class="row" id="cartContent">
+            <table class="table table-hover table-responsive table-striped" id="tblCart">
+                <thead>
+                    <tr>
+                        <th class="uppercase">Mã Sản Phẩm</th>
+                        <th class="uppercase">Tên Sản Phẩm</th>
+                        <th class="uppercase">Hình Ảnh</th>
+                        <th class="uppercase">Màu</th>
+                        <th class="uppercase">Số Lượng</th>
+                        <th class="uppercase">Đơn Giá</th>
+                        <th class="uppercase">Thành Tiền</th>
+
+                    </tr>
+                </thead>
+                <tbody id="cartBody">
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ProductID</td>
+                            <td class="chudam text-lowercase h4">@item.Product.Name</td>
+                            <td><img src="@item.Product.Image" class="" height="120" width="120" /></td>
+                            <td>
+                                Màu @item.Color
+                            </td>
+                            <td class="col-md-1">
+                                @item.Quantity
+                            </td>
+
+
+                            <td>
+                                @{
+                                    switch (item.Color)
+                                    {
+                                        case "đen":
+                                            item.Product.Price += 200000;
+                                            break;
+                                        case "vàng đất":
+                                            item.Product.Price += 500000;
+                                            break;
+                                        case "đỏ":
+                                            item.Product.Price += 500000;
+                                            break;
+                                        default: break;
+                                    }
+                                }
+                                @item.Product.Price.ToString("N0") VND
+                            </td>
+                            @{
+                                var Amount = item.Product.Price * item.Quantity;
+                                tong = tong + Amount;
+                            }
+                            <td>@Amount.ToString("N0") VND</td>
+
+
+
+                        </tr>
+                                }
+                </tbody>
+            </table>
+            <div class="col-md-12">
+                <p class="pull-right maudo">
+                    <span class="text-bold  h4">Tổng tiền: </span>
+                    <span class="chudam h4" >@tong.ToString("N0") VND</span>
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <div class="row">
+                <!-- section title -->
+                <!-- section title -->
+                <!-- Product Single -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h2 class="title">Điền Thông Tin Người Nhận </h2>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Horizontal Form -->
+                    <div class="box box-info">
+                        @using (Html.BeginForm("CheckOut", "ShoppingCart", FormMethod.Post))
+                        {
+                            <div class="form-horizontal">
+                                <div class="box-body">
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <div class="form-group">
+                                            <button id="btnGetInfo" type="button" class="btn btn-default">Lấy thông tin tài khoản này</button>
+                                        </div>
+                                    }
+
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">
+                                            Họ Tên Người Nhận<span class="text-red"> *</span>
+                                        </label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" id="NameShip" class="form-control" name="NameShip"
+                                                   required="required" placeholder="Bắt buộc nhập" />
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">
+                                            Địa Chỉ<span class="text-red"> *</span>
+                                        </label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="AddressShip" name="AddressShip"
+                                                   required="required" placeholder="Bắt buộc nhập" />
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">
+                                            Số Điện Thoại<span class="text-red"> *</span>
+                                        </label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="PhoneShip" name="PhoneShip"
+                                                   required="required" placeholder="Bắt buộc nhập" />
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">
+                                            Chọn phương thức giao hàng<span class="text-red"> *</span>
+                                        </label>
+
+                                        <div class="col-sm-9">
+                                            <input type="radio"  checked="checked"/>
+                                            <label>Giao tiền khi nhận hàng</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <a href="/" class="btn btn-danger">Quay Lại Trang Chủ</a>
+                                    <button type="submit" id="btnCreate" class="btn btn-info pull-right">Xác Nhận</button>
+                                </div>
+                                <!-- /.box-footer -->
+                            </div>
+                        }
+
+                    </div>
+                    <!-- /.box -->
+                    <!-- general form elements disabled -->
+                    <!-- /.box -->
+                </div>
+            </div>
+        </div>
+        <!-- /container -->
+    </div>
+
+
+}

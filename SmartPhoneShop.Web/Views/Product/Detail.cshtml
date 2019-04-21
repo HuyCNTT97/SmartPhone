@@ -4,18 +4,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var product = ViewBag.product as SmartPhoneShop.Web.Models.ProductViewModel;
     var productCategory = ViewBag.productCategory as SmartPhoneShop.Web.Models.ProductCategoryViewModel;
-    var CategoryParent = ViewBag.parentCategory as SmartPhoneShop.Web.Models.ProductCategoryViewModel;
+    SmartPhoneShop.Web.Models.ProductCategoryViewModel CategoryParent=null;
+    if (ViewBag.parentCategory!=null)
+    {
+      CategoryParent = ViewBag.parentCategory as SmartPhoneShop.Web.Models.ProductCategoryViewModel;
+    }
+
     var listImage = ViewBag.listImage as List<string>;
     var listProductRelated = ViewBag.ListProductRelated as List<SmartPhoneShop.Web.Models.ProductViewModel>;
 }
 @section footerJS{
     <script src="~/Assets/client/productController.js"></script>
-
+    <script src="~/Assets/client/js/controller/Cart.js"></script>
 }
 <div id="breadcrumb">
     <div class="container">
         <ul class="breadcrumb">
-            <li><a href="/@CategoryParent.Alias-@CategoryParent.ID">@CategoryParent.Name</a></li>
+            @if (CategoryParent != null)
+            {
+                <li><a href="/@CategoryParent.Alias-@CategoryParent.ID">@CategoryParent.Name</a></li>
+
+            }
             <li><a href="/@productCategory.Alias-@productCategory.ID">@productCategory.Name</a></li>
             <li class="active">@product.Name</li>
 
@@ -73,7 +82,7 @@
 
                             <ul class="color-option">
                                 <li><span class="text-uppercase">Chọn màu:</span></li>
-                                <li><a href="javascript:void(0);" ng-click="addPrice(0,'trắng')" style="background-color:white;border:1px solid whitesmoke"></a></li>
+                                <li><a href="javascript:void(0);" ng-click="addPrice(0,'trắng')" style="background-color:white;border:1px thin whitesmoke"></a></li>
                                 <li><a href="javascript:void(0);" ng-click="addPrice(200,'đen')" style="background-color:black;"></a></li>
                                 <li><a href="javascript:void(0);" ng-click="addPrice(500,'vàng đất')" style="background-color:goldenrod;"></a></li>
                                 <li><a href="javascript:void(0);" ng-click="addPrice(500,'đỏ')" style="background-color:red;"></a></li>
@@ -83,10 +92,11 @@
                         <div class="product-btns">
                             <div class="qty-input">
                                 <span class="text-uppercase">Chọn số lượng: </span>
-                                <input class="input" type="number">
+                                <input class="input" id="quantity" name="quantity" value="1" type="number">
                             </div>
-                            <a href="/them-gio-hang" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-    }
+                            <a href="#" data-id="@product.ID" data-color="{{colorName}}"    
+                               class="btnAddToCart primary-btn add-to-cart">
+                            <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 
                         </div>
                     </div>
@@ -132,7 +142,7 @@
                             <img alt="" src="@item.Image" width="208" height="200">
                         </div>
                         <div class="product-body ">
-                            <h3 class="product-price">@string.Format("{0:#,0},000 VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
+                            <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
 
                             <h2 class="product-name" title="@item.Name">
                                 <a href="/@productCategory.Alias/@item.Alias-@item.ID">@item.Name</a>

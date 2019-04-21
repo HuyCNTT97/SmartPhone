@@ -3,6 +3,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Model.Model;
+    using SmartPhoneShop.Model.Models;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -16,7 +17,7 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(SmartPhoneShop.Data.SmartPhoneDbContext context)
@@ -363,43 +364,8 @@
             dbContext.SaveChanges();
         }
 
-        private void CreateOrderDetail(SmartPhoneDbContext dbContext)
-        {
-            var listOrderDetail = new List<OrderDetail>()
-           {
-               new OrderDetail()
-               {
-               OrderID=1,
-               Price=10000000,
-               ProductID=2,
-               Promotion=0,
-               Quantity=2,
-               Shipping=false,
-               Payment=false,
-               WarrantyID=1,
-               }
-           };
-            dbContext.OrderDetail.AddRange(listOrderDetail);
-            dbContext.SaveChanges();
-        }
+       
 
-        private void CreateOrder(SmartPhoneDbContext dbContext)
-        {
-            var listOrder = new List<Order>()
-           {
-               new Order()
-               {
-                CustomerID=dbContext.Customer.Single(x=>x.Account=="customer@gmail.com").ID,
-                AddressShip="gtvt hcm",
-                GiaoDuHang=false,
-                NameShip="Lan",
-                OrderDate=DateTime.Now,
-                PhoneShip=1234
-               }
-           };
-            dbContext.Order.AddRange(listOrder);
-            dbContext.SaveChanges();
-        }
 
         private String GetMD5(string txt)
         {

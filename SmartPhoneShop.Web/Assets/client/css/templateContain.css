@@ -20,9 +20,19 @@
     box-sizing: border-box;
     margin-bottom:40px;
 }
-.margin-right{
+.margin-rightne{
     margin-right:7px
 }
-.min-height{
+.min-heightne{
     min-height:300px
+}
+margin-topne{
+    margin-top:7px
+}
+.chudam{
+    font-weight:bold;
+    font-family:'Times New Roman';
+}
+.maudo{
+    color:red;
 }

@@ -13,7 +13,7 @@ namespace SmartPhoneShop.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201904140523159_InitialDB"; }
+            get { return "201904191707409_InitialDB"; }
         }
         
         string IMigrationMetadata.Source

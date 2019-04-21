@@ -27,7 +27,7 @@ namespace SmartPhoneShop.Web.Controllers
             _productCategoryService = productCategoryService;
 
         }
-        [OutputCache(Duration = 600,Location =System.Web.UI.OutputCacheLocation.Client)]
+
         public ActionResult Index()
         {
             var listIphone = _productService.GetProductWithCategoryHome("IPHONE").Take(4).ToList();

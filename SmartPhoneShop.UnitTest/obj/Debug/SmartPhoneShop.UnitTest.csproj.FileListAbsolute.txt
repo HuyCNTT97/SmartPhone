@@ -92,3 +92,6 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\obj\Debug\SmartPhoneShop.Un
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\obj\Debug\SmartPhoneShop.UnitTest.csproj.CopyComplete
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\obj\Debug\SmartPhoneShop.UnitTest.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\obj\Debug\SmartPhoneShop.UnitTest.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Common.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Service.dll.config
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.UnitTest\bin\Debug\SmartPhoneShop.Common.pdb

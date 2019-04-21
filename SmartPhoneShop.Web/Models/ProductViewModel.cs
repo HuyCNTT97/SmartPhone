@@ -8,6 +8,7 @@ using System.Web;
 
 namespace SmartPhoneShop.Web.Models
 {
+    [Serializable]
     public class ProductViewModel : AsameProductAndPost
     {
         public int ID { set; get; }
@@ -20,6 +21,7 @@ namespace SmartPhoneShop.Web.Models
 
         public string Specifications { set; get; }
 
+        public string Color { set; get; }
         [Required]
         public decimal Promotion { set; get; }
 

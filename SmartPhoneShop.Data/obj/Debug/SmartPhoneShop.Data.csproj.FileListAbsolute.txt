@@ -42,3 +42,4 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.d
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.pdb
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.InitialDB.resources
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.csproj.GenerateResource.cache
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Data\obj\Debug\SmartPhoneShop.Data.Migrations.DBChange.resources

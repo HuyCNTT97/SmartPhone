@@ -9,7 +9,7 @@ namespace SmartPhoneShop.Web.Models
     {
         public int ID { set; get; }
 
-        public int CustomerID { set; get; }
+        public string CustomerID { set; get; }
 
         public string NameShip { set; get; }
 
@@ -20,7 +20,5 @@ namespace SmartPhoneShop.Web.Models
         public DateTime OrderDate { set; get; }
 
         public bool GiaoDuHang { get; set; }
-
-        public virtual CustomerViewModel Customers { set; get; }
     }
 }

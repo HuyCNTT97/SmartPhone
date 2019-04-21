@@ -39,3 +39,8 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Ser
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.csproj.CopyComplete
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\obj\Debug\SmartPhoneShop.Service.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Service.dll.config
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\EntityFramework.SqlServer.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Common.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\SmartPhoneShop.Common.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Service\bin\Debug\EntityFramework.SqlServer.xml

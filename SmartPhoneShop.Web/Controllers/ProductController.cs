@@ -26,13 +26,18 @@ namespace SmartPhoneShop.Web.Controllers
         {
             var modelProduct = _productService.GetByID(id);
             var modelProductCategory = _productCategoryService.GetByID(modelProduct.ProductCategoryID);
-            var modelParenCategory = _productCategoryService.GetByID(int.Parse
+            ProductCategory modelParenCategory;
+            if (modelProductCategory.ParentID != null)
+            {
+               modelParenCategory   = _productCategoryService.GetByID(int.Parse
                 (modelProductCategory.ParentID.ToString()));
+                ViewBag.parentCategory = Mapper.Map<ProductCategory, ProductCategoryViewModel>(modelParenCategory);
+            }
+
             var modelListProductRelated = _productService.GetAllByCategoryID(modelProductCategory.ID).Take(4);
             ViewBag.product = Mapper.Map<Product, ProductViewModel>(modelProduct);
             ViewBag.ListProductRelated = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(modelListProductRelated);
             ViewBag.productCategory = Mapper.Map<ProductCategory, ProductCategoryViewModel>(modelProductCategory);
-            ViewBag.parentCategory = Mapper.Map<ProductCategory, ProductCategoryViewModel>(modelParenCategory);
             List<string> listImage = new JavaScriptSerializer().Deserialize<List<string>>(modelProduct.MoreImages);
             ViewBag.listImage = listImage;
             return View();
@@ -61,6 +66,7 @@ namespace SmartPhoneShop.Web.Controllers
         public ActionResult Search(string keyword, int page = 1)
         {
             int pageSize = int.Parse(ConfigHelper.GetByKey("pageSize"));
+            if (keyword == null) return null;
             int totalRow = 0;
             var modelListProduct = _productService.GetAllByCategoryNamePaging(keyword, page, pageSize, out totalRow);
             

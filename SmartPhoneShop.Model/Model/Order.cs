@@ -15,7 +15,7 @@ namespace SmartPhoneShop.Model.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
 
-        public int CustomerID { set; get; }
+        public string CustomerID { set; get; }
 
         [MaxLength(250), Required]
         public string NameShip { set; get; }
@@ -29,7 +29,5 @@ namespace SmartPhoneShop.Model.Model
 
         public bool GiaoDuHang { get; set; }
 
-        [ForeignKey("CustomerID")]
-        public virtual Customer Customers { set; get; }
     }
 }

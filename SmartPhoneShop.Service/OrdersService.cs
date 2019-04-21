@@ -41,7 +41,9 @@ namespace SmartPhoneShop.Service
 
         public Order Add(Order orders)
         {
-            return _ordersRepository.Add(orders);
+             _ordersRepository.Add(orders);
+            _unitofwork.Commit();
+            return orders;
         }
 
         public void Delete(int id)

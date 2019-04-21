@@ -14,6 +14,7 @@ namespace SmartPhoneShop.Service
         OrderDetail Add(OrderDetail orderDetail);
 
         void Update(OrderDetail orderDetail);
+        void SellProduct(int productID, int quantity);
 
         void Delete(int id);
 
@@ -32,12 +33,14 @@ namespace SmartPhoneShop.Service
 
     public class OrderDetailService : IOrderDetailService
     {
+        private IProductService _productService;
         private IOrderDetailRepository _orderDetailRepository;
 
         private IUnitOfWork _unitofwork;
 
-        public OrderDetailService(IOrderDetailRepository orderDetailRepository, IUnitOfWork unitOfWork)
+        public OrderDetailService(IOrderDetailRepository orderDetailRepository,IProductService productService, IUnitOfWork unitOfWork)
         {
+            this._productService = productService;
             this._orderDetailRepository = orderDetailRepository;
             this._unitofwork = unitOfWork;
         }
@@ -80,6 +83,13 @@ namespace SmartPhoneShop.Service
         public void SaveChanges()
         {
             _unitofwork.Commit();
+        }
+
+        public void SellProduct(int productID, int quantity)
+        {
+            var product = _productService.GetByID(productID);
+            product.Quantity = product.Quantity - quantity;
+            _productService.SaveChanges();
         }
 
         public void Update(OrderDetail orderDetail)

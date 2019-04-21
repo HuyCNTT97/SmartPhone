@@ -237,6 +237,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ApplicationGroupController.cs" />
+    <Compile Include="Controllers\ApplicationRoleController.cs" />
+    <Compile Include="Controllers\ApplicationUserController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -249,6 +253,9 @@
     <Compile Include="Models\Abstract\AsameProductAndPost.cs" />
     <Compile Include="Models\Abstract\ASameProductCategoryAndPostCategory.cs" />
     <Compile Include="Models\Abstract\ASeoable.cs" />
+    <Compile Include="Models\ApplicationGroupViewModel.cs" />
+    <Compile Include="Models\ApplicationRoleViewModel.cs" />
+    <Compile Include="Models\ApplicationUserViewModel.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\FooterViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
@@ -265,6 +272,7 @@
     <Compile Include="Models\ProductTagViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\ShoppingCartViewModel.cs" />
     <Compile Include="Models\SlideViewModel.cs" />
     <Compile Include="Models\SuppostOnlineViewModel.cs" />
     <Compile Include="Models\SystemConfigViewModel.cs" />
@@ -275,6 +283,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\components\application_groups\applicationGroupAddController.js" />
+    <Content Include="app\components\application_groups\applicationGroupAddView.html" />
+    <Content Include="app\components\application_groups\applicationGroupEditController.js" />
+    <Content Include="app\components\application_groups\applicationGroupEditView.html" />
+    <Content Include="app\components\application_groups\applicationGroupListController.js" />
+    <Content Include="app\components\application_groups\applicationGroupListView.html" />
+    <Content Include="app\components\application_groups\applicationGroups.module.js" />
+    <Content Include="app\components\application_roles\applicationRoleAddController.js" />
+    <Content Include="app\components\application_roles\applicationRoleAddView.html" />
+    <Content Include="app\components\application_roles\applicationRoleEditController.js" />
+    <Content Include="app\components\application_roles\applicationRoleEditView.html" />
+    <Content Include="app\components\application_roles\applicationRoleListController.js" />
+    <Content Include="app\components\application_roles\applicationRoleListView.html" />
+    <Content Include="app\components\application_roles\applicationRoles.module.js" />
+    <Content Include="app\components\application_users\applicationUserAddController.js" />
+    <Content Include="app\components\application_users\applicationUserAddView.html" />
+    <Content Include="app\components\application_users\applicationUserEditController.js" />
+    <Content Include="app\components\application_users\applicationUserEditView.html" />
+    <Content Include="app\components\application_users\applicationUserListController.js" />
+    <Content Include="app\components\application_users\applicationUserListView.html" />
+    <Content Include="app\components\application_users\applicationUsers.module.js" />
     <Content Include="app\components\home\HomeController.js" />
     <Content Include="app\components\home\HomeView.html" />
     <Content Include="app\components\home\rootController.js" />
@@ -5173,6 +5202,7 @@
     <Content Include="Assets\client\js\bootstrap.min.js" />
     <Content Include="Assets\client\js\common.js" />
     <Content Include="Assets\client\js\confirmPassword.js" />
+    <Content Include="Assets\client\js\controller\Cart.js" />
     <Content Include="Assets\client\js\jquery.min.js" />
     <Content Include="Assets\client\js\jquery.zoom.min.js" />
     <Content Include="Assets\client\js\main.js" />
@@ -5473,6 +5503,8 @@
     <Content Include="Views\Shared\footer.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmartPhoneShop.Common\SmartPhoneShop.Common.csproj">

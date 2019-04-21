@@ -4,6 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var ProductCategory = ViewBag.ProductCategory as SmartPhoneShop.Web.Models.ProductCategoryViewModel;
 }
+@section footerJS{
+
+    <script src="~/Assets/client/js/controller/Cart.js"></script>
+}
 <div class="nen">
     @{ Html.RenderAction("slide", "Home");}
     @if (Model.Count > 0)
@@ -32,21 +36,21 @@
                             <div class="product product-single product-hot">
                                 <div class="product-thumb">
                                     @*<div class="product-label">
-                                <span class="sale">-20%</span>
-                            </div>*@
+                                            <span class="sale">-20%</span>
+                                        </div>*@
                                     <a href="/@ProductCategory.Alias/@item.Alias-@item.ID" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Xem chi tiết</a>
                                     <img alt="" src="@item.Image" height="200">
                                 </div>
                                 <div class="product-body ">
-                                    <h3 class="product-price">@string.Format("{0:#,0},000 VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
+                                    <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
 
-                                    <h2 class="product-name"  title="@item.Name">
+                                    <h2 class="product-name" title="@item.Name">
                                         <a href="/@ProductCategory.Alias/@item.Alias-@item.ID">@item.Name</a>
                                     </h2>
                                     <div class="product-btns">
                                         <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                         <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                        <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                        <button data-id="@item.ID" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
                                     </div>
                                 </div>
                             </div>
@@ -106,13 +110,13 @@
             </div>
             <!-- /container -->
         </div>
-                                    }
-                                    else
-                                    {
-                                    <div class="section">
-                                        <div class="container">
-                                            <h3 class="text-center text-danger">Không có sản phẩm nào</h3>
-                                        </div>
-                                    </div>
-                                    }
+    }
+    else
+    {
+        <div class="section">
+            <div class="container">
+                <h3 class="text-center text-danger">Không có sản phẩm nào</h3>
+            </div>
+        </div>
+    }
 </div>
