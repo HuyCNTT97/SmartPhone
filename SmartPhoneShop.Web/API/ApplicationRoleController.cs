@@ -13,6 +13,7 @@ using SmartPhoneShop.Web.Infrastructure.Core;
 
 using SmartPhoneShop.Web.Models;
 using SmartPhoneShop.Web.Infrasture.Core;
+using SmartPhoneShop.Web.Infrasture.Extension;
 
 namespace SmartPhoneShop.Web.Api
 {

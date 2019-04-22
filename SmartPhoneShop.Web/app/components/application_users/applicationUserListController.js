@@ -43,7 +43,7 @@
                 }
             }
 
-            apiService.get('api/applicationUser/getlistpaging', config, dataLoadCompleted, dataLoadFailed);
+            apiService.get('/api/applicationUser/getlistpaging', config, dataLoadCompleted, dataLoadFailed);
         }
 
         function dataLoadCompleted(result) {
@@ -52,7 +52,7 @@
             $scope.pagesCount = result.data.TotalPages;
             $scope.totalCount = result.data.TotalCount;
             $scope.loading = false;
-
+            console.log($scope.data);
             if ($scope.filterExpression && $scope.filterExpression.length) {
                 notificationService.displayInfo(result.data.Items.length + ' items found');
             }

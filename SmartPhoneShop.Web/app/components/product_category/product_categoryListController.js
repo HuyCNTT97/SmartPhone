@@ -6,7 +6,7 @@
         $scope.page = 0
         $scope.pagesCount = 0
         $scope.keyword = ""
-
+        $scope.loading = true;
         $scope.option = {
             options: [{ value: 10, name: "10 dòng" },
             { value: 20, name: "20 dòng" },
@@ -105,8 +105,7 @@
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Không có bản ghi nào được tìm thấy')
                 }
-                console.log(result.data)
-                console.log("pageSize:" + $scope.option.model.value)
+                $scope.loading = false;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;

@@ -34,4 +34,3 @@ D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csproj.CopyComplete
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.dll
 D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.pdb
-D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csprojAssemblyReference.cache

@@ -14,6 +14,7 @@ using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Models;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Model.Model;
+using SmartPhoneShop.Web.Infrasture.Extension;
 
 namespace SmartPhoneShop.Web.Api
 {
@@ -43,10 +44,17 @@ namespace SmartPhoneShop.Web.Api
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
+                
                 int totalRow = 0;
                 var model = _userManager.Users;
+               
                 IEnumerable<ApplicationUserViewModel> modelVm = Mapper.Map<IEnumerable<ApplicationUser>, IEnumerable<ApplicationUserViewModel>>(model);
-
+                foreach (var item in modelVm)
+                {
+                    item.Groups = Mapper.Map<IEnumerable<ApplicationGroup>, IEnumerable<ApplicationGroupViewModel>>
+                    (_appGroupService.GetListGroupByUserId(item.Id));
+                }
+                var test = modelVm.ToList();
                 PaginationSet<ApplicationUserViewModel> pagedSet = new PaginationSet<ApplicationUserViewModel>()
                 {
                     Page = page,
@@ -111,6 +119,7 @@ namespace SmartPhoneShop.Web.Api
                             });
                             //add role to user
                             var listRole = _appRoleService.GetListRoleByGroupId(group.ID);
+                            
                             foreach (var role in listRole)
                             {
                                 await _userManager.RemoveFromRoleAsync(newAppUser.Id, role.Name);
@@ -119,10 +128,10 @@ namespace SmartPhoneShop.Web.Api
                         }
                         _appGroupService.AddUserToGroups(listAppUserGroup, newAppUser.Id);
                         _appGroupService.Save();
-
-                      
+                        
+                        await _userManager.UpdateAsync(newAppUser);
+                        var usertest =await _userManager.FindByIdAsync(newAppUser.Id);
                         return request.CreateResponse(HttpStatusCode.OK, applicationUserViewModel);
-
                     }
                     else
                         return request.CreateErrorResponse(HttpStatusCode.BadRequest, string.Join(",", result.Errors));
