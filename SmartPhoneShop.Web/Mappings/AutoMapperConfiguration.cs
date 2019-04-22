@@ -19,6 +19,9 @@ namespace SmartPhoneShop.Web.Mappings
                 cfg.CreateMap<Customer, CustomerViewModel>();
 
                 cfg.CreateMap<Footer, FooterViewModel>();
+                cfg.CreateMap<ApplicationGroup, ApplicationGroupViewModel>();
+                cfg.CreateMap<ApplicationUser, ApplicationUserViewModel>();
+                cfg.CreateMap<ApplicationRole, ApplicationRoleViewModel>();
                 cfg.CreateMap<Menu, MenuViewModel>();
                 cfg.CreateMap<MenuGroup, MenuGroupViewModel>();
                 cfg.CreateMap<Order, OrderViewModel>();

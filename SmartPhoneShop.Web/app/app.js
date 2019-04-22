@@ -4,8 +4,9 @@
     angular.module('smartphone',
         ['smartphone.common',
             'smartphone.product', 'smartphone.product_category',
-            'smartphone.post', 'smartphone.post_category', 'smartphone.application_groups',
-            'smartphone.slide'
+            'smartphone.post', 'smartphone.post_category',
+            'smartphone.slide', 'smartphone.application_users', 'smartphone.application_groups',
+            'smartphone.application_roles'
         ])
         .config(config)
         .config(configAuthentication);

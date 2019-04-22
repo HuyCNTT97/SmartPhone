@@ -4,6 +4,7 @@
     function productListController($scope, apiService, notificationService, $ngBootbox, $filter) {
         $scope.product = []
         $scope.page = 0
+        $scope.loading = true;
         $scope.pagesCount = 0
         $scope.keyword = ""
         $scope.option = {
@@ -106,14 +107,14 @@
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('không tìm thấy bảng ghi nào');
                 }
-                console.log(result.data)
-                console.log("pageSize:" + $scope.option.model.value)
+              
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;
                 $scope.product = result.data.Items;
+                $scope.loading = false;
             }, function () {
-                console.log('Load productcategory failed.');
+                console.log('Load product failed.');
             });
         }
 

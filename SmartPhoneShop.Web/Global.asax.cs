@@ -1,4 +1,5 @@
-﻿using SmartPhoneShop.Web.Mappings;
+﻿using Newtonsoft.Json.Serialization;
+using SmartPhoneShop.Web.Mappings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,11 @@ namespace SmartPhoneShop.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            var serializerSettings =
+  GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings;
+            var contractResolver =
+              (DefaultContractResolver)serializerSettings.ContractResolver;
+            contractResolver.IgnoreSerializableAttribute = true;
         }
     }
 }

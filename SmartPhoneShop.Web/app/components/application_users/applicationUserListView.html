@@ -30,19 +30,24 @@
                 <th>Tên người dùng</th>
                 <th>Tài khoản</th>
                 <th>Email</th>
+                  <th>Thuộc nhóm</th>
                 <th style="width:10%"></th>
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="item in data | filter:filterExpression">
-                <td><a ui-sref="edit_application_user({id:item.Id})">{{item.FullName}}</a></td>
-                <td><a ui-sref="edit_application_user({id:item.Id})">{{item.UserName}}</a></td>
-                <td>{{item.Email}}</td>
-                <td>
-                  <a ui-sref="edit_application_user({id:item.Id})" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
-                  <button class="btn btn-sm btn-danger" ng-click="deleteItem(item.Id)"><i class="fa fa-trash-o"></i></button>
-                </td>
-              </tr>
+                <tr ng-repeat="item in data | filter:filterExpression">
+                    <td><a ui-sref="edit_application_user({id:item.Id})">{{item.FullName}}</a></td>
+                    <td><a ui-sref="edit_application_user({id:item.Id})">{{item.UserName}}</a></td>
+                    <td>{{item.Email}}</td>
+                    <td>
+                        <span ng-repeat="group in item.Groups">{{group.Name}},</span>
+                    </td>>
+                    <td>
+                        <a ui-sref="edit_application_user({id:item.Id})" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
+                        <button class="btn btn-sm btn-danger" ng-click="deleteItem(item.Id)"><i class="fa fa-trash-o"></i></button>
+                    </td>
+
+                </tr>
             </tbody>
           </table>
           <div ng-if="loading">
