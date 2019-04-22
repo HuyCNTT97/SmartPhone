@@ -25,6 +25,8 @@ namespace SmartPhoneShop.Model.Model
         public bool Shipping { set; get; }
         public bool Payment { set; get; }
         public int WarrantyID { set; get; }
+        [Key]
+        [Column(Order =3)]
         public string Color { set; get; }
         [ForeignKey("OrderID")]
         public virtual Order Orders { set; get; }

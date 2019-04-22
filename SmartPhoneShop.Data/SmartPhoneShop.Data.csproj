@@ -96,6 +96,10 @@
     <Compile Include="Migrations\201904210819311_DBChange.Designer.cs">
       <DependentUpon>201904210819311_DBChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904220844287_ChangeKeyOrderDetail.cs" />
+    <Compile Include="Migrations\201904220844287_ChangeKeyOrderDetail.Designer.cs">
+      <DependentUpon>201904220844287_ChangeKeyOrderDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ApplicationGroupRepository.cs" />
@@ -141,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904210819311_DBChange.resx">
       <DependentUpon>201904210819311_DBChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904220844287_ChangeKeyOrderDetail.resx">
+      <DependentUpon>201904220844287_ChangeKeyOrderDetail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
