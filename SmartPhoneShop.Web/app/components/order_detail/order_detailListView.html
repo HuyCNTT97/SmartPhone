@@ -1,13 +1,13 @@
 ﻿  <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Loại Sản Phẩm
-        <small>danh sách các loại sản phẩm hiện có</small>
+        Chi tiết đặt hàng
+        <small>danh sách chi tiết đon đặt hàng</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
-        <li>Danh Mục Loại Sản Phẩm</li>
-        <li class="active">Xem Loại Sản Phẩm</li>
+        <li>Danh Mục chi tiết đặt hàng</li>
+        <li class="active">Xem chi tiết đơn đặt hàng</li>
     </ol>
 </section>
 
@@ -52,20 +52,38 @@
                             </label>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-success"
+                                ui-sref="order_detail_add">
+                            Thêm mới
+                        </button>
+                        <button ng-click="deleteMultiple()"
+                                id="btnDelete" disabled
+                                class="btn btn-danger">
+                            Xóa các dòng đã chọn
+                        </button>
+                    </div>
                 </div><div class="row">
                     <div class="col-sm-12">
                         <table id="example1" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="example1_info">
                             <thead>
                                 <tr role="row" class="bg-black">
-                                    <th>Mã Loại sản phẩm</th>
+                                    <th>Mã loại sản phẩm</th>
                                     <th>Mã người dùng </th>
                                     <th>Giá</th>
                                     <th>Khuyến mãi</th>
                                     <th>Số lượng</th>
                                     <th>Giao hang</th>
                                     <th>Thanh toán</th>
-                                    <th>Mã bỏa hành</th>
+                                    <th>Mã bảo hành</th>
                                     <th>Chức năng</th>
+                                    <th>
+                                        <label>
+                                            <input name="all"
+                                                   type="checkbox" ng-click="selectAll()" />
+                                            Chọn tất cả
+                                        </label>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,9 +98,16 @@
                                     <td>{{item.WarrantyID}}</td>
 
                                     <td>
-                                        <button class="btn btn-sm btn-primary" title="Chỉnh Sửa"><i class="fa fa-pencil"></i></button>
-                                        <button class="btn btn-sm btn-danger" title="Xóa"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-primary" ui-sref="order_detail_edit({id:item.ID})"
+                                                title="Chỉnh Sửa">
+                                            <i class="fa fa-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger" ng-click="deleteOrder(item.ID)"
+                                                title="Xóa">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
                                     </td>
+                                    <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -36,6 +36,7 @@ namespace SmartPhoneShop.Web.Controllers
             return View();
         }
         [HttpPost]
+       
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -107,6 +108,7 @@ namespace SmartPhoneShop.Web.Controllers
             return View();
         }
         [HttpPost]
+        [CaptchaValidation("CaptchaCode", "RegisterCaptcha", "Bạn đã nhập sai mã captcha")]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -152,9 +154,10 @@ namespace SmartPhoneShop.Web.Controllers
 
 
                 TempData["msgRegister"] = MessageBox.Show("Đăng kí thành công");
+                return Redirect("/dang-nhap.html");
             }
-
-            return Redirect("/");
+           
+            return View(model);
         }
     }
 }

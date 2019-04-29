@@ -1,4 +1,5 @@
-﻿@model SmartPhoneShop.Web.Models.LoginViewModel
+﻿@using BotDetect.Web.Mvc;
+@model SmartPhoneShop.Web.Models.LoginViewModel
 @{
                 /**/
 
@@ -12,6 +13,10 @@
     if (TempData["msgLogin"] != null)
     {
         @Html.Raw(TempData["msgLogin"]);
+    }
+     if (TempData["msgRegister"] != null)
+    {
+        @Html.Raw(TempData["msgRegister"]);
     }
     <div class="container min-heightne">
         <div class="row bong">
@@ -49,8 +54,15 @@
                                @required="required",@placeholder="Bắt buộc nhập"})
                                 </div>
                             </div>
+                                <label for="inputEmail3" class="col-sm-4 control-label">
+                                    Captcha<span class="text-red"> *</span>
+                                </label>
 
-                        </div>
+                                <div class="col-sm-8">
+                               
+                                </div>
+                            </div>
+
 
                         <!-- /.box-body -->
                         <div class="box-footer">

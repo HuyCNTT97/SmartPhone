@@ -52,19 +52,38 @@
                             </label>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-success"
+                                ui-sref="order_add">
+                            Thêm mới
+                        </button>
+                        <button ng-click="deleteMultiple()"
+                                id="btnDelete" disabled
+                                class="btn btn-danger">
+                            Xóa các dòng đã chọn
+                        </button>
+                    </div>
                 </div><div class="row">
                     <div class="col-sm-12">
                         <table id="example1" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="example1_info">
                             <thead>
+
                                 <tr role="row" class="bg-black">
-                                    <th>Mã Loại order</th>
-                                    <th>Mã người dùng </th>
-                                    <th>Tên giao hàng</th>
+                                    <th>Mã Order</th>
+                                    <th>Mã khách hàng </th>
+                                    <th>Tên ship</th>
                                     <th>Địa chỉ giao hàng</th>
                                     <th>Số điện thoại giao hàng</th>
                                     <th>Ngày đặt hàng</th>
                                     <th>Giao đủ hàng</th>
                                     <th>Các Chức Năng</th>
+                                    <th>
+                                        <label>
+                                            <input name="all"
+                                                   type="checkbox" ng-click="selectAll()" />
+                                            Chọn tất cả
+                                        </label>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,26 +93,28 @@
                                     <td>{{item.NameShip}}</td>
                                     <td>{{item.AddressShip}}</td>
                                     <td>{{item.PhoneShip}}</td>
-                                    <td>{{item.OrderDate|date:'dd/MM/yyyy hh:mm:ss'}}</td>
+                                    <td>{{item.OrderDate}}</td>
                                     <td>{{item.GiaoDuHang}}</td>
 
                                     <td>
-                                        <button class="btn btn-sm btn-primary" title="Chỉnh Sửa"><i class="fa fa-pencil"></i></button>
-                                        <button class="btn btn-sm btn-danger" title="Xóa"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-primary" ui-sref="order_edit({id:item.ID})" title="Chỉnh Sửa">
+                                            <i class="fa fa-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger" ng-click="deleteOrder(item.ID)" title="Xóa">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
                                     </td>
+                                    <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                
             </div>
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-            <pager-directive page="{{page}}" custom-path="{{customPath}}"
-                             pages-count="{{pagesCount}}" total-count="{{totalCount}}"
-                             search-func="getOrder(page)"></pager-directive>
+            <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getOrder(page)"></pager-directive>
         </div>
         <!-- /.box-footer-->
     </div>

@@ -64,11 +64,11 @@
       <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="BotDetect, Version=4.4.1.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Captcha.4.4.1\lib\net35\BotDetect.dll</HintPath>
+    <Reference Include="BotDetect, Version=4.0.0.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.0.1\lib\net45\BotDetect.dll</HintPath>
     </Reference>
-    <Reference Include="BotDetect.Web.Mvc, Version=4.4.1.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Captcha.4.4.1\lib\net35\BotDetect.Web.Mvc.dll</HintPath>
+    <Reference Include="BotDetect.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.0.1\lib\net45\BotDetect.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="CKFinder, Version=2.6.0.2792, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -317,9 +317,24 @@
     <Content Include="app\components\menu\menuListController.js" />
     <Content Include="app\components\menu\menuListView.html" />
     <Content Include="app\components\menu_group\menu_group.module.js" />
+    <Content Include="app\components\menu_group\menu_groupAddController.js" />
+    <Content Include="app\components\menu_group\menu_groupAddView.html" />
+    <Content Include="app\components\menu_group\menu_groupEditController.js" />
+    <Content Include="app\components\menu_group\menu_groupEditVIew.html" />
     <Content Include="app\components\menu_group\menu_groupListController.js" />
     <Content Include="app\components\menu_group\menu_groupListView.html" />
+    <Content Include="app\components\order\order.module.js" />
+    <Content Include="app\components\order\orderAddController.js" />
+    <Content Include="app\components\order\orderAddView.html" />
+    <Content Include="app\components\order\orderEditController.js" />
+    <Content Include="app\components\order\orderEditView.html" />
+    <Content Include="app\components\order\orderListController.js" />
+    <Content Include="app\components\order\orderListView.html" />
     <Content Include="app\components\order_detail\order_detail.module.js" />
+    <Content Include="app\components\order_detail\order_detailAddController.js" />
+    <Content Include="app\components\order_detail\order_detailAddView.html" />
+    <Content Include="app\components\order_detail\order_detailEditController.js" />
+    <Content Include="app\components\order_detail\order_detailEditView.html" />
     <Content Include="app\components\order_detail\order_detailListController.js" />
     <Content Include="app\components\order_detail\order_detailListView.html" />
     <Content Include="app\components\post\post.module.js" />
@@ -367,6 +382,10 @@
     <Content Include="app\components\slide\slideListController.js" />
     <Content Include="app\components\slide\slideListView.html" />
     <Content Include="app\components\suppost_online\suppost_online.module.js" />
+    <Content Include="app\components\suppost_online\suppost_onlineAddController.js" />
+    <Content Include="app\components\suppost_online\suppost_onlineAddView.html" />
+    <Content Include="app\components\suppost_online\suppost_onlineEditController.js" />
+    <Content Include="app\components\suppost_online\suppost_onlineEditVIew.html" />
     <Content Include="app\components\suppost_online\suppost_onlineListController.js" />
     <Content Include="app\components\suppost_online\suppost_onlineListView.html" />
     <Content Include="app\components\system_config\system_config.module.js" />
@@ -379,6 +398,10 @@
     <Content Include="app\components\visitor_statistic\visitor_statisticListController.js" />
     <Content Include="app\components\visitor_statistic\visitor_statisticListView.html" />
     <Content Include="app\components\warranty\warranty.module.js" />
+    <Content Include="app\components\warranty\warrantyAddController.js" />
+    <Content Include="app\components\warranty\warrantyAddView.html" />
+    <Content Include="app\components\warranty\warrantyEditController.js" />
+    <Content Include="app\components\warranty\warrantyEditVIew.html" />
     <Content Include="app\components\warranty\warrantyListController.js" />
     <Content Include="app\components\warranty\warrantyListView.html" />
     <Content Include="app\shared\directives\asDateDirective.js" />
@@ -5213,6 +5236,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Libs\CKFinder.dll" />
+    <Content Include="Views\ShoppingCart\Order.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -5223,7 +5247,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\components\order\" />
     <Folder Include="app\components\user\" />
     <Folder Include="app\shared\footer\" />
     <Folder Include="app\shared\navigation\" />

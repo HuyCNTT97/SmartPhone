@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Web.Infrasture.Extension;
 using SmartPhoneShop.Web.Models;
@@ -26,18 +27,29 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listOrderDetail = _orderDetailService.GetAll();
-                var listOrderDetailVM = Mapper.Map<List<OrderDetailViewModel>>(listOrderDetail);
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listOrderDetailVM);
+                int totalRow = 0;
+                var model = _orderDetailService.GetAll(keyword);
 
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.OrderID).Skip(page * pageSize).Take(pageSize);
+
+                var responseData = Mapper.Map<IEnumerable<OrderDetail>, IEnumerable<OrderDetailViewModel>>(query);
+
+                var paginationSet = new PaginationSet<OrderDetailViewModel>()
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }
-
         [Route("add")]
         public HttpResponseMessage Post(HttpRequestMessage request, OrderDetailViewModel orderDetailVm)
         {

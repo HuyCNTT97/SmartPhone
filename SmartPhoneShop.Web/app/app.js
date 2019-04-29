@@ -6,6 +6,8 @@
             'smartphone.product', 'smartphone.product_category',
             'smartphone.post', 'smartphone.post_category',
             'smartphone.slide', 'smartphone.application_users', 'smartphone.application_groups',
+            'smartphone.order_detail',
+            'smartphone.order',
             'smartphone.application_roles'
         ])
         .config(config)

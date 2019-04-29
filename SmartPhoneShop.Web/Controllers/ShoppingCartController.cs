@@ -96,8 +96,10 @@ namespace SmartPhoneShop.Web.Controllers
             if (User.Identity.IsAuthenticated) modelOrder.CustomerID = User.Identity.GetUserId();
             modelOrder = _orderService.Add(modelOrder);
             var cart = Session[CommonConstants.SessionCart] as List<ShoppingCartViewModel>;
+            decimal tong = 0;
             foreach (var item in cart)
             {
+                tong = tong + item.Product.Price * item.Quantity;
                 OrderDetail orderDetail = new OrderDetail();
                 orderDetail.OrderID = modelOrder.ID;
                 orderDetail.Price = item.Product.Price;
@@ -109,7 +111,16 @@ namespace SmartPhoneShop.Web.Controllers
                 _orderDetailService.Add(orderDetail);
                 _orderDetailService.SellProduct(item.ProductID, item.Quantity);
             }
-            TempData["msgOrder"] = MessageBox.Show("Đặt hàng thành công, mời bạn kiểm tra đơn hàng");
+            string content = System.IO.File.ReadAllText(Server.MapPath("~/Views/ShoppingCart/Order.html"));
+            content = content.Replace("{{Name}}", modelOrder.NameShip);
+            content = content.Replace("{{Address}}", modelOrder.AddressShip);
+            content = content.Replace("{{Phone}}", modelOrder.PhoneShip.ToString());
+            content = content.Replace("{{Count}}", cart.Count().ToString());
+            content = content.Replace("{{Price}}", tong.ToString());
+            
+            MailHelper.SendMail(_userManager.GetEmail(User.Identity.GetUserId()), "Xác nhận hóa đơn mua hàng", content);
+            Session[Common.CommonConstants.SessionCart] = null;
+            TempData["msgOrder"] = MessageBox.Show("Đặt hàng thành công, mời bạn kiểm tra đơn hàng trong email");
             return Redirect("/");
         }
         //public ActionResult CreateOrder(string orderViewModel)

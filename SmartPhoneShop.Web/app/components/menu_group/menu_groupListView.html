@@ -1,13 +1,13 @@
 ﻿  <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Loại Sản Phẩm
-        <small>danh sách các loại sản phẩm hiện có</small>
+        Menu Group
+        <small>danh sách nhóm menu</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
-        <li>Danh Mục Loại Sản Phẩm</li>
-        <li class="active">Xem Loại Sản Phẩm</li>
+        <li>Danh Mục Menu Group</li>
+        <li class="active">Xem nhóm menu</li>
     </ol>
 </section>
 
@@ -52,6 +52,17 @@
                             </label>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-success"
+                                ui-sref="menu_group_add">
+                            Thêm mới
+                        </button>
+                        <button ng-click="deleteMultiple()"
+                                id="btnDelete" disabled
+                                class="btn btn-danger">
+                            Xóa các dòng đã chọn
+                        </button>
+                    </div>
                 </div><div class="row">
                     <div class="col-sm-12">
                         <table id="example1" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="example1_info">
@@ -59,11 +70,15 @@
                                 <tr role="row" class="bg-black">
                                     <th>Mã Loại menu</th>
                                     <th>Tên </th>
-                                    <th>URL</th>
-                                    <th>GroupID</th>
-                                    <th>Target</th>
-                                    <th>Trạng Thái</th>
                                     <th>Các Chức Năng</th>
+                                    <th>
+                                        <label>
+                                            <input name="all"
+                                                   type="checkbox" ng-click="selectAll()" />
+                                            Chọn tất cả
+                                        </label>
+                                    </th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,18 +86,18 @@
                                 <tr ng-repeat="item in menu_group">
                                     <td>{{item.ID}}</td>
                                     <td>{{item.Name}}</td>
-                                    <td>{{item.URL}}</td>
-                                    <td>{{item.GroupID}}</td>
-                                    <td>{{item.Target}}</td>
 
-                                    <td ng-class="{'badge bg-red':item.Status==false,
-                                        'badge bg-green':item.Status==true}">
-                                        {{item.Status|statusFilter}}
-                                    </td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-primary"
+                                                ui-sref="menu_group_edit({id:item.ID})" title="Chỉnh Sửa">
+                                            <i class="fa fa-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger"
+                                                ng-click="deleteMenuGroup(item.ID)" title="Xóa">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
                                     </td>
+                                    <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
                                 </tr>
                             </tbody>
                         </table>

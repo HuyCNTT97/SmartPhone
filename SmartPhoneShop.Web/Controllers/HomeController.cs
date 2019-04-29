@@ -75,13 +75,18 @@ namespace SmartPhoneShop.Web.Controllers
         [OutputCache(Duration =3600*60)]
         public ActionResult footer()
         {
+            
             return PartialView();
         }
         [ChildActionOnly]
        
         public ActionResult header()
         {
-            return PartialView();
+            if (Session[Common.CommonConstants.SessionCart] == null)
+                Session[Common.CommonConstants.SessionCart] = new List<ShoppingCartViewModel>();
+            var cart = Session[Common.CommonConstants.SessionCart] as List<ShoppingCartViewModel>;
+
+            return PartialView(cart);
         }
         [ChildActionOnly]
         [OutputCache(Duration = 3600*60)]
