@@ -20,5 +20,6 @@ namespace SmartPhoneShop.Web.Models
         public DateTime OrderDate { set; get; }
 
         public bool GiaoDuHang { get; set; }
+        public virtual IEnumerable<OrderDetailViewModel> OrderDetail { set; get; }
     }
 }

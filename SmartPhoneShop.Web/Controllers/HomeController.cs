@@ -78,15 +78,30 @@ namespace SmartPhoneShop.Web.Controllers
             
             return PartialView();
         }
-        [ChildActionOnly]
-       
-        public ActionResult header()
+        [HttpPost]
+        public JsonResult GetCart()
         {
+            decimal tong = 0;
+            int quantity = 0;
             if (Session[Common.CommonConstants.SessionCart] == null)
                 Session[Common.CommonConstants.SessionCart] = new List<ShoppingCartViewModel>();
             var cart = Session[Common.CommonConstants.SessionCart] as List<ShoppingCartViewModel>;
-
-            return PartialView(cart);
+            foreach (var item in cart)
+            {
+                quantity = quantity + item.Quantity;
+                tong = tong + item.Product.Price * item.Quantity;
+            }
+            string price = tong.ToString("N0") + " VND";
+            return Json(new
+            {
+                price = price,
+                quantity = quantity
+            });
+        }
+        [ChildActionOnly]
+        public ActionResult header()
+        {
+            return PartialView();
         }
         [ChildActionOnly]
         [OutputCache(Duration = 3600*60)]

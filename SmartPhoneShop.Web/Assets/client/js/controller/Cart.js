@@ -36,18 +36,40 @@
                 }
             })
         });
+        function loadCart() {
+            $.ajax({
+                url: "/Home/GetCart",
+                type: "POST",
+                dataType: "json",
+                success: function (respon) {
+                    $('.qty').text(respon.quantity);
+                    $('.price').text(respon.price);
+                }
+            });
+        }
+        
         $('#totalPrice').text(numeral(cart.getTotalOrder()).format('0,0'));
         $('.txtQuantity').off('keyup').on('keyup', function () {
             var quantity = parseInt($(this).val());
             var productID = parseInt($(this).data('id'));
             var color = parseInt($(this).data('color'));
             var price = parseFloat($(this).data('price'));
+            var quantityInventory = parseInt($(this).data('quantityinventory'));
             if (isNaN(quantity) === false) {
                 if (quantity <= 0) cart.deleteItem(productID);
                 else {
-                    var amount = price * quantity;
-                    $('#amount_' + productID + color).text(numeral(amount).format('0,0'));
-                    $('#totalPrice').text(numeral(cart.getTotalOrder()).format('0,0'));
+                    if (quantity > quantityInventory) {
+                        alert("Không đủ số lượng trong kho\n"+"Chỉ còn "+quantityInventory+" sản phẩm");
+                        $(this).val(quantityInventory);
+                    }
+                    else {
+                        var amount = price * quantity;
+                        var text = '#amount_' + productID + color;
+
+                        $('#amount_' + productID + color).text(numeral(amount).format('0,0'));
+                        $('#totalPrice').text(numeral(cart.getTotalOrder()).format('0,0'));
+                    }
+
                 }
             }
             else {
@@ -60,14 +82,22 @@
             var color = ($(this).data('color'));
             var productID = parseInt($(this).data('id'));
             var price = parseFloat($(this).data('price'));
+            var quantityInventory = parseInt($(this).data('quantityinventory'));
             if (isNaN(quantity) === false) {
                 if (quantity <= 0) cart.deleteItem(productID);
                 else {
-                    var amount = price * quantity;
-                    var text = '#amount_' + productID + color;
+                    if (quantity > quantityInventory) {
+                        alert("Không đủ số lượng trong kho");
+                        $(this).val(quantityInventory);
+                    }
+                    else {
+                        var amount = price * quantity;
+                        var text = '#amount_' + productID + color;
 
-                    $('#amount_' + productID+color).text(numeral(amount).format('0,0'));
-                    $('#totalPrice').text(numeral(cart.getTotalOrder()).format('0,0'));
+                        $('#amount_' + productID + color).text(numeral(amount).format('0,0'));
+                        $('#totalPrice').text(numeral(cart.getTotalOrder()).format('0,0'));
+                    }
+                   
                 }
             }
             else {
@@ -94,9 +124,10 @@
                color=colorName
             }
 
-            cart.addItem(productID, quantity,color);
+            cart.addItem(productID, quantity, color);
+            loadCart();
         });
-       
+        loadCart();
         $('.btnDeleteItem').off('click').on('click', function (e) {
             e.preventDefault();
             var productID = parseInt($(this).data('id'));
@@ -272,6 +303,7 @@
                             Alias:item.Product.Alias,
                             Price: item.Product.Price,
                             PriceF: numeral(item.Product.Price).format('0,0'),
+                            QuantityInventory:item.Product.Quantity,
                             Quantity: item.Quantity,
                             Amount: numeral(item.Quantity * item.Product.Price).format('0,0')
                         });

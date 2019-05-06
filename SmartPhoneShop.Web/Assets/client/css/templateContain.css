@@ -17,8 +17,8 @@
 .bong {
     box-shadow: 0px 10px 10px -10px rgb(161, 160, 160);
     -webkit-box-shadow: 0px 10px 10px -10px rgb(161, 160, 160);
-    box-sizing: border-box;
-    margin-bottom:40px;
+  
+    
 }
 .margin-rightne{
     margin-right:7px
@@ -35,4 +35,11 @@ margin-topne{
 }
 .maudo{
     color:red;
+}
+.cachduoi{
+    margin-bottom:10px;
+}
+.canhdongtr tr td{
+    margin-top:5px;
+    
 }

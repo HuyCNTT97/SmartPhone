@@ -1,12 +1,12 @@
 ﻿@using Microsoft.AspNet.Identity
-@model List<SmartPhoneShop.Web.Models.ShoppingCartViewModel>
 @section footerJS{
 
     <script src="~/Assets/client/js/common.js"></script>
+
 }
 @{
     string url = HttpContext.Current.Request.Url.AbsolutePath;
-
+    
 }
 
 <header>
@@ -47,7 +47,7 @@
                 </div>
                 <!-- /Search -->
             </div>
-            <div class="pull-right">
+            <div class="pull-right" >
                 <ul class="header-btns">
                     <!-- Account -->
                     @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { @id = "frmLogout" }))
@@ -64,7 +64,7 @@
                                 </div>
                                 <ul class="custom-menu">
                                     <li><a href="#"><i class="fa fa-user-o"></i> Thông tin tài khoản</a></li>
-                                    <li><a href="#"><i class="fa fa-heart-o"></i> Quản lí đơn hàng</a></li>
+                                    <li><a href="/don-hang.html"><i class="fa fa-heart-o"></i> Quản lí đơn hàng</a></li>
 
 
                                     <li><a href="#" id="btnLogout"><i class="fa fa-heart-o"></i> Đăng xuất</a></li>
@@ -79,7 +79,7 @@
                             <li class="header-account dropdown default-dropdown text-bold">
                                 @Html.ActionLink("Đăng nhập","Login","Account",
                                new { returnUrl=url },htmlAttributes:new {@class= "text-uppercase chudam" })
-                               
+
                                 / <a href="/dang-ki.html" class=" text-uppercase chudam">
                                     Đăng kí
                                 </a>
@@ -89,22 +89,16 @@
                     }
                     <!-- /Account -->
                     <!-- Cart -->
-                    <li class="header-cart dropdown default-dropdown">
+                    <li class="header-cart dropdown default-dropdown"  >
                         <a href="/gio-hang.html">
                             <div class="header-btns-icon">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span class="qty">@Model.Count()</span>
+                                <span class="qty" >0</span>
                             </div>
                             <strong class="text-uppercase">Giỏ hàng </strong>
                             <br>
-                            @{ 
-                                decimal tong = 0;
-                                foreach (var item in Model)
-                                {
-                                    tong = tong+item.Product.Price;
-                                }
-                            }
-                            <span>@tong.ToString("N0") VND</span>
+
+                            <span class="price small"></span>
                         </a>
                     </li>
                     <!-- /Cart -->

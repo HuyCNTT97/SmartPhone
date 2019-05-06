@@ -16,6 +16,12 @@ namespace SmartPhoneShop.Web
             // BotDetect requests must not be routed
             routes.IgnoreRoute("{*botdetect}", new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
             routes.MapRoute(
+            name: "Manager Order",
+            url: "don-hang.html",
+            defaults: new { controller = "ShoppingCart", action = "Order", id = UrlParameter.Optional },
+            namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
+        );
+            routes.MapRoute(
              name: "Register",
              url: "dang-ki.html",
              defaults: new { controller = "Account", action = "Register", id = UrlParameter.Optional },

@@ -19,6 +19,7 @@ namespace SmartPhoneShop.Service
 
         IEnumerable<Order> GetAll();
         IEnumerable<Order> GetAll(string keyword);
+        IEnumerable<Order> GetAllByName(string keyword);
 
         IEnumerable<Order> GetAllPaging(int page, int pageSize, out int totalRow);
 
@@ -61,6 +62,11 @@ namespace SmartPhoneShop.Service
         {
             if (string.IsNullOrEmpty(keyword)) return _ordersRepository.GetAll();
             return _ordersRepository.GetMulti(x => x.NameShip.ToLower().Contains(keyword));
+        }
+
+        public IEnumerable<Order> GetAllByName(string keyword)
+        {
+            return _ordersRepository.GetMulti(x => x.CustomerID == keyword);
         }
 
         public IEnumerable<Order> GetAllPaging(int page, int pageSize, out int totalRow)

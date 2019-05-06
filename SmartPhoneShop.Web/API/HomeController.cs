@@ -18,12 +18,12 @@ namespace SmartPhoneShop.Web.API
         {
             this._errorService = errorService;
         }
-
         [HttpGet]
         [Route("TestMethod")]
         public string TestMethod()
         {
             return "Hello, huy";
         }
+        
     }
 }

@@ -23,7 +23,28 @@ namespace SmartPhoneShop.Web.Controllers
         private ApplicationUserManager _userManager;
    
     
+        public ActionResult Order()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                TempData["msgLogin"] = MessageBox.Show("Bạn phải đăng nhập trước khi thanh toán");
+                return Redirect("/dang-nhap.html?returnUrl=" + HttpContext.Request.Url.AbsolutePath);
+            }
+            var listOrder = _orderService.GetAllByName(User.Identity.GetUserId());
+            var model = Mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(listOrder);
+            foreach (var item in model)
+            {
 
+                var orderDetail = _orderDetailService.GetAllByOrderID(item.ID.ToString());
+                item.OrderDetail = Mapper.Map<IEnumerable<OrderDetail>,IEnumerable<OrderDetailViewModel>>(orderDetail);
+                foreach (var name in item.OrderDetail)
+                {
+                    var product = _productService.GetByID(name.ProductID);
+                    name.Products = Mapper.Map<Product,ProductViewModel>(product);
+                }
+            }
+            return View(model);
+        }
         public ShoppingCartController(IOrderService orderService,IOrderDetailService orderDetailService, IProductService productService, ApplicationUserManager userManager)
         {
             this._orderDetailService = orderDetailService;
@@ -92,36 +113,42 @@ namespace SmartPhoneShop.Web.Controllers
         }
         [HttpPost]
         public ActionResult CheckOut(Order modelOrder) {
-            modelOrder.OrderDate = DateTime.Now;
-            if (User.Identity.IsAuthenticated) modelOrder.CustomerID = User.Identity.GetUserId();
-            modelOrder = _orderService.Add(modelOrder);
-            var cart = Session[CommonConstants.SessionCart] as List<ShoppingCartViewModel>;
-            decimal tong = 0;
-            foreach (var item in cart)
+            if (ModelState.IsValid)
             {
-                tong = tong + item.Product.Price * item.Quantity;
-                OrderDetail orderDetail = new OrderDetail();
-                orderDetail.OrderID = modelOrder.ID;
-                orderDetail.Price = item.Product.Price;
-                orderDetail.Color = item.Color;
-                orderDetail.Promotion = item.Product.Promotion;
-                orderDetail.ProductID = item.ProductID;
-                orderDetail.Quantity = item.Quantity;
-                orderDetail.WarrantyID = 1;
-                _orderDetailService.Add(orderDetail);
-                _orderDetailService.SellProduct(item.ProductID, item.Quantity);
+                modelOrder.OrderDate = DateTime.Now;
+                if (User.Identity.IsAuthenticated) modelOrder.CustomerID = User.Identity.GetUserId();
+                modelOrder = _orderService.Add(modelOrder);
+                var cart = Session[CommonConstants.SessionCart] as List<ShoppingCartViewModel>;
+                decimal tong = 0;
+                foreach (var item in cart)
+                {
+                    tong = tong + item.Product.Price * item.Quantity;
+                    OrderDetail orderDetail = new OrderDetail();
+                    orderDetail.OrderID = modelOrder.ID;
+                    orderDetail.Price = item.Product.Price;
+                    orderDetail.Color = item.Color;
+                    orderDetail.Promotion = item.Product.Promotion;
+                    orderDetail.ProductID = item.ProductID;
+                    orderDetail.Quantity = item.Quantity;
+                    orderDetail.WarrantyID = 1;
+                    _orderDetailService.Add(orderDetail);
+                    _orderDetailService.SellProduct(item.ProductID, item.Quantity);
+                }
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/Views/ShoppingCart/Order.html"));
+                content = content.Replace("{{Name}}", modelOrder.NameShip);
+                content = content.Replace("{{Address}}", modelOrder.AddressShip);
+                content = content.Replace("{{Phone}}", modelOrder.PhoneShip.ToString());
+                content = content.Replace("{{Count}}", cart.Count().ToString());
+                string tongTien = tong.ToString("N0");
+                content = content.Replace("{{Price}}", tongTien + " VND");
+
+                MailHelper.SendMail(_userManager.GetEmail(User.Identity.GetUserId()), "Xác nhận hóa đơn mua hàng", content);
+                Session[Common.CommonConstants.SessionCart] = null;
+                TempData["msgOrder"] = MessageBox.Show("Đặt hàng thành công, mời bạn kiểm tra đơn hàng trong email hoặc quản lý hóa đơn");
+
+                return Redirect("/don-hang.html");
             }
-            string content = System.IO.File.ReadAllText(Server.MapPath("~/Views/ShoppingCart/Order.html"));
-            content = content.Replace("{{Name}}", modelOrder.NameShip);
-            content = content.Replace("{{Address}}", modelOrder.AddressShip);
-            content = content.Replace("{{Phone}}", modelOrder.PhoneShip.ToString());
-            content = content.Replace("{{Count}}", cart.Count().ToString());
-            content = content.Replace("{{Price}}", tong.ToString());
-            
-            MailHelper.SendMail(_userManager.GetEmail(User.Identity.GetUserId()), "Xác nhận hóa đơn mua hàng", content);
-            Session[Common.CommonConstants.SessionCart] = null;
-            TempData["msgOrder"] = MessageBox.Show("Đặt hàng thành công, mời bạn kiểm tra đơn hàng trong email");
-            return Redirect("/");
+            return View(modelOrder);
         }
         //public ActionResult CreateOrder(string orderViewModel)
         //{

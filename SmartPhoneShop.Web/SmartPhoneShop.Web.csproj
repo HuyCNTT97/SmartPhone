@@ -5528,6 +5528,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
+    <Content Include="Views\ShoppingCart\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmartPhoneShop.Common\SmartPhoneShop.Common.csproj">

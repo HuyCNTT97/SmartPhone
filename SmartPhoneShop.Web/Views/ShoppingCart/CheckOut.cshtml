@@ -10,6 +10,7 @@
     <script src="~/Assets/client/js/controller/Cart.js"></script>
 }
 @{
+
     <div class="container">
         <div class="row bong">
             <h3 class="text-center uppercase">Giỏ Hàng</h3>
@@ -104,6 +105,8 @@
                     <div class="box box-info">
                         @using (Html.BeginForm("CheckOut", "ShoppingCart", FormMethod.Post))
                         {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(false, "", new { @class = "maudo bold alert " })
                             <div class="form-horizontal">
                                 <div class="box-body">
                                     @if (User.Identity.IsAuthenticated)
@@ -152,7 +155,7 @@
                                         </label>
 
                                         <div class="col-sm-9">
-                                            <input type="radio"  checked="checked"/>
+                                            <input type="radio" checked="checked" />
                                             <label>Giao tiền khi nhận hàng</label>
                                         </div>
                                     </div>

@@ -17,6 +17,7 @@ namespace SmartPhoneShop.Web.Models
         public bool Shipping { set; get; }
         public bool Payment { set; get; }
         public int WarrantyID { set; get; }
+       
         public string Color { set; get; }
         public virtual OrderViewModel Orders { set; get; }
 

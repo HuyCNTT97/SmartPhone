@@ -47,11 +47,12 @@
         <td class="chudam text-lowercase h4">{{ProductName}}</td>
         <td><img src="{{Image}}" class="" height="120" width="120" /></td>
         <td>
-            Màu {{Color}} <a href="/san-pham/{{Alias}}-{{ProductID}}" title="Chọn màu khác" class="btn-sm btn-info" >
-            <i class="fa fa-pencil"><span class="modal-title">Chọn màu khác</span></i></a>
+            Màu {{Color}} <p><a href="/san-pham/{{Alias}}-{{ProductID}}" title="Chọn màu khác" class="btn-sm btn-info">
+    <i class="fa fa-pencil"><span class="modal-title">Chọn màu khác</span></i>
+</a></p>
         </td>
         <td class="col-md-1"><input type="number" data-price="{{Price}}" data-id="{{ProductID}}"
-    data-color="{{Color}}" class="form-control txtQuantity" value="{{Quantity}}" /></td>
+    data-color="{{Color}}" class="form-control txtQuantity" data-quantityInventory="{{QuantityInventory}}" value="{{Quantity}}" /></td>
         
            
             <td>{{PriceF}}</td>

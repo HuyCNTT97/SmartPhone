@@ -111,6 +111,13 @@ namespace SmartPhoneShop.Web.Controllers
         [CaptchaValidation("CaptchaCode", "RegisterCaptcha", "Bạn đã nhập sai mã captcha")]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            model.Email = model.Email.ToLower().Trim();
+        
+            model.UserName = model.UserName.Trim();
+            model.FullName = model.FullName.Trim();
+            model.Password = model.Password.Trim();
+            model.PhoneNumber = model.PhoneNumber.Trim();
+            model.Address = model.Address.Trim();
             if (ModelState.IsValid)
             {
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new SmartPhoneDbContext()));
