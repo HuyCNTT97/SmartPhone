@@ -134,6 +134,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SmartPhoneShop.Common\SmartPhoneShop.Common.csproj">
+      <Project>{7A32DD20-6046-4360-947C-DD967183E5F3}</Project>
+      <Name>SmartPhoneShop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SmartPhoneShop.Model\SmartPhoneShop.Model.csproj">
       <Project>{7d7b3d9c-24be-4bb2-aad2-7bc30f449de8}</Project>
       <Name>SmartPhoneShop.Model</Name>

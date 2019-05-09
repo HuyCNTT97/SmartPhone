@@ -119,7 +119,7 @@ namespace SmartPhoneShop.Service
 
         public IEnumerable<Product> GetProductHot()
         {
-           var list= _productRepository.GetMulti(x => x.DisplayOrder == 2);
+           var list= _productRepository.GetMulti(x => x.HotFlag==true);
             foreach (var item in list)
             {
                 item.ProductCategory = _productCategoryRepository.GetSingleById(item.ProductCategoryID);

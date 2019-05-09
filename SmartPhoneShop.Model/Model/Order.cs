@@ -28,6 +28,7 @@ namespace SmartPhoneShop.Model.Model
         public DateTime OrderDate { set; get; }
 
         public bool GiaoDuHang { get; set; }
+        public DateTime CreateDate { set; get; }
 
     }
 }

@@ -3,7 +3,7 @@ Excellent! You've chosen to help advance the project by either fixing a bug, or 
 
 1. Ensure a similar PR has not already been opened or closed.
 1. Clearly define the intent of the PR.  The more detail, the more likelihood of it getting merged.
-1. Is this a feature that would benefit the **majority** of users?  This is a small library, and it intends to stay that way.  If you do not believe most users of the project will benefit from your work, it should probably be added in your own application. 
+1. Is this a feature that would Profit the **majority** of users?  This is a small library, and it intends to stay that way.  If you do not believe most users of the project will Profit from your work, it should probably be added in your own application. 
 1. Be sure to include test cases that cover all newly introduced code.  This part is essential, as any PRs without tests will be closed.
 1. Link any [issues](https://github.com/chieffancypants/angular-loading-bar/issues) that are addressed by the PR.
 

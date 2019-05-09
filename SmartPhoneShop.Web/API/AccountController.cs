@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
+using SmartPhoneShop.Service;
 using SmartPhoneShop.Web.App_Start;
+using SmartPhoneShop.Web.Infrasture.Core;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -9,16 +11,14 @@ using System.Web.Http;
 namespace SmartPhoneShop.Web.Api
 {
     [RoutePrefix("api/account")]
-    public class AccountController : ApiController
+    public class AccountController : ApiControllerBase
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController()
-        {
-        }
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+       
+        public AccountController(IErrorService errorService, ApplicationUserManager userManager,
+            ApplicationSignInManager signInManager):base(errorService)
         {
             UserManager = userManager;
             SignInManager = signInManager;

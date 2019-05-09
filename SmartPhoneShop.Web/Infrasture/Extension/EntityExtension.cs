@@ -104,6 +104,7 @@ namespace SmartPhoneShop.Web.Infrasture.Extension
             order.AddressShip = orderVM.AddressShip;
             order.PhoneShip = orderVM.PhoneShip;
             order.OrderDate = orderVM.OrderDate;
+            order.CreateDate = orderVM.CreateDate;
             order.GiaoDuHang = orderVM.GiaoDuHang;
         }
 
@@ -235,6 +236,7 @@ namespace SmartPhoneShop.Web.Infrasture.Extension
             product.HotFlag = productVM.HotFlag;
             product.Specifications = productVM.Specifications;
             product.Quantity = productVM.Quantity;
+            product.OriginalQuantity = productVM.OriginalQuantity;
             product.Alias = productVM.Alias;
             product.Content = productVM.Content;
             product.CreateBy = productVM.CreateBy;
@@ -244,6 +246,7 @@ namespace SmartPhoneShop.Web.Infrasture.Extension
             product.HomeFlag = productVM.HomeFlag;
             product.Image = productVM.Image;
             product.Price = productVM.Price;
+            product.OriginalPrice = productVM.OriginalPrice;
             product.Promotion = productVM.Promotion;
             product.MetaDescription = productVM.MetaDescription;
             product.MetaKeyword = productVM.MetaKeyword;

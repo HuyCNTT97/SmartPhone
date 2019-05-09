@@ -115,6 +115,7 @@ namespace SmartPhoneShop.Web.Controllers
         public ActionResult CheckOut(Order modelOrder) {
             if (ModelState.IsValid)
             {
+                modelOrder.CreateDate = DateTime.Now;
                 modelOrder.OrderDate = DateTime.Now;
                 if (User.Identity.IsAuthenticated) modelOrder.CustomerID = User.Identity.GetUserId();
                 modelOrder = _orderService.Add(modelOrder);
@@ -150,101 +151,7 @@ namespace SmartPhoneShop.Web.Controllers
             }
             return View(modelOrder);
         }
-        //public ActionResult CreateOrder(string orderViewModel)
-        //{
-        //    var order = new JavaScriptSerializer().Deserialize<OrderViewModel>(orderViewModel);
-
-        //    var orderNew = new Order();
-
-        //    orderNew.UpdateOrder(order);
-
-        //    if (Request.IsAuthenticated)
-        //    {
-        //        orderNew.CustomerID = User.Identity.GetUserId();
-        //    }
-
-        //    var cart = (List<ShoppingCartViewModel>)Session[CommonConstants.SessionCart];
-        //    List<OrderDetail> orderDetails = new List<OrderDetail>();
-        //    bool isEnough = true;
-        //    foreach (var item in cart)
-        //    {
-        //        var detail = new OrderDetail();
-        //        detail.ProductID = item.ProductID;
-        //        detail.Quantity = item.Quantity;
-        //        detail.Price = item.Product.Price;
-        //        orderDetails.Add(detail);
-
-        //        isEnough = _productService.SellProduct(item.ProductId, item.Quantity);
-        //        break;
-        //    }
-        //    if (isEnough)
-        //    {
-        //        var orderReturn = _orderService.Create(ref orderNew, orderDetails);
-        //        _productService.Save();
-
-        //        if (order.PaymentMethod == "CASH")
-        //        {
-        //            return Json(new
-        //            {
-        //                status = true
-        //            });
-        //        }
-        //        else
-        //        {
-
-        //            var currentLink = ConfigHelper.GetByKey("CurrentLink");
-        //            RequestInfo info = new RequestInfo();
-        //            info.Merchant_id = merchantId;
-        //            info.Merchant_password = merchantPassword;
-        //            info.Receiver_email = merchantEmail;
-
-
-
-        //            info.cur_code = "vnd";
-        //            info.bank_code = order.BankCode;
-
-        //            info.Order_code = orderReturn.ID.ToString();
-        //            info.Total_amount = orderDetails.Sum(x => x.Quantity * x.Price).ToString();
-        //            info.fee_shipping = "0";
-        //            info.Discount_amount = "0";
-        //            info.order_description = "Thanh toán đơn hàng tại smartphone";
-        //            info.return_url = currentLink + "xac-nhan-don-hang.html";
-        //            info.cancel_url = currentLink + "huy-don-hang.html";
-
-        //            info.Buyer_fullname = order.CustomerName;
-        //            info.Buyer_email = order.CustomerEmail;
-        //            info.Buyer_mobile = order.CustomerMobile;
-
-        //            APICheckoutV3 objNLChecout = new APICheckoutV3();
-        //            ResponseInfo result = objNLChecout.GetUrlCheckout(info, order.PaymentMethod);
-        //            if (result.Error_code == "00")
-        //            {
-        //                return Json(new
-        //                {
-        //                    status = true,
-        //                    urlCheckout = result.Checkout_url,
-        //                    message = result.Description
-        //                });
-        //            }
-        //            else
-        //                return Json(new
-        //                {
-        //                    status = false,
-        //                    message = result.Description
-        //                });
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //        return Json(new
-        //        {
-        //            status = false,
-        //            message = "Không đủ hàng."
-        //        });
-        //    }
-
-        //}
+        
         [HttpGet]
         public JsonResult GetAll()
         {
@@ -291,7 +198,7 @@ namespace SmartPhoneShop.Web.Controllers
                     {
                         item.Quantity += int.Parse(quantity.ToString());
                     }
-                    if(quantity==null&&item.Color==color)
+                    if(quantity==null&&item.Color==color&& item.ProductID == productId)
                     {
                         item.Quantity += 1;
                     }
@@ -349,33 +256,6 @@ namespace SmartPhoneShop.Web.Controllers
             });
         }
 
-        //public ActionResult ConfirmOrder()
-        //{
-        //    string token = Request["token"];
-        //    RequestCheckOrder info = new RequestCheckOrder();
-        //    info.Merchant_id = merchantId;
-        //    info.Merchant_password = merchantPassword;
-        //    info.Token = token;
-        //    APICheckoutV3 objNLChecout = new APICheckoutV3();
-        //    ResponseCheckOrder result = objNLChecout.GetTransactionDetail(info);
-        //    if (result.errorCode == "00")
-        //    {
-        //        //update status order
-        //        _orderService.UpdateStatus(int.Parse(result.order_code));
-        //        _orderService.Save();
-        //        ViewBag.IsSuccess = true;
-        //        ViewBag.Result = "Thanh toán thành công. Chúng tôi sẽ liên hệ lại sớm nhất.";
-        //    }
-        //    else
-        //    {
-        //        ViewBag.IsSuccess = true;
-        //        ViewBag.Result = "Có lỗi xảy ra. Vui lòng liên hệ admin.";
-        //    }
-        //    return View();
-        //}
-        //public ActionResult CancelOrder()
-        //{
-        //    return View();
-        //}
+        
     }
 }

@@ -104,7 +104,7 @@
                 }
             }
             apiService.get('/api/product/getall', config, function (result) {
-                if (result.data.TotalCount == 0) {
+                if (result.data.TotalCount === 0) {
                     notificationService.displayWarning('không tìm thấy bảng ghi nào');
                 }
               

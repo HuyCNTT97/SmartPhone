@@ -31,6 +31,7 @@ namespace SmartPhoneShop.Web.Models
         [Required]
         public int Quantity { set; get; }
         public int OriginalQuantity { set; get; }
+        public int OriginalPrice { set; get; }
 
         public virtual ProductCategory ProductCategory { set; get; }
     }

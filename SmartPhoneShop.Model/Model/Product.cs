@@ -33,6 +33,7 @@ namespace SmartPhoneShop.Model.Model
 
         [Required]
         public int Quantity { set; get; }
+        public int OriginalPrice { set; get; }
         public int OriginalQuantity { set; get; }
         [Required]
         public decimal Promotion { set; get; }

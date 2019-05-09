@@ -1,4 +1,5 @@
-﻿using SmartPhoneShop.Data.Infrastructure;
+﻿using SmartPhoneShop.Common;
+using SmartPhoneShop.Data.Infrastructure;
 using SmartPhoneShop.Data.Repositories;
 using SmartPhoneShop.Model.Model;
 using System;
@@ -20,10 +21,12 @@ namespace SmartPhoneShop.Service
         IEnumerable<Order> GetAll();
         IEnumerable<Order> GetAll(string keyword);
         IEnumerable<Order> GetAllByName(string keyword);
-
+        IEnumerable<StatisticDate> GetStatisticDates(string fromDate,string toDate);
         IEnumerable<Order> GetAllPaging(int page, int pageSize, out int totalRow);
 
         Order GetByID(int id);
+
+        
 
         IEnumerable<Order> GetAllTagPaging(int page, int pageSize, out int totalRow);
 
@@ -82,6 +85,11 @@ namespace SmartPhoneShop.Service
         public Order GetByID(int id)
         {
             return _ordersRepository.GetSingleById(id);
+        }
+
+        public IEnumerable<StatisticDate> GetStatisticDates(string fromDate, string toDate)
+        {
+            return _ordersRepository.GetStatisticDates(fromDate,toDate);
         }
 
         public void SaveChanges()

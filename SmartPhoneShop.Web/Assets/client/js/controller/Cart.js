@@ -1,11 +1,13 @@
 ﻿var cart = {
     init: function () {
         cart.loadData();
+       
         cart.registerEvent();
+        
     },
         
     registerEvent: function () {
-      
+        cart.loadCart();
         $('#btnDeleteAll').off('click').on('click', function () {
             cart.deleteAll();
         });
@@ -36,18 +38,8 @@
                 }
             })
         });
-        function loadCart() {
-            $.ajax({
-                url: "/Home/GetCart",
-                type: "POST",
-                dataType: "json",
-                success: function (respon) {
-                    $('.qty').text(respon.quantity);
-                    $('.price').text(respon.price);
-                }
-            });
-        }
         
+       
         $('#totalPrice').text(numeral(cart.getTotalOrder()).format('0,0'));
         $('.txtQuantity').off('keyup').on('keyup', function () {
             var quantity = parseInt($(this).val());
@@ -125,14 +117,25 @@
             }
 
             cart.addItem(productID, quantity, color);
-            loadCart();
+            cart.loadCart();
         });
-        loadCart();
+        
         $('.btnDeleteItem').off('click').on('click', function (e) {
             e.preventDefault();
             var productID = parseInt($(this).data('id'));
             
             cart.deleteItem(productID);
+        });
+    },
+    loadCart: function loadCart() {
+        $.ajax({
+            url: "/Home/GetCart",
+            type: "POST",
+            dataType: "json",
+            success: function (respon) {
+                $('.qty').text(respon.quantity);
+                $('.price').text(respon.price);
+            }
         });
     },
     addItem: function (productID,quantity,color) {
@@ -311,12 +314,12 @@
 
                     $('#cartBody').html(html);
                     var url = window.location.pathname;
-                    if (html === '' && url ==="/gio-hang.html") {
-                        alert("Chưa có sản phẩm nào trong giỏ hàng");
-                        window.location.href = "/";
+                    if (html === '' && url === "/gio-hang.html") {
+                        alert("hello");
+                        window.location.href="/"
                     }
                     cart.registerEvent();
-                   
+                    cart.loadCart();
                 }
             }
         })

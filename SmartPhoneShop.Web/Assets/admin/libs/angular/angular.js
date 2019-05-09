@@ -7467,7 +7467,7 @@ function $TemplateCacheProvider() {
  *
  * Transclusion is used (often with {@link ngTransclude}) to insert the
  * original contents of a directive's element into a specified place in the template of the directive.
- * The benefit of transclusion, over simply moving the DOM elements manually, is that the transcluded
+ * The Profit of transclusion, over simply moving the DOM elements manually, is that the transcluded
  * content has access to the properties on the scope from which it was taken, even if the directive
  * has isolated scope.
  * See the {@link guide/directive#creating-a-directive-that-wraps-other-elements Directives Guide}.
@@ -19131,7 +19131,7 @@ function $SceDelegateProvider() {
  *
  * ## Can I disable SCE completely?
  *
- * Yes, you can.  However, this is strongly discouraged.  SCE gives you a lot of security benefits
+ * Yes, you can.  However, this is strongly discouraged.  SCE gives you a lot of security Profits
  * for little coding overhead.  It will be much harder to take an SCE disabled application and
  * either secure it on your own or enable SCE at a later stage.  It might make sense to disable SCE
  * for cases where you have a lot of existing code that was written before SCE was introduced and
@@ -29368,7 +29368,7 @@ var ngOptionsMinErr = minErr('ngOptions');
  * `ngOptions` comprehension expression.
  *
  * In many cases, {@link ng.directive:ngRepeat ngRepeat} can be used on `<option>` elements instead of
- * `ngOptions` to achieve a similar result. However, `ngOptions` provides some benefits:
+ * `ngOptions` to achieve a similar result. However, `ngOptions` provides some Profits:
  * - more flexibility in how the `<select>`'s model is assigned via the `select` **`as`** part of the
  * comprehension expression
  * - reduced memory consumption by not creating a new scope for each repeated instance
@@ -32116,7 +32116,7 @@ var SelectController =
  * ## Choosing between `ngRepeat` and `ngOptions`
  *
  * In many cases, `ngRepeat` can be used on `<option>` elements instead of {@link ng.directive:ngOptions
- * ngOptions} to achieve a similar result. However, `ngOptions` provides some benefits:
+ * ngOptions} to achieve a similar result. However, `ngOptions` provides some Profits:
  * - more flexibility in how the `<select>`'s model is assigned via the `select` **`as`** part of the
  * comprehension expression
  * - reduced memory consumption by not creating a new scope for each repeated instance

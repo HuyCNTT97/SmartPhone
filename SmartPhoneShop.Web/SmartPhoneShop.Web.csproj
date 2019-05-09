@@ -223,6 +223,7 @@
     <Compile Include="API\ProductController.cs" />
     <Compile Include="API\ProductTagController.cs" />
     <Compile Include="API\SlideController.cs" />
+    <Compile Include="API\StatisticController.cs" />
     <Compile Include="API\SuppostOnlineController.cs" />
     <Compile Include="API\SystemConfigController.cs" />
     <Compile Include="API\TagController.cs" />
@@ -381,6 +382,9 @@
     <Content Include="app\components\slide\SlideEditVIew.html" />
     <Content Include="app\components\slide\slideListController.js" />
     <Content Include="app\components\slide\slideListView.html" />
+    <Content Include="app\components\statistic\revenueStatisticController.js" />
+    <Content Include="app\components\statistic\revenueStatisticView.html" />
+    <Content Include="app\components\statistic\statistic.module.js" />
     <Content Include="app\components\suppost_online\suppost_online.module.js" />
     <Content Include="app\components\suppost_online\suppost_onlineAddController.js" />
     <Content Include="app\components\suppost_online\suppost_onlineAddView.html" />
