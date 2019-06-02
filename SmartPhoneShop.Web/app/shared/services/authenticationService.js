@@ -1,7 +1,7 @@
 ﻿(function (app) {
     'use strict';
-    app.service('authenticationService', ['$http', '$q', '$window', 'localStorageService', 'authData',
-        function ($http, $q, $window, localStorageService, authData) {
+    app.service('authenticationService', ['$http', '$q','$injector', '$window', 'localStorageService', 'authData', '$state',
+        function ($http, $q, $injector, $window, localStorageService, authData, $state, notificationService) {
             var tokenInfo;
 
             this.setTokenInfo = function (data) {
@@ -43,9 +43,10 @@
                 $http.get(url).then(function () {
                     deferred.resolve(null);
                 }, function (error) {
-                    deferred.reject(error);
+                        deferred.reject(error);
+                        
                 });
-                return deferred.promise;
+                return deferred;
             }
 
             this.init();

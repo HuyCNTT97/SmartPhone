@@ -54,7 +54,7 @@ namespace SmartPhoneShop.Web.Controllers
 
         public ActionResult slide()
         {
-            var modelProductHot = _productService.GetProductHot();
+            var modelProductHot = _productService.GetProductHot().Take(4);
             var modelSlide = _slideService.GetAll();
             ViewBag.listSlide = Mapper.Map<IEnumerable<Slide>, IEnumerable<SlideViewModel>>(modelSlide);
             ViewBag.listProductHot = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(modelProductHot);
@@ -98,7 +98,7 @@ namespace SmartPhoneShop.Web.Controllers
                 quantity = quantity
             });
         }
-        [ChildActionOnly]
+        [OutputCache(Duration =500,Location =System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult header()
         {
             return PartialView();

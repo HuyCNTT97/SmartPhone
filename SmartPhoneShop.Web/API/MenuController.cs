@@ -26,6 +26,7 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
+        [Authorize]
         public HttpResponseMessage Get(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
@@ -39,6 +40,7 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("add")]
+        [Authorize]
         public HttpResponseMessage Post(HttpRequestMessage request, MenuViewModel menuVm)
         {
             return CreateHttpResponse(request, () =>
@@ -61,6 +63,7 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("update")]
+        [Authorize]
         public HttpResponseMessage Put(HttpRequestMessage request, MenuViewModel menuVm)
         {
             return CreateHttpResponse(request, () =>
@@ -82,7 +85,8 @@ namespace SmartPhoneShop.Web.API
                 return response;
             });
         }
-
+        [Route("update")]
+        [Authorize]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>

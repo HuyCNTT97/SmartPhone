@@ -43,3 +43,29 @@ margin-topne{
     margin-top:5px;
     
 }
+.login-facebook {
+    background: #3b5998;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+}
+.login-google {
+    background: #d34836;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 3px;
+}
+.mod-button-facebook-google {
+    display: block;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+   
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}

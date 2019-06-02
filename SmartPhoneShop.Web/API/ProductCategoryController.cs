@@ -29,6 +29,7 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getall")]
+        [Authorize]
         public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
@@ -75,6 +76,7 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("getbyid/{id:int}")]
+        [Authorize]
         [HttpGet]
         public HttpResponseMessage GetAll(HttpRequestMessage request, int id)
         {
@@ -90,6 +92,7 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("add")]
+        [Authorize]
         public HttpResponseMessage Post(HttpRequestMessage request, ProductCategoryViewModel productCategoryVM)
         {
             return CreateHttpResponse(request, () =>
@@ -112,6 +115,7 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("update")]
+        [Authorize]
         [HttpPut]
         public HttpResponseMessage Put(HttpRequestMessage request, ProductCategoryViewModel productCategoryVm)
         {
@@ -137,6 +141,7 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("delete")]
+        [Authorize]
         [HttpDelete]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
@@ -159,6 +164,7 @@ namespace SmartPhoneShop.Web.API
         }
 
         [Route("deletemulti")]
+        [Authorize]
         [HttpDelete]
         public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string listID)
         {

@@ -32,10 +32,11 @@
 
             this.logOut = function () {
                 apiService.post('/api/account/logout', null, function (response) {
-                    authenticationService.removeToken();
                     authData.authenticationData.IsAuthenticated = false;
                     authData.authenticationData.userName = "";
                     authData.authenticationData.accessToken = "";
+                    authenticationService.removeToken();
+                    
 
                 }, null);
 

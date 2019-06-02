@@ -3,14 +3,15 @@
 (function (app) {
     app.factory('apiService', apiService);
 
-    apiService.$inject = ['$http', 'notificationService','authenticationService'];
+    apiService.$inject = ['$http', 'notificationService', '$injector','authenticationService'];
 
-    function apiService($http, notificationService, authenticationService, $state) {
+    function apiService($http, notificationService, $injector, authenticationService) {
         return {
             get: get,
             post: post,
             put: put,
-            del: del
+            del: del,
+            Authorized: Authorized
         }
         function del(url, data, success, failure) {
             authenticationService.setHeader();
@@ -57,6 +58,16 @@
                 }
 
             });
+        }
+        function Authorized() {
+            var valid = $injector.get('authData')
+            var user = valid.authenticationData;
+            if (user.IsAuthenticated === false) {
+                var state = $injector.get('$state');
+                var noti = $injector.get('notificationService');
+                noti.displayError("Bạn phải đăng nhập");
+                state.go('login');
+            }
         }
         function get(url, params, success, failure) {
             authenticationService.setHeader();

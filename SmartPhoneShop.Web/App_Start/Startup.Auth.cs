@@ -10,6 +10,7 @@ using SmartPhoneShop.Model.Model;
 using Microsoft.Owin.Security.OAuth;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security.Google;
 
 [assembly: OwinStartup(typeof(SmartPhoneShop.Web.App_Start.Startup))]
 
@@ -60,15 +61,15 @@ namespace SmartPhoneShop.Web.App_Start
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1537764336359519",
+               appSecret: "ee2780630281df60e8aa4b7b6e47a4b3");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "411785059041-g78tjavg32osn1uii7unp571cq4cr13a.apps.googleusercontent.com",
+                ClientSecret = "zpjdMaCrtW4PXMzaEvbELHXA"
+            });
         }
 
         public class AuthorizationServerProvider : OAuthAuthorizationServerProvider

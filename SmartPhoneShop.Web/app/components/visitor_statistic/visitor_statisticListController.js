@@ -2,6 +2,7 @@
     app.controller('visitor_statisticListController', visitor_statisticListController)
     visitor_statisticListController.$inject = ['$scope', 'apiService']
     function visitor_statisticListController($scope, apiService) {
+        
         $scope.visitor_statistic = []
         $scope.page = 0
         $scope.pagesCount = 0

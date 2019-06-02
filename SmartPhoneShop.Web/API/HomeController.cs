@@ -20,6 +20,7 @@ namespace SmartPhoneShop.Web.API
         }
         [HttpGet]
         [Route("TestMethod")]
+        [Authorize]
         public string TestMethod()
         {
             return "Hello, huy";

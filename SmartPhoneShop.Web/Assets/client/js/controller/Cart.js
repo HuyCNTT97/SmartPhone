@@ -1,7 +1,7 @@
 ﻿var cart = {
     init: function () {
-        cart.loadData();
        
+        cart.loadData();
         cart.registerEvent();
         
     },
@@ -98,6 +98,7 @@
             }
 
         });
+
         $('.btnAddToCart').off('click').on('click', function (e) {
             e.preventDefault();
             var productID = parseInt($(this).data('id'));
@@ -117,7 +118,7 @@
             }
 
             cart.addItem(productID, quantity, color);
-            cart.loadCart();
+            cart.loadData();
         });
         
         $('.btnDeleteItem').off('click').on('click', function (e) {
@@ -151,6 +152,7 @@
             success: function (response) {
                 if (response.status === true) {
                     alert('Thêm sản phẩm thành công');
+                    cart.loadCart();
                 }
                 else {
                     alert(response.message);
@@ -315,11 +317,11 @@
                     $('#cartBody').html(html);
                     var url = window.location.pathname;
                     if (html === '' && url === "/gio-hang.html") {
-                        alert("hello");
+                        alert("Chưa có sản phẩm nào trong giỏ hàng, mời bạn quay lại trang chủ");
                         window.location.href="/"
                     }
                     cart.registerEvent();
-                    cart.loadCart();
+                    
                 }
             }
         })

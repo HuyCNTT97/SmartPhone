@@ -1,8 +1,9 @@
 ﻿(function (app) {
     app.controller('productListController', productListController)
-    productListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter']
-    function productListController($scope, apiService, notificationService, $ngBootbox, $filter) {
+    productListController.$inject = ['$scope','$injector', 'apiService', 'notificationService', '$ngBootbox', '$filter']
+    function productListController($scope, $injector, apiService, notificationService, $ngBootbox, $filter) {
         $scope.product = []
+        apiService.Authorized();
         $scope.page = 0
         $scope.loading = true;
         $scope.pagesCount = 0

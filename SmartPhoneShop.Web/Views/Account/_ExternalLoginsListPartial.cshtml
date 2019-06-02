@@ -1,0 +1,51 @@
+﻿@model SmartPhoneShop.Web.Models.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+<hr />
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    if (loginProviders.Any())
+    {
+        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="box-body">
+                    @foreach (AuthenticationDescription p in loginProviders)
+                    {
+                    <div class="form-group">
+                        @if (p.AuthenticationType == "Google")
+                        {
+                            <button type="submit" class="btn mod-button-facebook-google login-google form-control"
+                                    id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType"
+                                    title="Log in using your @p.Caption account">
+                                <i class="fa fa-@p.AuthenticationType.ToLower()"></i> @p.AuthenticationType   Đăng nhập với Facebook
+                            </button>
+                        }
+                        @if (p.AuthenticationType == "Facebook")
+                        {
+                            <button type="submit" class="btn mod-button-facebook-google login-facebook  form-control"
+                                    id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType"
+                                    title="Log in using your @p.Caption account">
+                                <i class="fa fa-@p.AuthenticationType.ToLower()"></i> @p.AuthenticationType   Đăng nhập với Facebook
+                            </button>
+                        }
+
+
+                    </div>
+                    }
+
+                </div>
+
+
+                <!-- /.box-body -->
+                <!-- /.box-footer -->
+            </div>
+            <div id="socialLoginList">
+                <p>
+                    
+                </p>
+            </div>
+        }
+    }
+
+}

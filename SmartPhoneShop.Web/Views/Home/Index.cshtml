@@ -14,7 +14,6 @@
     {
         @Html.Raw(TempData["msgOrder"]);
     }
-<script src="~/Assets/client/js/controller/Cart.js"></script>
 }
 <div class="nen">
     @{ Html.RenderAction("slide", "Home");}
@@ -38,11 +37,9 @@
                     <div class="col-md-3 col-sm-6 col-xs-6">
                         <div class="product product-single product-hot">
                             <div class="product-thumb">
-                                @*<div class="product-label">
-                                        <span class="sale">-20%</span>
-                                    </div>*@
+                                
                                 <a href="/iphone/@item.Alias-@item.ID" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Xem chi tiết</a>
-                                <img alt="" src="@item.Image" height="200">
+                                <img alt="không ảnh" src="@item.Image" width="80" height="200">
                             </div>
                             <div class="product-body ">
                                 <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
@@ -53,7 +50,7 @@
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <button data-id="@item.ID" ng-click="loadCart()" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                    <button data-id="@item.ID"  class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +87,7 @@
                                         <span class="sale">-20%</span>
                                     </div>*@
                                 <a href="/samsung/@item.Alias-@item.ID" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Xem chi tiết</a>
-                                <img alt="" src="@item.Image" height="200">
+                                <img alt="" src="@item.Image" width="80" height="200">
                             </div>
                             <div class="product-body ">
                                 <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
@@ -101,7 +98,7 @@
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <button data-id="@item.ID" ng-click="loadCart()" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                    <button data-id="@item.ID" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +135,7 @@
                                         <span class="sale">-20%</span>
                                     </div>*@
                                 <a href="/xiaomi/@item.Alias-@item.ID" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Xem chi tiết</a>
-                                <img alt="" src="@item.Image" height="200">
+                                <img alt="" src="@item.Image" width="80" height="200">
                             </div>
                             <div class="product-body ">
                                 <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
@@ -149,7 +146,7 @@
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <button data-id="@item.ID" ng-click="loadCart()" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                    <button data-id="@item.ID"  class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +183,7 @@
                                         <span class="sale">-20%</span>
                                     </div>*@
                                 <a href="/camera/@item.Alias-@item.ID" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Xem chi tiết</a>
-                                <img alt="" src="@item.Image" height="200">
+                                <img alt="" src="@item.Image" width="80" height="200">
                             </div>
                             <div class="product-body ">
                                 <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
@@ -197,7 +194,7 @@
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <button data-id="@item.ID" ng-click="loadCart()" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                    <button data-id="@item.ID" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
                                 </div>
                             </div>
                         </div>

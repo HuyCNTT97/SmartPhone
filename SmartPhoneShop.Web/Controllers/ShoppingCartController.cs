@@ -135,7 +135,7 @@ namespace SmartPhoneShop.Web.Controllers
                     _orderDetailService.Add(orderDetail);
                     _orderDetailService.SellProduct(item.ProductID, item.Quantity);
                 }
-                string content = System.IO.File.ReadAllText(Server.MapPath("~/Views/ShoppingCart/Order.html"));
+                string content = System.IO.File.ReadAllText(Server.MapPath(@"~/Views/ShoppingCart/Order.html"));
                 content = content.Replace("{{Name}}", modelOrder.NameShip);
                 content = content.Replace("{{Address}}", modelOrder.AddressShip);
                 content = content.Replace("{{Phone}}", modelOrder.PhoneShip.ToString());

@@ -6,7 +6,7 @@
     function revenueStatisticController($scope, apiService, notificationService,$filter) {
         $scope.tabledata = [];
         $scope.labels = [];
-       
+        apiService.Authorized();
         $scope.series = ['Doanh số', 'Lợi nhuận'];
         $scope.fromDate = new Date('01/01/2016')
         $scope.toDate = new Date();
@@ -16,8 +16,8 @@
             var config = {
                 param: {
                     //mm/dd/yyyy
-                    fromDate: $filter('date')( $scope.fromDate,'dd/MM/yyyy'),
-                    toDate: $filter('date')($scope.toDate,'dd/MM/yyyy')
+                    fromDate: $filter('date')( $scope.fromDate,'MM/dd/yyyy'),
+                    toDate: $filter('date')($scope.toDate,'MM/dd/yyyy')
                 }
             }
             apiService.get('/api/statistic/getrevenuesstatistic?fromDate=' + config.param.fromDate + "&toDate=" + config.param.toDate, null, function (response) {

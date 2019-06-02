@@ -5,6 +5,7 @@
         $scope.productCategory = []
         $scope.page = 0
         $scope.pagesCount = 0
+        apiService.Authorized()
         $scope.keyword = ""
         $scope.loading = true;
         $scope.option = {

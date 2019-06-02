@@ -38,6 +38,7 @@ namespace SmartPhoneShop.Web.Api
         }
         [Route("getlistpaging")]
         [HttpGet]
+        [Authorize]
         public HttpResponseMessage GetListPaging(HttpRequestMessage request, int page, int pageSize, string filter = null)
         {
 
@@ -63,6 +64,7 @@ namespace SmartPhoneShop.Web.Api
         }
         [Route("getlistall")]
         [HttpGet]
+        [Authorize]
         public HttpResponseMessage GetAll(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
@@ -78,6 +80,7 @@ namespace SmartPhoneShop.Web.Api
         }
         [Route("detail/{id:int}")]
         [HttpGet]
+        [Authorize]
         public HttpResponseMessage Details(HttpRequestMessage request, int id)
         {
             if (id == 0)
@@ -96,6 +99,7 @@ namespace SmartPhoneShop.Web.Api
         }
 
         [HttpPost]
+        [Authorize]
         [Route("add")]
         public HttpResponseMessage Create(HttpRequestMessage request, ApplicationGroupViewModel appGroupViewModel)
         {
@@ -139,6 +143,7 @@ namespace SmartPhoneShop.Web.Api
         }
 
         [HttpPut]
+        [Authorize]
         [Route("update")]
         public async Task<HttpResponseMessage> Update(HttpRequestMessage request, ApplicationGroupViewModel appGroupViewModel)
         {
@@ -191,6 +196,7 @@ namespace SmartPhoneShop.Web.Api
         }
 
         [HttpDelete]
+        [Authorize]
         [Route("delete")]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {

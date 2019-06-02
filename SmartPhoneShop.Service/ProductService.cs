@@ -119,7 +119,8 @@ namespace SmartPhoneShop.Service
 
         public IEnumerable<Product> GetProductHot()
         {
-           var list= _productRepository.GetMulti(x => x.HotFlag==true);
+           var list= _productRepository.GetMulti(x => x.DisplayOrder==1);
+
             foreach (var item in list)
             {
                 item.ProductCategory = _productCategoryRepository.GetSingleById(item.ProductCategoryID);
@@ -129,9 +130,10 @@ namespace SmartPhoneShop.Service
 
         public IEnumerable<Product> GetProductWithCategory(string CategoryName)
         {
+            List<Product> listProduct=new List<Product>();
+            if (_productCategoryRepository.GetSingleByCondition(x => x.Name == CategoryName) == null) return listProduct;
             var CategoryID = _productCategoryRepository.GetSingleByCondition(x => x.Name == CategoryName).ID;
             var listCategory = _productCategoryRepository.GetMulti(x => x.ID == CategoryID || x.ParentID == CategoryID);
-            List<Product> listProduct=new List<Product>();
             foreach (var category in listCategory)
             {
                 listProduct.AddRange(_productRepository.GetMulti(x => x.ProductCategoryID == category.ID).ToList());
@@ -140,13 +142,16 @@ namespace SmartPhoneShop.Service
         }
         public IEnumerable<Product> GetProductWithCategoryHome(string CategoryName)
         {
+            var listProduct = new List<Product>();
+
+            if (_productCategoryRepository.GetSingleByCondition(x => x.Name == CategoryName) == null) return listProduct;
+
             var CategoryID = _productCategoryRepository.GetSingleByCondition(x => x.Name == CategoryName).ID;
             var category = _productCategoryRepository.GetMulti(x => x.ParentID == CategoryID).Take(1);
             if (category.Count()==0)
             {
                 category = _productCategoryRepository.GetMulti(x => x.ID == CategoryID).Take(1);
             }
-            var listProduct =new List<Product>();
             foreach (var item in category)
             {
                 listProduct.AddRange(_productRepository.GetMulti(x => x.ProductCategoryID == item.ID));
