@@ -72,7 +72,8 @@
                                     <th>Thuộc Loại Sản Phẩm</th>
                                     <th>Giá Tiền</th>
                                     <th>Giá Nhập Ban Đầu</th>
-                                    <th>Số Lượng</th>
+                                    <th>Số Lượng Nhập</th>
+                                    <th>Tồn Kho</th>
                                     <th>Ngày tạo</th>
                                     <th>Trạng Thái</th>
                                     <th>Các Chức Năng</th>
@@ -104,6 +105,7 @@
                                     </td>
                                     <th>{{ item.Price|number:0  }} VND</th>
                                     <th>{{item.OriginalPrice|number:0}} VND</th>
+                                    <th>{{item.OriginalQuantity}} mặt hàng</th>
                                     <th>{{item.Quantity}} mặt hàng</th>
                                     <td>{{item.CreatedDate|date:'dd/MM/yyyy hh:mm:ss'}}</td>
 

@@ -17,7 +17,7 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(SmartPhoneShop.Data.SmartPhoneDbContext context)

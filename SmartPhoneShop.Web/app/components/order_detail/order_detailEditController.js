@@ -8,6 +8,7 @@
             CreatedDate: new Date(),
             Status: true
         }
+        apiService.Authorized();
         $scope.GetSeoTitile = GetSeoTitile
         function GetSeoTitile() {
             $scope.order_detail.Alias = commonService.getSeoTitle($scope.order_detail.Name);

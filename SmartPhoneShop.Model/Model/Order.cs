@@ -22,8 +22,8 @@ namespace SmartPhoneShop.Model.Model
 
         [MaxLength(250), Required]
         public string AddressShip { set; get; }
-
-        public int PhoneShip { set; get; }
+        [Required,MinLength(10,ErrorMessage ="Phải nhập ít nhất là 10 số")]
+        public string PhoneShip { set; get; }
 
         public DateTime OrderDate { set; get; }
 

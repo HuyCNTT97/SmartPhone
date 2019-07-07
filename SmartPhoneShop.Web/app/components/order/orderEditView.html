@@ -6,7 +6,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Trang Chủ</a></li>
-        <li><span>Danh mục Đặt Hàng</span></li>
+        <li><span>Danh Mục Hóa Đơn</span></li>
         <li class="active">Sửa dữ liệu đặt hàng</li>
     </ol>
 </section>
@@ -41,42 +41,20 @@
                     <form novalidate name="frmUpdateOrder" class="form-horizontal" role="form"
                           ng-submit="UpdateOrder()">
                         <div class="box-body">
+                            
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Tên Danh Mục
+                                    Tên Người Nhận
                                 </label>
 
                                 <div class="col-sm-10">
-                                    <input required placeholder="Bắt buộc nhập tên"
-                                           type="text" class="form-control"
-                                           ng-model="order.Name"
-                                           ng-change="GetSeoTitile()" name="name">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Mã khách hàng
-                                </label>
-
-                                <div class="col-sm-10">
-                                    <input type="number" required="required" placeholder="Bắt buộc nhập" class="form-control" name="url"
-                                           ng-model="order.CustomerID">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">
-                                    NameShip
-                                </label>
-
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="nameShip"
+                                    <input type="text" class="form-control" name="nameShip"
                                            ng-model="order.NameShip">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Địa chỉ giao hàng
+                                    Địa Chỉ Giao Hàng
                                 </label>
 
                                 <div class="col-sm-10">
@@ -86,7 +64,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Số điện thoại giao hàng
+                                    Số Điện Thoại Người Nhận
                                 </label>
 
                                 <div class="col-sm-10">
@@ -96,12 +74,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">
-                                    Ngày đặt hàng
+                                    Ngày Đặt Hàng
                                 </label>
 
                                 <div class="col-sm-10">
                                     <input type="date" class="form-control" name="orderDate"
-                                           ng-model="order.OrderDate">
+                                           ng-model="order.CreateDate">
                                 </div>
                             </div>
                             <div class="form-group">

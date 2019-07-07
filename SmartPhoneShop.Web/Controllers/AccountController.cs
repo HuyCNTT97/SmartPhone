@@ -17,18 +17,27 @@ using SmartPhoneShop.Web.Models;
 using BotDetect.Web.Mvc;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Data;
-
+using Microsoft.Owin.Security.DataProtection;
 namespace SmartPhoneShop.Web.Controllers
 {
     public class AccountController:Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        public AccountController()
+        {
+        }
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
+            userManager = ApplicationUserManager.AppDomainManager;
             UserManager = userManager;
             SignInManager = signInManager;
+        }
+        [AllowAnonymous]
+        public ActionResult VerifyEmail(string Email)
+        {
+            TempData["email"] = Email;
+            return View();
         }
         public ActionResult Login(string returnUrl )
         {
@@ -41,9 +50,14 @@ namespace SmartPhoneShop.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ApplicationUser user = _userManager.Find(model.UserName, model.Password);
+                ApplicationUser user = UserManager.Find(model.UserName, model.Password);
                 if (user != null)
                 {
+                    if (!UserManager.IsEmailConfirmed(user.Id))
+                    {
+                        ModelState.AddModelError("", "Bạn cần phải xác thực Email");
+                        return View(model);
+                    }
                     IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
                     authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
                     ClaimsIdentity identity = _userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
@@ -66,37 +80,7 @@ namespace SmartPhoneShop.Web.Controllers
             }
             return View(model);
         }
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
-        {
-
-            if (ModelState.IsValid)
-            {
-                // Get the information about the user from the external login provider
-                var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-                if (info == null)
-                {
-                    return View("ExternalLoginFailure");
-                }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user);
-                if (result.Succeeded)
-                {
-                    result = await UserManager.AddLoginAsync(user.Id, info.Login);
-                    if (result.Succeeded)
-                    {
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        return RedirectToLocal(returnUrl);
-                    }
-                }
-                AddErrors(result);
-            }
-
-            ViewBag.ReturnUrl = returnUrl;
-            return View(model);
-        }
+       
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
@@ -129,10 +113,7 @@ namespace SmartPhoneShop.Web.Controllers
                 _userManager = value;
             }
         }
-        public AccountController()
-        {
 
-        }
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
@@ -153,9 +134,56 @@ namespace SmartPhoneShop.Web.Controllers
                 default:
                     // If the user does not have an account, then prompt the user to create an account
                     ViewBag.ReturnUrl = returnUrl;
-                    ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    ExternalLoginConfirmationViewModel model = new ExternalLoginConfirmationViewModel
+                    {
+                        Email = loginInfo.Email
+                    };
+                    var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+                    if (info == null)
+                    {
+                        return View("ExternalLoginFailure");
+                    }
+                    var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                    var resultLogin = await UserManager.CreateAsync(user);
+                    if (resultLogin.Succeeded)
+                    {
+                        resultLogin = await UserManager.AddLoginAsync(user.Id, info.Login);
+                        string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        await UserManager.ConfirmEmailAsync(user.Id, code);
+                        if (resultLogin.Succeeded)
+                        {
+                            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                            return RedirectToLocal(returnUrl);
+                        }
+                    }
+                    else
+                    {
+                        ApplicationUser userLogin = _userManager.FindByEmail(user.Email);
+                        if (userLogin != null)
+                        {
+                            await SignInManager.SignInAsync(userLogin, isPersistent: false, rememberBrowser: false);
+                            if (Url.IsLocalUrl(returnUrl))
+                            {
+                                return Redirect(returnUrl);
+                            }
+                            else
+                            {
+                                return RedirectToAction("Index", "Home");
+                            }
+                        }
+                    }
+                    return View(model);
             }
+        }
+        [AllowAnonymous]
+        public async Task<ActionResult> ConfirmEmail(string userId, string code)
+        {
+            if (userId == null || code == null)
+            {
+                return View("Error");
+            }
+            var result = await UserManager.ConfirmEmailAsync(userId, code);
+            return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
         // POST: /Account/ExternalLogin
         [HttpPost]
@@ -177,11 +205,8 @@ namespace SmartPhoneShop.Web.Controllers
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             model.Email = model.Email.ToLower().Trim();
-        
-            model.UserName = model.UserName.Trim();
             model.FullName = model.FullName.Trim();
             model.Password = model.Password.Trim();
-            model.PhoneNumber = model.PhoneNumber.Trim();
             model.Address = model.Address.Trim();
             if (ModelState.IsValid)
             {
@@ -191,42 +216,39 @@ namespace SmartPhoneShop.Web.Controllers
                     roleManager.Create(new IdentityRole() { Name = "User" });
                    
                 }
-                var userByEmail = await _userManager.FindByEmailAsync(model.Email);
-                
-                var userByUserName = await _userManager.FindByNameAsync(model.UserName);
-                if (userByUserName != null)
+                var userByEmail = await UserManager.FindByEmailAsync(model.Email);
+                if (userByEmail != null)
                 {
-                    ModelState.AddModelError("email", "Tài khoản đã tồn tại");
+                    ModelState.AddModelError("email","email đã tồn tại");
                     return View(model);
                 }
                 var user = new ApplicationUser()
                 {
-                    UserName = model.UserName,
+                    UserName = model.Email,
                     Email = model.Email,
-                    EmailConfirmed = true,
-                    BirthDay = DateTime.Now,
                     FullName = model.FullName,
-                    PhoneNumber = model.PhoneNumber,
                     Address = model.Address
-
                 };
 
-                await _userManager.CreateAsync(user, model.Password);
+               var result= await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
+                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new
+                    {
+                        userId = user.Id,
+                        code = code
+                    }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id, "Xác nhận email của bạn", "Làm ơn xác nhận email của bạn bằng cách click tại đây <a href=\"" + callbackUrl + "\">here</a>");
 
-                var adminUser = await _userManager.FindByEmailAsync(model.Email);
-                if (adminUser != null)
-                    await _userManager.AddToRolesAsync(adminUser.Id, new string[] { "User" });
+                    return RedirectToAction("VerifyEmail", "Account", user.Email);
+                }
+                AddErrors(result);
 
-                //string content = System.IO.File.ReadAllText(Server.MapPath("/Assets/client/template/newuser.html"));
-                //content = content.Replace("{{UserName}}", adminUser.FullName);
-                //content = content.Replace("{{Link}}", ConfigHelper.GetByKey("CurrentLink") + "dang-nhap.html");
-
-                //MailHelper.SendMail(adminUser.Email, "Đăng ký thành công", content);
-
-
-                TempData["msgRegister"] = MessageBox.Show("Đăng kí thành công");
-                return Redirect("/dang-nhap.html");
             }
            
             return View(model);

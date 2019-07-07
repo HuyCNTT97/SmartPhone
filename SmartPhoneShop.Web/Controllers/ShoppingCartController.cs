@@ -27,7 +27,7 @@ namespace SmartPhoneShop.Web.Controllers
         {
             if (!User.Identity.IsAuthenticated)
             {
-                TempData["msgLogin"] = MessageBox.Show("Bạn phải đăng nhập trước khi thanh toán");
+                TempData["msgLogin"] = MessageBox.Show("Bạn phải đăng nhập trước ");
                 return Redirect("/dang-nhap.html?returnUrl=" + HttpContext.Request.Url.AbsolutePath);
             }
             var listOrder = _orderService.GetAllByName(User.Identity.GetUserId());
@@ -72,8 +72,13 @@ namespace SmartPhoneShop.Web.Controllers
             {
                 return Redirect("/gio-hang.html");
             }
+            if(!_userManager.IsPhoneNumberConfirmed(User.Identity.GetUserId()))
+            {
+                TempData["phone"] = MessageBox.Show("Bạn phải xác nhân số điện thoại đã");
+                return RedirectToAction("AddPhoneNumber", "Manage");
+            }
             var cart = Session[CommonConstants.SessionCart] as List<ShoppingCartViewModel>;
-
+            ViewBag.PhoneNumber = _userManager.GetPhoneNumber(User.Identity.GetUserId());
             return View(cart);
         }
         [HttpPost]
@@ -112,14 +117,18 @@ namespace SmartPhoneShop.Web.Controllers
             });
         }
         [HttpPost]
-        public ActionResult CheckOut(Order modelOrder) {
+        public ActionResult CheckOut( OrderViewModel model) {
+            
+            var modelOrder = new Order();
+            modelOrder.UpdateOrder(model);
+            var cart = Session[CommonConstants.SessionCart] as List<ShoppingCartViewModel>;
+            if (cart == null) return Redirect("/");
             if (ModelState.IsValid)
             {
                 modelOrder.CreateDate = DateTime.Now;
                 modelOrder.OrderDate = DateTime.Now;
                 if (User.Identity.IsAuthenticated) modelOrder.CustomerID = User.Identity.GetUserId();
                 modelOrder = _orderService.Add(modelOrder);
-                var cart = Session[CommonConstants.SessionCart] as List<ShoppingCartViewModel>;
                 decimal tong = 0;
                 foreach (var item in cart)
                 {
@@ -140,6 +149,8 @@ namespace SmartPhoneShop.Web.Controllers
                 content = content.Replace("{{Address}}", modelOrder.AddressShip);
                 content = content.Replace("{{Phone}}", modelOrder.PhoneShip.ToString());
                 content = content.Replace("{{Count}}", cart.Count().ToString());
+                string baseUrl = Request.Url.GetLeftPart(UriPartial.Authority)+ Url.Action("Order", "ShoppingCart");
+                content = content.Replace("{{ReturnUrl}}", baseUrl );
                 string tongTien = tong.ToString("N0");
                 content = content.Replace("{{Price}}", tongTien + " VND");
 
@@ -149,7 +160,12 @@ namespace SmartPhoneShop.Web.Controllers
 
                 return Redirect("/don-hang.html");
             }
-            return View(modelOrder);
+            else
+            {
+                ModelState.AddModelError("", "Lỗi");
+                
+                return View(cart);
+            }
         }
         
         [HttpGet]

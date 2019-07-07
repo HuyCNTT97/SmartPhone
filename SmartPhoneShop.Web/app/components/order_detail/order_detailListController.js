@@ -6,7 +6,7 @@
         $scope.page = 0
         $scope.pagesCount = 0
         $scope.keyword = ""
-
+        apiService.Authorized();
         $scope.option = {
             options: [{ value: 10, name: "10 dòng" },
             { value: 20, name: "20 dòng" },

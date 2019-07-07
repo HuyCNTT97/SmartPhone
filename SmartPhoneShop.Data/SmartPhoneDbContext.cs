@@ -12,7 +12,7 @@ namespace SmartPhoneShop.Data
 {
     public class SmartPhoneDbContext : IdentityDbContext<ApplicationUser>
     {
-        public SmartPhoneDbContext() : base("SmartPhoneShopConnection")
+        public SmartPhoneDbContext() : base("name=SmartPhoneShopSomee")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }

@@ -6,6 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     decimal tong = 0;
 }
+<link href="~/Assets/client/css/templateContain.css" rel="stylesheet" />
 @section footerJS{
     <script src="~/Assets/client/js/controller/Cart.js"></script>
 }
@@ -15,11 +16,11 @@
         <div class="row bong">
             <h3 class="text-center uppercase">Giỏ Hàng</h3>
         </div>
-        <div class="row" id="cartContent">
+        <div class="row col-md-12" id="cartContent">
             <table class="table table-hover table-responsive table-striped" id="tblCart">
                 <thead>
                     <tr>
-                        <th class="uppercase">Mã Sản Phẩm</th>
+                        
                         <th class="uppercase">Tên Sản Phẩm</th>
                         <th class="uppercase">Hình Ảnh</th>
                         <th class="uppercase">Màu</th>
@@ -29,12 +30,11 @@
 
                     </tr>
                 </thead>
-                <tbody id="cartBody">
+                <tbody id="cartBody" class="">
 
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@item.ProductID</td>
                             <td class="chudam text-lowercase h4">@item.Product.Name</td>
                             <td><img src="@item.Product.Image" class="" height="120" width="120" /></td>
                             <td>
@@ -45,7 +45,7 @@
                             </td>
 
 
-                            <td>
+                            <td class="Bold">
                                 @{
                                     switch (item.Color)
                                     {
@@ -61,24 +61,24 @@
                                         default: break;
                                     }
                                 }
-                                @item.Product.Price.ToString("N0") VND
+                                @item.Product.Price.ToString("N0")<span class="small">đ</span>
                             </td>
                             @{
                                 var Amount = item.Product.Price * item.Quantity;
                                 tong = tong + Amount;
                             }
-                            <td>@Amount.ToString("N0") VND</td>
+                            <td class="Bold">@Amount.ToString("N0")<span class="small">đ</span></td>
 
 
 
                         </tr>
-                                }
+                    }
                 </tbody>
             </table>
             <div class="col-md-12">
                 <p class="pull-right maudo">
                     <span class="text-bold  h4">Tổng tiền: </span>
-                    <span class="chudam h4" >@tong.ToString("N0") VND</span>
+                    <span class="chudam h4">@tong.ToString("N0") VND</span>
                 </p>
             </div>
 
@@ -103,7 +103,7 @@
                 <div class="col-md-12">
                     <!-- Horizontal Form -->
                     <div class="box box-info">
-                        @using (Html.BeginForm("CheckOut", "ShoppingCart", FormMethod.Post))
+                        @using (Html.BeginForm("CheckOut", "ShoppingCart",new { @PhoneShip=ViewBag.PhoneNumber }, FormMethod.Post))
                         {
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary(false, "", new { @class = "maudo bold alert " })
@@ -121,7 +121,7 @@
                                             Họ Tên Người Nhận<span class="text-red"> *</span>
                                         </label>
 
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-7">
                                             <input type="text" id="NameShip" class="form-control" name="NameShip"
                                                    required="required" placeholder="Bắt buộc nhập" />
 
@@ -132,7 +132,7 @@
                                             Địa Chỉ<span class="text-red"> *</span>
                                         </label>
 
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-7">
                                             <input type="text" class="form-control" id="AddressShip" name="AddressShip"
                                                    required="required" placeholder="Bắt buộc nhập" />
 
@@ -142,10 +142,14 @@
                                         <label for="inputEmail3" class="col-sm-3 control-label">
                                             Số Điện Thoại<span class="text-red"> *</span>
                                         </label>
-
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="PhoneShip" name="PhoneShip"
-                                                   required="required" placeholder="Bắt buộc nhập" />
+                                        <div class="col-sm-7">
+                                            <span>
+                                                @{ 
+                                                    string text = ViewBag.PhoneNumber;
+                                                }
+                                              @Html.Label("PhoneShip", text,new {@id= "PhoneShip", @name= "text1" }) <text>[&nbsp;&nbsp;@Html.ActionLink("Đổi số điện thoại",
+                                                                                                                                                        "AddPhoneNumber",null,htmlAttributes:new {@class="btn-link" }) ]</text>
+                                                </span>
 
                                         </div>
                                     </div>
@@ -154,7 +158,7 @@
                                             Chọn phương thức giao hàng<span class="text-red"> *</span>
                                         </label>
 
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-7">
                                             <input type="radio" checked="checked" />
                                             <label>Giao tiền khi nhận hàng</label>
                                         </div>

@@ -8,6 +8,7 @@
             CreatedDate: new Date(),
             Status: true
         }
+        apiService.Authorized();
         $scope.GetSeoTitile = GetSeoTitile
         function GetSeoTitile() {
             $scope.order.Alias = commonService.getSeoTitle($scope.order.Name);
@@ -17,6 +18,8 @@
         function loadOrderDetail() {
             apiService.get('/api/order/getbyid/' + $stateParams.id, null, function (result) {
                 $scope.order = result.data;
+                $scope.order.CreateDate = new Date($scope.order.CreateDate)
+                console.log($scope.order);
             }, function (error) {
                 notificationService.displayError(error.data);
             });
@@ -31,13 +34,7 @@
                     notificationService.displayError('Cập nhật không thành công.');
                 });
         }
-        function loadParentCategory() {
-            apiService.get('/api/order/getallparent', null, function (result) {
-                $scope.listOrder = result.data;
-            }, function () {
-                console.log('Cannot get list parent');
-            });
-        }
+       
         $scope.ChooseImage = function () {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
@@ -47,7 +44,7 @@
             }
             finder.popup();
         }
-        loadParentCategory();
+        
         loadOrderDetail();
     }
 })(angular.module('smartphone.order'));

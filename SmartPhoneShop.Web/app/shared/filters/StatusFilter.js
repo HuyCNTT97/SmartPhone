@@ -9,4 +9,14 @@
             }
         }
     })
+    app.filter('statusShipFilter', function () {
+        return function (input) {
+            if (input == true) {
+                return "Đã Giao Đủ";
+            }
+            else {
+                return "Chưa Giao Đủ";
+            }
+        }
+    })
 })(angular.module('smartphone.common'))

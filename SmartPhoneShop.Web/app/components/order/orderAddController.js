@@ -7,7 +7,7 @@
             Status: true,
             CreateBy: 'Huy'
         }
-
+        apiService.Authorized();
         $scope.required = required
         function required(check, data) {
             if (check == false) {

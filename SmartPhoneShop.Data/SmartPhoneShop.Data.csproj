@@ -88,17 +88,9 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201904191707409_InitialDB.cs" />
-    <Compile Include="Migrations\201904191707409_InitialDB.Designer.cs">
-      <DependentUpon>201904191707409_InitialDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904210819311_DBChange.cs" />
-    <Compile Include="Migrations\201904210819311_DBChange.Designer.cs">
-      <DependentUpon>201904210819311_DBChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904220844287_ChangeKeyOrderDetail.cs" />
-    <Compile Include="Migrations\201904220844287_ChangeKeyOrderDetail.Designer.cs">
-      <DependentUpon>201904220844287_ChangeKeyOrderDetail.cs</DependentUpon>
+    <Compile Include="Migrations\201906121259395_ChangeDB.cs" />
+    <Compile Include="Migrations\201906121259395_ChangeDB.Designer.cs">
+      <DependentUpon>201906121259395_ChangeDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,14 +136,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904191707409_InitialDB.resx">
-      <DependentUpon>201904191707409_InitialDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904210819311_DBChange.resx">
-      <DependentUpon>201904210819311_DBChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904220844287_ChangeKeyOrderDetail.resx">
-      <DependentUpon>201904220844287_ChangeKeyOrderDetail.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906121259395_ChangeDB.resx">
+      <DependentUpon>201906121259395_ChangeDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

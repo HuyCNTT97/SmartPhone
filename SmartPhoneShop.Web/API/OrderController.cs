@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.App_Start;
 using SmartPhoneShop.Web.Infrastructure.Core;
 using SmartPhoneShop.Web.Infrasture.Core;
 using SmartPhoneShop.Web.Infrasture.Extension;
@@ -19,13 +20,28 @@ namespace SmartPhoneShop.Web.API
     public class OrderController : ApiControllerBase
     {
         private IOrderService _orderService;
+        private ApplicationUserManager _user;
 
-        public OrderController(IErrorService errorService, IOrderService orderService) :
+        public OrderController(IErrorService errorService, ApplicationUserManager user, IOrderService orderService) :
             base(errorService)
         {
+            this._user = user;
             this._orderService = orderService;
         }
+        [Route("getbyid/{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _orderService.GetByID(id);
 
+                var responseData = Mapper.Map<Order, OrderViewModel>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
         [Route("getall")]
         public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
@@ -38,7 +54,12 @@ namespace SmartPhoneShop.Web.API
                 var query = model.OrderByDescending(x => x.ID).Skip(page * pageSize).Take(pageSize);
 
                 var responseData = Mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(query);
-
+                foreach (var item in responseData)
+                {
+                    if(_user.Users.SingleOrDefault(x => x.Id == item.CustomerID) != null) 
+                    item.CustomerName = _user.Users.SingleOrDefault(x => x.Id == item.CustomerID).UserName;
+                    else item.CustomerName = "Tài khoản đã hủy";
+                }
                 var paginationSet = new PaginationSet<OrderViewModel>()
                 {
                     Items = responseData,

@@ -28,6 +28,28 @@ namespace SmartPhoneShop.Web
              namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
          );
             routes.MapRoute(
+            name: "Information Account",
+            url: "thong-tin-tai-khoan.html",
+            defaults: new { controller = "Manage", action = "Index", id = UrlParameter.Optional },
+            namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
+
+        );
+            //VerifyPhoneNumber
+            routes.MapRoute(
+           name: "VerifyPhoneNumber PhoneNumber",
+           url: "xac-nhan-so-dien-thoai.html",
+           defaults: new { controller = "Manage", action = "VerifyPhoneNumber", id = UrlParameter.Optional },
+           namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
+
+       );
+            routes.MapRoute(
+            name: "Add PhoneNumber",
+            url: "them-so-dien-thoai.html",
+            defaults: new { controller = "Manage", action = "AddPhoneNumber", id = UrlParameter.Optional },
+            namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
+
+        );
+            routes.MapRoute(
             name: "Login",
             url: "dang-nhap.html",
             defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },

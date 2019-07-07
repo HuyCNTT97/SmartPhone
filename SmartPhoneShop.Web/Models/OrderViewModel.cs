@@ -10,13 +10,13 @@ namespace SmartPhoneShop.Web.Models
         public int ID { set; get; }
 
         public string CustomerID { set; get; }
-
+        public string CustomerName { set; get; }
         public string NameShip { set; get; }
         public DateTime CreateDate { set; get; }
 
         public string AddressShip { set; get; }
 
-        public int PhoneShip { set; get; }
+        public string PhoneShip { set; get; }
 
         public DateTime OrderDate { set; get; }
 

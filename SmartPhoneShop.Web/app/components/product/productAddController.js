@@ -19,6 +19,7 @@
         $scope.AddProduct = AddProduct
         function AddProduct() {
             $scope.product.MoreImages = JSON.stringify($scope.moreImages)
+            $scope.product.Quantity = $scope.product.OriginalQuantity;
             apiService.post('/api/product/add', $scope.product, function (result) {
                 notificationService.displaySuccess(result.data.Name + ' Đã được thêm thành công')
                 $state.go('product')

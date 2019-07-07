@@ -22,7 +22,7 @@ namespace SmartPhoneShop.Web.Controllers
             this._productCategoryService = productCategoryService;
             this._productService = productService;
         }
-        public ActionResult Detail(int id)
+        public ActionResult Detail(int id=1)
         {
             var modelProduct = _productService.GetByID(id);
             var modelProductCategory = _productCategoryService.GetByID(modelProduct.ProductCategoryID);
@@ -42,7 +42,7 @@ namespace SmartPhoneShop.Web.Controllers
             ViewBag.listImage = listImage;
             return View();
         }
-        public ActionResult Category(int id,int page=1)
+        public ActionResult Category(int id=1,int page=1)
         {
             int pageSize =int.Parse( ConfigHelper.GetByKey("pageSize"));
             int totalRow = 0;

@@ -70,7 +70,7 @@
 
                                 <tr role="row" class="bg-black">
                                     <th>Mã Order</th>
-                                    <th>Mã khách hàng </th>
+                                    <th>Tên khách hàng </th>
                                     <th>Tên ship</th>
                                     <th>Địa chỉ giao hàng</th>
                                     <th>Số điện thoại giao hàng</th>
@@ -89,13 +89,17 @@
                             <tbody>
                                 <tr ng-repeat="item in order">
                                     <td>{{item.ID}}</td>
-                                    <td>{{item.CustomerID}}</td>
+                                    <td>{{item.CustomerName}}</td>
                                     <td>{{item.NameShip}}</td>
                                     <td>{{item.AddressShip}}</td>
                                     <td>{{item.PhoneShip}}</td>
-                                    <td>{{item.OrderDate}}</td>
-                                    <td>{{item.GiaoDuHang}}</td>
-
+                                    <td>{{item.CreateDate}}</td>
+                                    <td>
+                                        <p ng-class="{'badge bg-red':item.GiaoDuHang==false,
+                                        'badge bg-green':item.GiaoDuHang==true}">
+                                            {{item.GiaoDuHang|statusShipFilter}}
+                                        </p>
+                                    </td>
                                     <td>
                                         <button class="btn btn-sm btn-primary" ui-sref="order_edit({id:item.ID})" title="Chỉnh Sửa">
                                             <i class="fa fa-pencil"></i>

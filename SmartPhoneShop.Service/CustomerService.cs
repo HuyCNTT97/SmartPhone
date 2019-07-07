@@ -24,6 +24,7 @@ namespace SmartPhoneShop.Service
         IEnumerable<Customer> GetAllPaging(int page, int pageSize, out int totalRow);
 
         Customer GetByID(int id);
+        string GetName(string id);
 
         IEnumerable<Customer> GetAllTagPaging(int page, int pageSize, out int totalRow);
 
@@ -81,6 +82,11 @@ namespace SmartPhoneShop.Service
         public Customer GetByID(int id)
         {
             return _customerRepository.GetSingleById(id);
+        }
+
+        public string GetName(string id)
+        {
+            return _customerRepository.GetSingleByCondition(x => x.ID.ToString() == id).ID.ToString();
         }
 
         public void SaveChanges()
