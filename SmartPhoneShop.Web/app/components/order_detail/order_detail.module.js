@@ -5,7 +5,7 @@
     function config($stateProvider, $urlRouterProvider) {
         $stateProvider.state('order_detail', {
             parent: 'base',
-            url: "/order_detail",
+            url: "/order_detail/:id",
             templateUrl: "/app/components/order_detail/order_detailListView.html",
             controller: "order_detailListController"
         }).state('order_detail_add', {

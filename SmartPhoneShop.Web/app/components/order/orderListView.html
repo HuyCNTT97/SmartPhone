@@ -88,7 +88,8 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="item in order">
-                                    <td>{{item.ID}}</td>
+                                    <td>{{item.ID}} <button class="btn btn-info" ui-sref="order_detail({id:item.ID})" title="Xem chi tiết">
+                                         <i class="fa fa-info"></i> Xem chi tiết</button></td>
                                     <td>{{item.CustomerName}}</td>
                                     <td>{{item.NameShip}}</td>
                                     <td>{{item.AddressShip}}</td>

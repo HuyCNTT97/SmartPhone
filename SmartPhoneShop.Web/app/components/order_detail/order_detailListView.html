@@ -68,13 +68,14 @@
                         <table id="example1" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="example1_info">
                             <thead>
                                 <tr role="row" class="bg-black">
-                                    <th>Mã loại sản phẩm</th>
-                                    <th>Mã người dùng </th>
-                                    <th>Giá</th>
+                                    <th>Hoàn trả hàng</th>
+                                    <th>Mã sản phẩm</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giá bán</th>
                                     <th>Khuyến mãi</th>
-                                    <th>Số lượng</th>
-                                    <th>Giao hang</th>
-                                    <th>Thanh toán</th>
+                                    <th>Số lượng mua</th>
+                                    <th>Trạng thái hàng</th>
+                                    
                                     <th>Mã bảo hành</th>
                                     <th>Chức năng</th>
                                     <th>
@@ -88,23 +89,43 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="item in order_detail">
-                                    <td>{{item.OrderID}}</td>
+                                    <td><button ng-class="{'btn btn-sm bg-light disabled':item.Shipping==false,
+                                                'badge bg-red':item.Shipping==true}"
+                                                ng-disabled="(item.Shipping)?false:true" 
+                                               ng-click="Refund(item.OrderID,item.ProductID)" title="Trả hàng">
+                                        <i class="fa fa-refresh"></i></button></td>
                                     <td>{{item.ProductID}}</td>
-                                    <td>{{item.Price}}</td>
-                                    <td>{{item.Promotion}}</td>
-                                    <td>{{item.Quantity}}</td>
-                                    <td>{{item.Shipping}}</td>
-                                    <td>{{item.Payment}}</td>
+                                    <td>{{item.Products.Name}}</td>
+                                    <td>{{item.Price|number:0}} VNĐ</td>
+                                    <td>{{item.Promotion|number:2}}%</td>
+                                    <td>{{item.Quantity}} mặt hàng</td>
+                                    <td >
+                                        <span ng-class="{'badge bg-blue text-black show':item.Shipping==false,
+                                        'badge bg-green':item.Shipping==true,'hide':item.Payment==true}" ng-model="item.Shipping">
+                                            {{item.Shipping|statusShippingFilter}}
+                                        </span>
+                                        <span ng-class="{'hide ':item.Payment==false||item.Shipping==false,
+                                        'badge bg-green':item.Shipping==true}">
+                                            {{item.Payment|statusPaymentFilter}}
+                                        </span>
+                                   </td>
+                                   
                                     <td>{{item.WarrantyID}}</td>
 
-                                    <td>
-                                        <button class="btn btn-sm btn-primary" ui-sref="order_detail_edit({id:item.ID})"
-                                                title="Chỉnh Sửa">
-                                            <i class="fa fa-pencil"></i>
+                                    <td >
+                                        <button  ng-disabled="item.Shipping"
+                                                
+                                                ng-click="CommitShip(item.OrderID,item.ProductID)"
+                                                 class="btn btn-sm btn-success" 
+                                                title="Giao hàng">
+                                            <i class="fa fa-truck">Giao</i>
                                         </button>
-                                        <button class="btn btn-sm btn-danger" ng-click="deleteOrder(item.ID)"
-                                                title="Xóa">
-                                            <i class="fa fa-trash"></i>
+                                        <button ng-disabled="(item.Shipping==false||item.Payment==true)?true:false"
+                                                
+                                                ng-click="CommitPayment(item.OrderID,item.ProductID)"
+                                                 class="btn btn-sm btn-success" 
+                                                title="Xác nhận">
+                                            <i class="fa fa-check"> Nhận</i>
                                         </button>
                                     </td>
                                     <td><input type="checkbox" ng-model="item.checked" name="all" /></td>

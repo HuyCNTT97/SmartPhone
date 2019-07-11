@@ -19,10 +19,11 @@ namespace SmartPhoneShop.Web.API
     public class OrderDetailController : ApiControllerBase
     {
         private IOrderDetailService _orderDetailService;
-
-        public OrderDetailController(IErrorService errorService, IOrderDetailService orderDetailService) :
+        private IProductService _productService;
+        public OrderDetailController(IErrorService errorService,IProductService productService, IOrderDetailService orderDetailService) :
             base(errorService)
         {
+            this._productService = productService;
             this._orderDetailService = orderDetailService;
         }
 
@@ -38,7 +39,10 @@ namespace SmartPhoneShop.Web.API
                 var query = model.OrderByDescending(x => x.OrderID).Skip(page * pageSize).Take(pageSize);
 
                 var responseData = Mapper.Map<IEnumerable<OrderDetail>, IEnumerable<OrderDetailViewModel>>(query);
-
+                foreach (var item in responseData)
+                {
+                    item.Products =Mapper.Map<Product,ProductViewModel>( _productService.GetByID(item.ProductID));
+                }
                 var paginationSet = new PaginationSet<OrderDetailViewModel>()
                 {
                     Items = responseData,
@@ -71,7 +75,63 @@ namespace SmartPhoneShop.Web.API
                 return response;
             });
         }
-
+        [Route("changeShipping")]
+        [HttpGet]
+        public HttpResponseMessage ChangeShipping(HttpRequestMessage request, int id,int productID)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var status = _orderDetailService.ChangeShipping(id, productID);
+                    response = request.CreateResponse(HttpStatusCode.OK, status);
+                }
+                return response;
+            });
+        }
+        [Route("changePayment")]
+        [HttpGet]
+        public HttpResponseMessage ChangePayment(HttpRequestMessage request, int id, int productID)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var status = _orderDetailService.ChangePayment(id, productID);
+                    response = request.CreateResponse(HttpStatusCode.OK, status);
+                }
+                return response;
+            });
+        }
+        [Route("refund")]
+        [HttpGet]
+        public HttpResponseMessage Refund(HttpRequestMessage request, int id, int productID)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var status = _orderDetailService.RefundPackage(id, productID);
+                    response = request.CreateResponse(HttpStatusCode.OK, status);
+                }
+                return response;
+            });
+        }
         [Route("update")]
         public HttpResponseMessage Put(HttpRequestMessage request, OrderDetailViewModel orderDetailVm)
         {

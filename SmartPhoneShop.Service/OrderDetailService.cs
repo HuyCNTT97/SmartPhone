@@ -17,7 +17,9 @@ namespace SmartPhoneShop.Service
         void SellProduct(int productID, int quantity);
 
         void Delete(int id);
-
+        bool ChangeShipping(int id,int productID);
+        bool ChangePayment(int id,int productID);
+        bool RefundPackage(int id,int productID);
         IEnumerable<OrderDetail> GetAll();
         IEnumerable<OrderDetail> GetAllByOrderID(string OrderID);
         IEnumerable<OrderDetail> GetAll(string keyword);
@@ -50,6 +52,36 @@ namespace SmartPhoneShop.Service
         public OrderDetail Add(OrderDetail orderDetail)
         {
             return _orderDetailRepository.Add(orderDetail);
+        }
+
+        public bool ChangePayment(int id, int productID)
+        {
+            try
+            {
+                var orderDetail = _orderDetailRepository.getOrderDetail(id, productID);
+                orderDetail.Payment = !orderDetail.Payment;
+                _unitofwork.Commit();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool ChangeShipping(int id, int productID)
+        {
+            try
+            {
+                var orderDetail = _orderDetailRepository.getOrderDetail(id, productID);
+                orderDetail.Shipping = !orderDetail.Shipping;
+                _unitofwork.Commit();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public void Delete(int id)
@@ -93,6 +125,21 @@ namespace SmartPhoneShop.Service
             return _orderDetailRepository.GetSingleByCondition(x => x.OrderID == OrderID && x.ProductID == ProductID, null);
         }
 
+        public bool RefundPackage(int id, int productID)
+        {
+            try
+            {
+                var orderDetail = _orderDetailRepository.getOrderDetail(id, productID);
+                orderDetail.Payment = false;
+                orderDetail.Shipping = false;
+                _unitofwork.Commit();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public void SaveChanges()
         {
             _unitofwork.Commit();

@@ -64,7 +64,7 @@ namespace SmartPhoneShop.Service
         public IEnumerable<Order> GetAll(string keyword)
         {
             if (string.IsNullOrEmpty(keyword)) return _ordersRepository.GetAll();
-            return _ordersRepository.GetMulti(x => x.NameShip.ToLower().Contains(keyword));
+            return _ordersRepository.GetMulti(x =>x.ID.ToString().Contains(keyword)|| x.NameShip.ToLower().Contains(keyword));
         }
 
         public IEnumerable<Order> GetAllByName(string keyword)

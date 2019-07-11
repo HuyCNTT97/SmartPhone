@@ -1,12 +1,17 @@
 ﻿(function (app) {
     app.controller('order_detailListController', order_detailListController)
-    order_detailListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter']
-    function order_detailListController($scope, apiService, notificationService, $ngBootbox, $filter) {
+    order_detailListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter','$stateParams']
+    function order_detailListController($scope, apiService, notificationService, $ngBootbox, $filter, $stateParams) {
         $scope.order_detail = []
         $scope.page = 0
+        $scope.shipping = false;
+        $scope.payment = false;
         $scope.pagesCount = 0
-        $scope.keyword = ""
+        if ($stateParams.id === undefined)
+            $scope.keyword = ""
+        else $scope.keyword = $stateParams.id;
         apiService.Authorized();
+       
         $scope.option = {
             options: [{ value: 10, name: "10 dòng" },
             { value: 20, name: "20 dòng" },
@@ -16,7 +21,6 @@
         }
 
         $scope.getOrder_detail = getOrder_detail;
-        $scope.keyword = ''
         $scope.search = search
         function search() {
             $scope.getOrder_detail()
@@ -115,7 +119,77 @@
                 console.log('Load order_detail failed.');
             });
         }
+        //change status shipping and payment
+        $scope.CommitShip = function (OrderID,productID) {
+            var config = {
+                params: {
+                    id: OrderID,
+                    productID: productID
+                }
+            }
+            apiService.get('/api/orderDetail/changeShipping', config, function (result) {
+                
+                if (result.data == true) {
+                    $scope.order_detail.forEach(function (item, index) {
+                        if (item.ProductID == productID && item.OrderID == OrderID) {
+                            item.Shipping=true
+                        }
+                    })
+                    notificationService.displaySuccess("Đã chuyển sang trạng thái đang giao")
 
+                }
+                else
+                    console.log(result)
+            }, function () {
+                notificationService.displayWarning("Hành động thất bại");
+               })
+        }
+        $scope.Refund = function (OrderID, productID) {
+            var config = {
+                params: {
+                    id: OrderID,
+                    productID: productID
+                }
+            }
+            apiService.get('/api/orderDetail/refund', config, function (result) {
+
+                if (result.data == true) {
+                    $scope.order_detail.forEach(function (item, index) {
+                        if (item.OrderID == OrderID && item.ProductID == productID) {
+                            item.Shipping = false;
+                            item.Payment = false;
+                        }
+                    })
+                    notificationService.displaySuccess("Trả hàng lại vào kho thành công");
+                }
+                else
+                    console.log(result)
+            }, function () {
+                notificationService.displayWarning("Hành động thất bại");
+            })
+        }
+        $scope.CommitPayment = function (OrderID, productID) {
+            var config = {
+                params: {
+                    id: OrderID,
+                    productID: productID
+                }
+            }
+            apiService.get('/api/orderDetail/changePayment', config, function (result) {
+                if (result.data) {
+                    $scope.order_detail.forEach(function (item, index) {
+                        if (item.OrderID == OrderID && item.ProductID == productID) {
+                           item.Payment=true
+                        } 
+                    })
+                    notificationService.displaySuccess("Đã xác nhận trạng thái nhận hàng")
+
+                }
+                else console.log(result)
+            }, function () {
+                notificationService.displayWarning("Hành động thất bại");
+            })
+        }
         $scope.getOrder_detail();
     }
 })(angular.module('smartphone.order_detail'))
