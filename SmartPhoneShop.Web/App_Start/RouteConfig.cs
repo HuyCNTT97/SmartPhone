@@ -50,6 +50,34 @@ namespace SmartPhoneShop.Web
 
         );
             routes.MapRoute(
+           name: "Get All Task Category",
+           url: "task-category",
+           defaults: new { controller = "TaskCategory", action = "Index", id = UrlParameter.Optional },
+           namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
+
+       );
+           routes.MapRoute(
+           name: "Create Task Category",
+           url: "task-category/create",
+           defaults: new { controller = "TaskCategory", action = "Create", id = UrlParameter.Optional },
+           namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
+
+       );
+            routes.MapRoute(
+           name: "Edit Task Category",
+           url: "task-category/edit/{id}",
+           defaults: new { controller = "TaskCategory", action = "Edit", id = UrlParameter.Optional },
+           namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
+
+       );
+            routes.MapRoute(
+           name: "Remove Task Category",
+           url: "task-category/delete/{id}",
+           defaults: new { controller = "TaskCategory", action = "Delete", id = UrlParameter.Optional },
+           namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
+
+       );
+            routes.MapRoute(
             name: "Login",
             url: "dang-nhap.html",
             defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
@@ -73,7 +101,7 @@ namespace SmartPhoneShop.Web
                 defaults: new { controller = "Product", action = "Category", id = UrlParameter.Optional },
                 namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
             );
-           
+
             routes.MapRoute(
                 name: "Search",
                 url: "san-pham/tim-kiem/",
@@ -86,7 +114,7 @@ namespace SmartPhoneShop.Web
                defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
                namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
            );
-           
+
 
             routes.MapRoute(
                 name: "Default",
@@ -95,7 +123,7 @@ namespace SmartPhoneShop.Web
                 namespaces: new string[] { "SmartPhoneShop.Web.Controllers" }
             );
 
-           
+
         }
     }
 }

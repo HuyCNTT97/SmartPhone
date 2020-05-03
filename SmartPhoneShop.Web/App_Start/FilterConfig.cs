@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using SmartPhoneShop.Web.Infrasture.ActionFilter;
+using System.Web;
 using System.Web.Mvc;
 
 namespace SmartPhoneShop.Web
@@ -8,6 +9,7 @@ namespace SmartPhoneShop.Web
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+
         }
     }
 }

@@ -18,6 +18,8 @@ namespace SmartPhoneShop.Data
         }
 
         public DbSet<Footer> Footers { set; get; }
+        public DbSet<DailyTask> DailyTasks { set; get; }
+        public DbSet<TaskCategory> TaskCategories { set; get; }
         public DbSet<Customer> Customer { set; get; }
 
         public DbSet<Menu> Menu { set; get; }

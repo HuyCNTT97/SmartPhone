@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SmartPhoneShop.Model.Model;
 using SmartPhoneShop.Service;
+using SmartPhoneShop.Web.Infrasture.ActionFilter;
 using SmartPhoneShop.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 
 namespace SmartPhoneShop.Web.Controllers
 {
+    
     public class HomeController : Controller
     {
         ISlideService _slideService;

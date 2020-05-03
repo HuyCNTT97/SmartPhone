@@ -13,6 +13,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>SmartPhoneShop</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
@@ -55,6 +56,9 @@
     @RenderBody()
 
     @{ Html.RenderAction("footer", "Home");}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- jQuery Plugins -->
     <script src="~/Assets/client/js/jquery.min.js"></script>
     <script src="~/Assets/admin/libs/jquery-ui/jquery-ui.min.js"></script>
@@ -69,6 +73,23 @@
     <script src="~/Assets/client/js/common.js"></script>
     <script src="~/Assets/admin/libs/numeral/numeral.js"></script>
     <script src="~/Assets/client/js/controller/Cart.js"></script>
+    <script>
+        $(".button-delete").click(function () {
+            var id = $(this).data('id');
+            var confirmed = confirm("Are you sure delete?");
+            if (confirmed) {
+                $.ajax({
+                    url: '/task-category/delete/' + id,
+                    type: 'Delete'
+                }).done(function (resultJson) {
+                    $('#task-category-' + id).remove();
+                    alert(resultJson.message);
+                }).error(function (resultJson) {
+                    alert('Error' + resultJson.message);
+                })
+            }
+        })
+    </script>
 
     @RenderSection("footerJS", required: false)
 </body>

@@ -98,6 +98,7 @@
     <Compile Include="Model\ApplicationUser.cs" />
     <Compile Include="Model\ApplicationUserGroup.cs" />
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\DailyTask.cs" />
     <Compile Include="Model\Error.cs" />
     <Compile Include="Model\Footer.cs" />
     <Compile Include="Model\Menu.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Model\SuppostOnline.cs" />
     <Compile Include="Model\SystemConfig.cs" />
     <Compile Include="Model\Tag.cs" />
+    <Compile Include="Model\TaskCategory.cs" />
     <Compile Include="Model\VisitorStatistic.cs" />
     <Compile Include="Model\Warranty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -99,6 +99,7 @@
     <Compile Include="SuppostOnlineService.cs" />
     <Compile Include="SystemConfigService.cs" />
     <Compile Include="TagService.cs" />
+    <Compile Include="TaskCategoryServices.cs" />
     <Compile Include="VisitorStatisticService.cs" />
     <Compile Include="WarrantyService.cs" />
   </ItemGroup>

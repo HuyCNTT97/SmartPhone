@@ -88,9 +88,9 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201906121259395_ChangeDB.cs" />
-    <Compile Include="Migrations\201906121259395_ChangeDB.Designer.cs">
-      <DependentUpon>201906121259395_ChangeDB.cs</DependentUpon>
+    <Compile Include="Migrations\202004301257433_AddTableTaskAndTableTaskCategory.cs" />
+    <Compile Include="Migrations\202004301257433_AddTableTaskAndTableTaskCategory.Designer.cs">
+      <DependentUpon>202004301257433_AddTableTaskAndTableTaskCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +117,7 @@
     <Compile Include="Repositories\SuppostOnlineRepository.cs" />
     <Compile Include="Repositories\SystemConfigRepository.cs" />
     <Compile Include="Repositories\TagRepository.cs" />
+    <Compile Include="Repositories\TaskCategoryRepository.cs" />
     <Compile Include="Repositories\VisitorStatisticsRepository.cs" />
     <Compile Include="Repositories\WarrantyRepository.cs" />
     <Compile Include="SmartPhoneDbContext.cs" />
@@ -136,8 +137,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906121259395_ChangeDB.resx">
-      <DependentUpon>201906121259395_ChangeDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004301257433_AddTableTaskAndTableTaskCategory.resx">
+      <DependentUpon>202004301257433_AddTableTaskAndTableTaskCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

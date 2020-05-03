@@ -266,9 +266,11 @@
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\TaskCategoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrasture\ActionFilter\RequiredLogin.cs" />
     <Compile Include="Infrasture\Core\ApiControllerBase.cs" />
     <Compile Include="Infrasture\Core\PaginationSet.cs" />
     <Compile Include="Infrasture\Extension\EntityExtension.cs" />
@@ -5577,6 +5579,9 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\TaskCategory\Index.cshtml" />
+    <Content Include="Views\TaskCategory\Create.cshtml" />
+    <Content Include="Views\TaskCategory\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Assets\admin\libs\ngBootbox\typings\angularjs\angular.d.ts" />

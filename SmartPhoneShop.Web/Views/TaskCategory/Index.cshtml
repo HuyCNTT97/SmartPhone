@@ -1,0 +1,39 @@
+﻿@model List< SmartPhoneShop.Model.Model.TaskCategory>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (TempData["msg"] != null)
+{
+    @Html.Raw(TempData["msg"]);
+}
+<div class="container">
+    <div class="h2 text-info mb-5 mt-5">Task Category</div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var taskCategory in Model)
+            {
+                <tr id="task-category-@taskCategory.ID">
+                    <td>
+                        @taskCategory.ID
+                    </td>
+                    <td>
+                        @taskCategory.CategoryName
+                    </td>
+                    <td>
+                        <button class="button-delete btn btn-sm btn-danger" data-id="@taskCategory.ID"  title="Delete">
+                            <i class="fa-bicycle"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

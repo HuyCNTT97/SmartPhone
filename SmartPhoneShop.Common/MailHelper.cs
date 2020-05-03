@@ -21,7 +21,7 @@ namespace SmartPhoneShop.Common
 
                 var smtpClient = new SmtpClient(host, port)
                 {
-                    UseDefaultCredentials = false,
+                    UseDefaultCredentials = true,
                     Credentials = new System.Net.NetworkCredential(fromEmail, password),
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     EnableSsl = true,
