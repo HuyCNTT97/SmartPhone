@@ -1,0 +1,213 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listIPhone = ViewBag.listIphone as List<SmartPhoneShop.Web.Models.ProductViewModel>;
+    var listSamSung = ViewBag.listSamSung as List<SmartPhoneShop.Web.Models.ProductViewModel>;
+    var Xiaomi = ViewBag.Xiaomi as List<SmartPhoneShop.Web.Models.ProductViewModel>;
+    var Camera = ViewBag.Camera as List<SmartPhoneShop.Web.Models.ProductViewModel>;
+
+}
+@section footerJS{
+   
+    @if (TempData["msgOrder"] != null)
+    {
+        @Html.Raw(TempData["msgOrder"]);
+    }
+}
+<div class="nen">
+    @{ Html.RenderAction("slide", "Home");}
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <div class="row">
+                <!-- section title -->
+                <!-- section title -->
+                <!-- Product Single -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h2 class="title">Iphone</h2>
+                        <div class="pull-right">
+                            @{ Html.RenderAction("Breadcrumb", "Home", new { nameCategory = "Iphone" });}
+                        </div>
+                    </div>
+                </div>
+                @foreach (var item in listIPhone)
+                {
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product product-single product-hot">
+                            <div class="product-thumb">
+                                
+                                <a href="/iphone/@item.Alias-@item.ID" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Xem chi tiết</a>
+                                <img alt="không ảnh" src="@item.Image"style="max-height:180px;width:auto">
+                            </div>
+                            <div class="product-body ">
+                                <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
+
+                                <h2 class="product-name" title="@item.Name">
+                                    <a href="/iphone/@item.Alias-@item.ID">@item.Name</a>
+                                </h2>
+                                <div class="product-btns">
+                                    <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                                    <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                                    <button data-id="@item.ID"  class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+        <!-- /container -->
+    </div>
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <div class="row">
+                <!-- section title -->
+                <!-- section title -->
+                <!-- Product Single -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h2 class="title">SamSung</h2>
+                        <div class="pull-right">
+                            @{ Html.RenderAction("Breadcrumb", "Home", new { nameCategory = "Samsung" });}
+
+                        </div>
+                    </div>
+                </div>
+                @foreach (var item in listSamSung)
+                {
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product product-single product-hot">
+                            <div class="product-thumb">
+                                @*<div class="product-label">
+                                        <span class="sale">-20%</span>
+                                    </div>*@
+                                <a href="/samsung/@item.Alias-@item.ID" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Xem chi tiết</a>
+                                <img alt="" src="@item.Image" width="80" height="200">
+                            </div>
+                            <div class="product-body ">
+                                <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
+
+                                <h2 class="product-name" title="@item.Name">
+                                    <a href="/samsung/@item.Alias-@item.ID">@item.Name</a>
+                                </h2>
+                                <div class="product-btns">
+                                    <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                                    <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                                    <button data-id="@item.ID" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+        <!-- /container -->
+    </div>
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <div class="row">
+                <!-- section title -->
+                <!-- section title -->
+                <!-- Product Single -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h2 class="title">Xiaomi</h2>
+                        <div class="pull-right">
+                            @{ Html.RenderAction("Breadcrumb", "Home", new { nameCategory = "Xiaomi" });}
+
+                        </div>
+                    </div>
+                </div>
+                @foreach (var item in Xiaomi)
+                {
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product product-single product-hot">
+                            <div class="product-thumb">
+                                @*<div class="product-label">
+                                        <span class="sale">-20%</span>
+                                    </div>*@
+                                <a href="/xiaomi/@item.Alias-@item.ID" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Xem chi tiết</a>
+                                <img alt="" src="@item.Image" width="80" height="200">
+                            </div>
+                            <div class="product-body ">
+                                <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
+
+                                <h2 class="product-name" title="@item.Name">
+                                    <a href="/xiaomi/@item.Alias-@item.ID">@item.Name</a>
+                                </h2>
+                                <div class="product-btns">
+                                    <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                                    <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                                    <button data-id="@item.ID"  class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+        <!-- /container -->
+    </div>
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <div class="row">
+                <!-- section title -->
+                <!-- section title -->
+                <!-- Product Single -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h2 class="title">Camera</h2>
+                        <div class="pull-right">s
+                            @{ Html.RenderAction("Breadcrumb", "Home", new { nameCategory = "Camera" });}
+
+                        </div>
+                    </div>
+                </div>
+                @foreach (var item in Camera)
+                {
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product product-single product-hot">
+                            <div class="product-thumb">
+                                @*<div class="product-label">
+                                        <span class="sale">-20%</span>
+                                    </div>*@
+                                <a href="/camera/@item.Alias-@item.ID" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Xem chi tiết</a>
+                                <img alt="" src="@item.Image" width="80" height="200">
+                            </div>
+                            <div class="product-body ">
+                                <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
+
+                                <h2 class="product-name" title="@item.Name">
+                                    <a href="/camera/@item.Alias-@item.ID">@item.Name</a>
+                                </h2>
+                                <div class="product-btns">
+                                    <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                                    <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                                    <button data-id="@item.ID" class="btnAddToCart primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+        <!-- /container -->
+    </div>
+</div>
+
+<!-- /section -->
+<!-- FOOTER -->
+<!-- /FOOTER -->

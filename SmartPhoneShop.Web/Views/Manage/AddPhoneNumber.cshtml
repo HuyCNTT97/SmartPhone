@@ -1,0 +1,30 @@
+﻿@model Example.Models.AddPhoneNumberViewModel
+@{
+    ViewBag.Title = "Xác nhận số điện thoại";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title.</h2>
+@if (TempData["phone"] != null)
+{
+    @Html.Raw(TempData["phone"]);
+}
+
+@using (Html.BeginForm("AddPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Thêm 1 số điện thoại</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Number, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.Number, new { @class = "form-control", @required = "true" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Gửi mã xác nhận" />
+        </div>
+    </div>
+}

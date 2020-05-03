@@ -1,0 +1,116 @@
+﻿@using Microsoft.AspNet.Identity
+@section footerJS{
+
+    <script src="~/Assets/client/js/common.js"></script>
+
+}
+@{
+    string url = HttpContext.Current.Request.Url.AbsolutePath;
+    
+}
+
+<header>
+
+    <!-- top Header -->
+    <div id="top-header">
+        <div class="container">
+            <div class="pull-left">
+                <span>Chào mừng bạn đến PhoneLuxury</span>
+            </div>
+            <div class="pull-right">
+                <ul class="header-top-links">
+                    <li><a href="#" class="text-red">Liên hệ với chúng tôi số 0978962124</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /top Header -->
+    <!-- header -->
+    <div id="header">
+        <div class="container">
+            <div class="pull-left">
+                <!-- Logo -->
+                <div class="header-logo">
+                    <a class="logo" href="/">
+                        <img src="~/Assets/client/img/logo.png" alt="">
+                    </a>
+                </div>
+                <!-- /Logo -->
+                <!-- Search -->
+                <div class="header-search">
+                    <form method="get" action="/san-pham/tim-kiem/">
+                        <input class="input search-input" name="keyword" id="txtKeyword" type="text" placeholder="Nhập tên sản phẩm muốn tìm">
+                        <label class="input search-categories">Tất cả danh mục</label>
+                        <button class="search-btn" type="submit" id="btnSearch"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <!-- /Search -->
+            </div>
+            <div class="pull-right" >
+                <ul class="header-btns">
+                    <!-- Account -->
+                    @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { @id = "frmLogout" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        if (Request.IsAuthenticated)
+                        {
+                            <li class="header-account dropdown default-dropdown">
+                                <div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+                                    <div class="header-btns-icon">
+                                        <i class="fa fa-user-o"></i>
+                                    </div>
+                                    <strong class="text-uppercase">@User.Identity.GetUserName() <i class="fa fa-caret-down"></i></strong>
+                                </div>
+                                <ul class="custom-menu">
+                                    <li><a href="/thong-tin-tai-khoan.html"><i class="fa fa-user-o"></i> Thông tin tài khoản</a></li>
+                                    <li><a href="/don-hang.html"><i class="fa fa-heart-o"></i> Quản lí đơn hàng</a></li>
+
+
+                                    <li><a href="#" id="btnLogout"><i class="fa fa-heart-o"></i> Đăng xuất</a></li>
+
+
+
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="header-account dropdown default-dropdown text-bold">
+                                @Html.ActionLink("Đăng nhập","Login","Account",
+                               new { returnUrl=url },htmlAttributes:new {@class= "text-uppercase chudam" })
+
+                                / <a href="/dang-ki.html" class=" text-uppercase chudam">
+                                    Đăng kí
+                                </a>
+
+                            </li>
+                        }
+                    }
+                    <!-- /Account -->
+                    <!-- Cart -->
+                    <li class="header-cart dropdown default-dropdown"  >
+                        <a href="/gio-hang.html">
+                            <div class="header-btns-icon">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="qty" >0</span>
+                            </div>
+                            <strong class="text-uppercase">Giỏ hàng </strong>
+                            <br>
+
+                            <span class="price small"></span>
+                        </a>
+                    </li>
+                    <!-- /Cart -->
+                    <!-- Mobile nav toggle-->
+                    <li class="nav-toggle">
+                        <button class="nav-toggle-btn main-btn icon-btn"><i class="fa fa-bars"></i></button>
+                    </li>
+                    <!-- / Mobile nav toggle -->
+                </ul>
+            </div>
+        </div>
+        <!-- header -->
+    </div>
+    <!-- container -->
+</header>

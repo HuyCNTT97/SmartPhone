@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var product = ViewBag.product as SmartPhoneShop.Web.Models.ProductViewModel;
+    var productCategory = ViewBag.productCategory as SmartPhoneShop.Web.Models.ProductCategoryViewModel;
+    SmartPhoneShop.Web.Models.ProductCategoryViewModel CategoryParent = null;
+    if (ViewBag.parentCategory != null)
+    {
+        CategoryParent = ViewBag.parentCategory as SmartPhoneShop.Web.Models.ProductCategoryViewModel;
+    }
+
+    var listImage = ViewBag.listImage as List<string>;
+    var listProductRelated = ViewBag.ListProductRelated as List<SmartPhoneShop.Web.Models.ProductViewModel>;
+}
+@section footerJS{
+
+
+    <script src="~/Assets/client/productController.js"></script>
+
+}
+<div id="breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            @if (CategoryParent != null)
+            {
+                <li><a href="/@CategoryParent.Alias-@CategoryParent.ID">@CategoryParent.Name</a></li>
+
+            }
+            <li><a href="/@productCategory.Alias-@productCategory.ID">@productCategory.Name</a></li>
+            <li class="active">@product.Name</li>
+
+        </ul>
+    </div>
+</div>
+<div class="section bong" ng-controller="product">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!--  Product Details -->
+            <div class="product product-details clearfix">
+                <div class="col-md-6">
+                    <div id="product-main-view">
+                        <div id="home">
+                            <!-- container -->
+                            <div class="home-wrap text-center">
+                                <!-- home slick -->
+                                <div id="home-slick" style="width:270px">
+                                    <!-- banner -->
+                                    @foreach (var image in listImage)
+                                    {
+                                        <div class="banner banner-1">
+                                            <img src="@image" height="310" alt="">
+                                        </div>
+                                    }
+                                    <!-- /banner -->
+
+                                </div>
+                                <!-- /home slick -->
+                            </div>
+
+                            <!-- /container -->
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="product-body">
+                        <div class="product-label">
+                            <span>New</span>
+
+                        </div>
+                        <h2 class="product-name">@product.Name</h2>
+                        <h3 class="product-price">@product.Price.ToString("N0") VND </h3>
+                        <h5 class="product-price" style="color:red">Màu {{colorName}} thêm {{price}},000 VND</h5>
+
+                        <p><strong>Số lượng:</strong> @product.Quantity sản phẩm</p>
+                        <p><strong>Loại:</strong> @productCategory.Name</p>
+                        <p>
+                            @product.Description
+                        </p>
+                        <div class="product-options">
+
+                            <ul class="color-option">
+                                <li><span class="text-uppercase">Chọn màu:</span></li>
+                                <li><a href="javascript:void(0);" ng-click="addPrice(0,'trắng')" style="background-color:white;border:1px thin whitesmoke"></a></li>
+                                <li><a href="javascript:void(0);" ng-click="addPrice(200,'đen')" style="background-color:black;"></a></li>
+                                <li><a href="javascript:void(0);" ng-click="addPrice(500,'vàng đất')" style="background-color:goldenrod;"></a></li>
+                                <li><a href="javascript:void(0);" ng-click="addPrice(500,'đỏ')" style="background-color:red;"></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="product-btns">
+                            <div class="qty-input">
+                                <span class="text-uppercase">Chọn số lượng: </span>
+                                <input class="input" id="quantity" name="quantity" value="1" type="number">
+                            </div>
+                            <a href="#" data-id="@product.ID" data-color="{{colorName}}"
+                               class="btnAddToCart primary-btn add-to-cart">
+                                <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <hr class="bong" />
+            <!-- /Product Details -->
+            <div class="col-md-12" style="padding:5px;margin-top:50px;">
+                @Html.Raw(product.Content)
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<div class="section bong">
+    <div class="container">
+        <div class="row">
+            <!-- section title -->
+            <!-- section title -->
+            <!-- Product Single -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <a href="/@productCategory.Alias-@productCategory.ID">
+                        <h2 class="title">Sản phẩm liên quan <span class="text-sm">có thể bạn quan tâm</span></h2>
+
+                    </a>
+                    <div class="pull-right">
+                        @{ Html.RenderAction("Breadcrumb", "Home", new { nameCategory = productCategory.Name });}
+                    </div>
+                </div>
+            </div>
+            @foreach (var item in listProductRelated)
+            {
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="product product-single product-hot" style="width:208px">
+                        <div class="product-thumb">
+                            @*<div class="product-label">
+                                    <span class="sale">-20%</span>
+                                </div>*@
+                            <a href="/@productCategory.Alias/@item.Alias-@item.ID" class="main-btn quick-view"><i class="fa fa-search-plus"></i> Xem chi tiết</a>
+                            <img alt="" src="@item.Image" width="208" height="200">
+                        </div>
+                        <div class="product-body ">
+                            <h3 class="product-price">@string.Format("{0:#,0} VND", item.Price) @*<del class="product-old-price">$45.00</del>*@</h3>
+
+                            <h2 class="product-name" title="@item.Name">
+                                <a href="/@productCategory.Alias/@item.Alias-@item.ID">@item.Name</a>
+                            </h2>
+                            <div class="product-btns">
+                                <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                                <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                                <button class="primary-btn add-to-cart" ng-click="loadCart()"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+</div>

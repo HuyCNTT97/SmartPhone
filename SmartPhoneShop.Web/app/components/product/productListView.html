@@ -1,0 +1,149 @@
+﻿  <!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Sản Phẩm
+        <small>danh sách các sản phẩm hiện có</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
+        <li>Danh Mục Sản Phẩm</li>
+        <li class="active">Xem Sản Phẩm</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Bảng Danh Sách</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                        title="Collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body ">
+            <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="dataTables_length" id="example1_length">
+                            <label>
+                                Hiển Thị <select name="mySelect" aria-controls="example1" class="form-control input-sm"
+                                                 ng-options="item.name for item in option.options
+                                                  track by item.value"
+                                                 ng-model="option.model"
+                                                 ng-change="change()"></select>
+                            </label>
+                        </div>
+                    </div><div class="col-sm-6">
+                        <div id="example1_filter" class="dataTables_filter">
+                            <label>
+                                <span class="text-bold">Tìm Kiếm: </span><input type="search" placeholder="Nhập Mã Hoặc Tên" ng-change="search()"
+                                                                                ng-model="keyword"
+                                                                                class="form-control input-sm"
+                                                                                aria-controls="example1">
+                            </label>
+                        </div>
+                    </div>
+                </div><div class="row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-success" ui-sref="product_add">Thêm mới</button>
+                        <button ng-click="deleteMultiple()"
+                                id="btnDelete" disabled
+                                class="btn btn-danger">
+                            Xóa các dòng đã chọn
+                        </button>
+                    </div>
+                    <div class="col-sm-12 table-responsive">
+                        <table id="example1" class="table table-bordered
+                                table-hover table-striped  " role="grid" aria-describedby="example1_info">
+                            <thead>
+                                <tr role="row" class="bg-black">
+                                    <th>Mã Sản Phẩm</th>
+                                    <th>Tên Sản Phẩm</th>
+                                    <th>Hình Ảnh</th>
+                                    <th>Thuộc Loại Sản Phẩm</th>
+                                    <th>Giá Tiền</th>
+                                    <th>Giá Nhập Ban Đầu</th>
+                                    <th>Số Lượng Nhập</th>
+                                    <th>Tồn Kho</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Các Chức Năng</th>
+                                    <th>
+                                        <label>
+                                            <input name="all"
+                                                   type="checkbox" ng-click="selectAll()" />
+                                            Chọn tất cả
+                                        </label>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in product">
+                                    <td>{{item.ID}}</td>
+                                    <td>{{item.Name}}</td>
+                                    <td ng-show="item.Image!=null">
+                                        <img src="{{item.Image}}"
+                                             height="150"
+                                             width="150" alt="không có ảnh" />
+                                    </td>
+                                    <td ng-show="item.Image==null">
+                                        <img src="/UploadedFiles/images/noimage.jpg"
+                                             height="150"
+                                             width="150" alt="không có ảnh" />
+                                    </td>
+                                    <td>
+                                        {{item.ProductCategory.Name}}
+                                    </td>
+                                    <th>{{ item.Price|number:0  }} VND</th>
+                                    <th>{{item.OriginalPrice|number:0}} VND</th>
+                                    <th>{{item.OriginalQuantity}} mặt hàng</th>
+                                    <th>{{item.Quantity}} mặt hàng</th>
+                                    <td>{{item.CreatedDate|date:'dd/MM/yyyy hh:mm:ss'}}</td>
+
+                                    <td ng-class="{'badge bg-red':item.Status==false,
+                                        'badge bg-green':item.Status==true}">
+                                        {{item.Status|statusFilter}}
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary" ui-sref="product_edit({id:item.ID})" title="Chỉnh Sửa"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-sm btn-danger"
+                                                ng-click="deleteProduct(item.ID)" title="Xóa">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </td>
+                                    <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="loading">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                <i class="fa fa-refresh fa-4x fa-spin"></i> <label class="label label-primary">Đang tải...</label>
+            </div>
+            <div class="col-xs-4"></div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <pager-directive page="{{page}}" custom-path="{{customPath}}"
+                             pages-count="{{pagesCount}}"
+                             total-count="{{totalCount}}"
+                             search-func="getProduct(page)"></pager-directive>
+        </div>
+        <!-- /.box-footer-->
+    </div>
+    <!-- /.box -->
+</section>
+<!-- /.content -->

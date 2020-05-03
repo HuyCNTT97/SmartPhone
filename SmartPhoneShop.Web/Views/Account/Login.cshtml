@@ -1,0 +1,103 @@
+﻿@using BotDetect.Web.Mvc;
+@model SmartPhoneShop.Web.Models.LoginViewModel
+@{
+    /**/
+
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="container min-heightne">
+
+        <div class="row col-md-7 mb-5">
+            @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.returnUrl }, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken();
+                if (TempData["msgLogin"] != null)
+                {
+                    @Html.Raw(TempData["msgLogin"]);
+                }
+                if (TempData["msgRegister"] != null)
+                {
+                    @Html.Raw(TempData["msgRegister"]);
+                }
+                <div >
+                    <!-- Horizontal Form -->
+                    <div class="box box-info col-md-12">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Nhập thông tin</h3>
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <div class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-4 control-label">
+                                        Tài khoản<span class="text-red"> *</span>
+                                    </label>
+
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(model => model.UserName, htmlAttributes: new
+                                   {
+                                       @class = "form-control",
+                                       @required = "required",
+                                       @placeholder = "Bắt buộc nhập"
+                                   })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-4 control-label">
+                                        Mật khẩu<span class="text-red"> *</span>
+                                    </label>
+
+                                    <div class="col-md-12">
+                                        @Html.PasswordFor(model => model.Password, htmlAttributes: new
+                                   {
+                                       @class = "form-control",
+                                       @required = "required",
+                                       @placeholder = "Bắt buộc nhập"
+                                   })
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="submit" id="btnLogin" class="btn btn-info pull-right uppercase">Đăng nhập</button>
+                                <a href="/dang-ki.html" class="btn  btn-info pull-right margin-rightne uppercase">Đăng kí</a>
+                            </div>
+                            <!-- /.box-footer -->
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                    <!-- general form elements disabled -->
+                    <!-- /.box -->
+                </div>
+            }
+            </div>
+        <div class="row col-md-4">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Đăng nhập với Facebook hoặc Google</h3>
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                </div>
+                <!-- /.box-header -->
+                @{
+                    @Html.Partial("_ExternalLoginsListPartial",
+new SmartPhoneShop.Web.Models.ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                }
+                <!-- form start -->
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+

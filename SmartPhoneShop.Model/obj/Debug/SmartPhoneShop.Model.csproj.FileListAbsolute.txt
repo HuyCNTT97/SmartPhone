@@ -1,0 +1,64 @@
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.pdb
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.dll.config
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Model\bin\Debug\EntityFramework.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Model\bin\Debug\EntityFramework.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\HuyGitHub\ShopBanDienThoai\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csprojResolveAssemblyReference.cache
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.dll.config
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\EntityFramework.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.Helpers.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.Razor.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\EntityFramework.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.Helpers.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.Razor.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csproj.CoreCompileInputs.cache
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csproj.CopyComplete
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.dll
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.pdb
+D:\Github Huy\SmartPhoneShop\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csprojAssemblyReference.cache
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.dll.config
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\SmartPhoneShop.Model.pdb
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\EntityFramework.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\System.Web.Helpers.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\System.Web.Razor.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.Razor.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\EntityFramework.xml
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\System.Web.Helpers.xml
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\System.Web.Razor.xml
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.xml
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\bin\Debug\System.Web.WebPages.Razor.xml
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csprojAssemblyReference.cache
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csproj.CoreCompileInputs.cache
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.csproj.CopyComplete
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.dll
+D:\learn\SmartPhoneShop\SmartPhone\SmartPhoneShop.Model\obj\Debug\SmartPhoneShop.Model.pdb

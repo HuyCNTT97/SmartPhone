@@ -1,0 +1,21 @@
+﻿@model List<SmartPhoneShop.Web.Models.MenuViewModel>
+
+<div id="navigation">
+    <!-- container -->
+    <div id="responsive-nav" class="bg-black">
+        <!-- category nav -->
+        <!-- /category nav -->
+        <!-- menu nav -->
+        <div class="menu-nav text- text-center">
+            <span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+            <ul class="menu-list">
+                @foreach (var item in Model)
+                {
+                    <li><a href="@item.URL" target="">@item.Name</a></li>
+                }
+            </ul>
+        </div>
+        <!-- menu nav -->
+    </div>
+    <!-- /container -->
+</div>

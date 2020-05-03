@@ -1,0 +1,62 @@
+﻿@{
+    var listSlide = ViewBag.listSlide as List<SmartPhoneShop.Web.Models.SlideViewModel>;
+    var listProductHot = ViewBag.listProductHot as List<SmartPhoneShop.Web.Models.ProductViewModel>;
+}
+@section footerJS{
+
+    <script src="~/Assets/client/js/controller/Cart.js"></script>
+}
+<div id="home">
+    <!-- container -->
+    <div class="home-wrap text-center">
+        <!-- home slick -->
+        <div id="home-slick">
+            <!-- banner -->
+            @foreach (var slide in listSlide)
+            {
+                <div class="banner banner-1">
+                    <img src="@slide.Image" height="350" class="" alt="">
+                    @*<div class="banner-caption text-center">
+                            <h1>Bags sale</h1>
+                            <h3 class="white-color font-weak">Up to 50% Discount</h3>
+                            <button class="primary-btn">Shop Now</button>
+                        </div>*@
+                </div>
+            }
+            <!-- /banner -->
+
+        </div>
+        <!-- /home slick -->
+    </div>
+
+    <!-- /container -->
+</div>
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- banner -->
+            @foreach (var productHot in listProductHot)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <a class="banner banner-1" href="/@productHot.ProductCategory.Alias/@productHot.Alias-@productHot.ID">
+                        <img src="@productHot.Image" height="200" width="120" alt="@productHot.Name">
+                        <div class="product-label">
+                     <span class="sale">-20%</span>
+                 </div>
+                        <div class="banner-caption text-center ">
+                            <h3 class="white-color">@string.Format("{0:#,0} VND", productHot.Price)</h3>
+                            <span data-id="@productHot.ID" class="btn btn-success btnAddToCart">Thêm vào giỏ</span>
+                        </div>
+                        <h2 class="text-black">@productHot.Name</h2>
+                    </a>
+                </div>
+            }
+
+            <!-- /banner -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>

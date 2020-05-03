@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section footerJS{
+
+    <script src="~/Assets/client/js/controller/Cart.js"></script>
+}
+<div class="container">
+    <div class="row bong">
+        <h3 class="text-center uppercase">Giỏ Hàng</h3>
+    </div>
+    <div class="row col-md-12" id="cartContent">
+        <table class="table table-hover table-responsive table-striped" id="tblCart">
+            <thead>
+                <tr   class="">
+                    
+                    <th class="uppercase">Tên Sản Phẩm</th>
+                    <th class="uppercase">Hình Ảnh</th>
+                    <th class="uppercase">Màu</th>
+                    <th class="uppercase">Số Lượng</th>
+                    <th class="uppercase">Đơn Giá</th>
+                    <th class="uppercase">Thành Tiền</th>
+                    <th class="uppercase">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody class="" id="cartBody"></tbody>
+        </table>
+        <div class="col-md-12">
+            <p class="pull-right maudo">
+                <span class="text-bold  h4">Tổng tiền: </span>
+                <span class="chudam h4" id="totalPrice"></span>
+            </p>
+        </div>
+
+        <div class="col-md-12">
+            <button class="btn btn-warning margin-rightne" id="btnDeleteAll">Làm mới giỏ hàng</button>
+            <button class="btn btn-success margin-rightne" id="btnContinue">Tiếp tục mua hàng</button>
+            <button class="btn btn-success margin-rightne" id="btnCheckout">Thanh toán</button>
+        </div>
+    </div>
+</div>
+<script id="tplCart" type="x-tmpl-mustache">
+    <tr  class="">
+        
+        <td class="chudam text-lowercase ">{{ProductName}}</td>
+        <td><img src="{{Image}}" class="img-responsive" height="120" width="120"  /></td>
+        <td>
+            Màu {{Color}} <p><a href="/san-pham/{{Alias}}-{{ProductID}}" title="Chọn màu khác" class="btn btn-sm btn-info">
+    <i class="fa fa-pencil img-responsive"><span class="modal-title">Chọn màu khác</span></i>
+</a></p>
+        </td>
+        <td class="col-md-1"><input type="number" data-price="{{Price}}" data-id="{{ProductID}}"
+    data-color="{{Color}}" class="form-control txtQuantity" data-quantityInventory="{{QuantityInventory}}" value="{{Quantity}}" /></td>
+        
+           
+            <td class="Bold">{{PriceF}}<span class="small ">đ</span></td>
+        
+        <td id="amount_{{ProductID}}{{Color}}" class="Bold">{{Amount}}<span class="small">đ</span></td>
+        <td>
+            <button class="btn btn-danger btnDeleteItem " data-id="{{ProductID}}">
+                <i class="fa fa-close"></i>
+            </button>
+        </td>
+
+    </tr>
+</script>
+
